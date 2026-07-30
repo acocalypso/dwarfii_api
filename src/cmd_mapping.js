@@ -472,6 +472,8 @@ export const notifyMapping = {
   15286: "V3ResNotifyVideoProgress", // V3: Video recording progress
   15287: "V3ResNotifyTimelapseProgress", // V3: Timelapse progress
   15288: "V3ResNotifyExposureDuration", // V3: Exposure duration telemetry (pcap-discovered)
+  15290: "V3ResNotifyCaliFrameState", // APK 3.4.1: calibration-frame state
+  15291: "V3ResNotifyCaliFrameProgress", // APK 3.4.1: calibration-frame progress
   15292: "V3ResNotifyTemperature2", // V3: Temperature2
   15296: "V3ResNotifyObservationState", // V3: Observation state
 };

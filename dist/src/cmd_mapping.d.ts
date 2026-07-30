@@ -426,6 +426,8 @@ export const notifyMapping: {
     15286: string;
     15287: string;
     15288: string;
+    15290: string;
+    15291: string;
     15292: string;
     15296: string;
 };

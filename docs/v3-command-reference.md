@@ -182,7 +182,9 @@ C1–C10: locally decoded. C11–C13: referenced from external analysis (not loc
 | 11039 | CMD_V3_ASTRO_STATUS_POLLING | Status polling (V3). Args: field1=-1, field2=100, field3=100, field4=-1. | C1 C3 C5 C9 C10 |
 | 11040 | CMD_V3_ASTRO_GET_PARAMS | Get astro params (V3). Args: mode=1. | C1–C10 |
 | 11041 | CMD_V3_ASTRO_SET_PARAMS | Set astro params (V3). Args: pipe-delimited string e.g. `"0\|0\|60\|60\|1\|null"`. | C5 C10 |
-| 11043 | CMD_V3_ASTRO_GET_PRESETS | Get exposure presets (V3) | C1–C8 |
+| 11043 | CMD_V3_ASTRO_GET_PRESETS | Provisional decoder name; APK 3.4.1 names this GET_CALI_FRAME_LIST | C1–C8 |
+| 11045 | CMD_V3_ASTRO_START_CAPTURE_CALI_FRAME | Start calibration frame; fields: exposure, gain, resolution, count, camera, calibration type, optional filter, scene | APK 3.4.1 |
+| 11046 | CMD_V3_ASTRO_STOP_CAPTURE_CALI_FRAME | Stop calibration-frame capture for camera type | APK 3.4.1 |
 | 11047 | CMD_V3_ASTRO_SET_LOCATION | Set observation location (V3). Args: lon, lat. | C4 C10 |
 | 11048 | CMD_V3_ASTRO_CONFIRM | Confirm observation (V3). Called after 11047. | C4 C10 |
 
@@ -342,6 +344,8 @@ Device-to-app one-way notifications. Displayed as `[NOTIFY]` in pcap output.
 | 15286 | CMD_V3_NOTIFY_VIDEO_PROGRESS | V3ResNotifyVideoProgress | Video progress (V3) | C4 C8 |
 | 15287 | CMD_V3_NOTIFY_TIMELAPSE_PROGRESS | V3ResNotifyTimelapseProgress | Timelapse progress (V3) | C4 C8 |
 | 15288 | **(no protobuf def)** | — | Exposure duration telemetry. Payload: fixed64/double (seconds). | C8 C10 C11 C13 |
+| 15290 | CMD_V3_NOTIFY_CALI_FRAME_STATE | V3ResNotifyCaliFrameState | Calibration-frame state; state, camera type, calibration type | APK 3.4.1 |
+| 15291 | CMD_V3_NOTIFY_CALI_FRAME_PROGRESS | V3ResNotifyCaliFrameProgress | Calibration-frame progress; progress, camera type, calibration type | APK 3.4.1 |
 | 15292 | CMD_V3_NOTIFY_TEMPERATURE2 | V3ResNotifyTemperature2 | Temperature 2 (V3, °C). Paired with 15243. | C2–C10 |
 | 15296 | CMD_V3_NOTIFY_OBSERVATION_STATE | V3ResNotifyObservationState | Observation state (V3). Values: `1→3`. | C4 C10 |
 

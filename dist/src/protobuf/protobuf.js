@@ -40426,6 +40426,8 @@ $root.MessageTypeId = (function () {
  * @property {number} CMD_V3_NOTIFY_VIDEO_PROGRESS=15286 CMD_V3_NOTIFY_VIDEO_PROGRESS value
  * @property {number} CMD_V3_NOTIFY_TIMELAPSE_PROGRESS=15287 CMD_V3_NOTIFY_TIMELAPSE_PROGRESS value
  * @property {number} CMD_V3_NOTIFY_EXPOSURE_DURATION=15288 CMD_V3_NOTIFY_EXPOSURE_DURATION value
+ * @property {number} CMD_V3_NOTIFY_CALI_FRAME_STATE=15290 CMD_V3_NOTIFY_CALI_FRAME_STATE value
+ * @property {number} CMD_V3_NOTIFY_CALI_FRAME_PROGRESS=15291 CMD_V3_NOTIFY_CALI_FRAME_PROGRESS value
  * @property {number} CMD_V3_NOTIFY_TEMPERATURE2=15292 CMD_V3_NOTIFY_TEMPERATURE2 value
  * @property {number} CMD_V3_NOTIFY_OBSERVATION_STATE=15296 CMD_V3_NOTIFY_OBSERVATION_STATE value
  * @property {number} CMD_PANORAMA_START_GRID=15500 CMD_PANORAMA_START_GRID value
@@ -40674,6 +40676,8 @@ $root.DwarfCMD = (function () {
     values[(valuesById[15286] = "CMD_V3_NOTIFY_VIDEO_PROGRESS")] = 15286;
     values[(valuesById[15287] = "CMD_V3_NOTIFY_TIMELAPSE_PROGRESS")] = 15287;
     values[(valuesById[15288] = "CMD_V3_NOTIFY_EXPOSURE_DURATION")] = 15288;
+    values[(valuesById[15290] = "CMD_V3_NOTIFY_CALI_FRAME_STATE")] = 15290;
+    values[(valuesById[15291] = "CMD_V3_NOTIFY_CALI_FRAME_PROGRESS")] = 15291;
     values[(valuesById[15292] = "CMD_V3_NOTIFY_TEMPERATURE2")] = 15292;
     values[(valuesById[15296] = "CMD_V3_NOTIFY_OBSERVATION_STATE")] = 15296;
     values[(valuesById[15500] = "CMD_PANORAMA_START_GRID")] = 15500;
@@ -59212,6 +59216,481 @@ $root.V3ResNotifyTimelapseProgress = (function () {
         return typeUrlPrefix + "/V3ResNotifyTimelapseProgress";
     };
     return V3ResNotifyTimelapseProgress;
+})();
+$root.V3ResNotifyCaliFrameState = (function () {
+    /**
+     * Properties of a V3ResNotifyCaliFrameState.
+     * @exports IV3ResNotifyCaliFrameState
+     * @interface IV3ResNotifyCaliFrameState
+     * @property {number|null} [state] V3ResNotifyCaliFrameState state
+     * @property {number|null} [cameraType] V3ResNotifyCaliFrameState cameraType
+     * @property {number|null} [caliFrameType] V3ResNotifyCaliFrameState caliFrameType
+     */
+    /**
+     * Constructs a new V3ResNotifyCaliFrameState.
+     * @exports V3ResNotifyCaliFrameState
+     * @classdesc Represents a V3ResNotifyCaliFrameState.
+     * @implements IV3ResNotifyCaliFrameState
+     * @constructor
+     * @param {IV3ResNotifyCaliFrameState=} [properties] Properties to set
+     */
+    function V3ResNotifyCaliFrameState(properties) {
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+    /**
+     * V3ResNotifyCaliFrameState state.
+     * @member {number} state
+     * @memberof V3ResNotifyCaliFrameState
+     * @instance
+     */
+    V3ResNotifyCaliFrameState.prototype.state = 0;
+    /**
+     * V3ResNotifyCaliFrameState cameraType.
+     * @member {number} cameraType
+     * @memberof V3ResNotifyCaliFrameState
+     * @instance
+     */
+    V3ResNotifyCaliFrameState.prototype.cameraType = 0;
+    /**
+     * V3ResNotifyCaliFrameState caliFrameType.
+     * @member {number} caliFrameType
+     * @memberof V3ResNotifyCaliFrameState
+     * @instance
+     */
+    V3ResNotifyCaliFrameState.prototype.caliFrameType = 0;
+    /**
+     * Creates a new V3ResNotifyCaliFrameState instance using the specified properties.
+     * @function create
+     * @memberof V3ResNotifyCaliFrameState
+     * @static
+     * @param {IV3ResNotifyCaliFrameState=} [properties] Properties to set
+     * @returns {V3ResNotifyCaliFrameState} V3ResNotifyCaliFrameState instance
+     */
+    V3ResNotifyCaliFrameState.create = function create(properties) {
+        return new V3ResNotifyCaliFrameState(properties);
+    };
+    /**
+     * Encodes the specified V3ResNotifyCaliFrameState message. Does not implicitly {@link V3ResNotifyCaliFrameState.verify|verify} messages.
+     * @function encode
+     * @memberof V3ResNotifyCaliFrameState
+     * @static
+     * @param {IV3ResNotifyCaliFrameState} message V3ResNotifyCaliFrameState message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    V3ResNotifyCaliFrameState.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        if (message.state != null && Object.hasOwnProperty.call(message, "state"))
+            writer.uint32(/* id 1, wireType 0 =*/ 8).int32(message.state);
+        if (message.cameraType != null &&
+            Object.hasOwnProperty.call(message, "cameraType"))
+            writer.uint32(/* id 2, wireType 0 =*/ 16).int32(message.cameraType);
+        if (message.caliFrameType != null &&
+            Object.hasOwnProperty.call(message, "caliFrameType"))
+            writer.uint32(/* id 3, wireType 0 =*/ 24).int32(message.caliFrameType);
+        return writer;
+    };
+    /**
+     * Encodes the specified V3ResNotifyCaliFrameState message, length delimited. Does not implicitly {@link V3ResNotifyCaliFrameState.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof V3ResNotifyCaliFrameState
+     * @static
+     * @param {IV3ResNotifyCaliFrameState} message V3ResNotifyCaliFrameState message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    V3ResNotifyCaliFrameState.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+    /**
+     * Decodes a V3ResNotifyCaliFrameState message from the specified reader or buffer.
+     * @function decode
+     * @memberof V3ResNotifyCaliFrameState
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {V3ResNotifyCaliFrameState} V3ResNotifyCaliFrameState
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    V3ResNotifyCaliFrameState.decode = function decode(reader, length) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.V3ResNotifyCaliFrameState();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    message.state = reader.int32();
+                    break;
+                }
+                case 2: {
+                    message.cameraType = reader.int32();
+                    break;
+                }
+                case 3: {
+                    message.caliFrameType = reader.int32();
+                    break;
+                }
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    };
+    /**
+     * Decodes a V3ResNotifyCaliFrameState message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof V3ResNotifyCaliFrameState
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {V3ResNotifyCaliFrameState} V3ResNotifyCaliFrameState
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    V3ResNotifyCaliFrameState.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+    /**
+     * Verifies a V3ResNotifyCaliFrameState message.
+     * @function verify
+     * @memberof V3ResNotifyCaliFrameState
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    V3ResNotifyCaliFrameState.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        if (message.state != null && message.hasOwnProperty("state"))
+            if (!$util.isInteger(message.state))
+                return "state: integer expected";
+        if (message.cameraType != null && message.hasOwnProperty("cameraType"))
+            if (!$util.isInteger(message.cameraType))
+                return "cameraType: integer expected";
+        if (message.caliFrameType != null &&
+            message.hasOwnProperty("caliFrameType"))
+            if (!$util.isInteger(message.caliFrameType))
+                return "caliFrameType: integer expected";
+        return null;
+    };
+    /**
+     * Creates a V3ResNotifyCaliFrameState message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof V3ResNotifyCaliFrameState
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {V3ResNotifyCaliFrameState} V3ResNotifyCaliFrameState
+     */
+    V3ResNotifyCaliFrameState.fromObject = function fromObject(object) {
+        if (object instanceof $root.V3ResNotifyCaliFrameState)
+            return object;
+        var message = new $root.V3ResNotifyCaliFrameState();
+        if (object.state != null)
+            message.state = object.state | 0;
+        if (object.cameraType != null)
+            message.cameraType = object.cameraType | 0;
+        if (object.caliFrameType != null)
+            message.caliFrameType = object.caliFrameType | 0;
+        return message;
+    };
+    /**
+     * Creates a plain object from a V3ResNotifyCaliFrameState message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof V3ResNotifyCaliFrameState
+     * @static
+     * @param {V3ResNotifyCaliFrameState} message V3ResNotifyCaliFrameState
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    V3ResNotifyCaliFrameState.toObject = function toObject(message, options) {
+        if (!options)
+            options = {};
+        var object = {};
+        if (options.defaults) {
+            object.state = 0;
+            object.cameraType = 0;
+            object.caliFrameType = 0;
+        }
+        if (message.state != null && message.hasOwnProperty("state"))
+            object.state = message.state;
+        if (message.cameraType != null && message.hasOwnProperty("cameraType"))
+            object.cameraType = message.cameraType;
+        if (message.caliFrameType != null &&
+            message.hasOwnProperty("caliFrameType"))
+            object.caliFrameType = message.caliFrameType;
+        return object;
+    };
+    /**
+     * Converts this V3ResNotifyCaliFrameState to JSON.
+     * @function toJSON
+     * @memberof V3ResNotifyCaliFrameState
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    V3ResNotifyCaliFrameState.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+    /**
+     * Gets the default type url for V3ResNotifyCaliFrameState
+     * @function getTypeUrl
+     * @memberof V3ResNotifyCaliFrameState
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    V3ResNotifyCaliFrameState.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/V3ResNotifyCaliFrameState";
+    };
+    return V3ResNotifyCaliFrameState;
+})();
+$root.V3ResNotifyCaliFrameProgress = (function () {
+    /**
+     * Properties of a V3ResNotifyCaliFrameProgress.
+     * @exports IV3ResNotifyCaliFrameProgress
+     * @interface IV3ResNotifyCaliFrameProgress
+     * @property {number|null} [progress] V3ResNotifyCaliFrameProgress progress
+     * @property {number|null} [cameraType] V3ResNotifyCaliFrameProgress cameraType
+     * @property {number|null} [caliFrameType] V3ResNotifyCaliFrameProgress caliFrameType
+     */
+    /**
+     * Constructs a new V3ResNotifyCaliFrameProgress.
+     * @exports V3ResNotifyCaliFrameProgress
+     * @classdesc Represents a V3ResNotifyCaliFrameProgress.
+     * @implements IV3ResNotifyCaliFrameProgress
+     * @constructor
+     * @param {IV3ResNotifyCaliFrameProgress=} [properties] Properties to set
+     */
+    function V3ResNotifyCaliFrameProgress(properties) {
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+    /**
+     * V3ResNotifyCaliFrameProgress progress.
+     * @member {number} progress
+     * @memberof V3ResNotifyCaliFrameProgress
+     * @instance
+     */
+    V3ResNotifyCaliFrameProgress.prototype.progress = 0;
+    /**
+     * V3ResNotifyCaliFrameProgress cameraType.
+     * @member {number} cameraType
+     * @memberof V3ResNotifyCaliFrameProgress
+     * @instance
+     */
+    V3ResNotifyCaliFrameProgress.prototype.cameraType = 0;
+    /**
+     * V3ResNotifyCaliFrameProgress caliFrameType.
+     * @member {number} caliFrameType
+     * @memberof V3ResNotifyCaliFrameProgress
+     * @instance
+     */
+    V3ResNotifyCaliFrameProgress.prototype.caliFrameType = 0;
+    /**
+     * Creates a new V3ResNotifyCaliFrameProgress instance using the specified properties.
+     * @function create
+     * @memberof V3ResNotifyCaliFrameProgress
+     * @static
+     * @param {IV3ResNotifyCaliFrameProgress=} [properties] Properties to set
+     * @returns {V3ResNotifyCaliFrameProgress} V3ResNotifyCaliFrameProgress instance
+     */
+    V3ResNotifyCaliFrameProgress.create = function create(properties) {
+        return new V3ResNotifyCaliFrameProgress(properties);
+    };
+    /**
+     * Encodes the specified V3ResNotifyCaliFrameProgress message. Does not implicitly {@link V3ResNotifyCaliFrameProgress.verify|verify} messages.
+     * @function encode
+     * @memberof V3ResNotifyCaliFrameProgress
+     * @static
+     * @param {IV3ResNotifyCaliFrameProgress} message V3ResNotifyCaliFrameProgress message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    V3ResNotifyCaliFrameProgress.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        if (message.progress != null &&
+            Object.hasOwnProperty.call(message, "progress"))
+            writer.uint32(/* id 1, wireType 0 =*/ 8).int32(message.progress);
+        if (message.cameraType != null &&
+            Object.hasOwnProperty.call(message, "cameraType"))
+            writer.uint32(/* id 2, wireType 0 =*/ 16).int32(message.cameraType);
+        if (message.caliFrameType != null &&
+            Object.hasOwnProperty.call(message, "caliFrameType"))
+            writer.uint32(/* id 3, wireType 0 =*/ 24).int32(message.caliFrameType);
+        return writer;
+    };
+    /**
+     * Encodes the specified V3ResNotifyCaliFrameProgress message, length delimited. Does not implicitly {@link V3ResNotifyCaliFrameProgress.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof V3ResNotifyCaliFrameProgress
+     * @static
+     * @param {IV3ResNotifyCaliFrameProgress} message V3ResNotifyCaliFrameProgress message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    V3ResNotifyCaliFrameProgress.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+    /**
+     * Decodes a V3ResNotifyCaliFrameProgress message from the specified reader or buffer.
+     * @function decode
+     * @memberof V3ResNotifyCaliFrameProgress
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {V3ResNotifyCaliFrameProgress} V3ResNotifyCaliFrameProgress
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    V3ResNotifyCaliFrameProgress.decode = function decode(reader, length) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.V3ResNotifyCaliFrameProgress();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    message.progress = reader.int32();
+                    break;
+                }
+                case 2: {
+                    message.cameraType = reader.int32();
+                    break;
+                }
+                case 3: {
+                    message.caliFrameType = reader.int32();
+                    break;
+                }
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    };
+    /**
+     * Decodes a V3ResNotifyCaliFrameProgress message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof V3ResNotifyCaliFrameProgress
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {V3ResNotifyCaliFrameProgress} V3ResNotifyCaliFrameProgress
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    V3ResNotifyCaliFrameProgress.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+    /**
+     * Verifies a V3ResNotifyCaliFrameProgress message.
+     * @function verify
+     * @memberof V3ResNotifyCaliFrameProgress
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    V3ResNotifyCaliFrameProgress.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        if (message.progress != null && message.hasOwnProperty("progress"))
+            if (!$util.isInteger(message.progress))
+                return "progress: integer expected";
+        if (message.cameraType != null && message.hasOwnProperty("cameraType"))
+            if (!$util.isInteger(message.cameraType))
+                return "cameraType: integer expected";
+        if (message.caliFrameType != null &&
+            message.hasOwnProperty("caliFrameType"))
+            if (!$util.isInteger(message.caliFrameType))
+                return "caliFrameType: integer expected";
+        return null;
+    };
+    /**
+     * Creates a V3ResNotifyCaliFrameProgress message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof V3ResNotifyCaliFrameProgress
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {V3ResNotifyCaliFrameProgress} V3ResNotifyCaliFrameProgress
+     */
+    V3ResNotifyCaliFrameProgress.fromObject = function fromObject(object) {
+        if (object instanceof $root.V3ResNotifyCaliFrameProgress)
+            return object;
+        var message = new $root.V3ResNotifyCaliFrameProgress();
+        if (object.progress != null)
+            message.progress = object.progress | 0;
+        if (object.cameraType != null)
+            message.cameraType = object.cameraType | 0;
+        if (object.caliFrameType != null)
+            message.caliFrameType = object.caliFrameType | 0;
+        return message;
+    };
+    /**
+     * Creates a plain object from a V3ResNotifyCaliFrameProgress message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof V3ResNotifyCaliFrameProgress
+     * @static
+     * @param {V3ResNotifyCaliFrameProgress} message V3ResNotifyCaliFrameProgress
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    V3ResNotifyCaliFrameProgress.toObject = function toObject(message, options) {
+        if (!options)
+            options = {};
+        var object = {};
+        if (options.defaults) {
+            object.progress = 0;
+            object.cameraType = 0;
+            object.caliFrameType = 0;
+        }
+        if (message.progress != null && message.hasOwnProperty("progress"))
+            object.progress = message.progress;
+        if (message.cameraType != null && message.hasOwnProperty("cameraType"))
+            object.cameraType = message.cameraType;
+        if (message.caliFrameType != null &&
+            message.hasOwnProperty("caliFrameType"))
+            object.caliFrameType = message.caliFrameType;
+        return object;
+    };
+    /**
+     * Converts this V3ResNotifyCaliFrameProgress to JSON.
+     * @function toJSON
+     * @memberof V3ResNotifyCaliFrameProgress
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    V3ResNotifyCaliFrameProgress.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+    /**
+     * Gets the default type url for V3ResNotifyCaliFrameProgress
+     * @function getTypeUrl
+     * @memberof V3ResNotifyCaliFrameProgress
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    V3ResNotifyCaliFrameProgress.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/V3ResNotifyCaliFrameProgress";
+    };
+    return V3ResNotifyCaliFrameProgress;
 })();
 $root.V3ResNotifyTemperature2 = (function () {
     /**

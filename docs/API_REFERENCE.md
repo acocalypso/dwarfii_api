@@ -338,6 +338,13 @@ and completion notifications still require a controlled hardware capture.
 | 11047 | `messageV3AstroSetLocation(lon, lat)` | V3ReqSetObservationLocation | ComResponse | 観測地点設定 |
 | 11048 | `messageV3AstroConfirm()` | V3ReqConfirmObservation | ComResponse | 観測確認 |
 
+Calibration-frame capture emits APK-defined notifications:
+
+| CMD ID | Message | Fields | Confidence |
+|--------|---------|--------|------------|
+| 15290 | `V3ResNotifyCaliFrameState` | state=1, camera_type=2, cali_frame_type=3 | Confirmed in DWARFLAB 3.4.1 code; hardware values unverified |
+| 15291 | `V3ResNotifyCaliFrameProgress` | progress=1, camera_type=2, cali_frame_type=3 | Confirmed in DWARFLAB 3.4.1 code; hardware values unverified |
+
 ### V3 System
 
 **モジュール: `v3_system.js`** — Module ID: 4 (MODULE_SYSTEM)

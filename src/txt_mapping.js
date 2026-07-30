@@ -313,6 +313,8 @@ export const cmdTxtMapping = {
   15285: "V3: Photo/burst progress",
   15286: "V3: Video recording progress",
   15287: "V3: Timelapse progress",
+  15290: "V3: Calibration-frame state",
+  15291: "V3: Calibration-frame progress",
   15292: "V3: Temperature2",
   15296: "V3: Observation state",
   16102: "V3: Get shooting schedule",

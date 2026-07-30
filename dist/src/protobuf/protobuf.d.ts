@@ -500,8 +500,11 @@ export class ReqStopGoto implements IReqStopGoto {
 /** Properties of a ReqCaptureRawLiveStacking. */
 export interface IReqCaptureRawLiveStacking {
 
-    /** ReqCaptureRawLiveStacking frameCount */
-    frameCount?: (number|null);
+    /** ReqCaptureRawLiveStacking irIndex */
+    irIndex?: (number|null);
+
+    /** ReqCaptureRawLiveStacking forceStart */
+    forceStart?: (boolean|null);
 }
 
 /** Represents a ReqCaptureRawLiveStacking. */
@@ -513,8 +516,11 @@ export class ReqCaptureRawLiveStacking implements IReqCaptureRawLiveStacking {
      */
     constructor(properties?: IReqCaptureRawLiveStacking);
 
-    /** ReqCaptureRawLiveStacking frameCount. */
-    public frameCount: number;
+    /** ReqCaptureRawLiveStacking irIndex. */
+    public irIndex: number;
+
+    /** ReqCaptureRawLiveStacking forceStart. */
+    public forceStart: boolean;
 
     /**
      * Creates a new ReqCaptureRawLiveStacking instance using the specified properties.
@@ -17839,6 +17845,8 @@ export enum DwarfCMD {
     CMD_V3_ASTRO_GET_PARAMS = 11040,
     CMD_V3_ASTRO_SET_PARAMS = 11041,
     CMD_V3_ASTRO_GET_PRESETS = 11043,
+    CMD_V3_ASTRO_START_CAPTURE_CALI_FRAME = 11045,
+    CMD_V3_ASTRO_STOP_CAPTURE_CALI_FRAME = 11046,
     CMD_V3_ASTRO_SET_LOCATION = 11047,
     CMD_V3_ASTRO_CONFIRM = 11048,
     CMD_CAMERA_WIDE_OPEN_CAMERA = 12000,
@@ -17986,6 +17994,8 @@ export enum DwarfCMD {
     CMD_V3_NOTIFY_VIDEO_PROGRESS = 15286,
     CMD_V3_NOTIFY_TIMELAPSE_PROGRESS = 15287,
     CMD_V3_NOTIFY_EXPOSURE_DURATION = 15288,
+    CMD_V3_NOTIFY_CALI_FRAME_STATE = 15290,
+    CMD_V3_NOTIFY_CALI_FRAME_PROGRESS = 15291,
     CMD_V3_NOTIFY_TEMPERATURE2 = 15292,
     CMD_V3_NOTIFY_OBSERVATION_STATE = 15296,
     CMD_PANORAMA_START_GRID = 15500,
@@ -23683,6 +23693,210 @@ export class V3ExposurePresetData implements IV3ExposurePresetData {
     public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
+/** Represents a V3ReqCaptureCaliFrame. */
+export class V3ReqCaptureCaliFrame implements IV3ReqCaptureCaliFrame {
+
+    /**
+     * Constructs a new V3ReqCaptureCaliFrame.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IV3ReqCaptureCaliFrame);
+
+    /** V3ReqCaptureCaliFrame expIndex. */
+    public expIndex: number;
+
+    /** V3ReqCaptureCaliFrame gain. */
+    public gain: number;
+
+    /** V3ReqCaptureCaliFrame resolution. */
+    public resolution: number;
+
+    /** V3ReqCaptureCaliFrame capSize. */
+    public capSize: number;
+
+    /** V3ReqCaptureCaliFrame cameraType. */
+    public cameraType: number;
+
+    /** V3ReqCaptureCaliFrame caliFrameType. */
+    public caliFrameType: number;
+
+    /** V3ReqCaptureCaliFrame filterType. */
+    public filterType?: (number|null);
+
+    /** V3ReqCaptureCaliFrame sceneType. */
+    public sceneType: number;
+
+    /** V3ReqCaptureCaliFrame _filterType. */
+    public _filterType?: "filterType";
+
+    /**
+     * Creates a new V3ReqCaptureCaliFrame instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns V3ReqCaptureCaliFrame instance
+     */
+    public static create(properties?: IV3ReqCaptureCaliFrame): V3ReqCaptureCaliFrame;
+
+    /**
+     * Encodes the specified V3ReqCaptureCaliFrame message. Does not implicitly {@link V3ReqCaptureCaliFrame.verify|verify} messages.
+     * @param message V3ReqCaptureCaliFrame message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IV3ReqCaptureCaliFrame, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified V3ReqCaptureCaliFrame message, length delimited. Does not implicitly {@link V3ReqCaptureCaliFrame.verify|verify} messages.
+     * @param message V3ReqCaptureCaliFrame message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IV3ReqCaptureCaliFrame, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a V3ReqCaptureCaliFrame message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns V3ReqCaptureCaliFrame
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): V3ReqCaptureCaliFrame;
+
+    /**
+     * Decodes a V3ReqCaptureCaliFrame message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns V3ReqCaptureCaliFrame
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): V3ReqCaptureCaliFrame;
+
+    /**
+     * Verifies a V3ReqCaptureCaliFrame message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a V3ReqCaptureCaliFrame message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns V3ReqCaptureCaliFrame
+     */
+    public static fromObject(object: { [k: string]: any }): V3ReqCaptureCaliFrame;
+
+    /**
+     * Creates a plain object from a V3ReqCaptureCaliFrame message. Also converts values to other types if specified.
+     * @param message V3ReqCaptureCaliFrame
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: V3ReqCaptureCaliFrame, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this V3ReqCaptureCaliFrame to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for V3ReqCaptureCaliFrame
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a V3ReqStopCaptureCaliFrame. */
+export class V3ReqStopCaptureCaliFrame implements IV3ReqStopCaptureCaliFrame {
+
+    /**
+     * Constructs a new V3ReqStopCaptureCaliFrame.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IV3ReqStopCaptureCaliFrame);
+
+    /** V3ReqStopCaptureCaliFrame cameraType. */
+    public cameraType: number;
+
+    /**
+     * Creates a new V3ReqStopCaptureCaliFrame instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns V3ReqStopCaptureCaliFrame instance
+     */
+    public static create(properties?: IV3ReqStopCaptureCaliFrame): V3ReqStopCaptureCaliFrame;
+
+    /**
+     * Encodes the specified V3ReqStopCaptureCaliFrame message. Does not implicitly {@link V3ReqStopCaptureCaliFrame.verify|verify} messages.
+     * @param message V3ReqStopCaptureCaliFrame message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IV3ReqStopCaptureCaliFrame, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified V3ReqStopCaptureCaliFrame message, length delimited. Does not implicitly {@link V3ReqStopCaptureCaliFrame.verify|verify} messages.
+     * @param message V3ReqStopCaptureCaliFrame message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IV3ReqStopCaptureCaliFrame, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a V3ReqStopCaptureCaliFrame message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns V3ReqStopCaptureCaliFrame
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): V3ReqStopCaptureCaliFrame;
+
+    /**
+     * Decodes a V3ReqStopCaptureCaliFrame message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns V3ReqStopCaptureCaliFrame
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): V3ReqStopCaptureCaliFrame;
+
+    /**
+     * Verifies a V3ReqStopCaptureCaliFrame message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a V3ReqStopCaptureCaliFrame message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns V3ReqStopCaptureCaliFrame
+     */
+    public static fromObject(object: { [k: string]: any }): V3ReqStopCaptureCaliFrame;
+
+    /**
+     * Creates a plain object from a V3ReqStopCaptureCaliFrame message. Also converts values to other types if specified.
+     * @param message V3ReqStopCaptureCaliFrame
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: V3ReqStopCaptureCaliFrame, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this V3ReqStopCaptureCaliFrame to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for V3ReqStopCaptureCaliFrame
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
 /** Represents a V3ReqSetObservationLocation. */
 export class V3ReqSetObservationLocation implements IV3ReqSetObservationLocation {
 
@@ -25723,6 +25937,198 @@ export class V3ResNotifyTimelapseProgress implements IV3ResNotifyTimelapseProgre
 
     /**
      * Gets the default type url for V3ResNotifyTimelapseProgress
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a V3ResNotifyCaliFrameState. */
+export class V3ResNotifyCaliFrameState implements IV3ResNotifyCaliFrameState {
+
+    /**
+     * Constructs a new V3ResNotifyCaliFrameState.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IV3ResNotifyCaliFrameState);
+
+    /** V3ResNotifyCaliFrameState state. */
+    public state: number;
+
+    /** V3ResNotifyCaliFrameState cameraType. */
+    public cameraType: number;
+
+    /** V3ResNotifyCaliFrameState caliFrameType. */
+    public caliFrameType: number;
+
+    /**
+     * Creates a new V3ResNotifyCaliFrameState instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns V3ResNotifyCaliFrameState instance
+     */
+    public static create(properties?: IV3ResNotifyCaliFrameState): V3ResNotifyCaliFrameState;
+
+    /**
+     * Encodes the specified V3ResNotifyCaliFrameState message. Does not implicitly {@link V3ResNotifyCaliFrameState.verify|verify} messages.
+     * @param message V3ResNotifyCaliFrameState message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IV3ResNotifyCaliFrameState, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified V3ResNotifyCaliFrameState message, length delimited. Does not implicitly {@link V3ResNotifyCaliFrameState.verify|verify} messages.
+     * @param message V3ResNotifyCaliFrameState message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IV3ResNotifyCaliFrameState, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a V3ResNotifyCaliFrameState message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns V3ResNotifyCaliFrameState
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): V3ResNotifyCaliFrameState;
+
+    /**
+     * Decodes a V3ResNotifyCaliFrameState message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns V3ResNotifyCaliFrameState
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): V3ResNotifyCaliFrameState;
+
+    /**
+     * Verifies a V3ResNotifyCaliFrameState message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a V3ResNotifyCaliFrameState message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns V3ResNotifyCaliFrameState
+     */
+    public static fromObject(object: { [k: string]: any }): V3ResNotifyCaliFrameState;
+
+    /**
+     * Creates a plain object from a V3ResNotifyCaliFrameState message. Also converts values to other types if specified.
+     * @param message V3ResNotifyCaliFrameState
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: V3ResNotifyCaliFrameState, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this V3ResNotifyCaliFrameState to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for V3ResNotifyCaliFrameState
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a V3ResNotifyCaliFrameProgress. */
+export class V3ResNotifyCaliFrameProgress implements IV3ResNotifyCaliFrameProgress {
+
+    /**
+     * Constructs a new V3ResNotifyCaliFrameProgress.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IV3ResNotifyCaliFrameProgress);
+
+    /** V3ResNotifyCaliFrameProgress progress. */
+    public progress: number;
+
+    /** V3ResNotifyCaliFrameProgress cameraType. */
+    public cameraType: number;
+
+    /** V3ResNotifyCaliFrameProgress caliFrameType. */
+    public caliFrameType: number;
+
+    /**
+     * Creates a new V3ResNotifyCaliFrameProgress instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns V3ResNotifyCaliFrameProgress instance
+     */
+    public static create(properties?: IV3ResNotifyCaliFrameProgress): V3ResNotifyCaliFrameProgress;
+
+    /**
+     * Encodes the specified V3ResNotifyCaliFrameProgress message. Does not implicitly {@link V3ResNotifyCaliFrameProgress.verify|verify} messages.
+     * @param message V3ResNotifyCaliFrameProgress message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IV3ResNotifyCaliFrameProgress, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified V3ResNotifyCaliFrameProgress message, length delimited. Does not implicitly {@link V3ResNotifyCaliFrameProgress.verify|verify} messages.
+     * @param message V3ResNotifyCaliFrameProgress message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IV3ResNotifyCaliFrameProgress, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a V3ResNotifyCaliFrameProgress message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns V3ResNotifyCaliFrameProgress
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): V3ResNotifyCaliFrameProgress;
+
+    /**
+     * Decodes a V3ResNotifyCaliFrameProgress message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns V3ResNotifyCaliFrameProgress
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): V3ResNotifyCaliFrameProgress;
+
+    /**
+     * Verifies a V3ResNotifyCaliFrameProgress message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a V3ResNotifyCaliFrameProgress message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns V3ResNotifyCaliFrameProgress
+     */
+    public static fromObject(object: { [k: string]: any }): V3ResNotifyCaliFrameProgress;
+
+    /**
+     * Creates a plain object from a V3ResNotifyCaliFrameProgress message. Also converts values to other types if specified.
+     * @param message V3ResNotifyCaliFrameProgress
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: V3ResNotifyCaliFrameProgress, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this V3ResNotifyCaliFrameProgress to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for V3ResNotifyCaliFrameProgress
      * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
      * @returns The default type url
      */
