@@ -3969,6 +3969,351 @@ export class ResDelWideDarkFrameList implements IResDelWideDarkFrameList {
     public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
+/** Properties of a ReqOneClickShootingParam. */
+export interface IReqOneClickShootingParam {
+
+    /** ReqOneClickShootingParam horizontalScale */
+    horizontalScale?: (number|null);
+
+    /** ReqOneClickShootingParam verticalScale */
+    verticalScale?: (number|null);
+
+    /** ReqOneClickShootingParam rotation */
+    rotation?: (number|null);
+
+    /** ReqOneClickShootingParam cameraType */
+    cameraType?: (number|null);
+
+    /** ReqOneClickShootingParam expIndex */
+    expIndex?: (number|null);
+
+    /** ReqOneClickShootingParam gain */
+    gain?: (number|null);
+
+    /** ReqOneClickShootingParam filterType */
+    filterType?: (number|null);
+
+    /** ReqOneClickShootingParam capSize */
+    capSize?: (number|null);
+
+    /** ReqOneClickShootingParam resolution */
+    resolution?: (number|null);
+}
+
+/** Represents a ReqOneClickShootingParam. */
+export class ReqOneClickShootingParam implements IReqOneClickShootingParam {
+
+    /**
+     * Constructs a new ReqOneClickShootingParam.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqOneClickShootingParam);
+
+    /** ReqOneClickShootingParam horizontalScale. */
+    public horizontalScale: number;
+
+    /** ReqOneClickShootingParam verticalScale. */
+    public verticalScale: number;
+
+    /** ReqOneClickShootingParam rotation. */
+    public rotation: number;
+
+    /** ReqOneClickShootingParam cameraType. */
+    public cameraType: number;
+
+    /** ReqOneClickShootingParam expIndex. */
+    public expIndex: number;
+
+    /** ReqOneClickShootingParam gain. */
+    public gain: number;
+
+    /** ReqOneClickShootingParam filterType. */
+    public filterType: number;
+
+    /** ReqOneClickShootingParam capSize. */
+    public capSize: number;
+
+    /** ReqOneClickShootingParam resolution. */
+    public resolution: number;
+
+    /**
+     * Creates a new ReqOneClickShootingParam instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqOneClickShootingParam instance
+     */
+    public static create(properties?: IReqOneClickShootingParam): ReqOneClickShootingParam;
+
+    /**
+     * Encodes the specified ReqOneClickShootingParam message. Does not implicitly {@link ReqOneClickShootingParam.verify|verify} messages.
+     * @param message ReqOneClickShootingParam message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqOneClickShootingParam, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqOneClickShootingParam message, length delimited. Does not implicitly {@link ReqOneClickShootingParam.verify|verify} messages.
+     * @param message ReqOneClickShootingParam message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqOneClickShootingParam, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqOneClickShootingParam message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqOneClickShootingParam
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqOneClickShootingParam;
+
+    /**
+     * Decodes a ReqOneClickShootingParam message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqOneClickShootingParam
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqOneClickShootingParam;
+
+    /**
+     * Verifies a ReqOneClickShootingParam message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqOneClickShootingParam message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqOneClickShootingParam
+     */
+    public static fromObject(object: { [k: string]: any }): ReqOneClickShootingParam;
+
+    /**
+     * Creates a plain object from a ReqOneClickShootingParam message. Also converts values to other types if specified.
+     * @param message ReqOneClickShootingParam
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqOneClickShootingParam, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqOneClickShootingParam to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqOneClickShootingParam
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Properties of a ReqOneClickShooting. */
+export interface IReqOneClickShooting {
+
+    /** ReqOneClickShooting gotoDso */
+    gotoDso?: (IReqOneClickGotoDSO|null);
+
+    /** ReqOneClickShooting shootingParam */
+    shootingParam?: (IReqOneClickShootingParam|null);
+}
+
+/** Represents a ReqOneClickShooting. */
+export class ReqOneClickShooting implements IReqOneClickShooting {
+
+    /**
+     * Constructs a new ReqOneClickShooting.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqOneClickShooting);
+
+    /** ReqOneClickShooting gotoDso. */
+    public gotoDso?: (IReqOneClickGotoDSO|null);
+
+    /** ReqOneClickShooting shootingParam. */
+    public shootingParam?: (IReqOneClickShootingParam|null);
+
+    /**
+     * Creates a new ReqOneClickShooting instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqOneClickShooting instance
+     */
+    public static create(properties?: IReqOneClickShooting): ReqOneClickShooting;
+
+    /**
+     * Encodes the specified ReqOneClickShooting message. Does not implicitly {@link ReqOneClickShooting.verify|verify} messages.
+     * @param message ReqOneClickShooting message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqOneClickShooting, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqOneClickShooting message, length delimited. Does not implicitly {@link ReqOneClickShooting.verify|verify} messages.
+     * @param message ReqOneClickShooting message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqOneClickShooting, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqOneClickShooting message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqOneClickShooting
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqOneClickShooting;
+
+    /**
+     * Decodes a ReqOneClickShooting message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqOneClickShooting
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqOneClickShooting;
+
+    /**
+     * Verifies a ReqOneClickShooting message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqOneClickShooting message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqOneClickShooting
+     */
+    public static fromObject(object: { [k: string]: any }): ReqOneClickShooting;
+
+    /**
+     * Creates a plain object from a ReqOneClickShooting message. Also converts values to other types if specified.
+     * @param message ReqOneClickShooting
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqOneClickShooting, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqOneClickShooting to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqOneClickShooting
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Properties of a ReqDelCaliFrameList. */
+export interface IReqDelCaliFrameList {
+
+    /** ReqDelCaliFrameList infoIds */
+    infoIds?: (number[]|null);
+}
+
+/** Represents a ReqDelCaliFrameList. */
+export class ReqDelCaliFrameList implements IReqDelCaliFrameList {
+
+    /**
+     * Constructs a new ReqDelCaliFrameList.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqDelCaliFrameList);
+
+    /** ReqDelCaliFrameList infoIds. */
+    public infoIds: number[];
+
+    /**
+     * Creates a new ReqDelCaliFrameList instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqDelCaliFrameList instance
+     */
+    public static create(properties?: IReqDelCaliFrameList): ReqDelCaliFrameList;
+
+    /**
+     * Encodes the specified ReqDelCaliFrameList message. Does not implicitly {@link ReqDelCaliFrameList.verify|verify} messages.
+     * @param message ReqDelCaliFrameList message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqDelCaliFrameList, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqDelCaliFrameList message, length delimited. Does not implicitly {@link ReqDelCaliFrameList.verify|verify} messages.
+     * @param message ReqDelCaliFrameList message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqDelCaliFrameList, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqDelCaliFrameList message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqDelCaliFrameList
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqDelCaliFrameList;
+
+    /**
+     * Decodes a ReqDelCaliFrameList message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqDelCaliFrameList
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqDelCaliFrameList;
+
+    /**
+     * Verifies a ReqDelCaliFrameList message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqDelCaliFrameList message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqDelCaliFrameList
+     */
+    public static fromObject(object: { [k: string]: any }): ReqDelCaliFrameList;
+
+    /**
+     * Creates a plain object from a ReqDelCaliFrameList message. Also converts values to other types if specified.
+     * @param message ReqDelCaliFrameList
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqDelCaliFrameList, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqDelCaliFrameList to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqDelCaliFrameList
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
 /** WsMajorVersion enum. */
 export enum WsMajorVersion {
     WS_MAJOR_VERSION_UNKNOWN = 0,
@@ -6729,6 +7074,99 @@ export class V3ReqStreamControl implements IV3ReqStreamControl {
 
     /**
      * Gets the default type url for V3ReqStreamControl
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a ReqSetGeneralBoolParams. */
+export class ReqSetGeneralBoolParams implements IReqSetGeneralBoolParams {
+
+    /**
+     * Constructs a new ReqSetGeneralBoolParams.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqSetGeneralBoolParams);
+
+    /** ReqSetGeneralBoolParams paramId. */
+    public paramId: (number|Long);
+
+    /** ReqSetGeneralBoolParams value. */
+    public value: boolean;
+
+    /**
+     * Creates a new ReqSetGeneralBoolParams instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqSetGeneralBoolParams instance
+     */
+    public static create(properties?: IReqSetGeneralBoolParams): ReqSetGeneralBoolParams;
+
+    /**
+     * Encodes the specified ReqSetGeneralBoolParams message. Does not implicitly {@link ReqSetGeneralBoolParams.verify|verify} messages.
+     * @param message ReqSetGeneralBoolParams message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqSetGeneralBoolParams, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqSetGeneralBoolParams message, length delimited. Does not implicitly {@link ReqSetGeneralBoolParams.verify|verify} messages.
+     * @param message ReqSetGeneralBoolParams message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqSetGeneralBoolParams, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqSetGeneralBoolParams message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqSetGeneralBoolParams
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqSetGeneralBoolParams;
+
+    /**
+     * Decodes a ReqSetGeneralBoolParams message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqSetGeneralBoolParams
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqSetGeneralBoolParams;
+
+    /**
+     * Verifies a ReqSetGeneralBoolParams message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqSetGeneralBoolParams message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqSetGeneralBoolParams
+     */
+    public static fromObject(object: { [k: string]: any }): ReqSetGeneralBoolParams;
+
+    /**
+     * Creates a plain object from a ReqSetGeneralBoolParams message. Also converts values to other types if specified.
+     * @param message ReqSetGeneralBoolParams
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqSetGeneralBoolParams, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqSetGeneralBoolParams to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqSetGeneralBoolParams
      * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
      * @returns The default type url
      */
@@ -11850,6 +12288,276 @@ export class V3ResGetDeviceConfig implements IV3ResGetDeviceConfig {
     public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
+/** Represents a ReqLensDefog. */
+export class ReqLensDefog implements IReqLensDefog {
+
+    /**
+     * Constructs a new ReqLensDefog.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqLensDefog);
+
+    /** ReqLensDefog state. */
+    public state: number;
+
+    /**
+     * Creates a new ReqLensDefog instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqLensDefog instance
+     */
+    public static create(properties?: IReqLensDefog): ReqLensDefog;
+
+    /**
+     * Encodes the specified ReqLensDefog message. Does not implicitly {@link ReqLensDefog.verify|verify} messages.
+     * @param message ReqLensDefog message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqLensDefog, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqLensDefog message, length delimited. Does not implicitly {@link ReqLensDefog.verify|verify} messages.
+     * @param message ReqLensDefog message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqLensDefog, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqLensDefog message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqLensDefog
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqLensDefog;
+
+    /**
+     * Decodes a ReqLensDefog message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqLensDefog
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqLensDefog;
+
+    /**
+     * Verifies a ReqLensDefog message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqLensDefog message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqLensDefog
+     */
+    public static fromObject(object: { [k: string]: any }): ReqLensDefog;
+
+    /**
+     * Creates a plain object from a ReqLensDefog message. Also converts values to other types if specified.
+     * @param message ReqLensDefog
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqLensDefog, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqLensDefog to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqLensDefog
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a ReqAutoCooling. */
+export class ReqAutoCooling implements IReqAutoCooling {
+
+    /**
+     * Constructs a new ReqAutoCooling.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqAutoCooling);
+
+    /** ReqAutoCooling state. */
+    public state: number;
+
+    /**
+     * Creates a new ReqAutoCooling instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqAutoCooling instance
+     */
+    public static create(properties?: IReqAutoCooling): ReqAutoCooling;
+
+    /**
+     * Encodes the specified ReqAutoCooling message. Does not implicitly {@link ReqAutoCooling.verify|verify} messages.
+     * @param message ReqAutoCooling message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqAutoCooling, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqAutoCooling message, length delimited. Does not implicitly {@link ReqAutoCooling.verify|verify} messages.
+     * @param message ReqAutoCooling message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqAutoCooling, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqAutoCooling message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqAutoCooling
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqAutoCooling;
+
+    /**
+     * Decodes a ReqAutoCooling message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqAutoCooling
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqAutoCooling;
+
+    /**
+     * Verifies a ReqAutoCooling message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqAutoCooling message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqAutoCooling
+     */
+    public static fromObject(object: { [k: string]: any }): ReqAutoCooling;
+
+    /**
+     * Creates a plain object from a ReqAutoCooling message. Also converts values to other types if specified.
+     * @param message ReqAutoCooling
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqAutoCooling, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqAutoCooling to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqAutoCooling
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a ReqAutoShutdown. */
+export class ReqAutoShutdown implements IReqAutoShutdown {
+
+    /**
+     * Constructs a new ReqAutoShutdown.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqAutoShutdown);
+
+    /** ReqAutoShutdown state. */
+    public state: number;
+
+    /**
+     * Creates a new ReqAutoShutdown instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqAutoShutdown instance
+     */
+    public static create(properties?: IReqAutoShutdown): ReqAutoShutdown;
+
+    /**
+     * Encodes the specified ReqAutoShutdown message. Does not implicitly {@link ReqAutoShutdown.verify|verify} messages.
+     * @param message ReqAutoShutdown message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqAutoShutdown, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqAutoShutdown message, length delimited. Does not implicitly {@link ReqAutoShutdown.verify|verify} messages.
+     * @param message ReqAutoShutdown message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqAutoShutdown, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqAutoShutdown message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqAutoShutdown
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqAutoShutdown;
+
+    /**
+     * Decodes a ReqAutoShutdown message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqAutoShutdown
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqAutoShutdown;
+
+    /**
+     * Verifies a ReqAutoShutdown message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqAutoShutdown message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqAutoShutdown
+     */
+    public static fromObject(object: { [k: string]: any }): ReqAutoShutdown;
+
+    /**
+     * Creates a plain object from a ReqAutoShutdown message. Also converts values to other types if specified.
+     * @param message ReqAutoShutdown
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqAutoShutdown, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqAutoShutdown to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqAutoShutdown
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
 /** Represents a ReqManualSingleStepFocus. */
 export class ReqManualSingleStepFocus implements IReqManualSingleStepFocus {
 
@@ -13716,6 +14424,276 @@ export class ReqDualCameraLinkage implements IReqDualCameraLinkage {
 
     /**
      * Gets the default type url for ReqDualCameraLinkage
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** MotorLevelCalibrationDirection enum. */
+export enum MotorLevelCalibrationDirection {
+    MOTOR_LEVEL_CALIBRATION_DIRECTION_CW = 0,
+    MOTOR_LEVEL_CALIBRATION_DIRECTION_CCW = 1
+}
+
+/** Represents a ReqMotorLevelCalibrationMove. */
+export class ReqMotorLevelCalibrationMove implements IReqMotorLevelCalibrationMove {
+
+    /**
+     * Constructs a new ReqMotorLevelCalibrationMove.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqMotorLevelCalibrationMove);
+
+    /** ReqMotorLevelCalibrationMove direction. */
+    public direction: MotorLevelCalibrationDirection;
+
+    /**
+     * Creates a new ReqMotorLevelCalibrationMove instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqMotorLevelCalibrationMove instance
+     */
+    public static create(properties?: IReqMotorLevelCalibrationMove): ReqMotorLevelCalibrationMove;
+
+    /**
+     * Encodes the specified ReqMotorLevelCalibrationMove message. Does not implicitly {@link ReqMotorLevelCalibrationMove.verify|verify} messages.
+     * @param message ReqMotorLevelCalibrationMove message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqMotorLevelCalibrationMove, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqMotorLevelCalibrationMove message, length delimited. Does not implicitly {@link ReqMotorLevelCalibrationMove.verify|verify} messages.
+     * @param message ReqMotorLevelCalibrationMove message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqMotorLevelCalibrationMove, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqMotorLevelCalibrationMove message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqMotorLevelCalibrationMove
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqMotorLevelCalibrationMove;
+
+    /**
+     * Decodes a ReqMotorLevelCalibrationMove message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqMotorLevelCalibrationMove
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqMotorLevelCalibrationMove;
+
+    /**
+     * Verifies a ReqMotorLevelCalibrationMove message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqMotorLevelCalibrationMove message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqMotorLevelCalibrationMove
+     */
+    public static fromObject(object: { [k: string]: any }): ReqMotorLevelCalibrationMove;
+
+    /**
+     * Creates a plain object from a ReqMotorLevelCalibrationMove message. Also converts values to other types if specified.
+     * @param message ReqMotorLevelCalibrationMove
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqMotorLevelCalibrationMove, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqMotorLevelCalibrationMove to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqMotorLevelCalibrationMove
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a ReqMotorLevelCalibrationSave. */
+export class ReqMotorLevelCalibrationSave implements IReqMotorLevelCalibrationSave {
+
+    /**
+     * Constructs a new ReqMotorLevelCalibrationSave.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqMotorLevelCalibrationSave);
+
+    /**
+     * Creates a new ReqMotorLevelCalibrationSave instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqMotorLevelCalibrationSave instance
+     */
+    public static create(properties?: IReqMotorLevelCalibrationSave): ReqMotorLevelCalibrationSave;
+
+    /**
+     * Encodes the specified ReqMotorLevelCalibrationSave message. Does not implicitly {@link ReqMotorLevelCalibrationSave.verify|verify} messages.
+     * @param message ReqMotorLevelCalibrationSave message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqMotorLevelCalibrationSave, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqMotorLevelCalibrationSave message, length delimited. Does not implicitly {@link ReqMotorLevelCalibrationSave.verify|verify} messages.
+     * @param message ReqMotorLevelCalibrationSave message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqMotorLevelCalibrationSave, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqMotorLevelCalibrationSave message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqMotorLevelCalibrationSave
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqMotorLevelCalibrationSave;
+
+    /**
+     * Decodes a ReqMotorLevelCalibrationSave message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqMotorLevelCalibrationSave
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqMotorLevelCalibrationSave;
+
+    /**
+     * Verifies a ReqMotorLevelCalibrationSave message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqMotorLevelCalibrationSave message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqMotorLevelCalibrationSave
+     */
+    public static fromObject(object: { [k: string]: any }): ReqMotorLevelCalibrationSave;
+
+    /**
+     * Creates a plain object from a ReqMotorLevelCalibrationSave message. Also converts values to other types if specified.
+     * @param message ReqMotorLevelCalibrationSave
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqMotorLevelCalibrationSave, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqMotorLevelCalibrationSave to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqMotorLevelCalibrationSave
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a ReqMotorLevelCalibrationResetDefault. */
+export class ReqMotorLevelCalibrationResetDefault implements IReqMotorLevelCalibrationResetDefault {
+
+    /**
+     * Constructs a new ReqMotorLevelCalibrationResetDefault.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqMotorLevelCalibrationResetDefault);
+
+    /**
+     * Creates a new ReqMotorLevelCalibrationResetDefault instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqMotorLevelCalibrationResetDefault instance
+     */
+    public static create(properties?: IReqMotorLevelCalibrationResetDefault): ReqMotorLevelCalibrationResetDefault;
+
+    /**
+     * Encodes the specified ReqMotorLevelCalibrationResetDefault message. Does not implicitly {@link ReqMotorLevelCalibrationResetDefault.verify|verify} messages.
+     * @param message ReqMotorLevelCalibrationResetDefault message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqMotorLevelCalibrationResetDefault, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqMotorLevelCalibrationResetDefault message, length delimited. Does not implicitly {@link ReqMotorLevelCalibrationResetDefault.verify|verify} messages.
+     * @param message ReqMotorLevelCalibrationResetDefault message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqMotorLevelCalibrationResetDefault, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqMotorLevelCalibrationResetDefault message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqMotorLevelCalibrationResetDefault
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqMotorLevelCalibrationResetDefault;
+
+    /**
+     * Decodes a ReqMotorLevelCalibrationResetDefault message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqMotorLevelCalibrationResetDefault
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqMotorLevelCalibrationResetDefault;
+
+    /**
+     * Verifies a ReqMotorLevelCalibrationResetDefault message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqMotorLevelCalibrationResetDefault message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqMotorLevelCalibrationResetDefault
+     */
+    public static fromObject(object: { [k: string]: any }): ReqMotorLevelCalibrationResetDefault;
+
+    /**
+     * Creates a plain object from a ReqMotorLevelCalibrationResetDefault message. Also converts values to other types if specified.
+     * @param message ReqMotorLevelCalibrationResetDefault
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqMotorLevelCalibrationResetDefault, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqMotorLevelCalibrationResetDefault to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqMotorLevelCalibrationResetDefault
      * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
      * @returns The default type url
      */
@@ -17736,6 +18714,273 @@ export class ResGetStitchUploadState implements IResGetStitchUploadState {
     public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
+/** Represents a ReqGetUploadPredict. */
+export class ReqGetUploadPredict implements IReqGetUploadPredict {
+
+    /**
+     * Constructs a new ReqGetUploadPredict.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqGetUploadPredict);
+
+    /** ReqGetUploadPredict panoramaName. */
+    public panoramaName: string;
+
+    /**
+     * Creates a new ReqGetUploadPredict instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqGetUploadPredict instance
+     */
+    public static create(properties?: IReqGetUploadPredict): ReqGetUploadPredict;
+
+    /**
+     * Encodes the specified ReqGetUploadPredict message. Does not implicitly {@link ReqGetUploadPredict.verify|verify} messages.
+     * @param message ReqGetUploadPredict message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqGetUploadPredict, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqGetUploadPredict message, length delimited. Does not implicitly {@link ReqGetUploadPredict.verify|verify} messages.
+     * @param message ReqGetUploadPredict message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqGetUploadPredict, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqGetUploadPredict message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqGetUploadPredict
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqGetUploadPredict;
+
+    /**
+     * Decodes a ReqGetUploadPredict message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqGetUploadPredict
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqGetUploadPredict;
+
+    /**
+     * Verifies a ReqGetUploadPredict message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqGetUploadPredict message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqGetUploadPredict
+     */
+    public static fromObject(object: { [k: string]: any }): ReqGetUploadPredict;
+
+    /**
+     * Creates a plain object from a ReqGetUploadPredict message. Also converts values to other types if specified.
+     * @param message ReqGetUploadPredict
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqGetUploadPredict, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqGetUploadPredict to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqGetUploadPredict
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a ReqCompressPanorama. */
+export class ReqCompressPanorama implements IReqCompressPanorama {
+
+    /**
+     * Constructs a new ReqCompressPanorama.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqCompressPanorama);
+
+    /** ReqCompressPanorama panoramaName. */
+    public panoramaName: string;
+
+    /**
+     * Creates a new ReqCompressPanorama instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqCompressPanorama instance
+     */
+    public static create(properties?: IReqCompressPanorama): ReqCompressPanorama;
+
+    /**
+     * Encodes the specified ReqCompressPanorama message. Does not implicitly {@link ReqCompressPanorama.verify|verify} messages.
+     * @param message ReqCompressPanorama message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqCompressPanorama, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqCompressPanorama message, length delimited. Does not implicitly {@link ReqCompressPanorama.verify|verify} messages.
+     * @param message ReqCompressPanorama message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqCompressPanorama, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqCompressPanorama message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqCompressPanorama
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqCompressPanorama;
+
+    /**
+     * Decodes a ReqCompressPanorama message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqCompressPanorama
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqCompressPanorama;
+
+    /**
+     * Verifies a ReqCompressPanorama message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqCompressPanorama message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqCompressPanorama
+     */
+    public static fromObject(object: { [k: string]: any }): ReqCompressPanorama;
+
+    /**
+     * Creates a plain object from a ReqCompressPanorama message. Also converts values to other types if specified.
+     * @param message ReqCompressPanorama
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqCompressPanorama, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqCompressPanorama to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqCompressPanorama
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a ReqStopCompressPanorama. */
+export class ReqStopCompressPanorama implements IReqStopCompressPanorama {
+
+    /**
+     * Constructs a new ReqStopCompressPanorama.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqStopCompressPanorama);
+
+    /**
+     * Creates a new ReqStopCompressPanorama instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqStopCompressPanorama instance
+     */
+    public static create(properties?: IReqStopCompressPanorama): ReqStopCompressPanorama;
+
+    /**
+     * Encodes the specified ReqStopCompressPanorama message. Does not implicitly {@link ReqStopCompressPanorama.verify|verify} messages.
+     * @param message ReqStopCompressPanorama message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqStopCompressPanorama, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqStopCompressPanorama message, length delimited. Does not implicitly {@link ReqStopCompressPanorama.verify|verify} messages.
+     * @param message ReqStopCompressPanorama message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqStopCompressPanorama, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqStopCompressPanorama message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqStopCompressPanorama
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqStopCompressPanorama;
+
+    /**
+     * Decodes a ReqStopCompressPanorama message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqStopCompressPanorama
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqStopCompressPanorama;
+
+    /**
+     * Verifies a ReqStopCompressPanorama message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqStopCompressPanorama message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqStopCompressPanorama
+     */
+    public static fromObject(object: { [k: string]: any }): ReqStopCompressPanorama;
+
+    /**
+     * Creates a plain object from a ReqStopCompressPanorama message. Also converts values to other types if specified.
+     * @param message ReqStopCompressPanorama
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqStopCompressPanorama, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqStopCompressPanorama to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqStopCompressPanorama
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
 /** ModuleId enum. */
 export enum ModuleId {
     MODULE_NONE = 0,
@@ -17749,9 +18994,14 @@ export enum ModuleId {
     MODULE_FOCUS = 8,
     MODULE_NOTIFY = 9,
     MODULE_PANORAMA = 10,
+    MODULE_ITIPS = 11,
+    MODULE_FACTORY_TEST = 12,
     MODULE_SHOOTING_SCHEDULE = 13,
     MODULE_DEVICE_CONFIG = 14,
-    MODULE_CAMERA_PARAMS = 15
+    MODULE_CAMERA_PARAMS = 15,
+    MODULE_VOICE_ASSISTANT = 16,
+    MODULE_CAMERA_GUIDE = 17,
+    MODULE_DEVICE = 18
 }
 
 /** MessageTypeId enum. */
@@ -17808,7 +19058,15 @@ export enum DwarfCMD {
     CMD_CAMERA_TELE_SET_JPG_QUALITY = 10040,
     CMD_CAMERA_TELE_PHOTO_RAW = 10041,
     CMD_CAMERA_TELE_SET_RTSP_BITRATE_TYPE = 10042,
+    CMD_CAMERA_TELE_DISABLE_ALL_ISP_PROCESSING = 10043,
+    CMD_CAMERA_TELE_ENABLE_ALL_ISP_PROCESSING = 10044,
+    CMD_CAMERA_TELE_SET_ISP_MODULE_STATE = 10045,
+    CMD_CAMERA_TELE_GET_ISP_MODULE_STATE = 10046,
+    CMD_CAMERA_TELE_SWITCH_RESOLUTION = 10047,
+    CMD_CAMERA_TELE_SWITCH_FRAMERATE = 10048,
+    CMD_CAMERA_TELE_SWITCH_CROP_RATIO = 10049,
     CMD_V3_CAMERA_TELE_OPEN_CAMERA = 10050,
+    CMD_CAMERA_TELE_SET_ND_FILTER = 10051,
     CMD_ASTRO_START_CALIBRATION = 11000,
     CMD_ASTRO_STOP_CALIBRATION = 11001,
     CMD_ASTRO_START_GOTO_DSO = 11002,
@@ -17838,17 +19096,28 @@ export enum DwarfCMD {
     CMD_ASTRO_STOP_CAPTURE_WIDE_RAW_DARK_WITH_PARAM = 11026,
     CMD_ASTRO_GET_WIDE_DARK_FRAME_LIST = 11027,
     CMD_ASTRO_DEL_WIDE_DARK_FRAME_LIST = 11028,
+    CMD_ASTRO_START_AI_ENHANCE = 11029,
+    CMD_ASTRO_STOP_AI_ENHANCE = 11030,
+    CMD_ASTRO_START_TELE_MOSAIC = 11031,
+    CMD_ASTRO_CHECK_IF_RESTACKABLE = 11032,
     CMD_V3_ASTRO_SAVE_STACKED_IMAGE = 11033,
     CMD_V3_ASTRO_LIST_SAVED_IMAGES = 11034,
+    CMD_ASTRO_START_RESTACKED = 11035,
     CMD_V3_ASTRO_SAVE_COMPLETE = 11036,
+    CMD_ASTRO_FAST_STOP_CAPTURE_RAW_LIVE_STACKING = 11037,
+    CMD_ASTRO_FAST_STOP_WIDE_CAPTURE_LIVE_STACKING = 11038,
     CMD_V3_ASTRO_STATUS_POLLING = 11039,
     CMD_V3_ASTRO_GET_PARAMS = 11040,
     CMD_V3_ASTRO_SET_PARAMS = 11041,
+    CMD_ASTRO_START_ONE_CLICK_SHOOTING = 11042,
     CMD_V3_ASTRO_GET_PRESETS = 11043,
+    CMD_ASTRO_DEL_CALI_FRAME_LIST = 11044,
     CMD_V3_ASTRO_START_CAPTURE_CALI_FRAME = 11045,
     CMD_V3_ASTRO_STOP_CAPTURE_CALI_FRAME = 11046,
     CMD_V3_ASTRO_SET_LOCATION = 11047,
     CMD_V3_ASTRO_CONFIRM = 11048,
+    CMD_ASTRO_GET_GYRO_ATTITUDE = 11049,
+    CMD_ASTRO_CONTINUE_SHOOTING = 11050,
     CMD_CAMERA_WIDE_OPEN_CAMERA = 12000,
     CMD_CAMERA_WIDE_CLOSE_CAMERA = 12001,
     CMD_CAMERA_WIDE_SET_EXP_MODE = 12002,
@@ -17878,6 +19147,7 @@ export enum DwarfCMD {
     CMD_CAMERA_WIDE_STOP_TIMELAPSE_PHOTO = 12026,
     CMD_CAMERA_WIDE_GET_ALL_PARAMS = 12027,
     CMD_CAMERA_WIDE_SET_ALL_PARAMS = 12028,
+    CMD_CAMERA_WIDE_PHOTO_RAW = 12029,
     CMD_CAMERA_WIDE_START_RECORD = 12030,
     CMD_CAMERA_WIDE_STOP_RECORD = 12031,
     CMD_V3_CAMERA_WIDE_OPEN_CAMERA = 12036,
@@ -17886,6 +19156,9 @@ export enum DwarfCMD {
     CMD_SYSTEM_SET_MTP_MODE = 13002,
     CMD_SYSTEM_SET_CPU_MODE = 13003,
     CMD_SYSTEM_SET_MASTERLOCK = 13004,
+    CMD_SYSTEM_DEVICE_ACTIVATE_WRITE_FILE = 13006,
+    CMD_SYSTEM_DEVICE_ACTIVATE_NOTIFY_ACTIVATE_SUCCESSFULL = 13007,
+    CMD_SYSTEM_FACTORY_TEST_UN_ACTIVATE = 13008,
     CMD_V3_SYSTEM_SET_GPS_LOCATION = 13010,
     CMD_RGB_POWER_OPEN_RGB = 13500,
     CMD_RGB_POWER_CLOSE_RGB = 13501,
@@ -17905,6 +19178,11 @@ export enum DwarfCMD {
     CMD_STEP_MOTOR_SERVICE_DUAL_CAMERA_LINKAGE = 14009,
     CMD_STEP_MOTOR_RUN_IN_PULSE = 14010,
     CMD_STEP_MOTOR_GET_POSITION = 14011,
+    CMD_STEP_MOTOR_START_ATTITUDE_NOTIFY = 14012,
+    CMD_STEP_MOTOR_STOP_ATTITUDE_NOTIFY = 14013,
+    CMD_STEP_MOTOR_LEVEL_CALIBRATION_MOVE = 14014,
+    CMD_STEP_MOTOR_SAVE_LEVEL_CALIBRATION_OFFSET = 14015,
+    CMD_STEP_MOTOR_RESET_LEVEL_CALIBRATION_DEFAULT = 14016,
     CMD_TRACK_START_TRACK = 14800,
     CMD_TRACK_STOP_TRACK = 14801,
     CMD_SENTRY_MODE_START = 14802,
@@ -17916,6 +19194,7 @@ export enum DwarfCMD {
     CMD_MOT_WIDE_TRACK_ONE = 14808,
     CMD_WIDE_TELE_TRACK_SWITCH = 14809,
     CMD_UFO_HAND_AOTO_MODE = 14810,
+    CMD_TRACK_START_CLICK = 14812,
     CMD_FOCUS_AUTO_FOCUS = 15000,
     CMD_FOCUS_MANUAL_SINGLE_STEP_FOCUS = 15001,
     CMD_FOCUS_START_MANUAL_CONTINU_FOCUS = 15002,
@@ -17923,6 +19202,17 @@ export enum DwarfCMD {
     CMD_FOCUS_START_ASTRO_AUTO_FOCUS = 15004,
     CMD_FOCUS_STOP_ASTRO_AUTO_FOCUS = 15005,
     CMD_V3_FOCUS_INIT = 15011,
+    CMD_FOCUS_SET_USER_INFINITY_POS = 15012,
+    CMD_WIDE_FOCUS_MANUAL_SINGLE_STEP_FOCUS = 15015,
+    CMD_WIDE_FOCUS_START_MANUAL_CONTINU_FOCUS = 15016,
+    CMD_WIDE_FOCUS_START_ASTRO_AUTO_FOCUS = 15018,
+    CMD_WIDE_FOCUS_STOP_ASTRO_AUTO_FOCUS = 15019,
+    CMD_WIDE_FOCUS_AUTO_INFINITY_FOCUS = 15020,
+    CMD_GUIDE_FOCUS_SET_USER_INFINITY_POS = 15027,
+    CMD_GUIDE_FOCUS_GET_USER_INFINITY_POS = 15028,
+    CMD_GUIDE_FOCUS_MANUAL_SINGLE_STEP_FOCUS = 15029,
+    CMD_GUIDE_FOCUS_START_MANUAL_CONTINU_FOCUS = 15030,
+    CMD_GUIDE_FOCUS_STOP_MANUAL_CONTINU_FOCUS = 15031,
     CMD_NOTIFY_TELE_WIDI_PICTURE_MATCHING = 15200,
     CMD_NOTIFY_ELE = 15201,
     CMD_NOTIFY_CHARGE = 15202,
@@ -17976,41 +19266,99 @@ export enum DwarfCMD {
     CMD_NOTIFY_SKY_SEACHER_STATE = 15250,
     CMD_NOTIFY_WIDE_MULTI_TRACK_RESULT = 15251,
     CMD_NOTIFY_WIDE_TRACK_RESULT = 15252,
+    CMD_NOTIFY_STATE_AI_ENHANCE = 15253,
+    CMD_NOTIFY_PROGRESS_AI_ENHANCE = 15254,
     CMD_V3_NOTIFY_SKY_SOLVER_COORDS = 15256,
     CMD_NOTIFY_FOCUS = 15257,
+    CMD_NOTIFY_UFO_AUTO_HAND_MODE = 15258,
+    CMD_NOTIFY_CURRENT_PANORAMA_UPLOAD_STATE = 15259,
+    CMD_NOTIFY_LOW_TEMP_PROTECTION_MODE = 15260,
     CMD_V3_NOTIFY_EXPOSURE_PROGRESS = 15255,
     CMD_V3_NOTIFY_DEVICE_STATE = 15261,
     CMD_V3_NOTIFY_STATE_LATCH = 15262,
+    CMD_NOTIFY_PROGRESS_CAPTURE_MOSAIC = 15263,
     CMD_V3_NOTIFY_CAMERA_PARAM_STATE = 15264,
+    CMD_NOTIFY_GENERAL_FLOAT_PARAM = 15265,
+    CMD_NOTIFY_GENERAL_BOOL_PARAM = 15266,
     CMD_V3_NOTIFY_MODE_CHANGE = 15267,
+    CMD_NOTIFY_TELE_SWITCH_CROP_RATIO = 15268,
+    CMD_NOTIFY_TELE_SHOOTING_TECH_STATE = 15269,
     CMD_V3_NOTIFY_STACKING_DATA = 15270,
+    CMD_NOTIFY_WIDE_SHOOTING_TECH_STATE = 15271,
+    CMD_NOTIFY_RESOLUTION_PARAM = 15272,
     CMD_V3_NOTIFY_PHOTO_STATE = 15273,
     CMD_V3_NOTIFY_BURST_STATE = 15274,
     CMD_V3_NOTIFY_VIDEO_STATE = 15275,
     CMD_V3_NOTIFY_TIMELAPSE_STATE = 15276,
+    CMD_NOTIFY_PANORAMA_STATE = 15277,
     CMD_V3_NOTIFY_AUTOFOCUS_STATE = 15278,
+    CMD_NOTIFY_NORMAL_AUTO_FOCUS_STATE = 15279,
     CMD_V3_NOTIFY_AUTOFOCUS_STATE_ALT = 15280,
+    CMD_NOTIFY_AREA_AUTO_FOCUS_STATE = 15281,
+    CMD_NOTIFY_DUAL_CAMERA_LINKAGE_STATE = 15282,
+    CMD_NOTIFY_RESOLUTION_FPS_STATE = 15283,
+    CMD_NOTIFY_NORMAL_TRACK_STATE = 15284,
     CMD_V3_NOTIFY_PHOTO_BURST_PROGRESS = 15285,
     CMD_V3_NOTIFY_VIDEO_PROGRESS = 15286,
     CMD_V3_NOTIFY_TIMELAPSE_PROGRESS = 15287,
     CMD_V3_NOTIFY_EXPOSURE_DURATION = 15288,
+    CMD_NOTIFY_SENTRY_MOTOR_STATE = 15289,
     CMD_V3_NOTIFY_CALI_FRAME_STATE = 15290,
     CMD_V3_NOTIFY_CALI_FRAME_PROGRESS = 15291,
     CMD_V3_NOTIFY_TEMPERATURE2 = 15292,
+    CMD_NOTIFY_PANORAMA_COMPRESS_PROGRESS = 15293,
+    CMD_NOTIFY_PANORAMA_COMPRESS_COMPLETE = 15294,
+    CMD_NOTIFY_DEVICE_ATTITUDE = 15295,
     CMD_V3_NOTIFY_OBSERVATION_STATE = 15296,
+    CMD_NOTIFY_WIDE_FOCUS_POSITION = 15300,
+    CMD_NOTIFY_LENS_DEFOG_STATE = 15301,
+    CMD_NOTIFY_AUTO_COOLING_STATE = 15302,
+    CMD_NOTIFY_AUTO_SHUTDOWN_STATE = 15303,
+    CMD_NOTIFY_ROLL_LEVEL_CALIBRATION_ANGLE = 15304,
+    CMD_NOTIFY_GUIDE_FOCUS_POSITION = 15305,
     CMD_PANORAMA_START_GRID = 15500,
     CMD_PANORAMA_STOP = 15501,
     CMD_PANORAMA_START_EULER_RANGE = 15502,
+    CMD_PANORAMA_GET_CURRENT_UPLOAD_STATE = 15505,
+    CMD_PANORAMA_GET_UPLOAD_PREDICT = 15506,
+    CMD_PANORAMA_START_COMPRESS = 15507,
+    CMD_PANORAMA_STOP_COMPRESS = 15508,
+    CMD_PANORAMA_START_FRAMING = 15509,
+    CMD_PANORAMA_STOP_FRAMING = 15510,
+    CMD_PANORAMA_RESET_FRAMING = 15511,
+    CMD_PANORAMA_UPDATE_FRAMING_RECT = 15512,
+    CMD_PANORAMA_STOP_FRAMEING_AND_START_GRID = 15513,
+    CMD_ITIPS_GET = 15700,
+    CMD_SYNC_SHOOTING_SCHEDULE = 16100,
+    CMD_CANCEL_SHOOTING_SCHEDULE = 16101,
     CMD_V3_SCHEDULE_GET = 16102,
+    CMD_GET_SHOOTING_SCHEDULE_BY_ID = 16103,
+    CMD_REPLACE_SHOOTING_SCHEDULE = 16105,
+    CMD_UNLOCK_SHOOTING_SCHEDULE = 16106,
+    CMD_LOCK_SHOOTING_SCHEDULE = 16107,
+    CMD_DELETE_SHOOTING_SCHEDULE = 16108,
+    CMD_GLOBAL_TASK_MANAGER_START_TASK = 16400,
+    CMD_GLOBAL_TASK_MANAGER_STOP_TASK = 16401,
     CMD_V3_DEVICE_CONFIG_MODE_QUERY = 16402,
     CMD_V3_DEVICE_CONFIG_SHOOTING_MODE = 16403,
     CMD_V3_DEVICE_CONFIG_MODE_SWITCH = 16404,
     CMD_V3_DEVICE_CONFIG_GET_CONFIG = 16405,
+    CMD_GLOBAL_VOICE_ASSISTANT_TASK = 16406,
     CMD_V3_CAMERA_PARAMS_SET_PARAM = 16700,
     CMD_V3_CAMERA_PARAMS_SET_EXP_GAIN = 16701,
     CMD_V3_CAMERA_PARAMS_UNKNOWN_16702 = 16702,
     CMD_V3_CAMERA_PARAMS_ADJUST = 16703,
-    CMD_V3_CAMERA_PARAMS_STREAM_CTRL = 16706
+    CMD_PARAM_SET_GENERAL_FLOAT_PARAM = 16704,
+    CMD_PARAM_SET_GENERAL_BOOL_PARAM = 16705,
+    CMD_V3_CAMERA_PARAMS_STREAM_CTRL = 16706,
+    CMD_VOICE_ASSISTANT_TASK = 16800,
+    CMD_CAMERA_GUIDE_SET_EXP = 16900,
+    CMD_CAMERA_GUIDE_GET_EXP = 16901,
+    CMD_CAMERA_GUIDE_SET_GAIN = 16902,
+    CMD_CAMERA_GUIDE_GET_GAIN = 16903,
+    CMD_DEVICE_LENS_DEFOG = 17000,
+    CMD_DEVICE_AUTO_COOLING = 17001,
+    CMD_DEVICE_AUTO_SHUTDOWN = 17002
 }
 
 /** DwarfErrorCode enum. */
@@ -26771,6 +28119,119 @@ export class V3ReqSetGPSLocation implements IV3ReqSetGPSLocation {
 
     /**
      * Gets the default type url for V3ReqSetGPSLocation
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** VoiceCommandType enum. */
+export enum VoiceCommandType {
+    VOICE_CMD_UNKNOWN = 0,
+    VOICE_CMD_GET_STATUS = 1,
+    VOICE_CMD_TAKE_PHOTO = 2,
+    VOICE_CMD_START_RECORD = 3,
+    VOICE_CMD_STOP_RECORD = 4,
+    VOICE_CMD_START_TIMELAPSE = 5,
+    VOICE_CMD_STOP_TIMELAPSE = 6,
+    VOICE_CMD_START_BURST = 7,
+    VOICE_CMD_STOP_BURST = 8,
+    VOICE_CMD_START_ASTRO = 9,
+    VOICE_CMD_STOP_ASTRO = 10,
+    VOICE_CMD_START_SENTRY = 11,
+    VOICE_CMD_STOP_SENTRY = 12,
+    VOICE_CMD_MOVE = 13,
+    VOICE_CMD_GOTO_TARGET = 14,
+    VOICE_CMD_CALIBRATION = 15,
+    VOICE_CMD_AUTO_FOCUS = 16,
+    VOICE_CMD_STOP_FOCUS = 17,
+    VOICE_CMD_STOP_ALL = 18
+}
+
+/** Represents a ReqVoiceCommand. */
+export class ReqVoiceCommand implements IReqVoiceCommand {
+
+    /**
+     * Constructs a new ReqVoiceCommand.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqVoiceCommand);
+
+    /** ReqVoiceCommand commandType. */
+    public commandType: VoiceCommandType;
+
+    /**
+     * Creates a new ReqVoiceCommand instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqVoiceCommand instance
+     */
+    public static create(properties?: IReqVoiceCommand): ReqVoiceCommand;
+
+    /**
+     * Encodes the specified ReqVoiceCommand message. Does not implicitly {@link ReqVoiceCommand.verify|verify} messages.
+     * @param message ReqVoiceCommand message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqVoiceCommand, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqVoiceCommand message, length delimited. Does not implicitly {@link ReqVoiceCommand.verify|verify} messages.
+     * @param message ReqVoiceCommand message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqVoiceCommand, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqVoiceCommand message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqVoiceCommand
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqVoiceCommand;
+
+    /**
+     * Decodes a ReqVoiceCommand message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqVoiceCommand
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqVoiceCommand;
+
+    /**
+     * Verifies a ReqVoiceCommand message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqVoiceCommand message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqVoiceCommand
+     */
+    public static fromObject(object: { [k: string]: any }): ReqVoiceCommand;
+
+    /**
+     * Creates a plain object from a ReqVoiceCommand message. Also converts values to other types if specified.
+     * @param message ReqVoiceCommand
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqVoiceCommand, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqVoiceCommand to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqVoiceCommand
      * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
      * @returns The default type url
      */

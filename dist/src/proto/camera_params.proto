@@ -36,3 +36,9 @@ message V3ReqStreamControl {
     int32 field2 = 2;
     int32 field3 = 3;
 }
+
+// APK 3.4.1 general boolean parameter request.
+message ReqSetGeneralBoolParams {
+    uint64 param_id = 1;
+    bool value = 2;
+}

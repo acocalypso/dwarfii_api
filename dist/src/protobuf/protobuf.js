@@ -8123,6 +8123,821 @@ $root.ResDelWideDarkFrameList = (function () {
     };
     return ResDelWideDarkFrameList;
 })();
+$root.ReqOneClickShootingParam = (function () {
+    /**
+     * Properties of a ReqOneClickShootingParam.
+     * @exports IReqOneClickShootingParam
+     * @interface IReqOneClickShootingParam
+     * @property {number|null} [horizontalScale] ReqOneClickShootingParam horizontalScale
+     * @property {number|null} [verticalScale] ReqOneClickShootingParam verticalScale
+     * @property {number|null} [rotation] ReqOneClickShootingParam rotation
+     * @property {number|null} [cameraType] ReqOneClickShootingParam cameraType
+     * @property {number|null} [expIndex] ReqOneClickShootingParam expIndex
+     * @property {number|null} [gain] ReqOneClickShootingParam gain
+     * @property {number|null} [filterType] ReqOneClickShootingParam filterType
+     * @property {number|null} [capSize] ReqOneClickShootingParam capSize
+     * @property {number|null} [resolution] ReqOneClickShootingParam resolution
+     */
+    /**
+     * Constructs a new ReqOneClickShootingParam.
+     * @exports ReqOneClickShootingParam
+     * @classdesc Represents a ReqOneClickShootingParam.
+     * @implements IReqOneClickShootingParam
+     * @constructor
+     * @param {IReqOneClickShootingParam=} [properties] Properties to set
+     */
+    function ReqOneClickShootingParam(properties) {
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+    /**
+     * ReqOneClickShootingParam horizontalScale.
+     * @member {number} horizontalScale
+     * @memberof ReqOneClickShootingParam
+     * @instance
+     */
+    ReqOneClickShootingParam.prototype.horizontalScale = 0;
+    /**
+     * ReqOneClickShootingParam verticalScale.
+     * @member {number} verticalScale
+     * @memberof ReqOneClickShootingParam
+     * @instance
+     */
+    ReqOneClickShootingParam.prototype.verticalScale = 0;
+    /**
+     * ReqOneClickShootingParam rotation.
+     * @member {number} rotation
+     * @memberof ReqOneClickShootingParam
+     * @instance
+     */
+    ReqOneClickShootingParam.prototype.rotation = 0;
+    /**
+     * ReqOneClickShootingParam cameraType.
+     * @member {number} cameraType
+     * @memberof ReqOneClickShootingParam
+     * @instance
+     */
+    ReqOneClickShootingParam.prototype.cameraType = 0;
+    /**
+     * ReqOneClickShootingParam expIndex.
+     * @member {number} expIndex
+     * @memberof ReqOneClickShootingParam
+     * @instance
+     */
+    ReqOneClickShootingParam.prototype.expIndex = 0;
+    /**
+     * ReqOneClickShootingParam gain.
+     * @member {number} gain
+     * @memberof ReqOneClickShootingParam
+     * @instance
+     */
+    ReqOneClickShootingParam.prototype.gain = 0;
+    /**
+     * ReqOneClickShootingParam filterType.
+     * @member {number} filterType
+     * @memberof ReqOneClickShootingParam
+     * @instance
+     */
+    ReqOneClickShootingParam.prototype.filterType = 0;
+    /**
+     * ReqOneClickShootingParam capSize.
+     * @member {number} capSize
+     * @memberof ReqOneClickShootingParam
+     * @instance
+     */
+    ReqOneClickShootingParam.prototype.capSize = 0;
+    /**
+     * ReqOneClickShootingParam resolution.
+     * @member {number} resolution
+     * @memberof ReqOneClickShootingParam
+     * @instance
+     */
+    ReqOneClickShootingParam.prototype.resolution = 0;
+    /**
+     * Creates a new ReqOneClickShootingParam instance using the specified properties.
+     * @function create
+     * @memberof ReqOneClickShootingParam
+     * @static
+     * @param {IReqOneClickShootingParam=} [properties] Properties to set
+     * @returns {ReqOneClickShootingParam} ReqOneClickShootingParam instance
+     */
+    ReqOneClickShootingParam.create = function create(properties) {
+        return new ReqOneClickShootingParam(properties);
+    };
+    /**
+     * Encodes the specified ReqOneClickShootingParam message. Does not implicitly {@link ReqOneClickShootingParam.verify|verify} messages.
+     * @function encode
+     * @memberof ReqOneClickShootingParam
+     * @static
+     * @param {IReqOneClickShootingParam} message ReqOneClickShootingParam message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    ReqOneClickShootingParam.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        if (message.horizontalScale != null &&
+            Object.hasOwnProperty.call(message, "horizontalScale"))
+            writer.uint32(/* id 1, wireType 0 =*/ 8).int32(message.horizontalScale);
+        if (message.verticalScale != null &&
+            Object.hasOwnProperty.call(message, "verticalScale"))
+            writer.uint32(/* id 2, wireType 0 =*/ 16).int32(message.verticalScale);
+        if (message.rotation != null &&
+            Object.hasOwnProperty.call(message, "rotation"))
+            writer.uint32(/* id 3, wireType 0 =*/ 24).int32(message.rotation);
+        if (message.cameraType != null &&
+            Object.hasOwnProperty.call(message, "cameraType"))
+            writer.uint32(/* id 4, wireType 0 =*/ 32).int32(message.cameraType);
+        if (message.expIndex != null &&
+            Object.hasOwnProperty.call(message, "expIndex"))
+            writer.uint32(/* id 5, wireType 0 =*/ 40).int32(message.expIndex);
+        if (message.gain != null && Object.hasOwnProperty.call(message, "gain"))
+            writer.uint32(/* id 6, wireType 0 =*/ 48).int32(message.gain);
+        if (message.filterType != null &&
+            Object.hasOwnProperty.call(message, "filterType"))
+            writer.uint32(/* id 7, wireType 0 =*/ 56).int32(message.filterType);
+        if (message.capSize != null &&
+            Object.hasOwnProperty.call(message, "capSize"))
+            writer.uint32(/* id 8, wireType 0 =*/ 64).int32(message.capSize);
+        if (message.resolution != null &&
+            Object.hasOwnProperty.call(message, "resolution"))
+            writer.uint32(/* id 9, wireType 0 =*/ 72).int32(message.resolution);
+        return writer;
+    };
+    /**
+     * Encodes the specified ReqOneClickShootingParam message, length delimited. Does not implicitly {@link ReqOneClickShootingParam.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof ReqOneClickShootingParam
+     * @static
+     * @param {IReqOneClickShootingParam} message ReqOneClickShootingParam message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    ReqOneClickShootingParam.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+    /**
+     * Decodes a ReqOneClickShootingParam message from the specified reader or buffer.
+     * @function decode
+     * @memberof ReqOneClickShootingParam
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {ReqOneClickShootingParam} ReqOneClickShootingParam
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    ReqOneClickShootingParam.decode = function decode(reader, length) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ReqOneClickShootingParam();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    message.horizontalScale = reader.int32();
+                    break;
+                }
+                case 2: {
+                    message.verticalScale = reader.int32();
+                    break;
+                }
+                case 3: {
+                    message.rotation = reader.int32();
+                    break;
+                }
+                case 4: {
+                    message.cameraType = reader.int32();
+                    break;
+                }
+                case 5: {
+                    message.expIndex = reader.int32();
+                    break;
+                }
+                case 6: {
+                    message.gain = reader.int32();
+                    break;
+                }
+                case 7: {
+                    message.filterType = reader.int32();
+                    break;
+                }
+                case 8: {
+                    message.capSize = reader.int32();
+                    break;
+                }
+                case 9: {
+                    message.resolution = reader.int32();
+                    break;
+                }
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    };
+    /**
+     * Decodes a ReqOneClickShootingParam message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof ReqOneClickShootingParam
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {ReqOneClickShootingParam} ReqOneClickShootingParam
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    ReqOneClickShootingParam.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+    /**
+     * Verifies a ReqOneClickShootingParam message.
+     * @function verify
+     * @memberof ReqOneClickShootingParam
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    ReqOneClickShootingParam.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        if (message.horizontalScale != null &&
+            message.hasOwnProperty("horizontalScale"))
+            if (!$util.isInteger(message.horizontalScale))
+                return "horizontalScale: integer expected";
+        if (message.verticalScale != null &&
+            message.hasOwnProperty("verticalScale"))
+            if (!$util.isInteger(message.verticalScale))
+                return "verticalScale: integer expected";
+        if (message.rotation != null && message.hasOwnProperty("rotation"))
+            if (!$util.isInteger(message.rotation))
+                return "rotation: integer expected";
+        if (message.cameraType != null && message.hasOwnProperty("cameraType"))
+            if (!$util.isInteger(message.cameraType))
+                return "cameraType: integer expected";
+        if (message.expIndex != null && message.hasOwnProperty("expIndex"))
+            if (!$util.isInteger(message.expIndex))
+                return "expIndex: integer expected";
+        if (message.gain != null && message.hasOwnProperty("gain"))
+            if (!$util.isInteger(message.gain))
+                return "gain: integer expected";
+        if (message.filterType != null && message.hasOwnProperty("filterType"))
+            if (!$util.isInteger(message.filterType))
+                return "filterType: integer expected";
+        if (message.capSize != null && message.hasOwnProperty("capSize"))
+            if (!$util.isInteger(message.capSize))
+                return "capSize: integer expected";
+        if (message.resolution != null && message.hasOwnProperty("resolution"))
+            if (!$util.isInteger(message.resolution))
+                return "resolution: integer expected";
+        return null;
+    };
+    /**
+     * Creates a ReqOneClickShootingParam message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof ReqOneClickShootingParam
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {ReqOneClickShootingParam} ReqOneClickShootingParam
+     */
+    ReqOneClickShootingParam.fromObject = function fromObject(object) {
+        if (object instanceof $root.ReqOneClickShootingParam)
+            return object;
+        var message = new $root.ReqOneClickShootingParam();
+        if (object.horizontalScale != null)
+            message.horizontalScale = object.horizontalScale | 0;
+        if (object.verticalScale != null)
+            message.verticalScale = object.verticalScale | 0;
+        if (object.rotation != null)
+            message.rotation = object.rotation | 0;
+        if (object.cameraType != null)
+            message.cameraType = object.cameraType | 0;
+        if (object.expIndex != null)
+            message.expIndex = object.expIndex | 0;
+        if (object.gain != null)
+            message.gain = object.gain | 0;
+        if (object.filterType != null)
+            message.filterType = object.filterType | 0;
+        if (object.capSize != null)
+            message.capSize = object.capSize | 0;
+        if (object.resolution != null)
+            message.resolution = object.resolution | 0;
+        return message;
+    };
+    /**
+     * Creates a plain object from a ReqOneClickShootingParam message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof ReqOneClickShootingParam
+     * @static
+     * @param {ReqOneClickShootingParam} message ReqOneClickShootingParam
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    ReqOneClickShootingParam.toObject = function toObject(message, options) {
+        if (!options)
+            options = {};
+        var object = {};
+        if (options.defaults) {
+            object.horizontalScale = 0;
+            object.verticalScale = 0;
+            object.rotation = 0;
+            object.cameraType = 0;
+            object.expIndex = 0;
+            object.gain = 0;
+            object.filterType = 0;
+            object.capSize = 0;
+            object.resolution = 0;
+        }
+        if (message.horizontalScale != null &&
+            message.hasOwnProperty("horizontalScale"))
+            object.horizontalScale = message.horizontalScale;
+        if (message.verticalScale != null &&
+            message.hasOwnProperty("verticalScale"))
+            object.verticalScale = message.verticalScale;
+        if (message.rotation != null && message.hasOwnProperty("rotation"))
+            object.rotation = message.rotation;
+        if (message.cameraType != null && message.hasOwnProperty("cameraType"))
+            object.cameraType = message.cameraType;
+        if (message.expIndex != null && message.hasOwnProperty("expIndex"))
+            object.expIndex = message.expIndex;
+        if (message.gain != null && message.hasOwnProperty("gain"))
+            object.gain = message.gain;
+        if (message.filterType != null && message.hasOwnProperty("filterType"))
+            object.filterType = message.filterType;
+        if (message.capSize != null && message.hasOwnProperty("capSize"))
+            object.capSize = message.capSize;
+        if (message.resolution != null && message.hasOwnProperty("resolution"))
+            object.resolution = message.resolution;
+        return object;
+    };
+    /**
+     * Converts this ReqOneClickShootingParam to JSON.
+     * @function toJSON
+     * @memberof ReqOneClickShootingParam
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    ReqOneClickShootingParam.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+    /**
+     * Gets the default type url for ReqOneClickShootingParam
+     * @function getTypeUrl
+     * @memberof ReqOneClickShootingParam
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ReqOneClickShootingParam.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ReqOneClickShootingParam";
+    };
+    return ReqOneClickShootingParam;
+})();
+$root.ReqOneClickShooting = (function () {
+    /**
+     * Properties of a ReqOneClickShooting.
+     * @exports IReqOneClickShooting
+     * @interface IReqOneClickShooting
+     * @property {IReqOneClickGotoDSO|null} [gotoDso] ReqOneClickShooting gotoDso
+     * @property {IReqOneClickShootingParam|null} [shootingParam] ReqOneClickShooting shootingParam
+     */
+    /**
+     * Constructs a new ReqOneClickShooting.
+     * @exports ReqOneClickShooting
+     * @classdesc Represents a ReqOneClickShooting.
+     * @implements IReqOneClickShooting
+     * @constructor
+     * @param {IReqOneClickShooting=} [properties] Properties to set
+     */
+    function ReqOneClickShooting(properties) {
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+    /**
+     * ReqOneClickShooting gotoDso.
+     * @member {IReqOneClickGotoDSO|null|undefined} gotoDso
+     * @memberof ReqOneClickShooting
+     * @instance
+     */
+    ReqOneClickShooting.prototype.gotoDso = null;
+    /**
+     * ReqOneClickShooting shootingParam.
+     * @member {IReqOneClickShootingParam|null|undefined} shootingParam
+     * @memberof ReqOneClickShooting
+     * @instance
+     */
+    ReqOneClickShooting.prototype.shootingParam = null;
+    /**
+     * Creates a new ReqOneClickShooting instance using the specified properties.
+     * @function create
+     * @memberof ReqOneClickShooting
+     * @static
+     * @param {IReqOneClickShooting=} [properties] Properties to set
+     * @returns {ReqOneClickShooting} ReqOneClickShooting instance
+     */
+    ReqOneClickShooting.create = function create(properties) {
+        return new ReqOneClickShooting(properties);
+    };
+    /**
+     * Encodes the specified ReqOneClickShooting message. Does not implicitly {@link ReqOneClickShooting.verify|verify} messages.
+     * @function encode
+     * @memberof ReqOneClickShooting
+     * @static
+     * @param {IReqOneClickShooting} message ReqOneClickShooting message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    ReqOneClickShooting.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        if (message.gotoDso != null &&
+            Object.hasOwnProperty.call(message, "gotoDso"))
+            $root.ReqOneClickGotoDSO.encode(message.gotoDso, writer.uint32(/* id 1, wireType 2 =*/ 10).fork()).ldelim();
+        if (message.shootingParam != null &&
+            Object.hasOwnProperty.call(message, "shootingParam"))
+            $root.ReqOneClickShootingParam.encode(message.shootingParam, writer.uint32(/* id 2, wireType 2 =*/ 18).fork()).ldelim();
+        return writer;
+    };
+    /**
+     * Encodes the specified ReqOneClickShooting message, length delimited. Does not implicitly {@link ReqOneClickShooting.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof ReqOneClickShooting
+     * @static
+     * @param {IReqOneClickShooting} message ReqOneClickShooting message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    ReqOneClickShooting.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+    /**
+     * Decodes a ReqOneClickShooting message from the specified reader or buffer.
+     * @function decode
+     * @memberof ReqOneClickShooting
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {ReqOneClickShooting} ReqOneClickShooting
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    ReqOneClickShooting.decode = function decode(reader, length) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ReqOneClickShooting();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    message.gotoDso = $root.ReqOneClickGotoDSO.decode(reader, reader.uint32());
+                    break;
+                }
+                case 2: {
+                    message.shootingParam = $root.ReqOneClickShootingParam.decode(reader, reader.uint32());
+                    break;
+                }
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    };
+    /**
+     * Decodes a ReqOneClickShooting message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof ReqOneClickShooting
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {ReqOneClickShooting} ReqOneClickShooting
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    ReqOneClickShooting.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+    /**
+     * Verifies a ReqOneClickShooting message.
+     * @function verify
+     * @memberof ReqOneClickShooting
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    ReqOneClickShooting.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        if (message.gotoDso != null && message.hasOwnProperty("gotoDso")) {
+            var error = $root.ReqOneClickGotoDSO.verify(message.gotoDso);
+            if (error)
+                return "gotoDso." + error;
+        }
+        if (message.shootingParam != null &&
+            message.hasOwnProperty("shootingParam")) {
+            var error = $root.ReqOneClickShootingParam.verify(message.shootingParam);
+            if (error)
+                return "shootingParam." + error;
+        }
+        return null;
+    };
+    /**
+     * Creates a ReqOneClickShooting message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof ReqOneClickShooting
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {ReqOneClickShooting} ReqOneClickShooting
+     */
+    ReqOneClickShooting.fromObject = function fromObject(object) {
+        if (object instanceof $root.ReqOneClickShooting)
+            return object;
+        var message = new $root.ReqOneClickShooting();
+        if (object.gotoDso != null) {
+            if (typeof object.gotoDso !== "object")
+                throw TypeError(".ReqOneClickShooting.gotoDso: object expected");
+            message.gotoDso = $root.ReqOneClickGotoDSO.fromObject(object.gotoDso);
+        }
+        if (object.shootingParam != null) {
+            if (typeof object.shootingParam !== "object")
+                throw TypeError(".ReqOneClickShooting.shootingParam: object expected");
+            message.shootingParam = $root.ReqOneClickShootingParam.fromObject(object.shootingParam);
+        }
+        return message;
+    };
+    /**
+     * Creates a plain object from a ReqOneClickShooting message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof ReqOneClickShooting
+     * @static
+     * @param {ReqOneClickShooting} message ReqOneClickShooting
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    ReqOneClickShooting.toObject = function toObject(message, options) {
+        if (!options)
+            options = {};
+        var object = {};
+        if (options.defaults) {
+            object.gotoDso = null;
+            object.shootingParam = null;
+        }
+        if (message.gotoDso != null && message.hasOwnProperty("gotoDso"))
+            object.gotoDso = $root.ReqOneClickGotoDSO.toObject(message.gotoDso, options);
+        if (message.shootingParam != null &&
+            message.hasOwnProperty("shootingParam"))
+            object.shootingParam = $root.ReqOneClickShootingParam.toObject(message.shootingParam, options);
+        return object;
+    };
+    /**
+     * Converts this ReqOneClickShooting to JSON.
+     * @function toJSON
+     * @memberof ReqOneClickShooting
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    ReqOneClickShooting.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+    /**
+     * Gets the default type url for ReqOneClickShooting
+     * @function getTypeUrl
+     * @memberof ReqOneClickShooting
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ReqOneClickShooting.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ReqOneClickShooting";
+    };
+    return ReqOneClickShooting;
+})();
+$root.ReqDelCaliFrameList = (function () {
+    /**
+     * Properties of a ReqDelCaliFrameList.
+     * @exports IReqDelCaliFrameList
+     * @interface IReqDelCaliFrameList
+     * @property {Array.<number>|null} [infoIds] ReqDelCaliFrameList infoIds
+     */
+    /**
+     * Constructs a new ReqDelCaliFrameList.
+     * @exports ReqDelCaliFrameList
+     * @classdesc Represents a ReqDelCaliFrameList.
+     * @implements IReqDelCaliFrameList
+     * @constructor
+     * @param {IReqDelCaliFrameList=} [properties] Properties to set
+     */
+    function ReqDelCaliFrameList(properties) {
+        this.infoIds = [];
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+    /**
+     * ReqDelCaliFrameList infoIds.
+     * @member {Array.<number>} infoIds
+     * @memberof ReqDelCaliFrameList
+     * @instance
+     */
+    ReqDelCaliFrameList.prototype.infoIds = $util.emptyArray;
+    /**
+     * Creates a new ReqDelCaliFrameList instance using the specified properties.
+     * @function create
+     * @memberof ReqDelCaliFrameList
+     * @static
+     * @param {IReqDelCaliFrameList=} [properties] Properties to set
+     * @returns {ReqDelCaliFrameList} ReqDelCaliFrameList instance
+     */
+    ReqDelCaliFrameList.create = function create(properties) {
+        return new ReqDelCaliFrameList(properties);
+    };
+    /**
+     * Encodes the specified ReqDelCaliFrameList message. Does not implicitly {@link ReqDelCaliFrameList.verify|verify} messages.
+     * @function encode
+     * @memberof ReqDelCaliFrameList
+     * @static
+     * @param {IReqDelCaliFrameList} message ReqDelCaliFrameList message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    ReqDelCaliFrameList.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        if (message.infoIds != null && message.infoIds.length) {
+            writer.uint32(/* id 1, wireType 2 =*/ 10).fork();
+            for (var i = 0; i < message.infoIds.length; ++i)
+                writer.int32(message.infoIds[i]);
+            writer.ldelim();
+        }
+        return writer;
+    };
+    /**
+     * Encodes the specified ReqDelCaliFrameList message, length delimited. Does not implicitly {@link ReqDelCaliFrameList.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof ReqDelCaliFrameList
+     * @static
+     * @param {IReqDelCaliFrameList} message ReqDelCaliFrameList message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    ReqDelCaliFrameList.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+    /**
+     * Decodes a ReqDelCaliFrameList message from the specified reader or buffer.
+     * @function decode
+     * @memberof ReqDelCaliFrameList
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {ReqDelCaliFrameList} ReqDelCaliFrameList
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    ReqDelCaliFrameList.decode = function decode(reader, length) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ReqDelCaliFrameList();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (!(message.infoIds && message.infoIds.length))
+                        message.infoIds = [];
+                    if ((tag & 7) === 2) {
+                        var end2 = reader.uint32() + reader.pos;
+                        while (reader.pos < end2)
+                            message.infoIds.push(reader.int32());
+                    }
+                    else
+                        message.infoIds.push(reader.int32());
+                    break;
+                }
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    };
+    /**
+     * Decodes a ReqDelCaliFrameList message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof ReqDelCaliFrameList
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {ReqDelCaliFrameList} ReqDelCaliFrameList
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    ReqDelCaliFrameList.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+    /**
+     * Verifies a ReqDelCaliFrameList message.
+     * @function verify
+     * @memberof ReqDelCaliFrameList
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    ReqDelCaliFrameList.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        if (message.infoIds != null && message.hasOwnProperty("infoIds")) {
+            if (!Array.isArray(message.infoIds))
+                return "infoIds: array expected";
+            for (var i = 0; i < message.infoIds.length; ++i)
+                if (!$util.isInteger(message.infoIds[i]))
+                    return "infoIds: integer[] expected";
+        }
+        return null;
+    };
+    /**
+     * Creates a ReqDelCaliFrameList message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof ReqDelCaliFrameList
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {ReqDelCaliFrameList} ReqDelCaliFrameList
+     */
+    ReqDelCaliFrameList.fromObject = function fromObject(object) {
+        if (object instanceof $root.ReqDelCaliFrameList)
+            return object;
+        var message = new $root.ReqDelCaliFrameList();
+        if (object.infoIds) {
+            if (!Array.isArray(object.infoIds))
+                throw TypeError(".ReqDelCaliFrameList.infoIds: array expected");
+            message.infoIds = [];
+            for (var i = 0; i < object.infoIds.length; ++i)
+                message.infoIds[i] = object.infoIds[i] | 0;
+        }
+        return message;
+    };
+    /**
+     * Creates a plain object from a ReqDelCaliFrameList message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof ReqDelCaliFrameList
+     * @static
+     * @param {ReqDelCaliFrameList} message ReqDelCaliFrameList
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    ReqDelCaliFrameList.toObject = function toObject(message, options) {
+        if (!options)
+            options = {};
+        var object = {};
+        if (options.arrays || options.defaults)
+            object.infoIds = [];
+        if (message.infoIds && message.infoIds.length) {
+            object.infoIds = [];
+            for (var j = 0; j < message.infoIds.length; ++j)
+                object.infoIds[j] = message.infoIds[j];
+        }
+        return object;
+    };
+    /**
+     * Converts this ReqDelCaliFrameList to JSON.
+     * @function toJSON
+     * @memberof ReqDelCaliFrameList
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    ReqDelCaliFrameList.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+    /**
+     * Gets the default type url for ReqDelCaliFrameList
+     * @function getTypeUrl
+     * @memberof ReqDelCaliFrameList
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ReqDelCaliFrameList.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ReqDelCaliFrameList";
+    };
+    return ReqDelCaliFrameList;
+})();
 /**
  * WsMajorVersion enum.
  * @exports WsMajorVersion
@@ -15221,6 +16036,249 @@ $root.V3ReqStreamControl = (function () {
         return typeUrlPrefix + "/V3ReqStreamControl";
     };
     return V3ReqStreamControl;
+})();
+$root.ReqSetGeneralBoolParams = (function () {
+    /**
+     * Properties of a ReqSetGeneralBoolParams.
+     * @exports IReqSetGeneralBoolParams
+     * @interface IReqSetGeneralBoolParams
+     * @property {number|Long|null} [paramId] ReqSetGeneralBoolParams paramId
+     * @property {boolean|null} [value] ReqSetGeneralBoolParams value
+     */
+    /**
+     * Constructs a new ReqSetGeneralBoolParams.
+     * @exports ReqSetGeneralBoolParams
+     * @classdesc Represents a ReqSetGeneralBoolParams.
+     * @implements IReqSetGeneralBoolParams
+     * @constructor
+     * @param {IReqSetGeneralBoolParams=} [properties] Properties to set
+     */
+    function ReqSetGeneralBoolParams(properties) {
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+    /**
+     * ReqSetGeneralBoolParams paramId.
+     * @member {number|Long} paramId
+     * @memberof ReqSetGeneralBoolParams
+     * @instance
+     */
+    ReqSetGeneralBoolParams.prototype.paramId = $util.Long
+        ? $util.Long.fromBits(0, 0, true)
+        : 0;
+    /**
+     * ReqSetGeneralBoolParams value.
+     * @member {boolean} value
+     * @memberof ReqSetGeneralBoolParams
+     * @instance
+     */
+    ReqSetGeneralBoolParams.prototype.value = false;
+    /**
+     * Creates a new ReqSetGeneralBoolParams instance using the specified properties.
+     * @function create
+     * @memberof ReqSetGeneralBoolParams
+     * @static
+     * @param {IReqSetGeneralBoolParams=} [properties] Properties to set
+     * @returns {ReqSetGeneralBoolParams} ReqSetGeneralBoolParams instance
+     */
+    ReqSetGeneralBoolParams.create = function create(properties) {
+        return new ReqSetGeneralBoolParams(properties);
+    };
+    /**
+     * Encodes the specified ReqSetGeneralBoolParams message. Does not implicitly {@link ReqSetGeneralBoolParams.verify|verify} messages.
+     * @function encode
+     * @memberof ReqSetGeneralBoolParams
+     * @static
+     * @param {IReqSetGeneralBoolParams} message ReqSetGeneralBoolParams message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    ReqSetGeneralBoolParams.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        if (message.paramId != null &&
+            Object.hasOwnProperty.call(message, "paramId"))
+            writer.uint32(/* id 1, wireType 0 =*/ 8).uint64(message.paramId);
+        if (message.value != null && Object.hasOwnProperty.call(message, "value"))
+            writer.uint32(/* id 2, wireType 0 =*/ 16).bool(message.value);
+        return writer;
+    };
+    /**
+     * Encodes the specified ReqSetGeneralBoolParams message, length delimited. Does not implicitly {@link ReqSetGeneralBoolParams.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof ReqSetGeneralBoolParams
+     * @static
+     * @param {IReqSetGeneralBoolParams} message ReqSetGeneralBoolParams message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    ReqSetGeneralBoolParams.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+    /**
+     * Decodes a ReqSetGeneralBoolParams message from the specified reader or buffer.
+     * @function decode
+     * @memberof ReqSetGeneralBoolParams
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {ReqSetGeneralBoolParams} ReqSetGeneralBoolParams
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    ReqSetGeneralBoolParams.decode = function decode(reader, length) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ReqSetGeneralBoolParams();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    message.paramId = reader.uint64();
+                    break;
+                }
+                case 2: {
+                    message.value = reader.bool();
+                    break;
+                }
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    };
+    /**
+     * Decodes a ReqSetGeneralBoolParams message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof ReqSetGeneralBoolParams
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {ReqSetGeneralBoolParams} ReqSetGeneralBoolParams
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    ReqSetGeneralBoolParams.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+    /**
+     * Verifies a ReqSetGeneralBoolParams message.
+     * @function verify
+     * @memberof ReqSetGeneralBoolParams
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    ReqSetGeneralBoolParams.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        if (message.paramId != null && message.hasOwnProperty("paramId"))
+            if (!$util.isInteger(message.paramId) &&
+                !(message.paramId &&
+                    $util.isInteger(message.paramId.low) &&
+                    $util.isInteger(message.paramId.high)))
+                return "paramId: integer|Long expected";
+        if (message.value != null && message.hasOwnProperty("value"))
+            if (typeof message.value !== "boolean")
+                return "value: boolean expected";
+        return null;
+    };
+    /**
+     * Creates a ReqSetGeneralBoolParams message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof ReqSetGeneralBoolParams
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {ReqSetGeneralBoolParams} ReqSetGeneralBoolParams
+     */
+    ReqSetGeneralBoolParams.fromObject = function fromObject(object) {
+        if (object instanceof $root.ReqSetGeneralBoolParams)
+            return object;
+        var message = new $root.ReqSetGeneralBoolParams();
+        if (object.paramId != null)
+            if ($util.Long)
+                (message.paramId = $util.Long.fromValue(object.paramId)).unsigned = true;
+            else if (typeof object.paramId === "string")
+                message.paramId = parseInt(object.paramId, 10);
+            else if (typeof object.paramId === "number")
+                message.paramId = object.paramId;
+            else if (typeof object.paramId === "object")
+                message.paramId = new $util.LongBits(object.paramId.low >>> 0, object.paramId.high >>> 0).toNumber(true);
+        if (object.value != null)
+            message.value = Boolean(object.value);
+        return message;
+    };
+    /**
+     * Creates a plain object from a ReqSetGeneralBoolParams message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof ReqSetGeneralBoolParams
+     * @static
+     * @param {ReqSetGeneralBoolParams} message ReqSetGeneralBoolParams
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    ReqSetGeneralBoolParams.toObject = function toObject(message, options) {
+        if (!options)
+            options = {};
+        var object = {};
+        if (options.defaults) {
+            if ($util.Long) {
+                var long = new $util.Long(0, 0, true);
+                object.paramId =
+                    options.longs === String
+                        ? long.toString()
+                        : options.longs === Number
+                            ? long.toNumber()
+                            : long;
+            }
+            else
+                object.paramId = options.longs === String ? "0" : 0;
+            object.value = false;
+        }
+        if (message.paramId != null && message.hasOwnProperty("paramId"))
+            if (typeof message.paramId === "number")
+                object.paramId =
+                    options.longs === String ? String(message.paramId) : message.paramId;
+            else
+                object.paramId =
+                    options.longs === String
+                        ? $util.Long.prototype.toString.call(message.paramId)
+                        : options.longs === Number
+                            ? new $util.LongBits(message.paramId.low >>> 0, message.paramId.high >>> 0).toNumber(true)
+                            : message.paramId;
+        if (message.value != null && message.hasOwnProperty("value"))
+            object.value = message.value;
+        return object;
+    };
+    /**
+     * Converts this ReqSetGeneralBoolParams to JSON.
+     * @function toJSON
+     * @memberof ReqSetGeneralBoolParams
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    ReqSetGeneralBoolParams.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+    /**
+     * Gets the default type url for ReqSetGeneralBoolParams
+     * @function getTypeUrl
+     * @memberof ReqSetGeneralBoolParams
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ReqSetGeneralBoolParams.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ReqSetGeneralBoolParams";
+    };
+    return ReqSetGeneralBoolParams;
 })();
 $root.ReqOpenCamera = (function () {
     /**
@@ -25792,6 +26850,570 @@ $root.V3ResGetDeviceConfig = (function () {
     };
     return V3ResGetDeviceConfig;
 })();
+$root.ReqLensDefog = (function () {
+    /**
+     * Properties of a ReqLensDefog.
+     * @exports IReqLensDefog
+     * @interface IReqLensDefog
+     * @property {number|null} [state] ReqLensDefog state
+     */
+    /**
+     * Constructs a new ReqLensDefog.
+     * @exports ReqLensDefog
+     * @classdesc Represents a ReqLensDefog.
+     * @implements IReqLensDefog
+     * @constructor
+     * @param {IReqLensDefog=} [properties] Properties to set
+     */
+    function ReqLensDefog(properties) {
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+    /**
+     * ReqLensDefog state.
+     * @member {number} state
+     * @memberof ReqLensDefog
+     * @instance
+     */
+    ReqLensDefog.prototype.state = 0;
+    /**
+     * Creates a new ReqLensDefog instance using the specified properties.
+     * @function create
+     * @memberof ReqLensDefog
+     * @static
+     * @param {IReqLensDefog=} [properties] Properties to set
+     * @returns {ReqLensDefog} ReqLensDefog instance
+     */
+    ReqLensDefog.create = function create(properties) {
+        return new ReqLensDefog(properties);
+    };
+    /**
+     * Encodes the specified ReqLensDefog message. Does not implicitly {@link ReqLensDefog.verify|verify} messages.
+     * @function encode
+     * @memberof ReqLensDefog
+     * @static
+     * @param {IReqLensDefog} message ReqLensDefog message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    ReqLensDefog.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        if (message.state != null && Object.hasOwnProperty.call(message, "state"))
+            writer.uint32(/* id 1, wireType 0 =*/ 8).int32(message.state);
+        return writer;
+    };
+    /**
+     * Encodes the specified ReqLensDefog message, length delimited. Does not implicitly {@link ReqLensDefog.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof ReqLensDefog
+     * @static
+     * @param {IReqLensDefog} message ReqLensDefog message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    ReqLensDefog.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+    /**
+     * Decodes a ReqLensDefog message from the specified reader or buffer.
+     * @function decode
+     * @memberof ReqLensDefog
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {ReqLensDefog} ReqLensDefog
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    ReqLensDefog.decode = function decode(reader, length) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ReqLensDefog();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    message.state = reader.int32();
+                    break;
+                }
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    };
+    /**
+     * Decodes a ReqLensDefog message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof ReqLensDefog
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {ReqLensDefog} ReqLensDefog
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    ReqLensDefog.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+    /**
+     * Verifies a ReqLensDefog message.
+     * @function verify
+     * @memberof ReqLensDefog
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    ReqLensDefog.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        if (message.state != null && message.hasOwnProperty("state"))
+            if (!$util.isInteger(message.state))
+                return "state: integer expected";
+        return null;
+    };
+    /**
+     * Creates a ReqLensDefog message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof ReqLensDefog
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {ReqLensDefog} ReqLensDefog
+     */
+    ReqLensDefog.fromObject = function fromObject(object) {
+        if (object instanceof $root.ReqLensDefog)
+            return object;
+        var message = new $root.ReqLensDefog();
+        if (object.state != null)
+            message.state = object.state | 0;
+        return message;
+    };
+    /**
+     * Creates a plain object from a ReqLensDefog message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof ReqLensDefog
+     * @static
+     * @param {ReqLensDefog} message ReqLensDefog
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    ReqLensDefog.toObject = function toObject(message, options) {
+        if (!options)
+            options = {};
+        var object = {};
+        if (options.defaults)
+            object.state = 0;
+        if (message.state != null && message.hasOwnProperty("state"))
+            object.state = message.state;
+        return object;
+    };
+    /**
+     * Converts this ReqLensDefog to JSON.
+     * @function toJSON
+     * @memberof ReqLensDefog
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    ReqLensDefog.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+    /**
+     * Gets the default type url for ReqLensDefog
+     * @function getTypeUrl
+     * @memberof ReqLensDefog
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ReqLensDefog.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ReqLensDefog";
+    };
+    return ReqLensDefog;
+})();
+$root.ReqAutoCooling = (function () {
+    /**
+     * Properties of a ReqAutoCooling.
+     * @exports IReqAutoCooling
+     * @interface IReqAutoCooling
+     * @property {number|null} [state] ReqAutoCooling state
+     */
+    /**
+     * Constructs a new ReqAutoCooling.
+     * @exports ReqAutoCooling
+     * @classdesc Represents a ReqAutoCooling.
+     * @implements IReqAutoCooling
+     * @constructor
+     * @param {IReqAutoCooling=} [properties] Properties to set
+     */
+    function ReqAutoCooling(properties) {
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+    /**
+     * ReqAutoCooling state.
+     * @member {number} state
+     * @memberof ReqAutoCooling
+     * @instance
+     */
+    ReqAutoCooling.prototype.state = 0;
+    /**
+     * Creates a new ReqAutoCooling instance using the specified properties.
+     * @function create
+     * @memberof ReqAutoCooling
+     * @static
+     * @param {IReqAutoCooling=} [properties] Properties to set
+     * @returns {ReqAutoCooling} ReqAutoCooling instance
+     */
+    ReqAutoCooling.create = function create(properties) {
+        return new ReqAutoCooling(properties);
+    };
+    /**
+     * Encodes the specified ReqAutoCooling message. Does not implicitly {@link ReqAutoCooling.verify|verify} messages.
+     * @function encode
+     * @memberof ReqAutoCooling
+     * @static
+     * @param {IReqAutoCooling} message ReqAutoCooling message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    ReqAutoCooling.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        if (message.state != null && Object.hasOwnProperty.call(message, "state"))
+            writer.uint32(/* id 1, wireType 0 =*/ 8).int32(message.state);
+        return writer;
+    };
+    /**
+     * Encodes the specified ReqAutoCooling message, length delimited. Does not implicitly {@link ReqAutoCooling.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof ReqAutoCooling
+     * @static
+     * @param {IReqAutoCooling} message ReqAutoCooling message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    ReqAutoCooling.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+    /**
+     * Decodes a ReqAutoCooling message from the specified reader or buffer.
+     * @function decode
+     * @memberof ReqAutoCooling
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {ReqAutoCooling} ReqAutoCooling
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    ReqAutoCooling.decode = function decode(reader, length) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ReqAutoCooling();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    message.state = reader.int32();
+                    break;
+                }
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    };
+    /**
+     * Decodes a ReqAutoCooling message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof ReqAutoCooling
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {ReqAutoCooling} ReqAutoCooling
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    ReqAutoCooling.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+    /**
+     * Verifies a ReqAutoCooling message.
+     * @function verify
+     * @memberof ReqAutoCooling
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    ReqAutoCooling.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        if (message.state != null && message.hasOwnProperty("state"))
+            if (!$util.isInteger(message.state))
+                return "state: integer expected";
+        return null;
+    };
+    /**
+     * Creates a ReqAutoCooling message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof ReqAutoCooling
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {ReqAutoCooling} ReqAutoCooling
+     */
+    ReqAutoCooling.fromObject = function fromObject(object) {
+        if (object instanceof $root.ReqAutoCooling)
+            return object;
+        var message = new $root.ReqAutoCooling();
+        if (object.state != null)
+            message.state = object.state | 0;
+        return message;
+    };
+    /**
+     * Creates a plain object from a ReqAutoCooling message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof ReqAutoCooling
+     * @static
+     * @param {ReqAutoCooling} message ReqAutoCooling
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    ReqAutoCooling.toObject = function toObject(message, options) {
+        if (!options)
+            options = {};
+        var object = {};
+        if (options.defaults)
+            object.state = 0;
+        if (message.state != null && message.hasOwnProperty("state"))
+            object.state = message.state;
+        return object;
+    };
+    /**
+     * Converts this ReqAutoCooling to JSON.
+     * @function toJSON
+     * @memberof ReqAutoCooling
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    ReqAutoCooling.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+    /**
+     * Gets the default type url for ReqAutoCooling
+     * @function getTypeUrl
+     * @memberof ReqAutoCooling
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ReqAutoCooling.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ReqAutoCooling";
+    };
+    return ReqAutoCooling;
+})();
+$root.ReqAutoShutdown = (function () {
+    /**
+     * Properties of a ReqAutoShutdown.
+     * @exports IReqAutoShutdown
+     * @interface IReqAutoShutdown
+     * @property {number|null} [state] ReqAutoShutdown state
+     */
+    /**
+     * Constructs a new ReqAutoShutdown.
+     * @exports ReqAutoShutdown
+     * @classdesc Represents a ReqAutoShutdown.
+     * @implements IReqAutoShutdown
+     * @constructor
+     * @param {IReqAutoShutdown=} [properties] Properties to set
+     */
+    function ReqAutoShutdown(properties) {
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+    /**
+     * ReqAutoShutdown state.
+     * @member {number} state
+     * @memberof ReqAutoShutdown
+     * @instance
+     */
+    ReqAutoShutdown.prototype.state = 0;
+    /**
+     * Creates a new ReqAutoShutdown instance using the specified properties.
+     * @function create
+     * @memberof ReqAutoShutdown
+     * @static
+     * @param {IReqAutoShutdown=} [properties] Properties to set
+     * @returns {ReqAutoShutdown} ReqAutoShutdown instance
+     */
+    ReqAutoShutdown.create = function create(properties) {
+        return new ReqAutoShutdown(properties);
+    };
+    /**
+     * Encodes the specified ReqAutoShutdown message. Does not implicitly {@link ReqAutoShutdown.verify|verify} messages.
+     * @function encode
+     * @memberof ReqAutoShutdown
+     * @static
+     * @param {IReqAutoShutdown} message ReqAutoShutdown message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    ReqAutoShutdown.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        if (message.state != null && Object.hasOwnProperty.call(message, "state"))
+            writer.uint32(/* id 1, wireType 0 =*/ 8).int32(message.state);
+        return writer;
+    };
+    /**
+     * Encodes the specified ReqAutoShutdown message, length delimited. Does not implicitly {@link ReqAutoShutdown.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof ReqAutoShutdown
+     * @static
+     * @param {IReqAutoShutdown} message ReqAutoShutdown message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    ReqAutoShutdown.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+    /**
+     * Decodes a ReqAutoShutdown message from the specified reader or buffer.
+     * @function decode
+     * @memberof ReqAutoShutdown
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {ReqAutoShutdown} ReqAutoShutdown
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    ReqAutoShutdown.decode = function decode(reader, length) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ReqAutoShutdown();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    message.state = reader.int32();
+                    break;
+                }
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    };
+    /**
+     * Decodes a ReqAutoShutdown message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof ReqAutoShutdown
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {ReqAutoShutdown} ReqAutoShutdown
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    ReqAutoShutdown.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+    /**
+     * Verifies a ReqAutoShutdown message.
+     * @function verify
+     * @memberof ReqAutoShutdown
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    ReqAutoShutdown.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        if (message.state != null && message.hasOwnProperty("state"))
+            if (!$util.isInteger(message.state))
+                return "state: integer expected";
+        return null;
+    };
+    /**
+     * Creates a ReqAutoShutdown message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof ReqAutoShutdown
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {ReqAutoShutdown} ReqAutoShutdown
+     */
+    ReqAutoShutdown.fromObject = function fromObject(object) {
+        if (object instanceof $root.ReqAutoShutdown)
+            return object;
+        var message = new $root.ReqAutoShutdown();
+        if (object.state != null)
+            message.state = object.state | 0;
+        return message;
+    };
+    /**
+     * Creates a plain object from a ReqAutoShutdown message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof ReqAutoShutdown
+     * @static
+     * @param {ReqAutoShutdown} message ReqAutoShutdown
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    ReqAutoShutdown.toObject = function toObject(message, options) {
+        if (!options)
+            options = {};
+        var object = {};
+        if (options.defaults)
+            object.state = 0;
+        if (message.state != null && message.hasOwnProperty("state"))
+            object.state = message.state;
+        return object;
+    };
+    /**
+     * Converts this ReqAutoShutdown to JSON.
+     * @function toJSON
+     * @memberof ReqAutoShutdown
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    ReqAutoShutdown.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+    /**
+     * Gets the default type url for ReqAutoShutdown
+     * @function getTypeUrl
+     * @memberof ReqAutoShutdown
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ReqAutoShutdown.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ReqAutoShutdown";
+    };
+    return ReqAutoShutdown;
+})();
 $root.ReqManualSingleStepFocus = (function () {
     /**
      * Properties of a ReqManualSingleStepFocus.
@@ -30134,6 +31756,558 @@ $root.ReqDualCameraLinkage = (function () {
         return typeUrlPrefix + "/ReqDualCameraLinkage";
     };
     return ReqDualCameraLinkage;
+})();
+/**
+ * MotorLevelCalibrationDirection enum.
+ * @exports MotorLevelCalibrationDirection
+ * @enum {number}
+ * @property {number} MOTOR_LEVEL_CALIBRATION_DIRECTION_CW=0 MOTOR_LEVEL_CALIBRATION_DIRECTION_CW value
+ * @property {number} MOTOR_LEVEL_CALIBRATION_DIRECTION_CCW=1 MOTOR_LEVEL_CALIBRATION_DIRECTION_CCW value
+ */
+$root.MotorLevelCalibrationDirection = (function () {
+    var valuesById = {}, values = Object.create(valuesById);
+    values[(valuesById[0] = "MOTOR_LEVEL_CALIBRATION_DIRECTION_CW")] = 0;
+    values[(valuesById[1] = "MOTOR_LEVEL_CALIBRATION_DIRECTION_CCW")] = 1;
+    return values;
+})();
+$root.ReqMotorLevelCalibrationMove = (function () {
+    /**
+     * Properties of a ReqMotorLevelCalibrationMove.
+     * @exports IReqMotorLevelCalibrationMove
+     * @interface IReqMotorLevelCalibrationMove
+     * @property {MotorLevelCalibrationDirection|null} [direction] ReqMotorLevelCalibrationMove direction
+     */
+    /**
+     * Constructs a new ReqMotorLevelCalibrationMove.
+     * @exports ReqMotorLevelCalibrationMove
+     * @classdesc Represents a ReqMotorLevelCalibrationMove.
+     * @implements IReqMotorLevelCalibrationMove
+     * @constructor
+     * @param {IReqMotorLevelCalibrationMove=} [properties] Properties to set
+     */
+    function ReqMotorLevelCalibrationMove(properties) {
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+    /**
+     * ReqMotorLevelCalibrationMove direction.
+     * @member {MotorLevelCalibrationDirection} direction
+     * @memberof ReqMotorLevelCalibrationMove
+     * @instance
+     */
+    ReqMotorLevelCalibrationMove.prototype.direction = 0;
+    /**
+     * Creates a new ReqMotorLevelCalibrationMove instance using the specified properties.
+     * @function create
+     * @memberof ReqMotorLevelCalibrationMove
+     * @static
+     * @param {IReqMotorLevelCalibrationMove=} [properties] Properties to set
+     * @returns {ReqMotorLevelCalibrationMove} ReqMotorLevelCalibrationMove instance
+     */
+    ReqMotorLevelCalibrationMove.create = function create(properties) {
+        return new ReqMotorLevelCalibrationMove(properties);
+    };
+    /**
+     * Encodes the specified ReqMotorLevelCalibrationMove message. Does not implicitly {@link ReqMotorLevelCalibrationMove.verify|verify} messages.
+     * @function encode
+     * @memberof ReqMotorLevelCalibrationMove
+     * @static
+     * @param {IReqMotorLevelCalibrationMove} message ReqMotorLevelCalibrationMove message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    ReqMotorLevelCalibrationMove.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        if (message.direction != null &&
+            Object.hasOwnProperty.call(message, "direction"))
+            writer.uint32(/* id 1, wireType 0 =*/ 8).int32(message.direction);
+        return writer;
+    };
+    /**
+     * Encodes the specified ReqMotorLevelCalibrationMove message, length delimited. Does not implicitly {@link ReqMotorLevelCalibrationMove.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof ReqMotorLevelCalibrationMove
+     * @static
+     * @param {IReqMotorLevelCalibrationMove} message ReqMotorLevelCalibrationMove message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    ReqMotorLevelCalibrationMove.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+    /**
+     * Decodes a ReqMotorLevelCalibrationMove message from the specified reader or buffer.
+     * @function decode
+     * @memberof ReqMotorLevelCalibrationMove
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {ReqMotorLevelCalibrationMove} ReqMotorLevelCalibrationMove
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    ReqMotorLevelCalibrationMove.decode = function decode(reader, length) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ReqMotorLevelCalibrationMove();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    message.direction = reader.int32();
+                    break;
+                }
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    };
+    /**
+     * Decodes a ReqMotorLevelCalibrationMove message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof ReqMotorLevelCalibrationMove
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {ReqMotorLevelCalibrationMove} ReqMotorLevelCalibrationMove
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    ReqMotorLevelCalibrationMove.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+    /**
+     * Verifies a ReqMotorLevelCalibrationMove message.
+     * @function verify
+     * @memberof ReqMotorLevelCalibrationMove
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    ReqMotorLevelCalibrationMove.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        if (message.direction != null && message.hasOwnProperty("direction"))
+            switch (message.direction) {
+                default:
+                    return "direction: enum value expected";
+                case 0:
+                case 1:
+                    break;
+            }
+        return null;
+    };
+    /**
+     * Creates a ReqMotorLevelCalibrationMove message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof ReqMotorLevelCalibrationMove
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {ReqMotorLevelCalibrationMove} ReqMotorLevelCalibrationMove
+     */
+    ReqMotorLevelCalibrationMove.fromObject = function fromObject(object) {
+        if (object instanceof $root.ReqMotorLevelCalibrationMove)
+            return object;
+        var message = new $root.ReqMotorLevelCalibrationMove();
+        switch (object.direction) {
+            default:
+                if (typeof object.direction === "number") {
+                    message.direction = object.direction;
+                    break;
+                }
+                break;
+            case "MOTOR_LEVEL_CALIBRATION_DIRECTION_CW":
+            case 0:
+                message.direction = 0;
+                break;
+            case "MOTOR_LEVEL_CALIBRATION_DIRECTION_CCW":
+            case 1:
+                message.direction = 1;
+                break;
+        }
+        return message;
+    };
+    /**
+     * Creates a plain object from a ReqMotorLevelCalibrationMove message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof ReqMotorLevelCalibrationMove
+     * @static
+     * @param {ReqMotorLevelCalibrationMove} message ReqMotorLevelCalibrationMove
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    ReqMotorLevelCalibrationMove.toObject = function toObject(message, options) {
+        if (!options)
+            options = {};
+        var object = {};
+        if (options.defaults)
+            object.direction =
+                options.enums === String ? "MOTOR_LEVEL_CALIBRATION_DIRECTION_CW" : 0;
+        if (message.direction != null && message.hasOwnProperty("direction"))
+            object.direction =
+                options.enums === String
+                    ? $root.MotorLevelCalibrationDirection[message.direction] ===
+                        undefined
+                        ? message.direction
+                        : $root.MotorLevelCalibrationDirection[message.direction]
+                    : message.direction;
+        return object;
+    };
+    /**
+     * Converts this ReqMotorLevelCalibrationMove to JSON.
+     * @function toJSON
+     * @memberof ReqMotorLevelCalibrationMove
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    ReqMotorLevelCalibrationMove.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+    /**
+     * Gets the default type url for ReqMotorLevelCalibrationMove
+     * @function getTypeUrl
+     * @memberof ReqMotorLevelCalibrationMove
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ReqMotorLevelCalibrationMove.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ReqMotorLevelCalibrationMove";
+    };
+    return ReqMotorLevelCalibrationMove;
+})();
+$root.ReqMotorLevelCalibrationSave = (function () {
+    /**
+     * Properties of a ReqMotorLevelCalibrationSave.
+     * @exports IReqMotorLevelCalibrationSave
+     * @interface IReqMotorLevelCalibrationSave
+     */
+    /**
+     * Constructs a new ReqMotorLevelCalibrationSave.
+     * @exports ReqMotorLevelCalibrationSave
+     * @classdesc Represents a ReqMotorLevelCalibrationSave.
+     * @implements IReqMotorLevelCalibrationSave
+     * @constructor
+     * @param {IReqMotorLevelCalibrationSave=} [properties] Properties to set
+     */
+    function ReqMotorLevelCalibrationSave(properties) {
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+    /**
+     * Creates a new ReqMotorLevelCalibrationSave instance using the specified properties.
+     * @function create
+     * @memberof ReqMotorLevelCalibrationSave
+     * @static
+     * @param {IReqMotorLevelCalibrationSave=} [properties] Properties to set
+     * @returns {ReqMotorLevelCalibrationSave} ReqMotorLevelCalibrationSave instance
+     */
+    ReqMotorLevelCalibrationSave.create = function create(properties) {
+        return new ReqMotorLevelCalibrationSave(properties);
+    };
+    /**
+     * Encodes the specified ReqMotorLevelCalibrationSave message. Does not implicitly {@link ReqMotorLevelCalibrationSave.verify|verify} messages.
+     * @function encode
+     * @memberof ReqMotorLevelCalibrationSave
+     * @static
+     * @param {IReqMotorLevelCalibrationSave} message ReqMotorLevelCalibrationSave message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    ReqMotorLevelCalibrationSave.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        return writer;
+    };
+    /**
+     * Encodes the specified ReqMotorLevelCalibrationSave message, length delimited. Does not implicitly {@link ReqMotorLevelCalibrationSave.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof ReqMotorLevelCalibrationSave
+     * @static
+     * @param {IReqMotorLevelCalibrationSave} message ReqMotorLevelCalibrationSave message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    ReqMotorLevelCalibrationSave.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+    /**
+     * Decodes a ReqMotorLevelCalibrationSave message from the specified reader or buffer.
+     * @function decode
+     * @memberof ReqMotorLevelCalibrationSave
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {ReqMotorLevelCalibrationSave} ReqMotorLevelCalibrationSave
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    ReqMotorLevelCalibrationSave.decode = function decode(reader, length) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ReqMotorLevelCalibrationSave();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    };
+    /**
+     * Decodes a ReqMotorLevelCalibrationSave message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof ReqMotorLevelCalibrationSave
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {ReqMotorLevelCalibrationSave} ReqMotorLevelCalibrationSave
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    ReqMotorLevelCalibrationSave.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+    /**
+     * Verifies a ReqMotorLevelCalibrationSave message.
+     * @function verify
+     * @memberof ReqMotorLevelCalibrationSave
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    ReqMotorLevelCalibrationSave.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        return null;
+    };
+    /**
+     * Creates a ReqMotorLevelCalibrationSave message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof ReqMotorLevelCalibrationSave
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {ReqMotorLevelCalibrationSave} ReqMotorLevelCalibrationSave
+     */
+    ReqMotorLevelCalibrationSave.fromObject = function fromObject(object) {
+        if (object instanceof $root.ReqMotorLevelCalibrationSave)
+            return object;
+        return new $root.ReqMotorLevelCalibrationSave();
+    };
+    /**
+     * Creates a plain object from a ReqMotorLevelCalibrationSave message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof ReqMotorLevelCalibrationSave
+     * @static
+     * @param {ReqMotorLevelCalibrationSave} message ReqMotorLevelCalibrationSave
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    ReqMotorLevelCalibrationSave.toObject = function toObject() {
+        return {};
+    };
+    /**
+     * Converts this ReqMotorLevelCalibrationSave to JSON.
+     * @function toJSON
+     * @memberof ReqMotorLevelCalibrationSave
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    ReqMotorLevelCalibrationSave.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+    /**
+     * Gets the default type url for ReqMotorLevelCalibrationSave
+     * @function getTypeUrl
+     * @memberof ReqMotorLevelCalibrationSave
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ReqMotorLevelCalibrationSave.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ReqMotorLevelCalibrationSave";
+    };
+    return ReqMotorLevelCalibrationSave;
+})();
+$root.ReqMotorLevelCalibrationResetDefault = (function () {
+    /**
+     * Properties of a ReqMotorLevelCalibrationResetDefault.
+     * @exports IReqMotorLevelCalibrationResetDefault
+     * @interface IReqMotorLevelCalibrationResetDefault
+     */
+    /**
+     * Constructs a new ReqMotorLevelCalibrationResetDefault.
+     * @exports ReqMotorLevelCalibrationResetDefault
+     * @classdesc Represents a ReqMotorLevelCalibrationResetDefault.
+     * @implements IReqMotorLevelCalibrationResetDefault
+     * @constructor
+     * @param {IReqMotorLevelCalibrationResetDefault=} [properties] Properties to set
+     */
+    function ReqMotorLevelCalibrationResetDefault(properties) {
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+    /**
+     * Creates a new ReqMotorLevelCalibrationResetDefault instance using the specified properties.
+     * @function create
+     * @memberof ReqMotorLevelCalibrationResetDefault
+     * @static
+     * @param {IReqMotorLevelCalibrationResetDefault=} [properties] Properties to set
+     * @returns {ReqMotorLevelCalibrationResetDefault} ReqMotorLevelCalibrationResetDefault instance
+     */
+    ReqMotorLevelCalibrationResetDefault.create = function create(properties) {
+        return new ReqMotorLevelCalibrationResetDefault(properties);
+    };
+    /**
+     * Encodes the specified ReqMotorLevelCalibrationResetDefault message. Does not implicitly {@link ReqMotorLevelCalibrationResetDefault.verify|verify} messages.
+     * @function encode
+     * @memberof ReqMotorLevelCalibrationResetDefault
+     * @static
+     * @param {IReqMotorLevelCalibrationResetDefault} message ReqMotorLevelCalibrationResetDefault message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    ReqMotorLevelCalibrationResetDefault.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        return writer;
+    };
+    /**
+     * Encodes the specified ReqMotorLevelCalibrationResetDefault message, length delimited. Does not implicitly {@link ReqMotorLevelCalibrationResetDefault.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof ReqMotorLevelCalibrationResetDefault
+     * @static
+     * @param {IReqMotorLevelCalibrationResetDefault} message ReqMotorLevelCalibrationResetDefault message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    ReqMotorLevelCalibrationResetDefault.encodeDelimited =
+        function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+    /**
+     * Decodes a ReqMotorLevelCalibrationResetDefault message from the specified reader or buffer.
+     * @function decode
+     * @memberof ReqMotorLevelCalibrationResetDefault
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {ReqMotorLevelCalibrationResetDefault} ReqMotorLevelCalibrationResetDefault
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    ReqMotorLevelCalibrationResetDefault.decode = function decode(reader, length) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ReqMotorLevelCalibrationResetDefault();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    };
+    /**
+     * Decodes a ReqMotorLevelCalibrationResetDefault message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof ReqMotorLevelCalibrationResetDefault
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {ReqMotorLevelCalibrationResetDefault} ReqMotorLevelCalibrationResetDefault
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    ReqMotorLevelCalibrationResetDefault.decodeDelimited =
+        function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+    /**
+     * Verifies a ReqMotorLevelCalibrationResetDefault message.
+     * @function verify
+     * @memberof ReqMotorLevelCalibrationResetDefault
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    ReqMotorLevelCalibrationResetDefault.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        return null;
+    };
+    /**
+     * Creates a ReqMotorLevelCalibrationResetDefault message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof ReqMotorLevelCalibrationResetDefault
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {ReqMotorLevelCalibrationResetDefault} ReqMotorLevelCalibrationResetDefault
+     */
+    ReqMotorLevelCalibrationResetDefault.fromObject = function fromObject(object) {
+        if (object instanceof $root.ReqMotorLevelCalibrationResetDefault)
+            return object;
+        return new $root.ReqMotorLevelCalibrationResetDefault();
+    };
+    /**
+     * Creates a plain object from a ReqMotorLevelCalibrationResetDefault message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof ReqMotorLevelCalibrationResetDefault
+     * @static
+     * @param {ReqMotorLevelCalibrationResetDefault} message ReqMotorLevelCalibrationResetDefault
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    ReqMotorLevelCalibrationResetDefault.toObject = function toObject() {
+        return {};
+    };
+    /**
+     * Converts this ReqMotorLevelCalibrationResetDefault to JSON.
+     * @function toJSON
+     * @memberof ReqMotorLevelCalibrationResetDefault
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    ReqMotorLevelCalibrationResetDefault.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+    /**
+     * Gets the default type url for ReqMotorLevelCalibrationResetDefault
+     * @function getTypeUrl
+     * @memberof ReqMotorLevelCalibrationResetDefault
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ReqMotorLevelCalibrationResetDefault.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ReqMotorLevelCalibrationResetDefault";
+    };
+    return ReqMotorLevelCalibrationResetDefault;
 })();
 /**
  * State enum.
@@ -40138,6 +42312,545 @@ $root.ResGetStitchUploadState = (function () {
     };
     return ResGetStitchUploadState;
 })();
+$root.ReqGetUploadPredict = (function () {
+    /**
+     * Properties of a ReqGetUploadPredict.
+     * @exports IReqGetUploadPredict
+     * @interface IReqGetUploadPredict
+     * @property {string|null} [panoramaName] ReqGetUploadPredict panoramaName
+     */
+    /**
+     * Constructs a new ReqGetUploadPredict.
+     * @exports ReqGetUploadPredict
+     * @classdesc Represents a ReqGetUploadPredict.
+     * @implements IReqGetUploadPredict
+     * @constructor
+     * @param {IReqGetUploadPredict=} [properties] Properties to set
+     */
+    function ReqGetUploadPredict(properties) {
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+    /**
+     * ReqGetUploadPredict panoramaName.
+     * @member {string} panoramaName
+     * @memberof ReqGetUploadPredict
+     * @instance
+     */
+    ReqGetUploadPredict.prototype.panoramaName = "";
+    /**
+     * Creates a new ReqGetUploadPredict instance using the specified properties.
+     * @function create
+     * @memberof ReqGetUploadPredict
+     * @static
+     * @param {IReqGetUploadPredict=} [properties] Properties to set
+     * @returns {ReqGetUploadPredict} ReqGetUploadPredict instance
+     */
+    ReqGetUploadPredict.create = function create(properties) {
+        return new ReqGetUploadPredict(properties);
+    };
+    /**
+     * Encodes the specified ReqGetUploadPredict message. Does not implicitly {@link ReqGetUploadPredict.verify|verify} messages.
+     * @function encode
+     * @memberof ReqGetUploadPredict
+     * @static
+     * @param {IReqGetUploadPredict} message ReqGetUploadPredict message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    ReqGetUploadPredict.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        if (message.panoramaName != null &&
+            Object.hasOwnProperty.call(message, "panoramaName"))
+            writer.uint32(/* id 1, wireType 2 =*/ 10).string(message.panoramaName);
+        return writer;
+    };
+    /**
+     * Encodes the specified ReqGetUploadPredict message, length delimited. Does not implicitly {@link ReqGetUploadPredict.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof ReqGetUploadPredict
+     * @static
+     * @param {IReqGetUploadPredict} message ReqGetUploadPredict message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    ReqGetUploadPredict.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+    /**
+     * Decodes a ReqGetUploadPredict message from the specified reader or buffer.
+     * @function decode
+     * @memberof ReqGetUploadPredict
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {ReqGetUploadPredict} ReqGetUploadPredict
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    ReqGetUploadPredict.decode = function decode(reader, length) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ReqGetUploadPredict();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    message.panoramaName = reader.string();
+                    break;
+                }
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    };
+    /**
+     * Decodes a ReqGetUploadPredict message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof ReqGetUploadPredict
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {ReqGetUploadPredict} ReqGetUploadPredict
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    ReqGetUploadPredict.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+    /**
+     * Verifies a ReqGetUploadPredict message.
+     * @function verify
+     * @memberof ReqGetUploadPredict
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    ReqGetUploadPredict.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        if (message.panoramaName != null && message.hasOwnProperty("panoramaName"))
+            if (!$util.isString(message.panoramaName))
+                return "panoramaName: string expected";
+        return null;
+    };
+    /**
+     * Creates a ReqGetUploadPredict message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof ReqGetUploadPredict
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {ReqGetUploadPredict} ReqGetUploadPredict
+     */
+    ReqGetUploadPredict.fromObject = function fromObject(object) {
+        if (object instanceof $root.ReqGetUploadPredict)
+            return object;
+        var message = new $root.ReqGetUploadPredict();
+        if (object.panoramaName != null)
+            message.panoramaName = String(object.panoramaName);
+        return message;
+    };
+    /**
+     * Creates a plain object from a ReqGetUploadPredict message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof ReqGetUploadPredict
+     * @static
+     * @param {ReqGetUploadPredict} message ReqGetUploadPredict
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    ReqGetUploadPredict.toObject = function toObject(message, options) {
+        if (!options)
+            options = {};
+        var object = {};
+        if (options.defaults)
+            object.panoramaName = "";
+        if (message.panoramaName != null && message.hasOwnProperty("panoramaName"))
+            object.panoramaName = message.panoramaName;
+        return object;
+    };
+    /**
+     * Converts this ReqGetUploadPredict to JSON.
+     * @function toJSON
+     * @memberof ReqGetUploadPredict
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    ReqGetUploadPredict.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+    /**
+     * Gets the default type url for ReqGetUploadPredict
+     * @function getTypeUrl
+     * @memberof ReqGetUploadPredict
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ReqGetUploadPredict.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ReqGetUploadPredict";
+    };
+    return ReqGetUploadPredict;
+})();
+$root.ReqCompressPanorama = (function () {
+    /**
+     * Properties of a ReqCompressPanorama.
+     * @exports IReqCompressPanorama
+     * @interface IReqCompressPanorama
+     * @property {string|null} [panoramaName] ReqCompressPanorama panoramaName
+     */
+    /**
+     * Constructs a new ReqCompressPanorama.
+     * @exports ReqCompressPanorama
+     * @classdesc Represents a ReqCompressPanorama.
+     * @implements IReqCompressPanorama
+     * @constructor
+     * @param {IReqCompressPanorama=} [properties] Properties to set
+     */
+    function ReqCompressPanorama(properties) {
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+    /**
+     * ReqCompressPanorama panoramaName.
+     * @member {string} panoramaName
+     * @memberof ReqCompressPanorama
+     * @instance
+     */
+    ReqCompressPanorama.prototype.panoramaName = "";
+    /**
+     * Creates a new ReqCompressPanorama instance using the specified properties.
+     * @function create
+     * @memberof ReqCompressPanorama
+     * @static
+     * @param {IReqCompressPanorama=} [properties] Properties to set
+     * @returns {ReqCompressPanorama} ReqCompressPanorama instance
+     */
+    ReqCompressPanorama.create = function create(properties) {
+        return new ReqCompressPanorama(properties);
+    };
+    /**
+     * Encodes the specified ReqCompressPanorama message. Does not implicitly {@link ReqCompressPanorama.verify|verify} messages.
+     * @function encode
+     * @memberof ReqCompressPanorama
+     * @static
+     * @param {IReqCompressPanorama} message ReqCompressPanorama message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    ReqCompressPanorama.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        if (message.panoramaName != null &&
+            Object.hasOwnProperty.call(message, "panoramaName"))
+            writer.uint32(/* id 1, wireType 2 =*/ 10).string(message.panoramaName);
+        return writer;
+    };
+    /**
+     * Encodes the specified ReqCompressPanorama message, length delimited. Does not implicitly {@link ReqCompressPanorama.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof ReqCompressPanorama
+     * @static
+     * @param {IReqCompressPanorama} message ReqCompressPanorama message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    ReqCompressPanorama.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+    /**
+     * Decodes a ReqCompressPanorama message from the specified reader or buffer.
+     * @function decode
+     * @memberof ReqCompressPanorama
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {ReqCompressPanorama} ReqCompressPanorama
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    ReqCompressPanorama.decode = function decode(reader, length) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ReqCompressPanorama();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    message.panoramaName = reader.string();
+                    break;
+                }
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    };
+    /**
+     * Decodes a ReqCompressPanorama message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof ReqCompressPanorama
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {ReqCompressPanorama} ReqCompressPanorama
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    ReqCompressPanorama.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+    /**
+     * Verifies a ReqCompressPanorama message.
+     * @function verify
+     * @memberof ReqCompressPanorama
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    ReqCompressPanorama.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        if (message.panoramaName != null && message.hasOwnProperty("panoramaName"))
+            if (!$util.isString(message.panoramaName))
+                return "panoramaName: string expected";
+        return null;
+    };
+    /**
+     * Creates a ReqCompressPanorama message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof ReqCompressPanorama
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {ReqCompressPanorama} ReqCompressPanorama
+     */
+    ReqCompressPanorama.fromObject = function fromObject(object) {
+        if (object instanceof $root.ReqCompressPanorama)
+            return object;
+        var message = new $root.ReqCompressPanorama();
+        if (object.panoramaName != null)
+            message.panoramaName = String(object.panoramaName);
+        return message;
+    };
+    /**
+     * Creates a plain object from a ReqCompressPanorama message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof ReqCompressPanorama
+     * @static
+     * @param {ReqCompressPanorama} message ReqCompressPanorama
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    ReqCompressPanorama.toObject = function toObject(message, options) {
+        if (!options)
+            options = {};
+        var object = {};
+        if (options.defaults)
+            object.panoramaName = "";
+        if (message.panoramaName != null && message.hasOwnProperty("panoramaName"))
+            object.panoramaName = message.panoramaName;
+        return object;
+    };
+    /**
+     * Converts this ReqCompressPanorama to JSON.
+     * @function toJSON
+     * @memberof ReqCompressPanorama
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    ReqCompressPanorama.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+    /**
+     * Gets the default type url for ReqCompressPanorama
+     * @function getTypeUrl
+     * @memberof ReqCompressPanorama
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ReqCompressPanorama.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ReqCompressPanorama";
+    };
+    return ReqCompressPanorama;
+})();
+$root.ReqStopCompressPanorama = (function () {
+    /**
+     * Properties of a ReqStopCompressPanorama.
+     * @exports IReqStopCompressPanorama
+     * @interface IReqStopCompressPanorama
+     */
+    /**
+     * Constructs a new ReqStopCompressPanorama.
+     * @exports ReqStopCompressPanorama
+     * @classdesc Represents a ReqStopCompressPanorama.
+     * @implements IReqStopCompressPanorama
+     * @constructor
+     * @param {IReqStopCompressPanorama=} [properties] Properties to set
+     */
+    function ReqStopCompressPanorama(properties) {
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+    /**
+     * Creates a new ReqStopCompressPanorama instance using the specified properties.
+     * @function create
+     * @memberof ReqStopCompressPanorama
+     * @static
+     * @param {IReqStopCompressPanorama=} [properties] Properties to set
+     * @returns {ReqStopCompressPanorama} ReqStopCompressPanorama instance
+     */
+    ReqStopCompressPanorama.create = function create(properties) {
+        return new ReqStopCompressPanorama(properties);
+    };
+    /**
+     * Encodes the specified ReqStopCompressPanorama message. Does not implicitly {@link ReqStopCompressPanorama.verify|verify} messages.
+     * @function encode
+     * @memberof ReqStopCompressPanorama
+     * @static
+     * @param {IReqStopCompressPanorama} message ReqStopCompressPanorama message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    ReqStopCompressPanorama.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        return writer;
+    };
+    /**
+     * Encodes the specified ReqStopCompressPanorama message, length delimited. Does not implicitly {@link ReqStopCompressPanorama.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof ReqStopCompressPanorama
+     * @static
+     * @param {IReqStopCompressPanorama} message ReqStopCompressPanorama message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    ReqStopCompressPanorama.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+    /**
+     * Decodes a ReqStopCompressPanorama message from the specified reader or buffer.
+     * @function decode
+     * @memberof ReqStopCompressPanorama
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {ReqStopCompressPanorama} ReqStopCompressPanorama
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    ReqStopCompressPanorama.decode = function decode(reader, length) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ReqStopCompressPanorama();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    };
+    /**
+     * Decodes a ReqStopCompressPanorama message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof ReqStopCompressPanorama
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {ReqStopCompressPanorama} ReqStopCompressPanorama
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    ReqStopCompressPanorama.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+    /**
+     * Verifies a ReqStopCompressPanorama message.
+     * @function verify
+     * @memberof ReqStopCompressPanorama
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    ReqStopCompressPanorama.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        return null;
+    };
+    /**
+     * Creates a ReqStopCompressPanorama message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof ReqStopCompressPanorama
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {ReqStopCompressPanorama} ReqStopCompressPanorama
+     */
+    ReqStopCompressPanorama.fromObject = function fromObject(object) {
+        if (object instanceof $root.ReqStopCompressPanorama)
+            return object;
+        return new $root.ReqStopCompressPanorama();
+    };
+    /**
+     * Creates a plain object from a ReqStopCompressPanorama message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof ReqStopCompressPanorama
+     * @static
+     * @param {ReqStopCompressPanorama} message ReqStopCompressPanorama
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    ReqStopCompressPanorama.toObject = function toObject() {
+        return {};
+    };
+    /**
+     * Converts this ReqStopCompressPanorama to JSON.
+     * @function toJSON
+     * @memberof ReqStopCompressPanorama
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    ReqStopCompressPanorama.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+    /**
+     * Gets the default type url for ReqStopCompressPanorama
+     * @function getTypeUrl
+     * @memberof ReqStopCompressPanorama
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ReqStopCompressPanorama.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ReqStopCompressPanorama";
+    };
+    return ReqStopCompressPanorama;
+})();
 /**
  * ModuleId enum.
  * @exports ModuleId
@@ -40153,9 +42866,14 @@ $root.ResGetStitchUploadState = (function () {
  * @property {number} MODULE_FOCUS=8 MODULE_FOCUS value
  * @property {number} MODULE_NOTIFY=9 MODULE_NOTIFY value
  * @property {number} MODULE_PANORAMA=10 MODULE_PANORAMA value
+ * @property {number} MODULE_ITIPS=11 MODULE_ITIPS value
+ * @property {number} MODULE_FACTORY_TEST=12 MODULE_FACTORY_TEST value
  * @property {number} MODULE_SHOOTING_SCHEDULE=13 MODULE_SHOOTING_SCHEDULE value
  * @property {number} MODULE_DEVICE_CONFIG=14 MODULE_DEVICE_CONFIG value
  * @property {number} MODULE_CAMERA_PARAMS=15 MODULE_CAMERA_PARAMS value
+ * @property {number} MODULE_VOICE_ASSISTANT=16 MODULE_VOICE_ASSISTANT value
+ * @property {number} MODULE_CAMERA_GUIDE=17 MODULE_CAMERA_GUIDE value
+ * @property {number} MODULE_DEVICE=18 MODULE_DEVICE value
  */
 $root.ModuleId = (function () {
     var valuesById = {}, values = Object.create(valuesById);
@@ -40170,9 +42888,14 @@ $root.ModuleId = (function () {
     values[(valuesById[8] = "MODULE_FOCUS")] = 8;
     values[(valuesById[9] = "MODULE_NOTIFY")] = 9;
     values[(valuesById[10] = "MODULE_PANORAMA")] = 10;
+    values[(valuesById[11] = "MODULE_ITIPS")] = 11;
+    values[(valuesById[12] = "MODULE_FACTORY_TEST")] = 12;
     values[(valuesById[13] = "MODULE_SHOOTING_SCHEDULE")] = 13;
     values[(valuesById[14] = "MODULE_DEVICE_CONFIG")] = 14;
     values[(valuesById[15] = "MODULE_CAMERA_PARAMS")] = 15;
+    values[(valuesById[16] = "MODULE_VOICE_ASSISTANT")] = 16;
+    values[(valuesById[17] = "MODULE_CAMERA_GUIDE")] = 17;
+    values[(valuesById[18] = "MODULE_DEVICE")] = 18;
     return values;
 })();
 /**
@@ -40240,7 +42963,15 @@ $root.MessageTypeId = (function () {
  * @property {number} CMD_CAMERA_TELE_SET_JPG_QUALITY=10040 CMD_CAMERA_TELE_SET_JPG_QUALITY value
  * @property {number} CMD_CAMERA_TELE_PHOTO_RAW=10041 CMD_CAMERA_TELE_PHOTO_RAW value
  * @property {number} CMD_CAMERA_TELE_SET_RTSP_BITRATE_TYPE=10042 CMD_CAMERA_TELE_SET_RTSP_BITRATE_TYPE value
+ * @property {number} CMD_CAMERA_TELE_DISABLE_ALL_ISP_PROCESSING=10043 CMD_CAMERA_TELE_DISABLE_ALL_ISP_PROCESSING value
+ * @property {number} CMD_CAMERA_TELE_ENABLE_ALL_ISP_PROCESSING=10044 CMD_CAMERA_TELE_ENABLE_ALL_ISP_PROCESSING value
+ * @property {number} CMD_CAMERA_TELE_SET_ISP_MODULE_STATE=10045 CMD_CAMERA_TELE_SET_ISP_MODULE_STATE value
+ * @property {number} CMD_CAMERA_TELE_GET_ISP_MODULE_STATE=10046 CMD_CAMERA_TELE_GET_ISP_MODULE_STATE value
+ * @property {number} CMD_CAMERA_TELE_SWITCH_RESOLUTION=10047 CMD_CAMERA_TELE_SWITCH_RESOLUTION value
+ * @property {number} CMD_CAMERA_TELE_SWITCH_FRAMERATE=10048 CMD_CAMERA_TELE_SWITCH_FRAMERATE value
+ * @property {number} CMD_CAMERA_TELE_SWITCH_CROP_RATIO=10049 CMD_CAMERA_TELE_SWITCH_CROP_RATIO value
  * @property {number} CMD_V3_CAMERA_TELE_OPEN_CAMERA=10050 CMD_V3_CAMERA_TELE_OPEN_CAMERA value
+ * @property {number} CMD_CAMERA_TELE_SET_ND_FILTER=10051 CMD_CAMERA_TELE_SET_ND_FILTER value
  * @property {number} CMD_ASTRO_START_CALIBRATION=11000 CMD_ASTRO_START_CALIBRATION value
  * @property {number} CMD_ASTRO_STOP_CALIBRATION=11001 CMD_ASTRO_STOP_CALIBRATION value
  * @property {number} CMD_ASTRO_START_GOTO_DSO=11002 CMD_ASTRO_START_GOTO_DSO value
@@ -40270,17 +43001,28 @@ $root.MessageTypeId = (function () {
  * @property {number} CMD_ASTRO_STOP_CAPTURE_WIDE_RAW_DARK_WITH_PARAM=11026 CMD_ASTRO_STOP_CAPTURE_WIDE_RAW_DARK_WITH_PARAM value
  * @property {number} CMD_ASTRO_GET_WIDE_DARK_FRAME_LIST=11027 CMD_ASTRO_GET_WIDE_DARK_FRAME_LIST value
  * @property {number} CMD_ASTRO_DEL_WIDE_DARK_FRAME_LIST=11028 CMD_ASTRO_DEL_WIDE_DARK_FRAME_LIST value
+ * @property {number} CMD_ASTRO_START_AI_ENHANCE=11029 CMD_ASTRO_START_AI_ENHANCE value
+ * @property {number} CMD_ASTRO_STOP_AI_ENHANCE=11030 CMD_ASTRO_STOP_AI_ENHANCE value
+ * @property {number} CMD_ASTRO_START_TELE_MOSAIC=11031 CMD_ASTRO_START_TELE_MOSAIC value
+ * @property {number} CMD_ASTRO_CHECK_IF_RESTACKABLE=11032 CMD_ASTRO_CHECK_IF_RESTACKABLE value
  * @property {number} CMD_V3_ASTRO_SAVE_STACKED_IMAGE=11033 CMD_V3_ASTRO_SAVE_STACKED_IMAGE value
  * @property {number} CMD_V3_ASTRO_LIST_SAVED_IMAGES=11034 CMD_V3_ASTRO_LIST_SAVED_IMAGES value
+ * @property {number} CMD_ASTRO_START_RESTACKED=11035 CMD_ASTRO_START_RESTACKED value
  * @property {number} CMD_V3_ASTRO_SAVE_COMPLETE=11036 CMD_V3_ASTRO_SAVE_COMPLETE value
+ * @property {number} CMD_ASTRO_FAST_STOP_CAPTURE_RAW_LIVE_STACKING=11037 CMD_ASTRO_FAST_STOP_CAPTURE_RAW_LIVE_STACKING value
+ * @property {number} CMD_ASTRO_FAST_STOP_WIDE_CAPTURE_LIVE_STACKING=11038 CMD_ASTRO_FAST_STOP_WIDE_CAPTURE_LIVE_STACKING value
  * @property {number} CMD_V3_ASTRO_STATUS_POLLING=11039 CMD_V3_ASTRO_STATUS_POLLING value
  * @property {number} CMD_V3_ASTRO_GET_PARAMS=11040 CMD_V3_ASTRO_GET_PARAMS value
  * @property {number} CMD_V3_ASTRO_SET_PARAMS=11041 CMD_V3_ASTRO_SET_PARAMS value
+ * @property {number} CMD_ASTRO_START_ONE_CLICK_SHOOTING=11042 CMD_ASTRO_START_ONE_CLICK_SHOOTING value
  * @property {number} CMD_V3_ASTRO_GET_PRESETS=11043 CMD_V3_ASTRO_GET_PRESETS value
+ * @property {number} CMD_ASTRO_DEL_CALI_FRAME_LIST=11044 CMD_ASTRO_DEL_CALI_FRAME_LIST value
  * @property {number} CMD_V3_ASTRO_START_CAPTURE_CALI_FRAME=11045 CMD_V3_ASTRO_START_CAPTURE_CALI_FRAME value
  * @property {number} CMD_V3_ASTRO_STOP_CAPTURE_CALI_FRAME=11046 CMD_V3_ASTRO_STOP_CAPTURE_CALI_FRAME value
  * @property {number} CMD_V3_ASTRO_SET_LOCATION=11047 CMD_V3_ASTRO_SET_LOCATION value
  * @property {number} CMD_V3_ASTRO_CONFIRM=11048 CMD_V3_ASTRO_CONFIRM value
+ * @property {number} CMD_ASTRO_GET_GYRO_ATTITUDE=11049 CMD_ASTRO_GET_GYRO_ATTITUDE value
+ * @property {number} CMD_ASTRO_CONTINUE_SHOOTING=11050 CMD_ASTRO_CONTINUE_SHOOTING value
  * @property {number} CMD_CAMERA_WIDE_OPEN_CAMERA=12000 CMD_CAMERA_WIDE_OPEN_CAMERA value
  * @property {number} CMD_CAMERA_WIDE_CLOSE_CAMERA=12001 CMD_CAMERA_WIDE_CLOSE_CAMERA value
  * @property {number} CMD_CAMERA_WIDE_SET_EXP_MODE=12002 CMD_CAMERA_WIDE_SET_EXP_MODE value
@@ -40310,6 +43052,7 @@ $root.MessageTypeId = (function () {
  * @property {number} CMD_CAMERA_WIDE_STOP_TIMELAPSE_PHOTO=12026 CMD_CAMERA_WIDE_STOP_TIMELAPSE_PHOTO value
  * @property {number} CMD_CAMERA_WIDE_GET_ALL_PARAMS=12027 CMD_CAMERA_WIDE_GET_ALL_PARAMS value
  * @property {number} CMD_CAMERA_WIDE_SET_ALL_PARAMS=12028 CMD_CAMERA_WIDE_SET_ALL_PARAMS value
+ * @property {number} CMD_CAMERA_WIDE_PHOTO_RAW=12029 CMD_CAMERA_WIDE_PHOTO_RAW value
  * @property {number} CMD_CAMERA_WIDE_START_RECORD=12030 CMD_CAMERA_WIDE_START_RECORD value
  * @property {number} CMD_CAMERA_WIDE_STOP_RECORD=12031 CMD_CAMERA_WIDE_STOP_RECORD value
  * @property {number} CMD_V3_CAMERA_WIDE_OPEN_CAMERA=12036 CMD_V3_CAMERA_WIDE_OPEN_CAMERA value
@@ -40318,6 +43061,9 @@ $root.MessageTypeId = (function () {
  * @property {number} CMD_SYSTEM_SET_MTP_MODE=13002 CMD_SYSTEM_SET_MTP_MODE value
  * @property {number} CMD_SYSTEM_SET_CPU_MODE=13003 CMD_SYSTEM_SET_CPU_MODE value
  * @property {number} CMD_SYSTEM_SET_MASTERLOCK=13004 CMD_SYSTEM_SET_MASTERLOCK value
+ * @property {number} CMD_SYSTEM_DEVICE_ACTIVATE_WRITE_FILE=13006 CMD_SYSTEM_DEVICE_ACTIVATE_WRITE_FILE value
+ * @property {number} CMD_SYSTEM_DEVICE_ACTIVATE_NOTIFY_ACTIVATE_SUCCESSFULL=13007 CMD_SYSTEM_DEVICE_ACTIVATE_NOTIFY_ACTIVATE_SUCCESSFULL value
+ * @property {number} CMD_SYSTEM_FACTORY_TEST_UN_ACTIVATE=13008 CMD_SYSTEM_FACTORY_TEST_UN_ACTIVATE value
  * @property {number} CMD_V3_SYSTEM_SET_GPS_LOCATION=13010 CMD_V3_SYSTEM_SET_GPS_LOCATION value
  * @property {number} CMD_RGB_POWER_OPEN_RGB=13500 CMD_RGB_POWER_OPEN_RGB value
  * @property {number} CMD_RGB_POWER_CLOSE_RGB=13501 CMD_RGB_POWER_CLOSE_RGB value
@@ -40337,6 +43083,11 @@ $root.MessageTypeId = (function () {
  * @property {number} CMD_STEP_MOTOR_SERVICE_DUAL_CAMERA_LINKAGE=14009 CMD_STEP_MOTOR_SERVICE_DUAL_CAMERA_LINKAGE value
  * @property {number} CMD_STEP_MOTOR_RUN_IN_PULSE=14010 CMD_STEP_MOTOR_RUN_IN_PULSE value
  * @property {number} CMD_STEP_MOTOR_GET_POSITION=14011 CMD_STEP_MOTOR_GET_POSITION value
+ * @property {number} CMD_STEP_MOTOR_START_ATTITUDE_NOTIFY=14012 CMD_STEP_MOTOR_START_ATTITUDE_NOTIFY value
+ * @property {number} CMD_STEP_MOTOR_STOP_ATTITUDE_NOTIFY=14013 CMD_STEP_MOTOR_STOP_ATTITUDE_NOTIFY value
+ * @property {number} CMD_STEP_MOTOR_LEVEL_CALIBRATION_MOVE=14014 CMD_STEP_MOTOR_LEVEL_CALIBRATION_MOVE value
+ * @property {number} CMD_STEP_MOTOR_SAVE_LEVEL_CALIBRATION_OFFSET=14015 CMD_STEP_MOTOR_SAVE_LEVEL_CALIBRATION_OFFSET value
+ * @property {number} CMD_STEP_MOTOR_RESET_LEVEL_CALIBRATION_DEFAULT=14016 CMD_STEP_MOTOR_RESET_LEVEL_CALIBRATION_DEFAULT value
  * @property {number} CMD_TRACK_START_TRACK=14800 CMD_TRACK_START_TRACK value
  * @property {number} CMD_TRACK_STOP_TRACK=14801 CMD_TRACK_STOP_TRACK value
  * @property {number} CMD_SENTRY_MODE_START=14802 CMD_SENTRY_MODE_START value
@@ -40348,6 +43099,7 @@ $root.MessageTypeId = (function () {
  * @property {number} CMD_MOT_WIDE_TRACK_ONE=14808 CMD_MOT_WIDE_TRACK_ONE value
  * @property {number} CMD_WIDE_TELE_TRACK_SWITCH=14809 CMD_WIDE_TELE_TRACK_SWITCH value
  * @property {number} CMD_UFO_HAND_AOTO_MODE=14810 CMD_UFO_HAND_AOTO_MODE value
+ * @property {number} CMD_TRACK_START_CLICK=14812 CMD_TRACK_START_CLICK value
  * @property {number} CMD_FOCUS_AUTO_FOCUS=15000 CMD_FOCUS_AUTO_FOCUS value
  * @property {number} CMD_FOCUS_MANUAL_SINGLE_STEP_FOCUS=15001 CMD_FOCUS_MANUAL_SINGLE_STEP_FOCUS value
  * @property {number} CMD_FOCUS_START_MANUAL_CONTINU_FOCUS=15002 CMD_FOCUS_START_MANUAL_CONTINU_FOCUS value
@@ -40355,6 +43107,17 @@ $root.MessageTypeId = (function () {
  * @property {number} CMD_FOCUS_START_ASTRO_AUTO_FOCUS=15004 CMD_FOCUS_START_ASTRO_AUTO_FOCUS value
  * @property {number} CMD_FOCUS_STOP_ASTRO_AUTO_FOCUS=15005 CMD_FOCUS_STOP_ASTRO_AUTO_FOCUS value
  * @property {number} CMD_V3_FOCUS_INIT=15011 CMD_V3_FOCUS_INIT value
+ * @property {number} CMD_FOCUS_SET_USER_INFINITY_POS=15012 CMD_FOCUS_SET_USER_INFINITY_POS value
+ * @property {number} CMD_WIDE_FOCUS_MANUAL_SINGLE_STEP_FOCUS=15015 CMD_WIDE_FOCUS_MANUAL_SINGLE_STEP_FOCUS value
+ * @property {number} CMD_WIDE_FOCUS_START_MANUAL_CONTINU_FOCUS=15016 CMD_WIDE_FOCUS_START_MANUAL_CONTINU_FOCUS value
+ * @property {number} CMD_WIDE_FOCUS_START_ASTRO_AUTO_FOCUS=15018 CMD_WIDE_FOCUS_START_ASTRO_AUTO_FOCUS value
+ * @property {number} CMD_WIDE_FOCUS_STOP_ASTRO_AUTO_FOCUS=15019 CMD_WIDE_FOCUS_STOP_ASTRO_AUTO_FOCUS value
+ * @property {number} CMD_WIDE_FOCUS_AUTO_INFINITY_FOCUS=15020 CMD_WIDE_FOCUS_AUTO_INFINITY_FOCUS value
+ * @property {number} CMD_GUIDE_FOCUS_SET_USER_INFINITY_POS=15027 CMD_GUIDE_FOCUS_SET_USER_INFINITY_POS value
+ * @property {number} CMD_GUIDE_FOCUS_GET_USER_INFINITY_POS=15028 CMD_GUIDE_FOCUS_GET_USER_INFINITY_POS value
+ * @property {number} CMD_GUIDE_FOCUS_MANUAL_SINGLE_STEP_FOCUS=15029 CMD_GUIDE_FOCUS_MANUAL_SINGLE_STEP_FOCUS value
+ * @property {number} CMD_GUIDE_FOCUS_START_MANUAL_CONTINU_FOCUS=15030 CMD_GUIDE_FOCUS_START_MANUAL_CONTINU_FOCUS value
+ * @property {number} CMD_GUIDE_FOCUS_STOP_MANUAL_CONTINU_FOCUS=15031 CMD_GUIDE_FOCUS_STOP_MANUAL_CONTINU_FOCUS value
  * @property {number} CMD_NOTIFY_TELE_WIDI_PICTURE_MATCHING=15200 CMD_NOTIFY_TELE_WIDI_PICTURE_MATCHING value
  * @property {number} CMD_NOTIFY_ELE=15201 CMD_NOTIFY_ELE value
  * @property {number} CMD_NOTIFY_CHARGE=15202 CMD_NOTIFY_CHARGE value
@@ -40408,41 +43171,99 @@ $root.MessageTypeId = (function () {
  * @property {number} CMD_NOTIFY_SKY_SEACHER_STATE=15250 CMD_NOTIFY_SKY_SEACHER_STATE value
  * @property {number} CMD_NOTIFY_WIDE_MULTI_TRACK_RESULT=15251 CMD_NOTIFY_WIDE_MULTI_TRACK_RESULT value
  * @property {number} CMD_NOTIFY_WIDE_TRACK_RESULT=15252 CMD_NOTIFY_WIDE_TRACK_RESULT value
+ * @property {number} CMD_NOTIFY_STATE_AI_ENHANCE=15253 CMD_NOTIFY_STATE_AI_ENHANCE value
+ * @property {number} CMD_NOTIFY_PROGRESS_AI_ENHANCE=15254 CMD_NOTIFY_PROGRESS_AI_ENHANCE value
  * @property {number} CMD_V3_NOTIFY_SKY_SOLVER_COORDS=15256 CMD_V3_NOTIFY_SKY_SOLVER_COORDS value
  * @property {number} CMD_NOTIFY_FOCUS=15257 CMD_NOTIFY_FOCUS value
+ * @property {number} CMD_NOTIFY_UFO_AUTO_HAND_MODE=15258 CMD_NOTIFY_UFO_AUTO_HAND_MODE value
+ * @property {number} CMD_NOTIFY_CURRENT_PANORAMA_UPLOAD_STATE=15259 CMD_NOTIFY_CURRENT_PANORAMA_UPLOAD_STATE value
+ * @property {number} CMD_NOTIFY_LOW_TEMP_PROTECTION_MODE=15260 CMD_NOTIFY_LOW_TEMP_PROTECTION_MODE value
  * @property {number} CMD_V3_NOTIFY_EXPOSURE_PROGRESS=15255 CMD_V3_NOTIFY_EXPOSURE_PROGRESS value
  * @property {number} CMD_V3_NOTIFY_DEVICE_STATE=15261 CMD_V3_NOTIFY_DEVICE_STATE value
  * @property {number} CMD_V3_NOTIFY_STATE_LATCH=15262 CMD_V3_NOTIFY_STATE_LATCH value
+ * @property {number} CMD_NOTIFY_PROGRESS_CAPTURE_MOSAIC=15263 CMD_NOTIFY_PROGRESS_CAPTURE_MOSAIC value
  * @property {number} CMD_V3_NOTIFY_CAMERA_PARAM_STATE=15264 CMD_V3_NOTIFY_CAMERA_PARAM_STATE value
+ * @property {number} CMD_NOTIFY_GENERAL_FLOAT_PARAM=15265 CMD_NOTIFY_GENERAL_FLOAT_PARAM value
+ * @property {number} CMD_NOTIFY_GENERAL_BOOL_PARAM=15266 CMD_NOTIFY_GENERAL_BOOL_PARAM value
  * @property {number} CMD_V3_NOTIFY_MODE_CHANGE=15267 CMD_V3_NOTIFY_MODE_CHANGE value
+ * @property {number} CMD_NOTIFY_TELE_SWITCH_CROP_RATIO=15268 CMD_NOTIFY_TELE_SWITCH_CROP_RATIO value
+ * @property {number} CMD_NOTIFY_TELE_SHOOTING_TECH_STATE=15269 CMD_NOTIFY_TELE_SHOOTING_TECH_STATE value
  * @property {number} CMD_V3_NOTIFY_STACKING_DATA=15270 CMD_V3_NOTIFY_STACKING_DATA value
+ * @property {number} CMD_NOTIFY_WIDE_SHOOTING_TECH_STATE=15271 CMD_NOTIFY_WIDE_SHOOTING_TECH_STATE value
+ * @property {number} CMD_NOTIFY_RESOLUTION_PARAM=15272 CMD_NOTIFY_RESOLUTION_PARAM value
  * @property {number} CMD_V3_NOTIFY_PHOTO_STATE=15273 CMD_V3_NOTIFY_PHOTO_STATE value
  * @property {number} CMD_V3_NOTIFY_BURST_STATE=15274 CMD_V3_NOTIFY_BURST_STATE value
  * @property {number} CMD_V3_NOTIFY_VIDEO_STATE=15275 CMD_V3_NOTIFY_VIDEO_STATE value
  * @property {number} CMD_V3_NOTIFY_TIMELAPSE_STATE=15276 CMD_V3_NOTIFY_TIMELAPSE_STATE value
+ * @property {number} CMD_NOTIFY_PANORAMA_STATE=15277 CMD_NOTIFY_PANORAMA_STATE value
  * @property {number} CMD_V3_NOTIFY_AUTOFOCUS_STATE=15278 CMD_V3_NOTIFY_AUTOFOCUS_STATE value
+ * @property {number} CMD_NOTIFY_NORMAL_AUTO_FOCUS_STATE=15279 CMD_NOTIFY_NORMAL_AUTO_FOCUS_STATE value
  * @property {number} CMD_V3_NOTIFY_AUTOFOCUS_STATE_ALT=15280 CMD_V3_NOTIFY_AUTOFOCUS_STATE_ALT value
+ * @property {number} CMD_NOTIFY_AREA_AUTO_FOCUS_STATE=15281 CMD_NOTIFY_AREA_AUTO_FOCUS_STATE value
+ * @property {number} CMD_NOTIFY_DUAL_CAMERA_LINKAGE_STATE=15282 CMD_NOTIFY_DUAL_CAMERA_LINKAGE_STATE value
+ * @property {number} CMD_NOTIFY_RESOLUTION_FPS_STATE=15283 CMD_NOTIFY_RESOLUTION_FPS_STATE value
+ * @property {number} CMD_NOTIFY_NORMAL_TRACK_STATE=15284 CMD_NOTIFY_NORMAL_TRACK_STATE value
  * @property {number} CMD_V3_NOTIFY_PHOTO_BURST_PROGRESS=15285 CMD_V3_NOTIFY_PHOTO_BURST_PROGRESS value
  * @property {number} CMD_V3_NOTIFY_VIDEO_PROGRESS=15286 CMD_V3_NOTIFY_VIDEO_PROGRESS value
  * @property {number} CMD_V3_NOTIFY_TIMELAPSE_PROGRESS=15287 CMD_V3_NOTIFY_TIMELAPSE_PROGRESS value
  * @property {number} CMD_V3_NOTIFY_EXPOSURE_DURATION=15288 CMD_V3_NOTIFY_EXPOSURE_DURATION value
+ * @property {number} CMD_NOTIFY_SENTRY_MOTOR_STATE=15289 CMD_NOTIFY_SENTRY_MOTOR_STATE value
  * @property {number} CMD_V3_NOTIFY_CALI_FRAME_STATE=15290 CMD_V3_NOTIFY_CALI_FRAME_STATE value
  * @property {number} CMD_V3_NOTIFY_CALI_FRAME_PROGRESS=15291 CMD_V3_NOTIFY_CALI_FRAME_PROGRESS value
  * @property {number} CMD_V3_NOTIFY_TEMPERATURE2=15292 CMD_V3_NOTIFY_TEMPERATURE2 value
+ * @property {number} CMD_NOTIFY_PANORAMA_COMPRESS_PROGRESS=15293 CMD_NOTIFY_PANORAMA_COMPRESS_PROGRESS value
+ * @property {number} CMD_NOTIFY_PANORAMA_COMPRESS_COMPLETE=15294 CMD_NOTIFY_PANORAMA_COMPRESS_COMPLETE value
+ * @property {number} CMD_NOTIFY_DEVICE_ATTITUDE=15295 CMD_NOTIFY_DEVICE_ATTITUDE value
  * @property {number} CMD_V3_NOTIFY_OBSERVATION_STATE=15296 CMD_V3_NOTIFY_OBSERVATION_STATE value
+ * @property {number} CMD_NOTIFY_WIDE_FOCUS_POSITION=15300 CMD_NOTIFY_WIDE_FOCUS_POSITION value
+ * @property {number} CMD_NOTIFY_LENS_DEFOG_STATE=15301 CMD_NOTIFY_LENS_DEFOG_STATE value
+ * @property {number} CMD_NOTIFY_AUTO_COOLING_STATE=15302 CMD_NOTIFY_AUTO_COOLING_STATE value
+ * @property {number} CMD_NOTIFY_AUTO_SHUTDOWN_STATE=15303 CMD_NOTIFY_AUTO_SHUTDOWN_STATE value
+ * @property {number} CMD_NOTIFY_ROLL_LEVEL_CALIBRATION_ANGLE=15304 CMD_NOTIFY_ROLL_LEVEL_CALIBRATION_ANGLE value
+ * @property {number} CMD_NOTIFY_GUIDE_FOCUS_POSITION=15305 CMD_NOTIFY_GUIDE_FOCUS_POSITION value
  * @property {number} CMD_PANORAMA_START_GRID=15500 CMD_PANORAMA_START_GRID value
  * @property {number} CMD_PANORAMA_STOP=15501 CMD_PANORAMA_STOP value
  * @property {number} CMD_PANORAMA_START_EULER_RANGE=15502 CMD_PANORAMA_START_EULER_RANGE value
+ * @property {number} CMD_PANORAMA_GET_CURRENT_UPLOAD_STATE=15505 CMD_PANORAMA_GET_CURRENT_UPLOAD_STATE value
+ * @property {number} CMD_PANORAMA_GET_UPLOAD_PREDICT=15506 CMD_PANORAMA_GET_UPLOAD_PREDICT value
+ * @property {number} CMD_PANORAMA_START_COMPRESS=15507 CMD_PANORAMA_START_COMPRESS value
+ * @property {number} CMD_PANORAMA_STOP_COMPRESS=15508 CMD_PANORAMA_STOP_COMPRESS value
+ * @property {number} CMD_PANORAMA_START_FRAMING=15509 CMD_PANORAMA_START_FRAMING value
+ * @property {number} CMD_PANORAMA_STOP_FRAMING=15510 CMD_PANORAMA_STOP_FRAMING value
+ * @property {number} CMD_PANORAMA_RESET_FRAMING=15511 CMD_PANORAMA_RESET_FRAMING value
+ * @property {number} CMD_PANORAMA_UPDATE_FRAMING_RECT=15512 CMD_PANORAMA_UPDATE_FRAMING_RECT value
+ * @property {number} CMD_PANORAMA_STOP_FRAMEING_AND_START_GRID=15513 CMD_PANORAMA_STOP_FRAMEING_AND_START_GRID value
+ * @property {number} CMD_ITIPS_GET=15700 CMD_ITIPS_GET value
+ * @property {number} CMD_SYNC_SHOOTING_SCHEDULE=16100 CMD_SYNC_SHOOTING_SCHEDULE value
+ * @property {number} CMD_CANCEL_SHOOTING_SCHEDULE=16101 CMD_CANCEL_SHOOTING_SCHEDULE value
  * @property {number} CMD_V3_SCHEDULE_GET=16102 CMD_V3_SCHEDULE_GET value
+ * @property {number} CMD_GET_SHOOTING_SCHEDULE_BY_ID=16103 CMD_GET_SHOOTING_SCHEDULE_BY_ID value
+ * @property {number} CMD_REPLACE_SHOOTING_SCHEDULE=16105 CMD_REPLACE_SHOOTING_SCHEDULE value
+ * @property {number} CMD_UNLOCK_SHOOTING_SCHEDULE=16106 CMD_UNLOCK_SHOOTING_SCHEDULE value
+ * @property {number} CMD_LOCK_SHOOTING_SCHEDULE=16107 CMD_LOCK_SHOOTING_SCHEDULE value
+ * @property {number} CMD_DELETE_SHOOTING_SCHEDULE=16108 CMD_DELETE_SHOOTING_SCHEDULE value
+ * @property {number} CMD_GLOBAL_TASK_MANAGER_START_TASK=16400 CMD_GLOBAL_TASK_MANAGER_START_TASK value
+ * @property {number} CMD_GLOBAL_TASK_MANAGER_STOP_TASK=16401 CMD_GLOBAL_TASK_MANAGER_STOP_TASK value
  * @property {number} CMD_V3_DEVICE_CONFIG_MODE_QUERY=16402 CMD_V3_DEVICE_CONFIG_MODE_QUERY value
  * @property {number} CMD_V3_DEVICE_CONFIG_SHOOTING_MODE=16403 CMD_V3_DEVICE_CONFIG_SHOOTING_MODE value
  * @property {number} CMD_V3_DEVICE_CONFIG_MODE_SWITCH=16404 CMD_V3_DEVICE_CONFIG_MODE_SWITCH value
  * @property {number} CMD_V3_DEVICE_CONFIG_GET_CONFIG=16405 CMD_V3_DEVICE_CONFIG_GET_CONFIG value
+ * @property {number} CMD_GLOBAL_VOICE_ASSISTANT_TASK=16406 CMD_GLOBAL_VOICE_ASSISTANT_TASK value
  * @property {number} CMD_V3_CAMERA_PARAMS_SET_PARAM=16700 CMD_V3_CAMERA_PARAMS_SET_PARAM value
  * @property {number} CMD_V3_CAMERA_PARAMS_SET_EXP_GAIN=16701 CMD_V3_CAMERA_PARAMS_SET_EXP_GAIN value
  * @property {number} CMD_V3_CAMERA_PARAMS_UNKNOWN_16702=16702 CMD_V3_CAMERA_PARAMS_UNKNOWN_16702 value
  * @property {number} CMD_V3_CAMERA_PARAMS_ADJUST=16703 CMD_V3_CAMERA_PARAMS_ADJUST value
+ * @property {number} CMD_PARAM_SET_GENERAL_FLOAT_PARAM=16704 CMD_PARAM_SET_GENERAL_FLOAT_PARAM value
+ * @property {number} CMD_PARAM_SET_GENERAL_BOOL_PARAM=16705 CMD_PARAM_SET_GENERAL_BOOL_PARAM value
  * @property {number} CMD_V3_CAMERA_PARAMS_STREAM_CTRL=16706 CMD_V3_CAMERA_PARAMS_STREAM_CTRL value
+ * @property {number} CMD_VOICE_ASSISTANT_TASK=16800 CMD_VOICE_ASSISTANT_TASK value
+ * @property {number} CMD_CAMERA_GUIDE_SET_EXP=16900 CMD_CAMERA_GUIDE_SET_EXP value
+ * @property {number} CMD_CAMERA_GUIDE_GET_EXP=16901 CMD_CAMERA_GUIDE_GET_EXP value
+ * @property {number} CMD_CAMERA_GUIDE_SET_GAIN=16902 CMD_CAMERA_GUIDE_SET_GAIN value
+ * @property {number} CMD_CAMERA_GUIDE_GET_GAIN=16903 CMD_CAMERA_GUIDE_GET_GAIN value
+ * @property {number} CMD_DEVICE_LENS_DEFOG=17000 CMD_DEVICE_LENS_DEFOG value
+ * @property {number} CMD_DEVICE_AUTO_COOLING=17001 CMD_DEVICE_AUTO_COOLING value
+ * @property {number} CMD_DEVICE_AUTO_SHUTDOWN=17002 CMD_DEVICE_AUTO_SHUTDOWN value
  */
 $root.DwarfCMD = (function () {
     var valuesById = {}, values = Object.create(valuesById);
@@ -40490,7 +43311,15 @@ $root.DwarfCMD = (function () {
     values[(valuesById[10040] = "CMD_CAMERA_TELE_SET_JPG_QUALITY")] = 10040;
     values[(valuesById[10041] = "CMD_CAMERA_TELE_PHOTO_RAW")] = 10041;
     values[(valuesById[10042] = "CMD_CAMERA_TELE_SET_RTSP_BITRATE_TYPE")] = 10042;
+    values[(valuesById[10043] = "CMD_CAMERA_TELE_DISABLE_ALL_ISP_PROCESSING")] = 10043;
+    values[(valuesById[10044] = "CMD_CAMERA_TELE_ENABLE_ALL_ISP_PROCESSING")] = 10044;
+    values[(valuesById[10045] = "CMD_CAMERA_TELE_SET_ISP_MODULE_STATE")] = 10045;
+    values[(valuesById[10046] = "CMD_CAMERA_TELE_GET_ISP_MODULE_STATE")] = 10046;
+    values[(valuesById[10047] = "CMD_CAMERA_TELE_SWITCH_RESOLUTION")] = 10047;
+    values[(valuesById[10048] = "CMD_CAMERA_TELE_SWITCH_FRAMERATE")] = 10048;
+    values[(valuesById[10049] = "CMD_CAMERA_TELE_SWITCH_CROP_RATIO")] = 10049;
     values[(valuesById[10050] = "CMD_V3_CAMERA_TELE_OPEN_CAMERA")] = 10050;
+    values[(valuesById[10051] = "CMD_CAMERA_TELE_SET_ND_FILTER")] = 10051;
     values[(valuesById[11000] = "CMD_ASTRO_START_CALIBRATION")] = 11000;
     values[(valuesById[11001] = "CMD_ASTRO_STOP_CALIBRATION")] = 11001;
     values[(valuesById[11002] = "CMD_ASTRO_START_GOTO_DSO")] = 11002;
@@ -40520,17 +43349,28 @@ $root.DwarfCMD = (function () {
     values[(valuesById[11026] = "CMD_ASTRO_STOP_CAPTURE_WIDE_RAW_DARK_WITH_PARAM")] = 11026;
     values[(valuesById[11027] = "CMD_ASTRO_GET_WIDE_DARK_FRAME_LIST")] = 11027;
     values[(valuesById[11028] = "CMD_ASTRO_DEL_WIDE_DARK_FRAME_LIST")] = 11028;
+    values[(valuesById[11029] = "CMD_ASTRO_START_AI_ENHANCE")] = 11029;
+    values[(valuesById[11030] = "CMD_ASTRO_STOP_AI_ENHANCE")] = 11030;
+    values[(valuesById[11031] = "CMD_ASTRO_START_TELE_MOSAIC")] = 11031;
+    values[(valuesById[11032] = "CMD_ASTRO_CHECK_IF_RESTACKABLE")] = 11032;
     values[(valuesById[11033] = "CMD_V3_ASTRO_SAVE_STACKED_IMAGE")] = 11033;
     values[(valuesById[11034] = "CMD_V3_ASTRO_LIST_SAVED_IMAGES")] = 11034;
+    values[(valuesById[11035] = "CMD_ASTRO_START_RESTACKED")] = 11035;
     values[(valuesById[11036] = "CMD_V3_ASTRO_SAVE_COMPLETE")] = 11036;
+    values[(valuesById[11037] = "CMD_ASTRO_FAST_STOP_CAPTURE_RAW_LIVE_STACKING")] = 11037;
+    values[(valuesById[11038] = "CMD_ASTRO_FAST_STOP_WIDE_CAPTURE_LIVE_STACKING")] = 11038;
     values[(valuesById[11039] = "CMD_V3_ASTRO_STATUS_POLLING")] = 11039;
     values[(valuesById[11040] = "CMD_V3_ASTRO_GET_PARAMS")] = 11040;
     values[(valuesById[11041] = "CMD_V3_ASTRO_SET_PARAMS")] = 11041;
+    values[(valuesById[11042] = "CMD_ASTRO_START_ONE_CLICK_SHOOTING")] = 11042;
     values[(valuesById[11043] = "CMD_V3_ASTRO_GET_PRESETS")] = 11043;
+    values[(valuesById[11044] = "CMD_ASTRO_DEL_CALI_FRAME_LIST")] = 11044;
     values[(valuesById[11045] = "CMD_V3_ASTRO_START_CAPTURE_CALI_FRAME")] = 11045;
     values[(valuesById[11046] = "CMD_V3_ASTRO_STOP_CAPTURE_CALI_FRAME")] = 11046;
     values[(valuesById[11047] = "CMD_V3_ASTRO_SET_LOCATION")] = 11047;
     values[(valuesById[11048] = "CMD_V3_ASTRO_CONFIRM")] = 11048;
+    values[(valuesById[11049] = "CMD_ASTRO_GET_GYRO_ATTITUDE")] = 11049;
+    values[(valuesById[11050] = "CMD_ASTRO_CONTINUE_SHOOTING")] = 11050;
     values[(valuesById[12000] = "CMD_CAMERA_WIDE_OPEN_CAMERA")] = 12000;
     values[(valuesById[12001] = "CMD_CAMERA_WIDE_CLOSE_CAMERA")] = 12001;
     values[(valuesById[12002] = "CMD_CAMERA_WIDE_SET_EXP_MODE")] = 12002;
@@ -40560,6 +43400,7 @@ $root.DwarfCMD = (function () {
     values[(valuesById[12026] = "CMD_CAMERA_WIDE_STOP_TIMELAPSE_PHOTO")] = 12026;
     values[(valuesById[12027] = "CMD_CAMERA_WIDE_GET_ALL_PARAMS")] = 12027;
     values[(valuesById[12028] = "CMD_CAMERA_WIDE_SET_ALL_PARAMS")] = 12028;
+    values[(valuesById[12029] = "CMD_CAMERA_WIDE_PHOTO_RAW")] = 12029;
     values[(valuesById[12030] = "CMD_CAMERA_WIDE_START_RECORD")] = 12030;
     values[(valuesById[12031] = "CMD_CAMERA_WIDE_STOP_RECORD")] = 12031;
     values[(valuesById[12036] = "CMD_V3_CAMERA_WIDE_OPEN_CAMERA")] = 12036;
@@ -40568,6 +43409,10 @@ $root.DwarfCMD = (function () {
     values[(valuesById[13002] = "CMD_SYSTEM_SET_MTP_MODE")] = 13002;
     values[(valuesById[13003] = "CMD_SYSTEM_SET_CPU_MODE")] = 13003;
     values[(valuesById[13004] = "CMD_SYSTEM_SET_MASTERLOCK")] = 13004;
+    values[(valuesById[13006] = "CMD_SYSTEM_DEVICE_ACTIVATE_WRITE_FILE")] = 13006;
+    values[(valuesById[13007] =
+        "CMD_SYSTEM_DEVICE_ACTIVATE_NOTIFY_ACTIVATE_SUCCESSFULL")] = 13007;
+    values[(valuesById[13008] = "CMD_SYSTEM_FACTORY_TEST_UN_ACTIVATE")] = 13008;
     values[(valuesById[13010] = "CMD_V3_SYSTEM_SET_GPS_LOCATION")] = 13010;
     values[(valuesById[13500] = "CMD_RGB_POWER_OPEN_RGB")] = 13500;
     values[(valuesById[13501] = "CMD_RGB_POWER_CLOSE_RGB")] = 13501;
@@ -40587,6 +43432,11 @@ $root.DwarfCMD = (function () {
     values[(valuesById[14009] = "CMD_STEP_MOTOR_SERVICE_DUAL_CAMERA_LINKAGE")] = 14009;
     values[(valuesById[14010] = "CMD_STEP_MOTOR_RUN_IN_PULSE")] = 14010;
     values[(valuesById[14011] = "CMD_STEP_MOTOR_GET_POSITION")] = 14011;
+    values[(valuesById[14012] = "CMD_STEP_MOTOR_START_ATTITUDE_NOTIFY")] = 14012;
+    values[(valuesById[14013] = "CMD_STEP_MOTOR_STOP_ATTITUDE_NOTIFY")] = 14013;
+    values[(valuesById[14014] = "CMD_STEP_MOTOR_LEVEL_CALIBRATION_MOVE")] = 14014;
+    values[(valuesById[14015] = "CMD_STEP_MOTOR_SAVE_LEVEL_CALIBRATION_OFFSET")] = 14015;
+    values[(valuesById[14016] = "CMD_STEP_MOTOR_RESET_LEVEL_CALIBRATION_DEFAULT")] = 14016;
     values[(valuesById[14800] = "CMD_TRACK_START_TRACK")] = 14800;
     values[(valuesById[14801] = "CMD_TRACK_STOP_TRACK")] = 14801;
     values[(valuesById[14802] = "CMD_SENTRY_MODE_START")] = 14802;
@@ -40598,6 +43448,7 @@ $root.DwarfCMD = (function () {
     values[(valuesById[14808] = "CMD_MOT_WIDE_TRACK_ONE")] = 14808;
     values[(valuesById[14809] = "CMD_WIDE_TELE_TRACK_SWITCH")] = 14809;
     values[(valuesById[14810] = "CMD_UFO_HAND_AOTO_MODE")] = 14810;
+    values[(valuesById[14812] = "CMD_TRACK_START_CLICK")] = 14812;
     values[(valuesById[15000] = "CMD_FOCUS_AUTO_FOCUS")] = 15000;
     values[(valuesById[15001] = "CMD_FOCUS_MANUAL_SINGLE_STEP_FOCUS")] = 15001;
     values[(valuesById[15002] = "CMD_FOCUS_START_MANUAL_CONTINU_FOCUS")] = 15002;
@@ -40605,6 +43456,17 @@ $root.DwarfCMD = (function () {
     values[(valuesById[15004] = "CMD_FOCUS_START_ASTRO_AUTO_FOCUS")] = 15004;
     values[(valuesById[15005] = "CMD_FOCUS_STOP_ASTRO_AUTO_FOCUS")] = 15005;
     values[(valuesById[15011] = "CMD_V3_FOCUS_INIT")] = 15011;
+    values[(valuesById[15012] = "CMD_FOCUS_SET_USER_INFINITY_POS")] = 15012;
+    values[(valuesById[15015] = "CMD_WIDE_FOCUS_MANUAL_SINGLE_STEP_FOCUS")] = 15015;
+    values[(valuesById[15016] = "CMD_WIDE_FOCUS_START_MANUAL_CONTINU_FOCUS")] = 15016;
+    values[(valuesById[15018] = "CMD_WIDE_FOCUS_START_ASTRO_AUTO_FOCUS")] = 15018;
+    values[(valuesById[15019] = "CMD_WIDE_FOCUS_STOP_ASTRO_AUTO_FOCUS")] = 15019;
+    values[(valuesById[15020] = "CMD_WIDE_FOCUS_AUTO_INFINITY_FOCUS")] = 15020;
+    values[(valuesById[15027] = "CMD_GUIDE_FOCUS_SET_USER_INFINITY_POS")] = 15027;
+    values[(valuesById[15028] = "CMD_GUIDE_FOCUS_GET_USER_INFINITY_POS")] = 15028;
+    values[(valuesById[15029] = "CMD_GUIDE_FOCUS_MANUAL_SINGLE_STEP_FOCUS")] = 15029;
+    values[(valuesById[15030] = "CMD_GUIDE_FOCUS_START_MANUAL_CONTINU_FOCUS")] = 15030;
+    values[(valuesById[15031] = "CMD_GUIDE_FOCUS_STOP_MANUAL_CONTINU_FOCUS")] = 15031;
     values[(valuesById[15200] = "CMD_NOTIFY_TELE_WIDI_PICTURE_MATCHING")] = 15200;
     values[(valuesById[15201] = "CMD_NOTIFY_ELE")] = 15201;
     values[(valuesById[15202] = "CMD_NOTIFY_CHARGE")] = 15202;
@@ -40658,41 +43520,99 @@ $root.DwarfCMD = (function () {
     values[(valuesById[15250] = "CMD_NOTIFY_SKY_SEACHER_STATE")] = 15250;
     values[(valuesById[15251] = "CMD_NOTIFY_WIDE_MULTI_TRACK_RESULT")] = 15251;
     values[(valuesById[15252] = "CMD_NOTIFY_WIDE_TRACK_RESULT")] = 15252;
+    values[(valuesById[15253] = "CMD_NOTIFY_STATE_AI_ENHANCE")] = 15253;
+    values[(valuesById[15254] = "CMD_NOTIFY_PROGRESS_AI_ENHANCE")] = 15254;
     values[(valuesById[15256] = "CMD_V3_NOTIFY_SKY_SOLVER_COORDS")] = 15256;
     values[(valuesById[15257] = "CMD_NOTIFY_FOCUS")] = 15257;
+    values[(valuesById[15258] = "CMD_NOTIFY_UFO_AUTO_HAND_MODE")] = 15258;
+    values[(valuesById[15259] = "CMD_NOTIFY_CURRENT_PANORAMA_UPLOAD_STATE")] = 15259;
+    values[(valuesById[15260] = "CMD_NOTIFY_LOW_TEMP_PROTECTION_MODE")] = 15260;
     values[(valuesById[15255] = "CMD_V3_NOTIFY_EXPOSURE_PROGRESS")] = 15255;
     values[(valuesById[15261] = "CMD_V3_NOTIFY_DEVICE_STATE")] = 15261;
     values[(valuesById[15262] = "CMD_V3_NOTIFY_STATE_LATCH")] = 15262;
+    values[(valuesById[15263] = "CMD_NOTIFY_PROGRESS_CAPTURE_MOSAIC")] = 15263;
     values[(valuesById[15264] = "CMD_V3_NOTIFY_CAMERA_PARAM_STATE")] = 15264;
+    values[(valuesById[15265] = "CMD_NOTIFY_GENERAL_FLOAT_PARAM")] = 15265;
+    values[(valuesById[15266] = "CMD_NOTIFY_GENERAL_BOOL_PARAM")] = 15266;
     values[(valuesById[15267] = "CMD_V3_NOTIFY_MODE_CHANGE")] = 15267;
+    values[(valuesById[15268] = "CMD_NOTIFY_TELE_SWITCH_CROP_RATIO")] = 15268;
+    values[(valuesById[15269] = "CMD_NOTIFY_TELE_SHOOTING_TECH_STATE")] = 15269;
     values[(valuesById[15270] = "CMD_V3_NOTIFY_STACKING_DATA")] = 15270;
+    values[(valuesById[15271] = "CMD_NOTIFY_WIDE_SHOOTING_TECH_STATE")] = 15271;
+    values[(valuesById[15272] = "CMD_NOTIFY_RESOLUTION_PARAM")] = 15272;
     values[(valuesById[15273] = "CMD_V3_NOTIFY_PHOTO_STATE")] = 15273;
     values[(valuesById[15274] = "CMD_V3_NOTIFY_BURST_STATE")] = 15274;
     values[(valuesById[15275] = "CMD_V3_NOTIFY_VIDEO_STATE")] = 15275;
     values[(valuesById[15276] = "CMD_V3_NOTIFY_TIMELAPSE_STATE")] = 15276;
+    values[(valuesById[15277] = "CMD_NOTIFY_PANORAMA_STATE")] = 15277;
     values[(valuesById[15278] = "CMD_V3_NOTIFY_AUTOFOCUS_STATE")] = 15278;
+    values[(valuesById[15279] = "CMD_NOTIFY_NORMAL_AUTO_FOCUS_STATE")] = 15279;
     values[(valuesById[15280] = "CMD_V3_NOTIFY_AUTOFOCUS_STATE_ALT")] = 15280;
+    values[(valuesById[15281] = "CMD_NOTIFY_AREA_AUTO_FOCUS_STATE")] = 15281;
+    values[(valuesById[15282] = "CMD_NOTIFY_DUAL_CAMERA_LINKAGE_STATE")] = 15282;
+    values[(valuesById[15283] = "CMD_NOTIFY_RESOLUTION_FPS_STATE")] = 15283;
+    values[(valuesById[15284] = "CMD_NOTIFY_NORMAL_TRACK_STATE")] = 15284;
     values[(valuesById[15285] = "CMD_V3_NOTIFY_PHOTO_BURST_PROGRESS")] = 15285;
     values[(valuesById[15286] = "CMD_V3_NOTIFY_VIDEO_PROGRESS")] = 15286;
     values[(valuesById[15287] = "CMD_V3_NOTIFY_TIMELAPSE_PROGRESS")] = 15287;
     values[(valuesById[15288] = "CMD_V3_NOTIFY_EXPOSURE_DURATION")] = 15288;
+    values[(valuesById[15289] = "CMD_NOTIFY_SENTRY_MOTOR_STATE")] = 15289;
     values[(valuesById[15290] = "CMD_V3_NOTIFY_CALI_FRAME_STATE")] = 15290;
     values[(valuesById[15291] = "CMD_V3_NOTIFY_CALI_FRAME_PROGRESS")] = 15291;
     values[(valuesById[15292] = "CMD_V3_NOTIFY_TEMPERATURE2")] = 15292;
+    values[(valuesById[15293] = "CMD_NOTIFY_PANORAMA_COMPRESS_PROGRESS")] = 15293;
+    values[(valuesById[15294] = "CMD_NOTIFY_PANORAMA_COMPRESS_COMPLETE")] = 15294;
+    values[(valuesById[15295] = "CMD_NOTIFY_DEVICE_ATTITUDE")] = 15295;
     values[(valuesById[15296] = "CMD_V3_NOTIFY_OBSERVATION_STATE")] = 15296;
+    values[(valuesById[15300] = "CMD_NOTIFY_WIDE_FOCUS_POSITION")] = 15300;
+    values[(valuesById[15301] = "CMD_NOTIFY_LENS_DEFOG_STATE")] = 15301;
+    values[(valuesById[15302] = "CMD_NOTIFY_AUTO_COOLING_STATE")] = 15302;
+    values[(valuesById[15303] = "CMD_NOTIFY_AUTO_SHUTDOWN_STATE")] = 15303;
+    values[(valuesById[15304] = "CMD_NOTIFY_ROLL_LEVEL_CALIBRATION_ANGLE")] = 15304;
+    values[(valuesById[15305] = "CMD_NOTIFY_GUIDE_FOCUS_POSITION")] = 15305;
     values[(valuesById[15500] = "CMD_PANORAMA_START_GRID")] = 15500;
     values[(valuesById[15501] = "CMD_PANORAMA_STOP")] = 15501;
     values[(valuesById[15502] = "CMD_PANORAMA_START_EULER_RANGE")] = 15502;
+    values[(valuesById[15505] = "CMD_PANORAMA_GET_CURRENT_UPLOAD_STATE")] = 15505;
+    values[(valuesById[15506] = "CMD_PANORAMA_GET_UPLOAD_PREDICT")] = 15506;
+    values[(valuesById[15507] = "CMD_PANORAMA_START_COMPRESS")] = 15507;
+    values[(valuesById[15508] = "CMD_PANORAMA_STOP_COMPRESS")] = 15508;
+    values[(valuesById[15509] = "CMD_PANORAMA_START_FRAMING")] = 15509;
+    values[(valuesById[15510] = "CMD_PANORAMA_STOP_FRAMING")] = 15510;
+    values[(valuesById[15511] = "CMD_PANORAMA_RESET_FRAMING")] = 15511;
+    values[(valuesById[15512] = "CMD_PANORAMA_UPDATE_FRAMING_RECT")] = 15512;
+    values[(valuesById[15513] = "CMD_PANORAMA_STOP_FRAMEING_AND_START_GRID")] = 15513;
+    values[(valuesById[15700] = "CMD_ITIPS_GET")] = 15700;
+    values[(valuesById[16100] = "CMD_SYNC_SHOOTING_SCHEDULE")] = 16100;
+    values[(valuesById[16101] = "CMD_CANCEL_SHOOTING_SCHEDULE")] = 16101;
     values[(valuesById[16102] = "CMD_V3_SCHEDULE_GET")] = 16102;
+    values[(valuesById[16103] = "CMD_GET_SHOOTING_SCHEDULE_BY_ID")] = 16103;
+    values[(valuesById[16105] = "CMD_REPLACE_SHOOTING_SCHEDULE")] = 16105;
+    values[(valuesById[16106] = "CMD_UNLOCK_SHOOTING_SCHEDULE")] = 16106;
+    values[(valuesById[16107] = "CMD_LOCK_SHOOTING_SCHEDULE")] = 16107;
+    values[(valuesById[16108] = "CMD_DELETE_SHOOTING_SCHEDULE")] = 16108;
+    values[(valuesById[16400] = "CMD_GLOBAL_TASK_MANAGER_START_TASK")] = 16400;
+    values[(valuesById[16401] = "CMD_GLOBAL_TASK_MANAGER_STOP_TASK")] = 16401;
     values[(valuesById[16402] = "CMD_V3_DEVICE_CONFIG_MODE_QUERY")] = 16402;
     values[(valuesById[16403] = "CMD_V3_DEVICE_CONFIG_SHOOTING_MODE")] = 16403;
     values[(valuesById[16404] = "CMD_V3_DEVICE_CONFIG_MODE_SWITCH")] = 16404;
     values[(valuesById[16405] = "CMD_V3_DEVICE_CONFIG_GET_CONFIG")] = 16405;
+    values[(valuesById[16406] = "CMD_GLOBAL_VOICE_ASSISTANT_TASK")] = 16406;
     values[(valuesById[16700] = "CMD_V3_CAMERA_PARAMS_SET_PARAM")] = 16700;
     values[(valuesById[16701] = "CMD_V3_CAMERA_PARAMS_SET_EXP_GAIN")] = 16701;
     values[(valuesById[16702] = "CMD_V3_CAMERA_PARAMS_UNKNOWN_16702")] = 16702;
     values[(valuesById[16703] = "CMD_V3_CAMERA_PARAMS_ADJUST")] = 16703;
+    values[(valuesById[16704] = "CMD_PARAM_SET_GENERAL_FLOAT_PARAM")] = 16704;
+    values[(valuesById[16705] = "CMD_PARAM_SET_GENERAL_BOOL_PARAM")] = 16705;
     values[(valuesById[16706] = "CMD_V3_CAMERA_PARAMS_STREAM_CTRL")] = 16706;
+    values[(valuesById[16800] = "CMD_VOICE_ASSISTANT_TASK")] = 16800;
+    values[(valuesById[16900] = "CMD_CAMERA_GUIDE_SET_EXP")] = 16900;
+    values[(valuesById[16901] = "CMD_CAMERA_GUIDE_GET_EXP")] = 16901;
+    values[(valuesById[16902] = "CMD_CAMERA_GUIDE_SET_GAIN")] = 16902;
+    values[(valuesById[16903] = "CMD_CAMERA_GUIDE_GET_GAIN")] = 16903;
+    values[(valuesById[17000] = "CMD_DEVICE_LENS_DEFOG")] = 17000;
+    values[(valuesById[17001] = "CMD_DEVICE_AUTO_COOLING")] = 17001;
+    values[(valuesById[17002] = "CMD_DEVICE_AUTO_SHUTDOWN")] = 17002;
     return values;
 })();
 /**
@@ -61118,5 +64038,350 @@ $root.V3ReqSetGPSLocation = (function () {
         return typeUrlPrefix + "/V3ReqSetGPSLocation";
     };
     return V3ReqSetGPSLocation;
+})();
+/**
+ * VoiceCommandType enum.
+ * @exports VoiceCommandType
+ * @enum {number}
+ * @property {number} VOICE_CMD_UNKNOWN=0 VOICE_CMD_UNKNOWN value
+ * @property {number} VOICE_CMD_GET_STATUS=1 VOICE_CMD_GET_STATUS value
+ * @property {number} VOICE_CMD_TAKE_PHOTO=2 VOICE_CMD_TAKE_PHOTO value
+ * @property {number} VOICE_CMD_START_RECORD=3 VOICE_CMD_START_RECORD value
+ * @property {number} VOICE_CMD_STOP_RECORD=4 VOICE_CMD_STOP_RECORD value
+ * @property {number} VOICE_CMD_START_TIMELAPSE=5 VOICE_CMD_START_TIMELAPSE value
+ * @property {number} VOICE_CMD_STOP_TIMELAPSE=6 VOICE_CMD_STOP_TIMELAPSE value
+ * @property {number} VOICE_CMD_START_BURST=7 VOICE_CMD_START_BURST value
+ * @property {number} VOICE_CMD_STOP_BURST=8 VOICE_CMD_STOP_BURST value
+ * @property {number} VOICE_CMD_START_ASTRO=9 VOICE_CMD_START_ASTRO value
+ * @property {number} VOICE_CMD_STOP_ASTRO=10 VOICE_CMD_STOP_ASTRO value
+ * @property {number} VOICE_CMD_START_SENTRY=11 VOICE_CMD_START_SENTRY value
+ * @property {number} VOICE_CMD_STOP_SENTRY=12 VOICE_CMD_STOP_SENTRY value
+ * @property {number} VOICE_CMD_MOVE=13 VOICE_CMD_MOVE value
+ * @property {number} VOICE_CMD_GOTO_TARGET=14 VOICE_CMD_GOTO_TARGET value
+ * @property {number} VOICE_CMD_CALIBRATION=15 VOICE_CMD_CALIBRATION value
+ * @property {number} VOICE_CMD_AUTO_FOCUS=16 VOICE_CMD_AUTO_FOCUS value
+ * @property {number} VOICE_CMD_STOP_FOCUS=17 VOICE_CMD_STOP_FOCUS value
+ * @property {number} VOICE_CMD_STOP_ALL=18 VOICE_CMD_STOP_ALL value
+ */
+$root.VoiceCommandType = (function () {
+    var valuesById = {}, values = Object.create(valuesById);
+    values[(valuesById[0] = "VOICE_CMD_UNKNOWN")] = 0;
+    values[(valuesById[1] = "VOICE_CMD_GET_STATUS")] = 1;
+    values[(valuesById[2] = "VOICE_CMD_TAKE_PHOTO")] = 2;
+    values[(valuesById[3] = "VOICE_CMD_START_RECORD")] = 3;
+    values[(valuesById[4] = "VOICE_CMD_STOP_RECORD")] = 4;
+    values[(valuesById[5] = "VOICE_CMD_START_TIMELAPSE")] = 5;
+    values[(valuesById[6] = "VOICE_CMD_STOP_TIMELAPSE")] = 6;
+    values[(valuesById[7] = "VOICE_CMD_START_BURST")] = 7;
+    values[(valuesById[8] = "VOICE_CMD_STOP_BURST")] = 8;
+    values[(valuesById[9] = "VOICE_CMD_START_ASTRO")] = 9;
+    values[(valuesById[10] = "VOICE_CMD_STOP_ASTRO")] = 10;
+    values[(valuesById[11] = "VOICE_CMD_START_SENTRY")] = 11;
+    values[(valuesById[12] = "VOICE_CMD_STOP_SENTRY")] = 12;
+    values[(valuesById[13] = "VOICE_CMD_MOVE")] = 13;
+    values[(valuesById[14] = "VOICE_CMD_GOTO_TARGET")] = 14;
+    values[(valuesById[15] = "VOICE_CMD_CALIBRATION")] = 15;
+    values[(valuesById[16] = "VOICE_CMD_AUTO_FOCUS")] = 16;
+    values[(valuesById[17] = "VOICE_CMD_STOP_FOCUS")] = 17;
+    values[(valuesById[18] = "VOICE_CMD_STOP_ALL")] = 18;
+    return values;
+})();
+$root.ReqVoiceCommand = (function () {
+    /**
+     * Properties of a ReqVoiceCommand.
+     * @exports IReqVoiceCommand
+     * @interface IReqVoiceCommand
+     * @property {VoiceCommandType|null} [commandType] ReqVoiceCommand commandType
+     */
+    /**
+     * Constructs a new ReqVoiceCommand.
+     * @exports ReqVoiceCommand
+     * @classdesc Represents a ReqVoiceCommand.
+     * @implements IReqVoiceCommand
+     * @constructor
+     * @param {IReqVoiceCommand=} [properties] Properties to set
+     */
+    function ReqVoiceCommand(properties) {
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+    /**
+     * ReqVoiceCommand commandType.
+     * @member {VoiceCommandType} commandType
+     * @memberof ReqVoiceCommand
+     * @instance
+     */
+    ReqVoiceCommand.prototype.commandType = 0;
+    /**
+     * Creates a new ReqVoiceCommand instance using the specified properties.
+     * @function create
+     * @memberof ReqVoiceCommand
+     * @static
+     * @param {IReqVoiceCommand=} [properties] Properties to set
+     * @returns {ReqVoiceCommand} ReqVoiceCommand instance
+     */
+    ReqVoiceCommand.create = function create(properties) {
+        return new ReqVoiceCommand(properties);
+    };
+    /**
+     * Encodes the specified ReqVoiceCommand message. Does not implicitly {@link ReqVoiceCommand.verify|verify} messages.
+     * @function encode
+     * @memberof ReqVoiceCommand
+     * @static
+     * @param {IReqVoiceCommand} message ReqVoiceCommand message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    ReqVoiceCommand.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        if (message.commandType != null &&
+            Object.hasOwnProperty.call(message, "commandType"))
+            writer.uint32(/* id 1, wireType 0 =*/ 8).int32(message.commandType);
+        return writer;
+    };
+    /**
+     * Encodes the specified ReqVoiceCommand message, length delimited. Does not implicitly {@link ReqVoiceCommand.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof ReqVoiceCommand
+     * @static
+     * @param {IReqVoiceCommand} message ReqVoiceCommand message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    ReqVoiceCommand.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+    /**
+     * Decodes a ReqVoiceCommand message from the specified reader or buffer.
+     * @function decode
+     * @memberof ReqVoiceCommand
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {ReqVoiceCommand} ReqVoiceCommand
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    ReqVoiceCommand.decode = function decode(reader, length) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ReqVoiceCommand();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    message.commandType = reader.int32();
+                    break;
+                }
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    };
+    /**
+     * Decodes a ReqVoiceCommand message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof ReqVoiceCommand
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {ReqVoiceCommand} ReqVoiceCommand
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    ReqVoiceCommand.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+    /**
+     * Verifies a ReqVoiceCommand message.
+     * @function verify
+     * @memberof ReqVoiceCommand
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    ReqVoiceCommand.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        if (message.commandType != null && message.hasOwnProperty("commandType"))
+            switch (message.commandType) {
+                default:
+                    return "commandType: enum value expected";
+                case 0:
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                case 7:
+                case 8:
+                case 9:
+                case 10:
+                case 11:
+                case 12:
+                case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                    break;
+            }
+        return null;
+    };
+    /**
+     * Creates a ReqVoiceCommand message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof ReqVoiceCommand
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {ReqVoiceCommand} ReqVoiceCommand
+     */
+    ReqVoiceCommand.fromObject = function fromObject(object) {
+        if (object instanceof $root.ReqVoiceCommand)
+            return object;
+        var message = new $root.ReqVoiceCommand();
+        switch (object.commandType) {
+            default:
+                if (typeof object.commandType === "number") {
+                    message.commandType = object.commandType;
+                    break;
+                }
+                break;
+            case "VOICE_CMD_UNKNOWN":
+            case 0:
+                message.commandType = 0;
+                break;
+            case "VOICE_CMD_GET_STATUS":
+            case 1:
+                message.commandType = 1;
+                break;
+            case "VOICE_CMD_TAKE_PHOTO":
+            case 2:
+                message.commandType = 2;
+                break;
+            case "VOICE_CMD_START_RECORD":
+            case 3:
+                message.commandType = 3;
+                break;
+            case "VOICE_CMD_STOP_RECORD":
+            case 4:
+                message.commandType = 4;
+                break;
+            case "VOICE_CMD_START_TIMELAPSE":
+            case 5:
+                message.commandType = 5;
+                break;
+            case "VOICE_CMD_STOP_TIMELAPSE":
+            case 6:
+                message.commandType = 6;
+                break;
+            case "VOICE_CMD_START_BURST":
+            case 7:
+                message.commandType = 7;
+                break;
+            case "VOICE_CMD_STOP_BURST":
+            case 8:
+                message.commandType = 8;
+                break;
+            case "VOICE_CMD_START_ASTRO":
+            case 9:
+                message.commandType = 9;
+                break;
+            case "VOICE_CMD_STOP_ASTRO":
+            case 10:
+                message.commandType = 10;
+                break;
+            case "VOICE_CMD_START_SENTRY":
+            case 11:
+                message.commandType = 11;
+                break;
+            case "VOICE_CMD_STOP_SENTRY":
+            case 12:
+                message.commandType = 12;
+                break;
+            case "VOICE_CMD_MOVE":
+            case 13:
+                message.commandType = 13;
+                break;
+            case "VOICE_CMD_GOTO_TARGET":
+            case 14:
+                message.commandType = 14;
+                break;
+            case "VOICE_CMD_CALIBRATION":
+            case 15:
+                message.commandType = 15;
+                break;
+            case "VOICE_CMD_AUTO_FOCUS":
+            case 16:
+                message.commandType = 16;
+                break;
+            case "VOICE_CMD_STOP_FOCUS":
+            case 17:
+                message.commandType = 17;
+                break;
+            case "VOICE_CMD_STOP_ALL":
+            case 18:
+                message.commandType = 18;
+                break;
+        }
+        return message;
+    };
+    /**
+     * Creates a plain object from a ReqVoiceCommand message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof ReqVoiceCommand
+     * @static
+     * @param {ReqVoiceCommand} message ReqVoiceCommand
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    ReqVoiceCommand.toObject = function toObject(message, options) {
+        if (!options)
+            options = {};
+        var object = {};
+        if (options.defaults)
+            object.commandType = options.enums === String ? "VOICE_CMD_UNKNOWN" : 0;
+        if (message.commandType != null && message.hasOwnProperty("commandType"))
+            object.commandType =
+                options.enums === String
+                    ? $root.VoiceCommandType[message.commandType] === undefined
+                        ? message.commandType
+                        : $root.VoiceCommandType[message.commandType]
+                    : message.commandType;
+        return object;
+    };
+    /**
+     * Converts this ReqVoiceCommand to JSON.
+     * @function toJSON
+     * @memberof ReqVoiceCommand
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    ReqVoiceCommand.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+    /**
+     * Gets the default type url for ReqVoiceCommand
+     * @function getTypeUrl
+     * @memberof ReqVoiceCommand
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ReqVoiceCommand.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ReqVoiceCommand";
+    };
+    return ReqVoiceCommand;
 })();
 export default $root;

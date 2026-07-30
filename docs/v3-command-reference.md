@@ -6,6 +6,7 @@ Sources:
 - `dwarfii_api/src/proto/protocol.proto` — protobuf enum definitions
 - `dwarfii_api/src/cmd_mapping.js` — CMD → protobuf class mappings
 - 15 pcap captures decoded with `tools/v3-probe/pcap-decode.js`
+- DWARFLAB 3.4.1 APK audit; see [APK 3.4.1 WebSocket additions](apk-3.4.1-websocket-additions.md)
 
 ---
 

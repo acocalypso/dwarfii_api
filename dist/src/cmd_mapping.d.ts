@@ -81,6 +81,8 @@ export const cmdMapping: {
     11026: string;
     11027: string;
     11028: string;
+    11042: string;
+    11044: string;
     12000: string;
     12001: string;
     12002: string;
@@ -135,6 +137,9 @@ export const cmdMapping: {
     14009: string;
     14010: string;
     14011: string;
+    14014: string;
+    14015: string;
+    14016: string;
     14800: string;
     14801: string;
     14802: string;
@@ -153,6 +158,9 @@ export const cmdMapping: {
     15500: string;
     15501: string;
     15502: string;
+    15506: string;
+    15507: string;
+    15508: string;
     10050: string;
     12036: string;
     11033: string;
@@ -176,7 +184,12 @@ export const cmdMapping: {
     16701: string;
     16702: string;
     16703: string;
+    16705: string;
     16706: string;
+    16800: string;
+    17000: string;
+    17001: string;
+    17002: string;
 };
 export const responseMapping: {
     0: string;

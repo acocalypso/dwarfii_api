@@ -241,3 +241,27 @@ message ResDelWideDarkFrameList {
     int32 code = 1;
 }
 
+// APK 3.4.1: parameters embedded in CMD_ASTRO_START_ONE_CLICK_SHOOTING.
+message ReqOneClickShootingParam {
+    int32 horizontal_scale = 1;
+    int32 vertical_scale = 2;
+    int32 rotation = 3;
+    int32 camera_type = 4;
+    int32 exp_index = 5;
+    int32 gain = 6;
+    int32 filter_type = 7;
+    int32 cap_size = 8;
+    int32 resolution = 9;
+}
+
+// APK 3.4.1: either sub-message may be omitted by the app.
+message ReqOneClickShooting {
+    ReqOneClickGotoDSO goto_dso = 1;
+    ReqOneClickShootingParam shooting_param = 2;
+}
+
+// APK 3.4.1: calibration-frame info IDs to delete.
+message ReqDelCaliFrameList {
+    repeated int32 info_ids = 1;
+}
+

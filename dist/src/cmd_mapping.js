@@ -83,6 +83,8 @@ export const cmdMapping = {
     11026: "ReqStopCaptureWideDarkFrame", // Stop shooting dark field with wide-angle specified parameters
     11027: "ReqCheckWideDarkFrame", // Query the list of wide-angle dark scenes taken
     11028: "ReqDelWideDarkFrame", // Delete the specified wide-angle dark field list
+    11042: "ReqOneClickShooting", // APK 3.4.1: combined GOTO and shooting request
+    11044: "ReqDelCaliFrameList", // APK 3.4.1: delete calibration frames by info ID
     12000: "ReqOpenCamera", // Turn on the camera
     12001: "ReqCloseCamera", // Turn off the camera
     12002: "ReqSetExpMode", // Set exposure mode
@@ -137,6 +139,9 @@ export const cmdMapping = {
     14009: "ReqDualCameraLinkage", // Dual camera linkage
     14010: "ReqMotorRunInPulse", // Motor run in pulse
     14011: "ReqMotorGetPosition", // Motor get Position
+    14014: "ReqMotorLevelCalibrationMove", // APK 3.4.1: move during level calibration
+    14015: "ReqMotorLevelCalibrationSave", // APK 3.4.1: save level calibration offset
+    14016: "ReqMotorLevelCalibrationResetDefault", // APK 3.4.1: reset level calibration
     14800: "ReqStartTrack", // Started tracking
     14801: "ReqStopTrack", // Stop tracking
     14802: "ReqStartSentryMode", // Start Sentinel Mode
@@ -155,6 +160,9 @@ export const cmdMapping = {
     15500: "ReqStartPanoramaByGrid", // Start panorama
     15501: "ReqStopPanorama", // Stop panorama
     15502: "ReqStartPanoramaByEulerRange", // Start panorama Euler Range
+    15506: "ReqGetUploadPredict", // APK 3.4.1: estimate panorama upload
+    15507: "ReqCompressPanorama", // APK 3.4.1: start panorama compression
+    15508: "ReqStopCompressPanorama", // APK 3.4.1: stop panorama compression
     // V3 Commands
     10050: "V3ReqOpenTeleCamera", // V3: Open/close tele camera
     12036: "V3ReqOpenWideCamera", // V3: Open/close wide camera
@@ -179,7 +187,12 @@ export const cmdMapping = {
     16701: "V3ReqSetExposureGain", // V3: Set exposure/gain
     16702: "V3ReqUnknownCameraParam", // V3: Unknown camera param command (pcap-discovered)
     16703: "V3ReqAdjustParam", // V3: Adjust camera param
+    16705: "ReqSetGeneralBoolParams", // APK 3.4.1: set general boolean parameter
     16706: "V3ReqStreamControl", // V3: Stream control
+    16800: "ReqVoiceCommand", // APK 3.4.1: voice assistant status request
+    17000: "ReqLensDefog", // APK 3.4.1: lens defog switch
+    17001: "ReqAutoCooling", // APK 3.4.1: automatic cooling switch
+    17002: "ReqAutoShutdown", // APK 3.4.1: automatic shutdown switch
 };
 export const responseMapping = {
     // BLE Class Response
