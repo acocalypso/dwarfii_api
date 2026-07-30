@@ -265,6 +265,36 @@ DWARF II / 3 / mini 用 WebSocket API ライブラリ。
 > V3 は DWARF mini (deviceId=4, FW 1.0.25.2) で使用するプロトコル v1.20 のコマンドです。
 > 一部のコマンド (11005, 11006, 11010, 11013, 11014, 11015) は V2 と共通の CMD ID で、追加フィールドにより拡張されています。
 
+### DWARF mini V3 evidence update (2026-07-30)
+
+Validated against a DWARF MINI running firmware `1.1.3 build 2`, the
+DWARFLAB 3.4.1 APK, and safe read/write probes:
+
+- WebSocket profile is protocol `1.20`, `deviceId=4`, client ID
+  `0000DAF4-0000-1000-8000-00805F9B34FB`.
+- Normal Deep Sky capture has Astro (`ir_index=1`) and Duo-Band
+  (`ir_index=2`). There is no no-filter position.
+- Dark (`filter_type=3`) is reserved for calibration-frame capture through
+  commands `11045`/`11046`; it is not a normal filter move.
+- `11040` mode 0 returned `0|0|15|60|1|null`, `0|0|30|60|1|null`,
+  `0|0|60|60|1|null`, `0|0|90|60|1|null`, and
+  `0|0|180|60|1|null`. Mode 1 returned `1|0|10|40|1|null`.
+- In the six-component `11040`/`11041` string, component 3 is exposure
+  seconds, component 4 is gain, and component 5 is frame count.
+  Components 1, 2 and 6 remain unresolved; component 1 is not a filter.
+- `11041` accepted and echoed `0|0|1|60|1|null`, confirming a 1-second
+  firmware exposure setting.
+- Legacy feature query `10038` timed out. Device config `16405` reported
+  `1920x1080`.
+- APK 3.4.1 calls `11043` `GET_CALI_FRAME_LIST`, conflicting with the
+  provisional exposure-preset decoder in this library. Inspect the raw response
+  before depending on that decoder.
+- Real-device attempts to use `16700`/`16703` as filter-move commands failed.
+  `15264` is general camera-parameter state, not filter readback.
+
+The calibration request schema is APK-confirmed, but calibration result delivery
+and completion notifications still require a controlled hardware capture.
+
 ### V3 Camera Tele
 
 **モジュール: `v3_camera_tele.js`** — Module ID: 1 (MODULE_CAMERA_TELE)
@@ -291,7 +321,7 @@ DWARF II / 3 / mini 用 WebSocket API ライブラリ。
 
 | CMD ID | 関数 | Request | Response | 説明 |
 |--------|------|---------|----------|------|
-| 11005 | `messageV3AstroStartStacking(frameCount)` | ReqCaptureRawLiveStacking `{frameCount}` | ComResponse | スタッキング開始 (フレーム数指定, -1=無限) |
+| 11005 | `messageV3AstroStartStacking(irIndex, forceStart)` | ReqCaptureRawLiveStacking `{irIndex, forceStart}` | ComResponse | Start stacking; Astro=1, Duo-Band=2 |
 | 11006 | `messageV3AstroStopStacking()` | ReqStopCaptureRawLiveStacking | ComResponse | スタッキング停止 |
 | 11010 | `messageV3AstroStartTracking()` | ReqGoLive | ComResponse | トラッキング開始 |
 | 11013 | `messageV3AstroGotoDSO(ra, dec, targetName, lon, lat, mode)` | ReqOneClickGotoDSO | ResOneClickGoto | DSO へワンクリック GOTO (V3: lon/lat/mode 追加) |
@@ -301,8 +331,10 @@ DWARF II / 3 / mini 用 WebSocket API ライブラリ。
 | 11034 | `messageV3AstroListImages()` | V3ReqListSavedImages | ComResponse | 保存画像一覧取得 |
 | 11039 | `messageV3AstroStatusPolling(f1, f2, f3, f4)` | V3ReqStatusPolling | ComResponse | ステータスポーリング |
 | 11040 | `messageV3AstroGetParams(mode)` | V3ReqGetAstroParams `{mode}` | V3ResGetAstroParams | 撮影パラメータ取得 |
-| 11041 | `messageV3AstroSetParams(params)` | V3ReqSetAstroParams `{params}` | ComResponse | 撮影パラメータ設定 (パイプ区切り文字列) |
-| 11043 | `messageV3AstroGetPresets()` | V3ReqGetExposurePresets | V3ResGetExposurePresets | 露出プリセット取得 |
+| 11041 | `messageV3AstroSetParams(params)` | V3ReqSetAstroParams `{params}` | V3ResSetAstroParams | 撮影パラメータ設定 (パイプ区切り文字列) |
+| 11043 | `messageV3AstroGetPresets()` | V3ReqGetExposurePresets | V3ResGetExposurePresets | Provisional: APK names this GET_CALI_FRAME_LIST |
+| 11045 | `messageV3AstroStartCalibrationFrame(...)` / `messageV3AstroStartDarkCalibration(...)` | V3ReqCaptureCaliFrame | ComResponse | Start calibration frame; dark uses type=0/filter=3 |
+| 11046 | `messageV3AstroStopCalibrationFrame(cameraType)` | V3ReqStopCaptureCaliFrame | ComResponse | Stop calibration-frame capture |
 | 11047 | `messageV3AstroSetLocation(lon, lat)` | V3ReqSetObservationLocation | ComResponse | 観測地点設定 |
 | 11048 | `messageV3AstroConfirm()` | V3ReqConfirmObservation | ComResponse | 観測確認 |
 
@@ -341,6 +373,9 @@ DWARF II / 3 / mini 用 WebSocket API ライブラリ。
 | CMD ID | 関数 | Request | Response | 説明 |
 |--------|------|---------|----------|------|
 | 16703 | `messageV3CameraParamsAdjust(paramId, value)` | V3ReqAdjustParam `{paramId, value}` | ComResponse | カメラパラメータ調整 |
+
+> `16700` and `16703` are generic camera-parameter commands. They are not
+> confirmed filter-wheel controls and must not be used as such.
 
 ### V3 Schedule
 

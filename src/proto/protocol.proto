@@ -112,7 +112,9 @@ enum DwarfCMD {
     CMD_V3_ASTRO_STATUS_POLLING = 11039; // V3: Status polling
     CMD_V3_ASTRO_GET_PARAMS = 11040; // V3: Get astro parameters
     CMD_V3_ASTRO_SET_PARAMS = 11041; // V3: Set astro parameters
-    CMD_V3_ASTRO_GET_PRESETS = 11043; // V3: Get exposure presets
+    CMD_V3_ASTRO_GET_PRESETS = 11043; // V3: provisional; APK 3.4.1 names this GET_CALI_FRAME_LIST
+    CMD_V3_ASTRO_START_CAPTURE_CALI_FRAME = 11045; // V3: Start calibration-frame capture
+    CMD_V3_ASTRO_STOP_CAPTURE_CALI_FRAME = 11046; // V3: Stop calibration-frame capture
     CMD_V3_ASTRO_SET_LOCATION = 11047; // V3: Set observation location
     CMD_V3_ASTRO_CONFIRM = 11048; // V3: Confirm observation
 

@@ -1,6 +1,9 @@
 # Dwarf II
 
-Wrapper functions for Dwarf II (aka Dwarf 2) API V2.
+Wrapper functions for the DWARF II API V2 plus evidence-backed DWARF mini V3
+commands. See [the API reference](docs/API_REFERENCE.md) and
+[the V3 investigation notes](tools/v3-probe/PCAP_FINDINGS.md). V3 entries are
+marked when their schema or hardware behavior is still provisional.
 
 Dwarf Lab's [API V2 documentation](https://tinyphoton.feishu.cn/docx/GBkcdldTIo3SrdxFJDscYVYDnvf?fbclid=IwAR0_Vypm8DPk1PPtwllptpWDZmxbCgi3NKVQKV8khDXIvnNay_o67AUgtq4).
 

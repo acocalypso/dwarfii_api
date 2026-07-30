@@ -180,7 +180,9 @@ export const cmdMapping = {
   11039: "V3ReqStatusPolling", // V3: Status polling
   11040: "V3ReqGetAstroParams", // V3: Get astro parameters
   11041: "V3ReqSetAstroParams", // V3: Set astro parameters
-  11043: "V3ReqGetExposurePresets", // V3: Get exposure presets
+  11043: "V3ReqGetExposurePresets", // V3: provisional; APK calls this calibration-frame list
+  11045: "V3ReqCaptureCaliFrame", // V3: Start calibration-frame capture
+  11046: "V3ReqStopCaptureCaliFrame", // V3: Stop calibration-frame capture
   11047: "V3ReqSetObservationLocation", // V3: Set observation location
   11048: "V3ReqConfirmObservation", // V3: Confirm observation
   13010: "V3ReqSetGPSLocation", // V3: Set GPS location
@@ -376,7 +378,9 @@ export const responseMapping = {
   11039: "ComResponse", // V3: Status polling
   11040: "V3ResGetAstroParams", // V3: Get astro parameters
   11041: "V3ResSetAstroParams", // V3: Set astro parameters
-  11043: "V3ResGetExposurePresets", // V3: Get exposure presets
+  11043: "V3ResGetExposurePresets", // V3: provisional; raw response needs validation
+  11045: "ComResponse", // V3: Start calibration-frame capture
+  11046: "ComResponse", // V3: Stop calibration-frame capture
   11047: "ComResponse", // V3: Set observation location
   11048: "ComResponse", // V3: Confirm observation
   13010: "ComResponse", // V3: Set GPS location

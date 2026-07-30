@@ -161,6 +161,8 @@ export const cmdMapping: {
     11040: string;
     11041: string;
     11043: string;
+    11045: string;
+    11046: string;
     11047: string;
     11048: string;
     13010: string;
@@ -339,6 +341,8 @@ export const responseMapping: {
     11040: string;
     11041: string;
     11043: string;
+    11045: string;
+    11046: string;
     11047: string;
     11048: string;
     13010: string;

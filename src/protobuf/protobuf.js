@@ -1051,7 +1051,8 @@ $root.ReqCaptureRawLiveStacking = (function () {
    * Properties of a ReqCaptureRawLiveStacking.
    * @exports IReqCaptureRawLiveStacking
    * @interface IReqCaptureRawLiveStacking
-   * @property {number|null} [frameCount] ReqCaptureRawLiveStacking frameCount
+   * @property {number|null} [irIndex] ReqCaptureRawLiveStacking irIndex
+   * @property {boolean|null} [forceStart] ReqCaptureRawLiveStacking forceStart
    */
 
   /**
@@ -1069,12 +1070,20 @@ $root.ReqCaptureRawLiveStacking = (function () {
   }
 
   /**
-   * ReqCaptureRawLiveStacking frameCount.
-   * @member {number} frameCount
+   * ReqCaptureRawLiveStacking irIndex.
+   * @member {number} irIndex
    * @memberof ReqCaptureRawLiveStacking
    * @instance
    */
-  ReqCaptureRawLiveStacking.prototype.frameCount = 0;
+  ReqCaptureRawLiveStacking.prototype.irIndex = 0;
+
+  /**
+   * ReqCaptureRawLiveStacking forceStart.
+   * @member {boolean} forceStart
+   * @memberof ReqCaptureRawLiveStacking
+   * @instance
+   */
+  ReqCaptureRawLiveStacking.prototype.forceStart = false;
 
   /**
    * Creates a new ReqCaptureRawLiveStacking instance using the specified properties.
@@ -1100,10 +1109,15 @@ $root.ReqCaptureRawLiveStacking = (function () {
   ReqCaptureRawLiveStacking.encode = function encode(message, writer) {
     if (!writer) writer = $Writer.create();
     if (
-      message.frameCount != null &&
-      Object.hasOwnProperty.call(message, "frameCount")
+      message.irIndex != null &&
+      Object.hasOwnProperty.call(message, "irIndex")
     )
-      writer.uint32(/* id 1, wireType 0 =*/ 8).int32(message.frameCount);
+      writer.uint32(/* id 1, wireType 0 =*/ 8).int32(message.irIndex);
+    if (
+      message.forceStart != null &&
+      Object.hasOwnProperty.call(message, "forceStart")
+    )
+      writer.uint32(/* id 2, wireType 0 =*/ 16).bool(message.forceStart);
     return writer;
   };
 
@@ -1142,7 +1156,11 @@ $root.ReqCaptureRawLiveStacking = (function () {
       var tag = reader.uint32();
       switch (tag >>> 3) {
         case 1: {
-          message.frameCount = reader.int32();
+          message.irIndex = reader.int32();
+          break;
+        }
+        case 2: {
+          message.forceStart = reader.bool();
           break;
         }
         default:
@@ -1179,9 +1197,11 @@ $root.ReqCaptureRawLiveStacking = (function () {
   ReqCaptureRawLiveStacking.verify = function verify(message) {
     if (typeof message !== "object" || message === null)
       return "object expected";
-    if (message.frameCount != null && message.hasOwnProperty("frameCount"))
-      if (!$util.isInteger(message.frameCount))
-        return "frameCount: integer expected";
+    if (message.irIndex != null && message.hasOwnProperty("irIndex"))
+      if (!$util.isInteger(message.irIndex)) return "irIndex: integer expected";
+    if (message.forceStart != null && message.hasOwnProperty("forceStart"))
+      if (typeof message.forceStart !== "boolean")
+        return "forceStart: boolean expected";
     return null;
   };
 
@@ -1196,7 +1216,9 @@ $root.ReqCaptureRawLiveStacking = (function () {
   ReqCaptureRawLiveStacking.fromObject = function fromObject(object) {
     if (object instanceof $root.ReqCaptureRawLiveStacking) return object;
     var message = new $root.ReqCaptureRawLiveStacking();
-    if (object.frameCount != null) message.frameCount = object.frameCount | 0;
+    if (object.irIndex != null) message.irIndex = object.irIndex | 0;
+    if (object.forceStart != null)
+      message.forceStart = Boolean(object.forceStart);
     return message;
   };
 
@@ -1212,9 +1234,14 @@ $root.ReqCaptureRawLiveStacking = (function () {
   ReqCaptureRawLiveStacking.toObject = function toObject(message, options) {
     if (!options) options = {};
     var object = {};
-    if (options.defaults) object.frameCount = 0;
-    if (message.frameCount != null && message.hasOwnProperty("frameCount"))
-      object.frameCount = message.frameCount;
+    if (options.defaults) {
+      object.irIndex = 0;
+      object.forceStart = false;
+    }
+    if (message.irIndex != null && message.hasOwnProperty("irIndex"))
+      object.irIndex = message.irIndex;
+    if (message.forceStart != null && message.hasOwnProperty("forceStart"))
+      object.forceStart = message.forceStart;
     return object;
   };
 
@@ -42610,6 +42637,8 @@ $root.MessageTypeId = (function () {
  * @property {number} CMD_V3_ASTRO_GET_PARAMS=11040 CMD_V3_ASTRO_GET_PARAMS value
  * @property {number} CMD_V3_ASTRO_SET_PARAMS=11041 CMD_V3_ASTRO_SET_PARAMS value
  * @property {number} CMD_V3_ASTRO_GET_PRESETS=11043 CMD_V3_ASTRO_GET_PRESETS value
+ * @property {number} CMD_V3_ASTRO_START_CAPTURE_CALI_FRAME=11045 CMD_V3_ASTRO_START_CAPTURE_CALI_FRAME value
+ * @property {number} CMD_V3_ASTRO_STOP_CAPTURE_CALI_FRAME=11046 CMD_V3_ASTRO_STOP_CAPTURE_CALI_FRAME value
  * @property {number} CMD_V3_ASTRO_SET_LOCATION=11047 CMD_V3_ASTRO_SET_LOCATION value
  * @property {number} CMD_V3_ASTRO_CONFIRM=11048 CMD_V3_ASTRO_CONFIRM value
  * @property {number} CMD_CAMERA_WIDE_OPEN_CAMERA=12000 CMD_CAMERA_WIDE_OPEN_CAMERA value
@@ -42879,6 +42908,8 @@ $root.DwarfCMD = (function () {
   values[(valuesById[11040] = "CMD_V3_ASTRO_GET_PARAMS")] = 11040;
   values[(valuesById[11041] = "CMD_V3_ASTRO_SET_PARAMS")] = 11041;
   values[(valuesById[11043] = "CMD_V3_ASTRO_GET_PRESETS")] = 11043;
+  values[(valuesById[11045] = "CMD_V3_ASTRO_START_CAPTURE_CALI_FRAME")] = 11045;
+  values[(valuesById[11046] = "CMD_V3_ASTRO_STOP_CAPTURE_CALI_FRAME")] = 11046;
   values[(valuesById[11047] = "CMD_V3_ASTRO_SET_LOCATION")] = 11047;
   values[(valuesById[11048] = "CMD_V3_ASTRO_CONFIRM")] = 11048;
   values[(valuesById[12000] = "CMD_CAMERA_WIDE_OPEN_CAMERA")] = 12000;
@@ -57290,6 +57321,605 @@ $root.V3ExposurePresetData = (function () {
   };
 
   return V3ExposurePresetData;
+})();
+
+$root.V3ReqCaptureCaliFrame = (function () {
+  /**
+   * Properties of a V3ReqCaptureCaliFrame.
+   * @exports IV3ReqCaptureCaliFrame
+   * @interface IV3ReqCaptureCaliFrame
+   * @property {number|null} [expIndex] V3ReqCaptureCaliFrame expIndex
+   * @property {number|null} [gain] V3ReqCaptureCaliFrame gain
+   * @property {number|null} [resolution] V3ReqCaptureCaliFrame resolution
+   * @property {number|null} [capSize] V3ReqCaptureCaliFrame capSize
+   * @property {number|null} [cameraType] V3ReqCaptureCaliFrame cameraType
+   * @property {number|null} [caliFrameType] V3ReqCaptureCaliFrame caliFrameType
+   * @property {number|null} [filterType] V3ReqCaptureCaliFrame filterType
+   * @property {number|null} [sceneType] V3ReqCaptureCaliFrame sceneType
+   */
+
+  /**
+   * Constructs a new V3ReqCaptureCaliFrame.
+   * @exports V3ReqCaptureCaliFrame
+   * @classdesc Represents a V3ReqCaptureCaliFrame.
+   * @implements IV3ReqCaptureCaliFrame
+   * @constructor
+   * @param {IV3ReqCaptureCaliFrame=} [properties] Properties to set
+   */
+  function V3ReqCaptureCaliFrame(properties) {
+    if (properties)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+        if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
+  }
+
+  /**
+   * V3ReqCaptureCaliFrame expIndex.
+   * @member {number} expIndex
+   * @memberof V3ReqCaptureCaliFrame
+   * @instance
+   */
+  V3ReqCaptureCaliFrame.prototype.expIndex = 0;
+
+  /**
+   * V3ReqCaptureCaliFrame gain.
+   * @member {number} gain
+   * @memberof V3ReqCaptureCaliFrame
+   * @instance
+   */
+  V3ReqCaptureCaliFrame.prototype.gain = 0;
+
+  /**
+   * V3ReqCaptureCaliFrame resolution.
+   * @member {number} resolution
+   * @memberof V3ReqCaptureCaliFrame
+   * @instance
+   */
+  V3ReqCaptureCaliFrame.prototype.resolution = 0;
+
+  /**
+   * V3ReqCaptureCaliFrame capSize.
+   * @member {number} capSize
+   * @memberof V3ReqCaptureCaliFrame
+   * @instance
+   */
+  V3ReqCaptureCaliFrame.prototype.capSize = 0;
+
+  /**
+   * V3ReqCaptureCaliFrame cameraType.
+   * @member {number} cameraType
+   * @memberof V3ReqCaptureCaliFrame
+   * @instance
+   */
+  V3ReqCaptureCaliFrame.prototype.cameraType = 0;
+
+  /**
+   * V3ReqCaptureCaliFrame caliFrameType.
+   * @member {number} caliFrameType
+   * @memberof V3ReqCaptureCaliFrame
+   * @instance
+   */
+  V3ReqCaptureCaliFrame.prototype.caliFrameType = 0;
+
+  /**
+   * V3ReqCaptureCaliFrame filterType.
+   * @member {number|null|undefined} filterType
+   * @memberof V3ReqCaptureCaliFrame
+   * @instance
+   */
+  V3ReqCaptureCaliFrame.prototype.filterType = null;
+
+  /**
+   * V3ReqCaptureCaliFrame sceneType.
+   * @member {number} sceneType
+   * @memberof V3ReqCaptureCaliFrame
+   * @instance
+   */
+  V3ReqCaptureCaliFrame.prototype.sceneType = 0;
+
+  // OneOf field names bound to virtual getters and setters
+  var $oneOfFields;
+
+  /**
+   * V3ReqCaptureCaliFrame _filterType.
+   * @member {"filterType"|undefined} _filterType
+   * @memberof V3ReqCaptureCaliFrame
+   * @instance
+   */
+  Object.defineProperty(V3ReqCaptureCaliFrame.prototype, "_filterType", {
+    get: $util.oneOfGetter(($oneOfFields = ["filterType"])),
+    set: $util.oneOfSetter($oneOfFields),
+  });
+
+  /**
+   * Creates a new V3ReqCaptureCaliFrame instance using the specified properties.
+   * @function create
+   * @memberof V3ReqCaptureCaliFrame
+   * @static
+   * @param {IV3ReqCaptureCaliFrame=} [properties] Properties to set
+   * @returns {V3ReqCaptureCaliFrame} V3ReqCaptureCaliFrame instance
+   */
+  V3ReqCaptureCaliFrame.create = function create(properties) {
+    return new V3ReqCaptureCaliFrame(properties);
+  };
+
+  /**
+   * Encodes the specified V3ReqCaptureCaliFrame message. Does not implicitly {@link V3ReqCaptureCaliFrame.verify|verify} messages.
+   * @function encode
+   * @memberof V3ReqCaptureCaliFrame
+   * @static
+   * @param {IV3ReqCaptureCaliFrame} message V3ReqCaptureCaliFrame message or plain object to encode
+   * @param {$protobuf.Writer} [writer] Writer to encode to
+   * @returns {$protobuf.Writer} Writer
+   */
+  V3ReqCaptureCaliFrame.encode = function encode(message, writer) {
+    if (!writer) writer = $Writer.create();
+    if (
+      message.expIndex != null &&
+      Object.hasOwnProperty.call(message, "expIndex")
+    )
+      writer.uint32(/* id 1, wireType 0 =*/ 8).int32(message.expIndex);
+    if (message.gain != null && Object.hasOwnProperty.call(message, "gain"))
+      writer.uint32(/* id 2, wireType 0 =*/ 16).int32(message.gain);
+    if (
+      message.resolution != null &&
+      Object.hasOwnProperty.call(message, "resolution")
+    )
+      writer.uint32(/* id 3, wireType 0 =*/ 24).int32(message.resolution);
+    if (
+      message.capSize != null &&
+      Object.hasOwnProperty.call(message, "capSize")
+    )
+      writer.uint32(/* id 4, wireType 0 =*/ 32).int32(message.capSize);
+    if (
+      message.cameraType != null &&
+      Object.hasOwnProperty.call(message, "cameraType")
+    )
+      writer.uint32(/* id 5, wireType 0 =*/ 40).int32(message.cameraType);
+    if (
+      message.caliFrameType != null &&
+      Object.hasOwnProperty.call(message, "caliFrameType")
+    )
+      writer.uint32(/* id 6, wireType 0 =*/ 48).int32(message.caliFrameType);
+    if (
+      message.filterType != null &&
+      Object.hasOwnProperty.call(message, "filterType")
+    )
+      writer.uint32(/* id 7, wireType 0 =*/ 56).int32(message.filterType);
+    if (
+      message.sceneType != null &&
+      Object.hasOwnProperty.call(message, "sceneType")
+    )
+      writer.uint32(/* id 8, wireType 0 =*/ 64).int32(message.sceneType);
+    return writer;
+  };
+
+  /**
+   * Encodes the specified V3ReqCaptureCaliFrame message, length delimited. Does not implicitly {@link V3ReqCaptureCaliFrame.verify|verify} messages.
+   * @function encodeDelimited
+   * @memberof V3ReqCaptureCaliFrame
+   * @static
+   * @param {IV3ReqCaptureCaliFrame} message V3ReqCaptureCaliFrame message or plain object to encode
+   * @param {$protobuf.Writer} [writer] Writer to encode to
+   * @returns {$protobuf.Writer} Writer
+   */
+  V3ReqCaptureCaliFrame.encodeDelimited = function encodeDelimited(
+    message,
+    writer
+  ) {
+    return this.encode(message, writer).ldelim();
+  };
+
+  /**
+   * Decodes a V3ReqCaptureCaliFrame message from the specified reader or buffer.
+   * @function decode
+   * @memberof V3ReqCaptureCaliFrame
+   * @static
+   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+   * @param {number} [length] Message length if known beforehand
+   * @returns {V3ReqCaptureCaliFrame} V3ReqCaptureCaliFrame
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  V3ReqCaptureCaliFrame.decode = function decode(reader, length) {
+    if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
+    var end = length === undefined ? reader.len : reader.pos + length,
+      message = new $root.V3ReqCaptureCaliFrame();
+    while (reader.pos < end) {
+      var tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          message.expIndex = reader.int32();
+          break;
+        }
+        case 2: {
+          message.gain = reader.int32();
+          break;
+        }
+        case 3: {
+          message.resolution = reader.int32();
+          break;
+        }
+        case 4: {
+          message.capSize = reader.int32();
+          break;
+        }
+        case 5: {
+          message.cameraType = reader.int32();
+          break;
+        }
+        case 6: {
+          message.caliFrameType = reader.int32();
+          break;
+        }
+        case 7: {
+          message.filterType = reader.int32();
+          break;
+        }
+        case 8: {
+          message.sceneType = reader.int32();
+          break;
+        }
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  };
+
+  /**
+   * Decodes a V3ReqCaptureCaliFrame message from the specified reader or buffer, length delimited.
+   * @function decodeDelimited
+   * @memberof V3ReqCaptureCaliFrame
+   * @static
+   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+   * @returns {V3ReqCaptureCaliFrame} V3ReqCaptureCaliFrame
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  V3ReqCaptureCaliFrame.decodeDelimited = function decodeDelimited(reader) {
+    if (!(reader instanceof $Reader)) reader = new $Reader(reader);
+    return this.decode(reader, reader.uint32());
+  };
+
+  /**
+   * Verifies a V3ReqCaptureCaliFrame message.
+   * @function verify
+   * @memberof V3ReqCaptureCaliFrame
+   * @static
+   * @param {Object.<string,*>} message Plain object to verify
+   * @returns {string|null} `null` if valid, otherwise the reason why it is not
+   */
+  V3ReqCaptureCaliFrame.verify = function verify(message) {
+    if (typeof message !== "object" || message === null)
+      return "object expected";
+    var properties = {};
+    if (message.expIndex != null && message.hasOwnProperty("expIndex"))
+      if (!$util.isInteger(message.expIndex))
+        return "expIndex: integer expected";
+    if (message.gain != null && message.hasOwnProperty("gain"))
+      if (!$util.isInteger(message.gain)) return "gain: integer expected";
+    if (message.resolution != null && message.hasOwnProperty("resolution"))
+      if (!$util.isInteger(message.resolution))
+        return "resolution: integer expected";
+    if (message.capSize != null && message.hasOwnProperty("capSize"))
+      if (!$util.isInteger(message.capSize)) return "capSize: integer expected";
+    if (message.cameraType != null && message.hasOwnProperty("cameraType"))
+      if (!$util.isInteger(message.cameraType))
+        return "cameraType: integer expected";
+    if (
+      message.caliFrameType != null &&
+      message.hasOwnProperty("caliFrameType")
+    )
+      if (!$util.isInteger(message.caliFrameType))
+        return "caliFrameType: integer expected";
+    if (message.filterType != null && message.hasOwnProperty("filterType")) {
+      properties._filterType = 1;
+      if (!$util.isInteger(message.filterType))
+        return "filterType: integer expected";
+    }
+    if (message.sceneType != null && message.hasOwnProperty("sceneType"))
+      if (!$util.isInteger(message.sceneType))
+        return "sceneType: integer expected";
+    return null;
+  };
+
+  /**
+   * Creates a V3ReqCaptureCaliFrame message from a plain object. Also converts values to their respective internal types.
+   * @function fromObject
+   * @memberof V3ReqCaptureCaliFrame
+   * @static
+   * @param {Object.<string,*>} object Plain object
+   * @returns {V3ReqCaptureCaliFrame} V3ReqCaptureCaliFrame
+   */
+  V3ReqCaptureCaliFrame.fromObject = function fromObject(object) {
+    if (object instanceof $root.V3ReqCaptureCaliFrame) return object;
+    var message = new $root.V3ReqCaptureCaliFrame();
+    if (object.expIndex != null) message.expIndex = object.expIndex | 0;
+    if (object.gain != null) message.gain = object.gain | 0;
+    if (object.resolution != null) message.resolution = object.resolution | 0;
+    if (object.capSize != null) message.capSize = object.capSize | 0;
+    if (object.cameraType != null) message.cameraType = object.cameraType | 0;
+    if (object.caliFrameType != null)
+      message.caliFrameType = object.caliFrameType | 0;
+    if (object.filterType != null) message.filterType = object.filterType | 0;
+    if (object.sceneType != null) message.sceneType = object.sceneType | 0;
+    return message;
+  };
+
+  /**
+   * Creates a plain object from a V3ReqCaptureCaliFrame message. Also converts values to other types if specified.
+   * @function toObject
+   * @memberof V3ReqCaptureCaliFrame
+   * @static
+   * @param {V3ReqCaptureCaliFrame} message V3ReqCaptureCaliFrame
+   * @param {$protobuf.IConversionOptions} [options] Conversion options
+   * @returns {Object.<string,*>} Plain object
+   */
+  V3ReqCaptureCaliFrame.toObject = function toObject(message, options) {
+    if (!options) options = {};
+    var object = {};
+    if (options.defaults) {
+      object.expIndex = 0;
+      object.gain = 0;
+      object.resolution = 0;
+      object.capSize = 0;
+      object.cameraType = 0;
+      object.caliFrameType = 0;
+      object.sceneType = 0;
+    }
+    if (message.expIndex != null && message.hasOwnProperty("expIndex"))
+      object.expIndex = message.expIndex;
+    if (message.gain != null && message.hasOwnProperty("gain"))
+      object.gain = message.gain;
+    if (message.resolution != null && message.hasOwnProperty("resolution"))
+      object.resolution = message.resolution;
+    if (message.capSize != null && message.hasOwnProperty("capSize"))
+      object.capSize = message.capSize;
+    if (message.cameraType != null && message.hasOwnProperty("cameraType"))
+      object.cameraType = message.cameraType;
+    if (
+      message.caliFrameType != null &&
+      message.hasOwnProperty("caliFrameType")
+    )
+      object.caliFrameType = message.caliFrameType;
+    if (message.filterType != null && message.hasOwnProperty("filterType")) {
+      object.filterType = message.filterType;
+      if (options.oneofs) object._filterType = "filterType";
+    }
+    if (message.sceneType != null && message.hasOwnProperty("sceneType"))
+      object.sceneType = message.sceneType;
+    return object;
+  };
+
+  /**
+   * Converts this V3ReqCaptureCaliFrame to JSON.
+   * @function toJSON
+   * @memberof V3ReqCaptureCaliFrame
+   * @instance
+   * @returns {Object.<string,*>} JSON object
+   */
+  V3ReqCaptureCaliFrame.prototype.toJSON = function toJSON() {
+    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+  };
+
+  /**
+   * Gets the default type url for V3ReqCaptureCaliFrame
+   * @function getTypeUrl
+   * @memberof V3ReqCaptureCaliFrame
+   * @static
+   * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+   * @returns {string} The default type url
+   */
+  V3ReqCaptureCaliFrame.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+    if (typeUrlPrefix === undefined) {
+      typeUrlPrefix = "type.googleapis.com";
+    }
+    return typeUrlPrefix + "/V3ReqCaptureCaliFrame";
+  };
+
+  return V3ReqCaptureCaliFrame;
+})();
+
+$root.V3ReqStopCaptureCaliFrame = (function () {
+  /**
+   * Properties of a V3ReqStopCaptureCaliFrame.
+   * @exports IV3ReqStopCaptureCaliFrame
+   * @interface IV3ReqStopCaptureCaliFrame
+   * @property {number|null} [cameraType] V3ReqStopCaptureCaliFrame cameraType
+   */
+
+  /**
+   * Constructs a new V3ReqStopCaptureCaliFrame.
+   * @exports V3ReqStopCaptureCaliFrame
+   * @classdesc Represents a V3ReqStopCaptureCaliFrame.
+   * @implements IV3ReqStopCaptureCaliFrame
+   * @constructor
+   * @param {IV3ReqStopCaptureCaliFrame=} [properties] Properties to set
+   */
+  function V3ReqStopCaptureCaliFrame(properties) {
+    if (properties)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+        if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
+  }
+
+  /**
+   * V3ReqStopCaptureCaliFrame cameraType.
+   * @member {number} cameraType
+   * @memberof V3ReqStopCaptureCaliFrame
+   * @instance
+   */
+  V3ReqStopCaptureCaliFrame.prototype.cameraType = 0;
+
+  /**
+   * Creates a new V3ReqStopCaptureCaliFrame instance using the specified properties.
+   * @function create
+   * @memberof V3ReqStopCaptureCaliFrame
+   * @static
+   * @param {IV3ReqStopCaptureCaliFrame=} [properties] Properties to set
+   * @returns {V3ReqStopCaptureCaliFrame} V3ReqStopCaptureCaliFrame instance
+   */
+  V3ReqStopCaptureCaliFrame.create = function create(properties) {
+    return new V3ReqStopCaptureCaliFrame(properties);
+  };
+
+  /**
+   * Encodes the specified V3ReqStopCaptureCaliFrame message. Does not implicitly {@link V3ReqStopCaptureCaliFrame.verify|verify} messages.
+   * @function encode
+   * @memberof V3ReqStopCaptureCaliFrame
+   * @static
+   * @param {IV3ReqStopCaptureCaliFrame} message V3ReqStopCaptureCaliFrame message or plain object to encode
+   * @param {$protobuf.Writer} [writer] Writer to encode to
+   * @returns {$protobuf.Writer} Writer
+   */
+  V3ReqStopCaptureCaliFrame.encode = function encode(message, writer) {
+    if (!writer) writer = $Writer.create();
+    if (
+      message.cameraType != null &&
+      Object.hasOwnProperty.call(message, "cameraType")
+    )
+      writer.uint32(/* id 1, wireType 0 =*/ 8).int32(message.cameraType);
+    return writer;
+  };
+
+  /**
+   * Encodes the specified V3ReqStopCaptureCaliFrame message, length delimited. Does not implicitly {@link V3ReqStopCaptureCaliFrame.verify|verify} messages.
+   * @function encodeDelimited
+   * @memberof V3ReqStopCaptureCaliFrame
+   * @static
+   * @param {IV3ReqStopCaptureCaliFrame} message V3ReqStopCaptureCaliFrame message or plain object to encode
+   * @param {$protobuf.Writer} [writer] Writer to encode to
+   * @returns {$protobuf.Writer} Writer
+   */
+  V3ReqStopCaptureCaliFrame.encodeDelimited = function encodeDelimited(
+    message,
+    writer
+  ) {
+    return this.encode(message, writer).ldelim();
+  };
+
+  /**
+   * Decodes a V3ReqStopCaptureCaliFrame message from the specified reader or buffer.
+   * @function decode
+   * @memberof V3ReqStopCaptureCaliFrame
+   * @static
+   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+   * @param {number} [length] Message length if known beforehand
+   * @returns {V3ReqStopCaptureCaliFrame} V3ReqStopCaptureCaliFrame
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  V3ReqStopCaptureCaliFrame.decode = function decode(reader, length) {
+    if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
+    var end = length === undefined ? reader.len : reader.pos + length,
+      message = new $root.V3ReqStopCaptureCaliFrame();
+    while (reader.pos < end) {
+      var tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          message.cameraType = reader.int32();
+          break;
+        }
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  };
+
+  /**
+   * Decodes a V3ReqStopCaptureCaliFrame message from the specified reader or buffer, length delimited.
+   * @function decodeDelimited
+   * @memberof V3ReqStopCaptureCaliFrame
+   * @static
+   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+   * @returns {V3ReqStopCaptureCaliFrame} V3ReqStopCaptureCaliFrame
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  V3ReqStopCaptureCaliFrame.decodeDelimited = function decodeDelimited(reader) {
+    if (!(reader instanceof $Reader)) reader = new $Reader(reader);
+    return this.decode(reader, reader.uint32());
+  };
+
+  /**
+   * Verifies a V3ReqStopCaptureCaliFrame message.
+   * @function verify
+   * @memberof V3ReqStopCaptureCaliFrame
+   * @static
+   * @param {Object.<string,*>} message Plain object to verify
+   * @returns {string|null} `null` if valid, otherwise the reason why it is not
+   */
+  V3ReqStopCaptureCaliFrame.verify = function verify(message) {
+    if (typeof message !== "object" || message === null)
+      return "object expected";
+    if (message.cameraType != null && message.hasOwnProperty("cameraType"))
+      if (!$util.isInteger(message.cameraType))
+        return "cameraType: integer expected";
+    return null;
+  };
+
+  /**
+   * Creates a V3ReqStopCaptureCaliFrame message from a plain object. Also converts values to their respective internal types.
+   * @function fromObject
+   * @memberof V3ReqStopCaptureCaliFrame
+   * @static
+   * @param {Object.<string,*>} object Plain object
+   * @returns {V3ReqStopCaptureCaliFrame} V3ReqStopCaptureCaliFrame
+   */
+  V3ReqStopCaptureCaliFrame.fromObject = function fromObject(object) {
+    if (object instanceof $root.V3ReqStopCaptureCaliFrame) return object;
+    var message = new $root.V3ReqStopCaptureCaliFrame();
+    if (object.cameraType != null) message.cameraType = object.cameraType | 0;
+    return message;
+  };
+
+  /**
+   * Creates a plain object from a V3ReqStopCaptureCaliFrame message. Also converts values to other types if specified.
+   * @function toObject
+   * @memberof V3ReqStopCaptureCaliFrame
+   * @static
+   * @param {V3ReqStopCaptureCaliFrame} message V3ReqStopCaptureCaliFrame
+   * @param {$protobuf.IConversionOptions} [options] Conversion options
+   * @returns {Object.<string,*>} Plain object
+   */
+  V3ReqStopCaptureCaliFrame.toObject = function toObject(message, options) {
+    if (!options) options = {};
+    var object = {};
+    if (options.defaults) object.cameraType = 0;
+    if (message.cameraType != null && message.hasOwnProperty("cameraType"))
+      object.cameraType = message.cameraType;
+    return object;
+  };
+
+  /**
+   * Converts this V3ReqStopCaptureCaliFrame to JSON.
+   * @function toJSON
+   * @memberof V3ReqStopCaptureCaliFrame
+   * @instance
+   * @returns {Object.<string,*>} JSON object
+   */
+  V3ReqStopCaptureCaliFrame.prototype.toJSON = function toJSON() {
+    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+  };
+
+  /**
+   * Gets the default type url for V3ReqStopCaptureCaliFrame
+   * @function getTypeUrl
+   * @memberof V3ReqStopCaptureCaliFrame
+   * @static
+   * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+   * @returns {string} The default type url
+   */
+  V3ReqStopCaptureCaliFrame.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+    if (typeUrlPrefix === undefined) {
+      typeUrlPrefix = "type.googleapis.com";
+    }
+    return typeUrlPrefix + "/V3ReqStopCaptureCaliFrame";
+  };
+
+  return V3ReqStopCaptureCaliFrame;
 })();
 
 $root.V3ReqSetObservationLocation = (function () {

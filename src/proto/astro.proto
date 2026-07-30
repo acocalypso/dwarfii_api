@@ -30,9 +30,11 @@ message ReqStopGoto {
     
 }
 
-// 开始叠图 (V3: frame_count added, -1=infinite)
+// Start stacking (V3 extends the V2 empty request with filter selection).
 message ReqCaptureRawLiveStacking {
-    int32 frame_count = 1;
+    // DWARF mini V3: 1=Astro, 2=Duo-Band. Dark (3) uses CMD 11045.
+    int32 ir_index = 1;
+    bool force_start = 2;
 }
 
 // 停止叠图
