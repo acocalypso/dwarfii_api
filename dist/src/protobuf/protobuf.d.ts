@@ -2230,8 +2230,14 @@ export interface IReqOneClickGotoDSO {
     /** ReqOneClickGotoDSO lat */
     lat?: (number|null);
 
-    /** ReqOneClickGotoDSO mode */
-    mode?: (number|null);
+    /** ReqOneClickGotoDSO shootingMode */
+    shootingMode?: (number|null);
+
+    /** ReqOneClickGotoDSO gotoOnly */
+    gotoOnly?: (boolean|null);
+
+    /** ReqOneClickGotoDSO rotation */
+    rotation?: (number|null);
 }
 
 /** Represents a ReqOneClickGotoDSO. */
@@ -2258,8 +2264,17 @@ export class ReqOneClickGotoDSO implements IReqOneClickGotoDSO {
     /** ReqOneClickGotoDSO lat. */
     public lat: number;
 
-    /** ReqOneClickGotoDSO mode. */
-    public mode: number;
+    /** ReqOneClickGotoDSO shootingMode. */
+    public shootingMode: number;
+
+    /** ReqOneClickGotoDSO gotoOnly. */
+    public gotoOnly: boolean;
+
+    /** ReqOneClickGotoDSO rotation. */
+    public rotation?: (number|null);
+
+    /** ReqOneClickGotoDSO _rotation. */
+    public _rotation?: "rotation";
 
     /**
      * Creates a new ReqOneClickGotoDSO instance using the specified properties.
@@ -2354,8 +2369,11 @@ export interface IReqOneClickGotoSolarSystem {
     /** ReqOneClickGotoSolarSystem targetName */
     targetName?: (string|null);
 
-    /** ReqOneClickGotoSolarSystem mode */
-    mode?: (number|null);
+    /** ReqOneClickGotoSolarSystem shootingMode */
+    shootingMode?: (number|null);
+
+    /** ReqOneClickGotoSolarSystem forceStart */
+    forceStart?: (boolean|null);
 }
 
 /** Represents a ReqOneClickGotoSolarSystem. */
@@ -2379,8 +2397,11 @@ export class ReqOneClickGotoSolarSystem implements IReqOneClickGotoSolarSystem {
     /** ReqOneClickGotoSolarSystem targetName. */
     public targetName: string;
 
-    /** ReqOneClickGotoSolarSystem mode. */
-    public mode: number;
+    /** ReqOneClickGotoSolarSystem shootingMode. */
+    public shootingMode: number;
+
+    /** ReqOneClickGotoSolarSystem forceStart. */
+    public forceStart: boolean;
 
     /**
      * Creates a new ReqOneClickGotoSolarSystem instance using the specified properties.

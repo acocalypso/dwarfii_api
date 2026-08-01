@@ -168,7 +168,7 @@ C1–C10: locally decoded. C11–C13: referenced from external analysis (not loc
 | 11010 | CMD_ASTRO_GO_LIVE | Go live | C2 C3 C10 |
 | 11011 | CMD_ASTRO_START_TRACK_SPECIAL_TARGET | Start sun/moon tracking | — |
 | 11012 | CMD_ASTRO_STOP_TRACK_SPECIAL_TARGET | Stop sun/moon tracking | — |
-| 11013 | CMD_ASTRO_START_ONE_CLICK_GOTO_DSO | One-click GoTo DSO. Args: RA, Dec, targetName, lon, lat. | C2 C5 C6 C8 C10 |
+| 11013 | CMD_ASTRO_START_ONE_CLICK_GOTO_DSO | One-click calibration + DSO GoTo. Fields: RA hours=1, Dec=2, target=3, lon=4, lat=5, shooting_mode=6, goto_only=7, optional rotation=8. The Atlas workflow uses mode 2 and goto_only=false. | C2 C5 C6 C8 C10 |
 | 11014 | CMD_ASTRO_START_ONE_CLICK_GOTO_SOLAR_SYSTEM | One-click GoTo solar system | C2 |
 | 11015 | CMD_ASTRO_STOP_ONE_CLICK_GOTO | Stop one-click GoTo | C2 C5 C6 C8 C10 |
 | 11016 | CMD_ASTRO_START_WIDE_CAPTURE_LIVE_STACKING | Start wide stacking | — |

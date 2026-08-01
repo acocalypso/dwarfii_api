@@ -78,8 +78,8 @@ DWARF II / 3 / mini 用 WebSocket API ライブラリ。
 | 11010 | `messageAstroGoLive()` | — | ライブビュー (トラッキング開始) |
 | 11011 | `messageAstroStartTrackSpecialTarget(index, lon, lat)` | index: 天体ID, lon: 経度, lat: 緯度 | 太陽/月トラッキング開始 |
 | 11012 | `messageAstroStopTrackSpecialTarget()` | — | 太陽/月トラッキング停止 |
-| 11013 | `messageAstroStartOneClickGotoDso(ra, dec, target_name)` | ra: RA(度), dec: Dec(度), target_name: 天体名 | ワンクリック DSO GOTO |
-| 11014 | `messageAstroStartOneClickGotoSolarSystem(index, lon, lat, targetName)` | index: 天体ID, lon: 経度, lat: 緯度, targetName: 名前 | ワンクリック太陽系 GOTO |
+| 11013 | `messageAstroStartOneClickGotoDso(ra, dec, target_name, lon, lat, shootingMode, gotoOnly, rotation?)` | ra: RA(時), dec: Dec(度), target/location, Deep Sky mode=2, gotoOnly=false for calibration | ワンクリック校正 + DSO GOTO |
+| 11014 | `messageAstroStartOneClickGotoSolarSystem(index, lon, lat, targetName, shootingMode, forceStart)` | index: 天体ID, observer location, target, mode, force flag | ワンクリック太陽系 GOTO |
 | 11015 | `messageAstroStopOneClickGoto()` | — | ワンクリック GOTO 停止 |
 | 11016 | `messageAstroStartWideCaptureLiveStacking()` | — | 広角スタッキング開始 |
 | 11017 | `messageAstroStopWideCaptureLiveStacking()` | — | 広角スタッキング停止 |

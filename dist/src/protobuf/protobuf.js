@@ -4486,7 +4486,9 @@ $root.ReqOneClickGotoDSO = (function () {
      * @property {string|null} [targetName] ReqOneClickGotoDSO targetName
      * @property {number|null} [lon] ReqOneClickGotoDSO lon
      * @property {number|null} [lat] ReqOneClickGotoDSO lat
-     * @property {number|null} [mode] ReqOneClickGotoDSO mode
+     * @property {number|null} [shootingMode] ReqOneClickGotoDSO shootingMode
+     * @property {boolean|null} [gotoOnly] ReqOneClickGotoDSO gotoOnly
+     * @property {number|null} [rotation] ReqOneClickGotoDSO rotation
      */
     /**
      * Constructs a new ReqOneClickGotoDSO.
@@ -4538,12 +4540,38 @@ $root.ReqOneClickGotoDSO = (function () {
      */
     ReqOneClickGotoDSO.prototype.lat = 0;
     /**
-     * ReqOneClickGotoDSO mode.
-     * @member {number} mode
+     * ReqOneClickGotoDSO shootingMode.
+     * @member {number} shootingMode
      * @memberof ReqOneClickGotoDSO
      * @instance
      */
-    ReqOneClickGotoDSO.prototype.mode = 0;
+    ReqOneClickGotoDSO.prototype.shootingMode = 0;
+    /**
+     * ReqOneClickGotoDSO gotoOnly.
+     * @member {boolean} gotoOnly
+     * @memberof ReqOneClickGotoDSO
+     * @instance
+     */
+    ReqOneClickGotoDSO.prototype.gotoOnly = false;
+    /**
+     * ReqOneClickGotoDSO rotation.
+     * @member {number|null|undefined} rotation
+     * @memberof ReqOneClickGotoDSO
+     * @instance
+     */
+    ReqOneClickGotoDSO.prototype.rotation = null;
+    // OneOf field names bound to virtual getters and setters
+    var $oneOfFields;
+    /**
+     * ReqOneClickGotoDSO _rotation.
+     * @member {"rotation"|undefined} _rotation
+     * @memberof ReqOneClickGotoDSO
+     * @instance
+     */
+    Object.defineProperty(ReqOneClickGotoDSO.prototype, "_rotation", {
+        get: $util.oneOfGetter(($oneOfFields = ["rotation"])),
+        set: $util.oneOfSetter($oneOfFields),
+    });
     /**
      * Creates a new ReqOneClickGotoDSO instance using the specified properties.
      * @function create
@@ -4578,8 +4606,15 @@ $root.ReqOneClickGotoDSO = (function () {
             writer.uint32(/* id 4, wireType 1 =*/ 33).double(message.lon);
         if (message.lat != null && Object.hasOwnProperty.call(message, "lat"))
             writer.uint32(/* id 5, wireType 1 =*/ 41).double(message.lat);
-        if (message.mode != null && Object.hasOwnProperty.call(message, "mode"))
-            writer.uint32(/* id 6, wireType 0 =*/ 48).int32(message.mode);
+        if (message.shootingMode != null &&
+            Object.hasOwnProperty.call(message, "shootingMode"))
+            writer.uint32(/* id 6, wireType 0 =*/ 48).int32(message.shootingMode);
+        if (message.gotoOnly != null &&
+            Object.hasOwnProperty.call(message, "gotoOnly"))
+            writer.uint32(/* id 7, wireType 0 =*/ 56).bool(message.gotoOnly);
+        if (message.rotation != null &&
+            Object.hasOwnProperty.call(message, "rotation"))
+            writer.uint32(/* id 8, wireType 0 =*/ 64).int32(message.rotation);
         return writer;
     };
     /**
@@ -4633,7 +4668,15 @@ $root.ReqOneClickGotoDSO = (function () {
                     break;
                 }
                 case 6: {
-                    message.mode = reader.int32();
+                    message.shootingMode = reader.int32();
+                    break;
+                }
+                case 7: {
+                    message.gotoOnly = reader.bool();
+                    break;
+                }
+                case 8: {
+                    message.rotation = reader.int32();
                     break;
                 }
                 default:
@@ -4669,6 +4712,7 @@ $root.ReqOneClickGotoDSO = (function () {
     ReqOneClickGotoDSO.verify = function verify(message) {
         if (typeof message !== "object" || message === null)
             return "object expected";
+        var properties = {};
         if (message.ra != null && message.hasOwnProperty("ra"))
             if (typeof message.ra !== "number")
                 return "ra: number expected";
@@ -4684,9 +4728,17 @@ $root.ReqOneClickGotoDSO = (function () {
         if (message.lat != null && message.hasOwnProperty("lat"))
             if (typeof message.lat !== "number")
                 return "lat: number expected";
-        if (message.mode != null && message.hasOwnProperty("mode"))
-            if (!$util.isInteger(message.mode))
-                return "mode: integer expected";
+        if (message.shootingMode != null && message.hasOwnProperty("shootingMode"))
+            if (!$util.isInteger(message.shootingMode))
+                return "shootingMode: integer expected";
+        if (message.gotoOnly != null && message.hasOwnProperty("gotoOnly"))
+            if (typeof message.gotoOnly !== "boolean")
+                return "gotoOnly: boolean expected";
+        if (message.rotation != null && message.hasOwnProperty("rotation")) {
+            properties._rotation = 1;
+            if (!$util.isInteger(message.rotation))
+                return "rotation: integer expected";
+        }
         return null;
     };
     /**
@@ -4711,8 +4763,12 @@ $root.ReqOneClickGotoDSO = (function () {
             message.lon = Number(object.lon);
         if (object.lat != null)
             message.lat = Number(object.lat);
-        if (object.mode != null)
-            message.mode = object.mode | 0;
+        if (object.shootingMode != null)
+            message.shootingMode = object.shootingMode | 0;
+        if (object.gotoOnly != null)
+            message.gotoOnly = Boolean(object.gotoOnly);
+        if (object.rotation != null)
+            message.rotation = object.rotation | 0;
         return message;
     };
     /**
@@ -4734,7 +4790,8 @@ $root.ReqOneClickGotoDSO = (function () {
             object.targetName = "";
             object.lon = 0;
             object.lat = 0;
-            object.mode = 0;
+            object.shootingMode = 0;
+            object.gotoOnly = false;
         }
         if (message.ra != null && message.hasOwnProperty("ra"))
             object.ra =
@@ -4756,8 +4813,15 @@ $root.ReqOneClickGotoDSO = (function () {
                 options.json && !isFinite(message.lat)
                     ? String(message.lat)
                     : message.lat;
-        if (message.mode != null && message.hasOwnProperty("mode"))
-            object.mode = message.mode;
+        if (message.shootingMode != null && message.hasOwnProperty("shootingMode"))
+            object.shootingMode = message.shootingMode;
+        if (message.gotoOnly != null && message.hasOwnProperty("gotoOnly"))
+            object.gotoOnly = message.gotoOnly;
+        if (message.rotation != null && message.hasOwnProperty("rotation")) {
+            object.rotation = message.rotation;
+            if (options.oneofs)
+                object._rotation = "rotation";
+        }
         return object;
     };
     /**
@@ -4795,7 +4859,8 @@ $root.ReqOneClickGotoSolarSystem = (function () {
      * @property {number|null} [lon] ReqOneClickGotoSolarSystem lon
      * @property {number|null} [lat] ReqOneClickGotoSolarSystem lat
      * @property {string|null} [targetName] ReqOneClickGotoSolarSystem targetName
-     * @property {number|null} [mode] ReqOneClickGotoSolarSystem mode
+     * @property {number|null} [shootingMode] ReqOneClickGotoSolarSystem shootingMode
+     * @property {boolean|null} [forceStart] ReqOneClickGotoSolarSystem forceStart
      */
     /**
      * Constructs a new ReqOneClickGotoSolarSystem.
@@ -4840,12 +4905,19 @@ $root.ReqOneClickGotoSolarSystem = (function () {
      */
     ReqOneClickGotoSolarSystem.prototype.targetName = "";
     /**
-     * ReqOneClickGotoSolarSystem mode.
-     * @member {number} mode
+     * ReqOneClickGotoSolarSystem shootingMode.
+     * @member {number} shootingMode
      * @memberof ReqOneClickGotoSolarSystem
      * @instance
      */
-    ReqOneClickGotoSolarSystem.prototype.mode = 0;
+    ReqOneClickGotoSolarSystem.prototype.shootingMode = 0;
+    /**
+     * ReqOneClickGotoSolarSystem forceStart.
+     * @member {boolean} forceStart
+     * @memberof ReqOneClickGotoSolarSystem
+     * @instance
+     */
+    ReqOneClickGotoSolarSystem.prototype.forceStart = false;
     /**
      * Creates a new ReqOneClickGotoSolarSystem instance using the specified properties.
      * @function create
@@ -4878,8 +4950,12 @@ $root.ReqOneClickGotoSolarSystem = (function () {
         if (message.targetName != null &&
             Object.hasOwnProperty.call(message, "targetName"))
             writer.uint32(/* id 4, wireType 2 =*/ 34).string(message.targetName);
-        if (message.mode != null && Object.hasOwnProperty.call(message, "mode"))
-            writer.uint32(/* id 5, wireType 0 =*/ 40).int32(message.mode);
+        if (message.shootingMode != null &&
+            Object.hasOwnProperty.call(message, "shootingMode"))
+            writer.uint32(/* id 5, wireType 0 =*/ 40).int32(message.shootingMode);
+        if (message.forceStart != null &&
+            Object.hasOwnProperty.call(message, "forceStart"))
+            writer.uint32(/* id 6, wireType 0 =*/ 48).bool(message.forceStart);
         return writer;
     };
     /**
@@ -4929,7 +5005,11 @@ $root.ReqOneClickGotoSolarSystem = (function () {
                     break;
                 }
                 case 5: {
-                    message.mode = reader.int32();
+                    message.shootingMode = reader.int32();
+                    break;
+                }
+                case 6: {
+                    message.forceStart = reader.bool();
                     break;
                 }
                 default:
@@ -4977,9 +5057,12 @@ $root.ReqOneClickGotoSolarSystem = (function () {
         if (message.targetName != null && message.hasOwnProperty("targetName"))
             if (!$util.isString(message.targetName))
                 return "targetName: string expected";
-        if (message.mode != null && message.hasOwnProperty("mode"))
-            if (!$util.isInteger(message.mode))
-                return "mode: integer expected";
+        if (message.shootingMode != null && message.hasOwnProperty("shootingMode"))
+            if (!$util.isInteger(message.shootingMode))
+                return "shootingMode: integer expected";
+        if (message.forceStart != null && message.hasOwnProperty("forceStart"))
+            if (typeof message.forceStart !== "boolean")
+                return "forceStart: boolean expected";
         return null;
     };
     /**
@@ -5002,8 +5085,10 @@ $root.ReqOneClickGotoSolarSystem = (function () {
             message.lat = Number(object.lat);
         if (object.targetName != null)
             message.targetName = String(object.targetName);
-        if (object.mode != null)
-            message.mode = object.mode | 0;
+        if (object.shootingMode != null)
+            message.shootingMode = object.shootingMode | 0;
+        if (object.forceStart != null)
+            message.forceStart = Boolean(object.forceStart);
         return message;
     };
     /**
@@ -5024,7 +5109,8 @@ $root.ReqOneClickGotoSolarSystem = (function () {
             object.lon = 0;
             object.lat = 0;
             object.targetName = "";
-            object.mode = 0;
+            object.shootingMode = 0;
+            object.forceStart = false;
         }
         if (message.index != null && message.hasOwnProperty("index"))
             object.index = message.index;
@@ -5040,8 +5126,10 @@ $root.ReqOneClickGotoSolarSystem = (function () {
                     : message.lat;
         if (message.targetName != null && message.hasOwnProperty("targetName"))
             object.targetName = message.targetName;
-        if (message.mode != null && message.hasOwnProperty("mode"))
-            object.mode = message.mode;
+        if (message.shootingMode != null && message.hasOwnProperty("shootingMode"))
+            object.shootingMode = message.shootingMode;
+        if (message.forceStart != null && message.hasOwnProperty("forceStart"))
+            object.forceStart = message.forceStart;
         return object;
     };
     /**

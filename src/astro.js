@@ -350,12 +350,26 @@ export function messageAstroGoLive() {
 /**
  * 4.10.17 One-click GOTO deep space celestial body
  * Create Encoded Packet for the command CMD_ASTRO_START_ONE_CLICK_GOTO_DSO
- * @param {number} ra Right Ascension
+ * @param {number} ra Right Ascension in hours
  * @param {number} dec Declination
  * @param {string} target_name
+ * @param {number} lon Observer longitude in degrees
+ * @param {number} lat Observer latitude in degrees
+ * @param {number} shootingMode Shooting mode (2 for Deep Sky)
+ * @param {boolean} gotoOnly Skip calibration when true
+ * @param {number} [rotation] Optional target rotation
  * @returns {Uint8Array}
  */
-export function messageAstroStartOneClickGotoDso(ra, dec, target_name) {
+export function messageAstroStartOneClickGotoDso(
+  ra,
+  dec,
+  target_name,
+  lon,
+  lat,
+  shootingMode,
+  gotoOnly = false,
+  rotation
+) {
   let module_id = Dwarfii_Api.ModuleId.MODULE_ASTRO;
   let interface_id = Dwarfii_Api.DwarfCMD.CMD_ASTRO_START_ONE_CLICK_GOTO_DSO;
   let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
@@ -363,11 +377,17 @@ export function messageAstroStartOneClickGotoDso(ra, dec, target_name) {
   const cmdClass = cmdMapping[interface_id];
   let class_message = eval(`Dwarfii_Api.${cmdClass}`);
   // Encode message
-  let message = class_message.create({
+  const payload = {
     ra: ra,
     dec: dec,
     targetName: target_name,
-  });
+    lon: lon,
+    lat: lat,
+    shootingMode: shootingMode,
+    gotoOnly: gotoOnly,
+  };
+  if (rotation !== undefined && rotation !== null) payload.rotation = rotation;
+  let message = class_message.create(payload);
   console.log(
     `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
   );
@@ -381,13 +401,17 @@ export function messageAstroStartOneClickGotoDso(ra, dec, target_name) {
  * @param {number} lon Longitude
  * @param {number} lat Lattitude
  * @param {string} targetName
+ * @param {number} shootingMode Shooting mode
+ * @param {boolean} forceStart Force the workflow to start
  * @returns {Uint8Array}
  */
 export function messageAstroStartOneClickGotoSolarSystem(
   index,
   lon,
   lat,
-  targetName
+  targetName,
+  shootingMode,
+  forceStart = false
 ) {
   let module_id = Dwarfii_Api.ModuleId.MODULE_ASTRO;
   let interface_id =
@@ -403,6 +427,8 @@ export function messageAstroStartOneClickGotoSolarSystem(
     lon: lon,
     lat: lat,
     targetName: targetName,
+    shootingMode: shootingMode,
+    forceStart: forceStart,
   });
   console.log(
     `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
