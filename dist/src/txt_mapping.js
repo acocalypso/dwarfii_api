@@ -255,6 +255,7 @@ export const cmdTxtMapping = {
     15250: "Sky detection status",
     15251: "Wide-angle multi-target box result notification",
     15252: "Wide-angle single target box result notification",
+    15256: "Successful astronomical calibration result (azimuth/altitude)",
     15257: "Focus Position",
     15500: "Start panorama",
     15501: "Stop panorama",

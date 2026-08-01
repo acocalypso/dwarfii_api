@@ -34042,6 +34042,223 @@ $root.ResNotifyStateAstroCalibration = (function () {
     };
     return ResNotifyStateAstroCalibration;
 })();
+$root.CalibrationResult = (function () {
+    /**
+     * Properties of a CalibrationResult.
+     * @exports ICalibrationResult
+     * @interface ICalibrationResult
+     * @property {number|null} [azi] CalibrationResult azi
+     * @property {number|null} [alt] CalibrationResult alt
+     */
+    /**
+     * Constructs a new CalibrationResult.
+     * @exports CalibrationResult
+     * @classdesc Represents a CalibrationResult.
+     * @implements ICalibrationResult
+     * @constructor
+     * @param {ICalibrationResult=} [properties] Properties to set
+     */
+    function CalibrationResult(properties) {
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+    /**
+     * CalibrationResult azi.
+     * @member {number} azi
+     * @memberof CalibrationResult
+     * @instance
+     */
+    CalibrationResult.prototype.azi = 0;
+    /**
+     * CalibrationResult alt.
+     * @member {number} alt
+     * @memberof CalibrationResult
+     * @instance
+     */
+    CalibrationResult.prototype.alt = 0;
+    /**
+     * Creates a new CalibrationResult instance using the specified properties.
+     * @function create
+     * @memberof CalibrationResult
+     * @static
+     * @param {ICalibrationResult=} [properties] Properties to set
+     * @returns {CalibrationResult} CalibrationResult instance
+     */
+    CalibrationResult.create = function create(properties) {
+        return new CalibrationResult(properties);
+    };
+    /**
+     * Encodes the specified CalibrationResult message. Does not implicitly {@link CalibrationResult.verify|verify} messages.
+     * @function encode
+     * @memberof CalibrationResult
+     * @static
+     * @param {ICalibrationResult} message CalibrationResult message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    CalibrationResult.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        if (message.azi != null && Object.hasOwnProperty.call(message, "azi"))
+            writer.uint32(/* id 1, wireType 1 =*/ 9).double(message.azi);
+        if (message.alt != null && Object.hasOwnProperty.call(message, "alt"))
+            writer.uint32(/* id 2, wireType 1 =*/ 17).double(message.alt);
+        return writer;
+    };
+    /**
+     * Encodes the specified CalibrationResult message, length delimited. Does not implicitly {@link CalibrationResult.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof CalibrationResult
+     * @static
+     * @param {ICalibrationResult} message CalibrationResult message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    CalibrationResult.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+    /**
+     * Decodes a CalibrationResult message from the specified reader or buffer.
+     * @function decode
+     * @memberof CalibrationResult
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {CalibrationResult} CalibrationResult
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    CalibrationResult.decode = function decode(reader, length) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.CalibrationResult();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    message.azi = reader.double();
+                    break;
+                }
+                case 2: {
+                    message.alt = reader.double();
+                    break;
+                }
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    };
+    /**
+     * Decodes a CalibrationResult message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof CalibrationResult
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {CalibrationResult} CalibrationResult
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    CalibrationResult.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+    /**
+     * Verifies a CalibrationResult message.
+     * @function verify
+     * @memberof CalibrationResult
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    CalibrationResult.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        if (message.azi != null && message.hasOwnProperty("azi"))
+            if (typeof message.azi !== "number")
+                return "azi: number expected";
+        if (message.alt != null && message.hasOwnProperty("alt"))
+            if (typeof message.alt !== "number")
+                return "alt: number expected";
+        return null;
+    };
+    /**
+     * Creates a CalibrationResult message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof CalibrationResult
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {CalibrationResult} CalibrationResult
+     */
+    CalibrationResult.fromObject = function fromObject(object) {
+        if (object instanceof $root.CalibrationResult)
+            return object;
+        var message = new $root.CalibrationResult();
+        if (object.azi != null)
+            message.azi = Number(object.azi);
+        if (object.alt != null)
+            message.alt = Number(object.alt);
+        return message;
+    };
+    /**
+     * Creates a plain object from a CalibrationResult message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof CalibrationResult
+     * @static
+     * @param {CalibrationResult} message CalibrationResult
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    CalibrationResult.toObject = function toObject(message, options) {
+        if (!options)
+            options = {};
+        var object = {};
+        if (options.defaults) {
+            object.azi = 0;
+            object.alt = 0;
+        }
+        if (message.azi != null && message.hasOwnProperty("azi"))
+            object.azi =
+                options.json && !isFinite(message.azi)
+                    ? String(message.azi)
+                    : message.azi;
+        if (message.alt != null && message.hasOwnProperty("alt"))
+            object.alt =
+                options.json && !isFinite(message.alt)
+                    ? String(message.alt)
+                    : message.alt;
+        return object;
+    };
+    /**
+     * Converts this CalibrationResult to JSON.
+     * @function toJSON
+     * @memberof CalibrationResult
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    CalibrationResult.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+    /**
+     * Gets the default type url for CalibrationResult
+     * @function getTypeUrl
+     * @memberof CalibrationResult
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    CalibrationResult.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/CalibrationResult";
+    };
+    return CalibrationResult;
+})();
 $root.ResNotifyStateAstroGoto = (function () {
     /**
      * Properties of a ResNotifyStateAstroGoto.
@@ -43173,7 +43390,7 @@ $root.MessageTypeId = (function () {
  * @property {number} CMD_NOTIFY_WIDE_TRACK_RESULT=15252 CMD_NOTIFY_WIDE_TRACK_RESULT value
  * @property {number} CMD_NOTIFY_STATE_AI_ENHANCE=15253 CMD_NOTIFY_STATE_AI_ENHANCE value
  * @property {number} CMD_NOTIFY_PROGRESS_AI_ENHANCE=15254 CMD_NOTIFY_PROGRESS_AI_ENHANCE value
- * @property {number} CMD_V3_NOTIFY_SKY_SOLVER_COORDS=15256 CMD_V3_NOTIFY_SKY_SOLVER_COORDS value
+ * @property {number} CMD_NOTIFY_CALIBRATION_RESULT=15256 CMD_NOTIFY_CALIBRATION_RESULT value
  * @property {number} CMD_NOTIFY_FOCUS=15257 CMD_NOTIFY_FOCUS value
  * @property {number} CMD_NOTIFY_UFO_AUTO_HAND_MODE=15258 CMD_NOTIFY_UFO_AUTO_HAND_MODE value
  * @property {number} CMD_NOTIFY_CURRENT_PANORAMA_UPLOAD_STATE=15259 CMD_NOTIFY_CURRENT_PANORAMA_UPLOAD_STATE value
@@ -43522,7 +43739,7 @@ $root.DwarfCMD = (function () {
     values[(valuesById[15252] = "CMD_NOTIFY_WIDE_TRACK_RESULT")] = 15252;
     values[(valuesById[15253] = "CMD_NOTIFY_STATE_AI_ENHANCE")] = 15253;
     values[(valuesById[15254] = "CMD_NOTIFY_PROGRESS_AI_ENHANCE")] = 15254;
-    values[(valuesById[15256] = "CMD_V3_NOTIFY_SKY_SOLVER_COORDS")] = 15256;
+    values[(valuesById[15256] = "CMD_NOTIFY_CALIBRATION_RESULT")] = 15256;
     values[(valuesById[15257] = "CMD_NOTIFY_FOCUS")] = 15257;
     values[(valuesById[15258] = "CMD_NOTIFY_UFO_AUTO_HAND_MODE")] = 15258;
     values[(valuesById[15259] = "CMD_NOTIFY_CURRENT_PANORAMA_UPLOAD_STATE")] = 15259;
@@ -62988,223 +63205,6 @@ $root.V3ResNotifyObservationState = (function () {
         return typeUrlPrefix + "/V3ResNotifyObservationState";
     };
     return V3ResNotifyObservationState;
-})();
-$root.V3ResNotifySkySolverCoords = (function () {
-    /**
-     * Properties of a V3ResNotifySkySolverCoords.
-     * @exports IV3ResNotifySkySolverCoords
-     * @interface IV3ResNotifySkySolverCoords
-     * @property {number|null} [coord1] V3ResNotifySkySolverCoords coord1
-     * @property {number|null} [coord2] V3ResNotifySkySolverCoords coord2
-     */
-    /**
-     * Constructs a new V3ResNotifySkySolverCoords.
-     * @exports V3ResNotifySkySolverCoords
-     * @classdesc Represents a V3ResNotifySkySolverCoords.
-     * @implements IV3ResNotifySkySolverCoords
-     * @constructor
-     * @param {IV3ResNotifySkySolverCoords=} [properties] Properties to set
-     */
-    function V3ResNotifySkySolverCoords(properties) {
-        if (properties)
-            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                if (properties[keys[i]] != null)
-                    this[keys[i]] = properties[keys[i]];
-    }
-    /**
-     * V3ResNotifySkySolverCoords coord1.
-     * @member {number} coord1
-     * @memberof V3ResNotifySkySolverCoords
-     * @instance
-     */
-    V3ResNotifySkySolverCoords.prototype.coord1 = 0;
-    /**
-     * V3ResNotifySkySolverCoords coord2.
-     * @member {number} coord2
-     * @memberof V3ResNotifySkySolverCoords
-     * @instance
-     */
-    V3ResNotifySkySolverCoords.prototype.coord2 = 0;
-    /**
-     * Creates a new V3ResNotifySkySolverCoords instance using the specified properties.
-     * @function create
-     * @memberof V3ResNotifySkySolverCoords
-     * @static
-     * @param {IV3ResNotifySkySolverCoords=} [properties] Properties to set
-     * @returns {V3ResNotifySkySolverCoords} V3ResNotifySkySolverCoords instance
-     */
-    V3ResNotifySkySolverCoords.create = function create(properties) {
-        return new V3ResNotifySkySolverCoords(properties);
-    };
-    /**
-     * Encodes the specified V3ResNotifySkySolverCoords message. Does not implicitly {@link V3ResNotifySkySolverCoords.verify|verify} messages.
-     * @function encode
-     * @memberof V3ResNotifySkySolverCoords
-     * @static
-     * @param {IV3ResNotifySkySolverCoords} message V3ResNotifySkySolverCoords message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
-     */
-    V3ResNotifySkySolverCoords.encode = function encode(message, writer) {
-        if (!writer)
-            writer = $Writer.create();
-        if (message.coord1 != null && Object.hasOwnProperty.call(message, "coord1"))
-            writer.uint32(/* id 1, wireType 1 =*/ 9).double(message.coord1);
-        if (message.coord2 != null && Object.hasOwnProperty.call(message, "coord2"))
-            writer.uint32(/* id 2, wireType 1 =*/ 17).double(message.coord2);
-        return writer;
-    };
-    /**
-     * Encodes the specified V3ResNotifySkySolverCoords message, length delimited. Does not implicitly {@link V3ResNotifySkySolverCoords.verify|verify} messages.
-     * @function encodeDelimited
-     * @memberof V3ResNotifySkySolverCoords
-     * @static
-     * @param {IV3ResNotifySkySolverCoords} message V3ResNotifySkySolverCoords message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
-     */
-    V3ResNotifySkySolverCoords.encodeDelimited = function encodeDelimited(message, writer) {
-        return this.encode(message, writer).ldelim();
-    };
-    /**
-     * Decodes a V3ResNotifySkySolverCoords message from the specified reader or buffer.
-     * @function decode
-     * @memberof V3ResNotifySkySolverCoords
-     * @static
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @param {number} [length] Message length if known beforehand
-     * @returns {V3ResNotifySkySolverCoords} V3ResNotifySkySolverCoords
-     * @throws {Error} If the payload is not a reader or valid buffer
-     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-     */
-    V3ResNotifySkySolverCoords.decode = function decode(reader, length) {
-        if (!(reader instanceof $Reader))
-            reader = $Reader.create(reader);
-        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.V3ResNotifySkySolverCoords();
-        while (reader.pos < end) {
-            var tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1: {
-                    message.coord1 = reader.double();
-                    break;
-                }
-                case 2: {
-                    message.coord2 = reader.double();
-                    break;
-                }
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-            }
-        }
-        return message;
-    };
-    /**
-     * Decodes a V3ResNotifySkySolverCoords message from the specified reader or buffer, length delimited.
-     * @function decodeDelimited
-     * @memberof V3ResNotifySkySolverCoords
-     * @static
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @returns {V3ResNotifySkySolverCoords} V3ResNotifySkySolverCoords
-     * @throws {Error} If the payload is not a reader or valid buffer
-     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-     */
-    V3ResNotifySkySolverCoords.decodeDelimited = function decodeDelimited(reader) {
-        if (!(reader instanceof $Reader))
-            reader = new $Reader(reader);
-        return this.decode(reader, reader.uint32());
-    };
-    /**
-     * Verifies a V3ResNotifySkySolverCoords message.
-     * @function verify
-     * @memberof V3ResNotifySkySolverCoords
-     * @static
-     * @param {Object.<string,*>} message Plain object to verify
-     * @returns {string|null} `null` if valid, otherwise the reason why it is not
-     */
-    V3ResNotifySkySolverCoords.verify = function verify(message) {
-        if (typeof message !== "object" || message === null)
-            return "object expected";
-        if (message.coord1 != null && message.hasOwnProperty("coord1"))
-            if (typeof message.coord1 !== "number")
-                return "coord1: number expected";
-        if (message.coord2 != null && message.hasOwnProperty("coord2"))
-            if (typeof message.coord2 !== "number")
-                return "coord2: number expected";
-        return null;
-    };
-    /**
-     * Creates a V3ResNotifySkySolverCoords message from a plain object. Also converts values to their respective internal types.
-     * @function fromObject
-     * @memberof V3ResNotifySkySolverCoords
-     * @static
-     * @param {Object.<string,*>} object Plain object
-     * @returns {V3ResNotifySkySolverCoords} V3ResNotifySkySolverCoords
-     */
-    V3ResNotifySkySolverCoords.fromObject = function fromObject(object) {
-        if (object instanceof $root.V3ResNotifySkySolverCoords)
-            return object;
-        var message = new $root.V3ResNotifySkySolverCoords();
-        if (object.coord1 != null)
-            message.coord1 = Number(object.coord1);
-        if (object.coord2 != null)
-            message.coord2 = Number(object.coord2);
-        return message;
-    };
-    /**
-     * Creates a plain object from a V3ResNotifySkySolverCoords message. Also converts values to other types if specified.
-     * @function toObject
-     * @memberof V3ResNotifySkySolverCoords
-     * @static
-     * @param {V3ResNotifySkySolverCoords} message V3ResNotifySkySolverCoords
-     * @param {$protobuf.IConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
-     */
-    V3ResNotifySkySolverCoords.toObject = function toObject(message, options) {
-        if (!options)
-            options = {};
-        var object = {};
-        if (options.defaults) {
-            object.coord1 = 0;
-            object.coord2 = 0;
-        }
-        if (message.coord1 != null && message.hasOwnProperty("coord1"))
-            object.coord1 =
-                options.json && !isFinite(message.coord1)
-                    ? String(message.coord1)
-                    : message.coord1;
-        if (message.coord2 != null && message.hasOwnProperty("coord2"))
-            object.coord2 =
-                options.json && !isFinite(message.coord2)
-                    ? String(message.coord2)
-                    : message.coord2;
-        return object;
-    };
-    /**
-     * Converts this V3ResNotifySkySolverCoords to JSON.
-     * @function toJSON
-     * @memberof V3ResNotifySkySolverCoords
-     * @instance
-     * @returns {Object.<string,*>} JSON object
-     */
-    V3ResNotifySkySolverCoords.prototype.toJSON = function toJSON() {
-        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-    };
-    /**
-     * Gets the default type url for V3ResNotifySkySolverCoords
-     * @function getTypeUrl
-     * @memberof V3ResNotifySkySolverCoords
-     * @static
-     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-     * @returns {string} The default type url
-     */
-    V3ResNotifySkySolverCoords.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
-        if (typeUrlPrefix === undefined) {
-            typeUrlPrefix = "type.googleapis.com";
-        }
-        return typeUrlPrefix + "/V3ResNotifySkySolverCoords";
-    };
-    return V3ResNotifySkySolverCoords;
 })();
 $root.V3ResNotifyStateLatch = (function () {
     /**

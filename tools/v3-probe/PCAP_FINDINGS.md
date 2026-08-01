@@ -58,7 +58,7 @@ remain hardware-unverified.
 
 ### Remaining open items
 
-- `15256`: confirmed sky solver telemetry (coordinate-like doubles).
+- `15256`: resolved by the APK 3.4.1 descriptor as `CalibrationResult` (`azi`, `alt`).
 - `15262`: varint flag (`1` observed), likely state latch.
 - `15280`: autofocus-state style notify (`1 -> 3`), observed in capture 2 and currently treated as alternate autofocus-state signal.
 
@@ -362,7 +362,7 @@ Conclusion:
 
 - High confidence that `15288` carries exposure/session duration telemetry in seconds.
 
-### `15256` sky solver telemetry
+### `15256` calibration result
 
 Observed payload shape:
 
@@ -377,8 +377,9 @@ Sample values:
 
 Conclusion:
 
-- Confirmed part of sky solver flow.
-- Coordinate-like telemetry (likely sky coordinates or solver intermediate coordinates).
+- The APK 3.4.1 embedded `notify.proto` descriptor identifies this message as
+  `CalibrationResult` with `double azi = 1` and `double alt = 2`.
+- The observed coordinate pairs are the solved mount azimuth and altitude.
 
 ---
 
@@ -388,11 +389,12 @@ Conclusion:
 
 Status:
 
-- Confirmed sky solver related.
+- Confirmed successful calibration result by the APK descriptor.
 
-Working interpretation:
+Schema:
 
-- Two doubles, coordinate-like solver telemetry.
+- field 1: `azi` (double)
+- field 2: `alt` (double)
 
 ### `15262` (notify, mod=9)
 
@@ -451,7 +453,7 @@ Working interpretation:
 
 1. Add explicit notify decode path for `15280` in runtime/session diagnostics.
 2. Add optional runtime field for latest `15288` value for easier troubleshooting.
-3. Keep `15256` values logged during solve/goto flows to correlate with telescope state.
+3. Treat `15256` as successful calibration completion and retain its solved azimuth/altitude.
 
 ---
 

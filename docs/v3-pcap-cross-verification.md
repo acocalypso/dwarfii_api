@@ -18,14 +18,15 @@ This document cross-checks claims from external pcap analysis against independen
 - Our result: C10 shows `60.0` ×3 (`09 00 00 00 00 00 00 4e 40`). C8 also shows `60.0` ×1.
 - **Verdict: Full match. High confidence.**
 
-### 15256 = Sky Solver Coordinates
+### 15256 = Calibration Result
 
 - External claim: double×2, coordinate-like values (`359.5664, 49.7777`, etc.)
 - Our result: 3 samples from C10, values match exactly:
   - `359.566401, 49.777716`
   - `359.590588, 49.694299`
   - `359.564649, 49.726089`
-- **Verdict: Full match.**
+- APK 3.4.1 descriptor result: `notify.CalibrationResult { double azi = 1; double alt = 2; }`.
+- **Verdict: Payload observations match the authoritative APK schema.**
 
 ### 15262 = State Latch
 

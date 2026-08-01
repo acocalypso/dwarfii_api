@@ -304,7 +304,7 @@ enum DwarfCMD {
     CMD_NOTIFY_STATE_AI_ENHANCE = 15253; // APK 3.4.1 registry; hardware unverified
     CMD_NOTIFY_PROGRESS_AI_ENHANCE = 15254; // APK 3.4.1 registry; hardware unverified
 
-    CMD_V3_NOTIFY_SKY_SOLVER_COORDS = 15256; // V3: Sky solver coordinate telemetry (pcap-discovered)
+    CMD_NOTIFY_CALIBRATION_RESULT = 15256; // V3: successful mount calibration (azi/alt)
     CMD_NOTIFY_FOCUS = 15257; // Focus Position
     CMD_NOTIFY_UFO_AUTO_HAND_MODE = 15258; // APK 3.4.1 registry; hardware unverified
     CMD_NOTIFY_CURRENT_PANORAMA_UPLOAD_STATE = 15259; // APK 3.4.1 registry; hardware unverified

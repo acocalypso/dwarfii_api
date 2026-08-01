@@ -248,6 +248,7 @@ export const cmdTxtMapping: {
     15248: string;
     15249: string;
     15250: string;
+    15256: string;
     15251: string;
     15252: string;
     15257: string;

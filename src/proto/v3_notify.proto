@@ -130,15 +130,8 @@ message V3ResNotifyObservationState {
     int32 state = 1; // 1=started, 2=confirmed, 3=complete
 }
 
-// V3 Sky solver coordinate telemetry: CMD 15256 (pcap-discovered, no official proto)
-// Emitted during GoTo/solve flows with coordinate-like double pairs
-message V3ResNotifySkySolverCoords {
-    double coord1 = 1; // e.g. 359.5664 (likely RA or azimuth)
-    double coord2 = 2; // e.g. 49.7777 (likely Dec or altitude)
-}
-
 // V3 State latch notification: CMD 15262 (pcap-discovered, no official proto)
-// Always appears paired with 15256 sky solver notifications
+// Observed paired with 15256 calibration-result notifications.
 message V3ResNotifyStateLatch {
     int32 state = 1; // observed: 1
 }

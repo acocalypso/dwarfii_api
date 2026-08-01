@@ -430,7 +430,7 @@ export const notifyMapping = {
     15250: "ResNotifySkySeacherState", // Sky detection status
     //  CMD_NOTIFY_WIDE_MULTI_TRACK_RESULT = 15251; // Wide-angle multi-target box result notification
     //  CMD_NOTIFY_WIDE_TRACK_RESULT = 15252; // Wide-angle single target box result notification
-    15256: "V3ResNotifySkySolverCoords", // V3: Sky solver coordinate telemetry (pcap-discovered)
+    15256: "CalibrationResult", // V3: successful mount calibration result (azi/alt)
     15257: "ResNotifyFocus", // Focus Position
     // V3 Notifications
     11036: "ComResponse", // V3: Save complete notification

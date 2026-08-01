@@ -15401,6 +15401,99 @@ export class ResNotifyStateAstroCalibration implements IResNotifyStateAstroCalib
     public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
+/** Represents a CalibrationResult. */
+export class CalibrationResult implements ICalibrationResult {
+
+    /**
+     * Constructs a new CalibrationResult.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: ICalibrationResult);
+
+    /** CalibrationResult azi. */
+    public azi: number;
+
+    /** CalibrationResult alt. */
+    public alt: number;
+
+    /**
+     * Creates a new CalibrationResult instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns CalibrationResult instance
+     */
+    public static create(properties?: ICalibrationResult): CalibrationResult;
+
+    /**
+     * Encodes the specified CalibrationResult message. Does not implicitly {@link CalibrationResult.verify|verify} messages.
+     * @param message CalibrationResult message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: ICalibrationResult, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified CalibrationResult message, length delimited. Does not implicitly {@link CalibrationResult.verify|verify} messages.
+     * @param message CalibrationResult message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: ICalibrationResult, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a CalibrationResult message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns CalibrationResult
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): CalibrationResult;
+
+    /**
+     * Decodes a CalibrationResult message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns CalibrationResult
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): CalibrationResult;
+
+    /**
+     * Verifies a CalibrationResult message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a CalibrationResult message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns CalibrationResult
+     */
+    public static fromObject(object: { [k: string]: any }): CalibrationResult;
+
+    /**
+     * Creates a plain object from a CalibrationResult message. Also converts values to other types if specified.
+     * @param message CalibrationResult
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: CalibrationResult, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this CalibrationResult to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for CalibrationResult
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
 /** Represents a ResNotifyStateAstroGoto. */
 export class ResNotifyStateAstroGoto implements IResNotifyStateAstroGoto {
 
@@ -19268,7 +19361,7 @@ export enum DwarfCMD {
     CMD_NOTIFY_WIDE_TRACK_RESULT = 15252,
     CMD_NOTIFY_STATE_AI_ENHANCE = 15253,
     CMD_NOTIFY_PROGRESS_AI_ENHANCE = 15254,
-    CMD_V3_NOTIFY_SKY_SOLVER_COORDS = 15256,
+    CMD_NOTIFY_CALIBRATION_RESULT = 15256,
     CMD_NOTIFY_FOCUS = 15257,
     CMD_NOTIFY_UFO_AUTO_HAND_MODE = 15258,
     CMD_NOTIFY_CURRENT_PANORAMA_UPLOAD_STATE = 15259,
@@ -27657,99 +27750,6 @@ export class V3ResNotifyObservationState implements IV3ResNotifyObservationState
 
     /**
      * Gets the default type url for V3ResNotifyObservationState
-     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
-     * @returns The default type url
-     */
-    public static getTypeUrl(typeUrlPrefix?: string): string;
-}
-
-/** Represents a V3ResNotifySkySolverCoords. */
-export class V3ResNotifySkySolverCoords implements IV3ResNotifySkySolverCoords {
-
-    /**
-     * Constructs a new V3ResNotifySkySolverCoords.
-     * @param [properties] Properties to set
-     */
-    constructor(properties?: IV3ResNotifySkySolverCoords);
-
-    /** V3ResNotifySkySolverCoords coord1. */
-    public coord1: number;
-
-    /** V3ResNotifySkySolverCoords coord2. */
-    public coord2: number;
-
-    /**
-     * Creates a new V3ResNotifySkySolverCoords instance using the specified properties.
-     * @param [properties] Properties to set
-     * @returns V3ResNotifySkySolverCoords instance
-     */
-    public static create(properties?: IV3ResNotifySkySolverCoords): V3ResNotifySkySolverCoords;
-
-    /**
-     * Encodes the specified V3ResNotifySkySolverCoords message. Does not implicitly {@link V3ResNotifySkySolverCoords.verify|verify} messages.
-     * @param message V3ResNotifySkySolverCoords message or plain object to encode
-     * @param [writer] Writer to encode to
-     * @returns Writer
-     */
-    public static encode(message: IV3ResNotifySkySolverCoords, writer?: $protobuf.Writer): $protobuf.Writer;
-
-    /**
-     * Encodes the specified V3ResNotifySkySolverCoords message, length delimited. Does not implicitly {@link V3ResNotifySkySolverCoords.verify|verify} messages.
-     * @param message V3ResNotifySkySolverCoords message or plain object to encode
-     * @param [writer] Writer to encode to
-     * @returns Writer
-     */
-    public static encodeDelimited(message: IV3ResNotifySkySolverCoords, writer?: $protobuf.Writer): $protobuf.Writer;
-
-    /**
-     * Decodes a V3ResNotifySkySolverCoords message from the specified reader or buffer.
-     * @param reader Reader or buffer to decode from
-     * @param [length] Message length if known beforehand
-     * @returns V3ResNotifySkySolverCoords
-     * @throws {Error} If the payload is not a reader or valid buffer
-     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-     */
-    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): V3ResNotifySkySolverCoords;
-
-    /**
-     * Decodes a V3ResNotifySkySolverCoords message from the specified reader or buffer, length delimited.
-     * @param reader Reader or buffer to decode from
-     * @returns V3ResNotifySkySolverCoords
-     * @throws {Error} If the payload is not a reader or valid buffer
-     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-     */
-    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): V3ResNotifySkySolverCoords;
-
-    /**
-     * Verifies a V3ResNotifySkySolverCoords message.
-     * @param message Plain object to verify
-     * @returns `null` if valid, otherwise the reason why it is not
-     */
-    public static verify(message: { [k: string]: any }): (string|null);
-
-    /**
-     * Creates a V3ResNotifySkySolverCoords message from a plain object. Also converts values to their respective internal types.
-     * @param object Plain object
-     * @returns V3ResNotifySkySolverCoords
-     */
-    public static fromObject(object: { [k: string]: any }): V3ResNotifySkySolverCoords;
-
-    /**
-     * Creates a plain object from a V3ResNotifySkySolverCoords message. Also converts values to other types if specified.
-     * @param message V3ResNotifySkySolverCoords
-     * @param [options] Conversion options
-     * @returns Plain object
-     */
-    public static toObject(message: V3ResNotifySkySolverCoords, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-    /**
-     * Converts this V3ResNotifySkySolverCoords to JSON.
-     * @returns JSON object
-     */
-    public toJSON(): { [k: string]: any };
-
-    /**
-     * Gets the default type url for V3ResNotifySkySolverCoords
      * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
      * @returns The default type url
      */

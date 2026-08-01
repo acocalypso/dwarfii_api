@@ -1,9 +1,22 @@
 # Dwarf II
 
-Wrapper functions for the DWARF II API V2 plus evidence-backed DWARF mini V3
-commands. See [the API reference](docs/API_REFERENCE.md) and
+Wrapper functions and protocol definitions for the shared DWARF V3 API used by
+DWARF 2, DWARF 3, and DWARF mini, while retaining the historical V2 helpers.
+See [the API reference](docs/API_REFERENCE.md) and
 [the V3 investigation notes](tools/v3-probe/PCAP_FINDINGS.md). V3 entries are
 marked when their schema or hardware behavior is still provisional.
+
+All three models share the V3 command family; model-specific client IDs, filters,
+sensor limits, and other hardware capabilities remain distinct. Mount calibration
+uses state notification `15210` and successful result notification `15256`
+(`CalibrationResult.azi`, `CalibrationResult.alt`).
+
+For reliable V3 mount calibration, run astronomical autofocus first with focus
+command `15004` (`ReqAstroAutoFocus { mode: 1 }`) and wait for autofocus state
+`3` on notification `15278` or `15280`. Then start calibration with `11000`,
+allow repeated `15210` plate-solving attempts, and treat `15256` as the
+successful terminal result. This workflow applies to DWARF 2, DWARF 3, and
+DWARF mini.
 
 Dwarf Lab's [API V2 documentation](https://tinyphoton.feishu.cn/docx/GBkcdldTIo3SrdxFJDscYVYDnvf?fbclid=IwAR0_Vypm8DPk1PPtwllptpWDZmxbCgi3NKVQKV8khDXIvnNay_o67AUgtq4).
 

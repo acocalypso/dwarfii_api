@@ -330,6 +330,7 @@ Device-to-app one-way notifications. Displayed as `[NOTIFY]` in pcap output.
 | 15251 | CMD_NOTIFY_WIDE_MULTI_TRACK_RESULT | (unmapped) | Wide multi-object tracking result | — |
 | 15252 | CMD_NOTIFY_WIDE_TRACK_RESULT | (unmapped) | Wide tracking result | — |
 | 15255 | CMD_V3_NOTIFY_EXPOSURE_PROGRESS | V3ResNotifyExposureProgress | Exposure progress (V3). elapsed/total in seconds. | C2 C3 C10 |
+| 15256 | CMD_NOTIFY_CALIBRATION_RESULT | CalibrationResult | Successful V3 mount calibration; solved azimuth and altitude | C10; APK 3.4.1 descriptor |
 | 15257 | CMD_NOTIFY_FOCUS | ResNotifyFocus | Focus position | C2 C4–C6 C8 C10 |
 | 15261 | CMD_V3_NOTIFY_DEVICE_STATE | V3ResNotifyDeviceState | Device state (V3) | C1 C2 C4 C7 |
 | 15264 | CMD_V3_NOTIFY_CAMERA_PARAM_STATE | V3ResNotifyCameraParamState | Camera param state (V3). paramId + value. | C1–C10 |
@@ -350,11 +351,18 @@ Device-to-app one-way notifications. Displayed as `[NOTIFY]` in pcap output.
 | 15292 | CMD_V3_NOTIFY_TEMPERATURE2 | V3ResNotifyTemperature2 | Temperature 2 (V3, °C). Paired with 15243. | C2–C10 |
 | 15296 | CMD_V3_NOTIFY_OBSERVATION_STATE | V3ResNotifyObservationState | Observation state (V3). Values: `1→3`. | C4 C10 |
 
+Recommended shared V3 mount-calibration sequence (DWARF 2, DWARF 3, and
+DWARF mini): start astronomical autofocus with `15004` and wait for state `3`
+on `15278` or `15280`; then issue `11000`, continue waiting across repeated
+`15210` plate-solving attempts, and accept `15256` as successful completion.
+Cloud cover can make the firmware perform multiple solve attempts, so clients
+should use a multi-minute calibration timeout rather than treating the first
+unsuccessful solve as terminal.
+
 ### Undefined Notifications (no protobuf definition, discovered from pcap)
 
 | CMD | Payload | Observed |
 |-----|---------|----------|
-| 15256 | double×2 (e.g. 359.57, 49.78) — sky solver coordinates | C10 |
 | 15262 | varint `08 01` — state latch, paired with 15256 | C10 |
 
 Note: 15280 and 15288 are listed in the main table above.

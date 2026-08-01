@@ -22,7 +22,7 @@ Decoder used: `tools/v3-probe/pcap-decode.js`
 
 ### Remaining open items
 
-- `15256`: confirmed sky solver telemetry (coordinate-like doubles).
+- `15256`: resolved by the APK 3.4.1 descriptor as `CalibrationResult` (`azi`, `alt`).
 - `15262`: varint flag (`1` observed), likely state latch.
 - `15280`: autofocus-state style notify (`1 -> 3`), observed as alternate autofocus-state signal.
 
@@ -272,7 +272,7 @@ Notes on argument format:
 
 Conclusion: High confidence that `15288` carries exposure/session duration telemetry in seconds.
 
-### `15256` sky solver telemetry
+### `15256` calibration result
 
 Observed payload shape:
 
@@ -285,7 +285,8 @@ Sample values:
 - `359.5906`, `49.6943`
 - `359.5646`, `49.7261`
 
-Conclusion: Confirmed part of sky solver flow. Coordinate-like telemetry (likely sky coordinates or solver intermediate coordinates).
+Conclusion: The APK 3.4.1 embedded `notify.proto` descriptor identifies this as
+`CalibrationResult` with `double azi = 1` and `double alt = 2`.
 
 ---
 
@@ -293,7 +294,7 @@ Conclusion: Confirmed part of sky solver flow. Coordinate-like telemetry (likely
 
 ### `15256` (notify, mod=9)
 
-Status: Confirmed sky solver related.
+Status: Confirmed successful calibration result by the APK descriptor.
 
 Working interpretation: Two doubles, coordinate-like solver telemetry.
 
@@ -338,7 +339,7 @@ Working interpretation: exposure/session duration telemetry.
 
 1. Add explicit notify decode path for `15280` in runtime/session diagnostics.
 2. Add optional runtime field for latest `15288` value for easier troubleshooting.
-3. Keep `15256` values logged during solve/goto flows to correlate with telescope state.
+3. Treat `15256` as successful calibration completion and retain its solved azimuth/altitude.
 
 ---
 
