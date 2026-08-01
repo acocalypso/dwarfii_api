@@ -65,7 +65,7 @@ DWARF II / 3 / mini 用 WebSocket API ライブラリ。
 
 | CMD ID | 関数 | 引数 | 説明 |
 |--------|------|------|------|
-| 11000 | `messageAstroStartCalibration()` | — | キャリブレーション開始 |
+| 11000 | `messageAstroStartCalibration(lon, lat)` | ReqStartCalibration | キャリブレーション開始（観測地の経度・緯度、十進度） |
 | 11001 | `messageAstroStopCalibration()` | — | キャリブレーション停止 |
 | 11002 | `messageAstroStartGotoDso(ra, dec, target_name)` | ra: RA(度), dec: Dec(度), target_name: 天体名 | DSO へ GOTO 開始 |
 | 11003 | `messageAstroStartGotoSolarSystem(index, lon, lat, targetName)` | index: 天体ID, lon: 経度, lat: 緯度, targetName: 名前 | 太陽系天体へ GOTO 開始 |

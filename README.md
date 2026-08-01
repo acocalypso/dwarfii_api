@@ -18,6 +18,11 @@ allow repeated `15210` plate-solving attempts, and treat `15256` as the
 successful terminal result. This workflow applies to DWARF 2, DWARF 3, and
 DWARF mini.
 
+APK 3.4.1 additionally requires `ReqStartCalibration.lon` (field 1) and
+`ReqStartCalibration.lat` (field 2), in decimal degrees. The app obtains them
+from the current phone location and blocks calibration when location is absent
+or `(0,0)`; an empty `11000` request was hardware-observed to end with `-11504`.
+
 Dwarf Lab's [API V2 documentation](https://tinyphoton.feishu.cn/docx/GBkcdldTIo3SrdxFJDscYVYDnvf?fbclid=IwAR0_Vypm8DPk1PPtwllptpWDZmxbCgi3NKVQKV8khDXIvnNay_o67AUgtq4).
 
 [Documentation](https://stevejcl.github.io/dwarfii_api/) for this package.

@@ -15,6 +15,8 @@ $root.ReqStartCalibration = (function () {
    * Properties of a ReqStartCalibration.
    * @exports IReqStartCalibration
    * @interface IReqStartCalibration
+   * @property {number|null} [lon] ReqStartCalibration lon
+   * @property {number|null} [lat] ReqStartCalibration lat
    */
 
   /**
@@ -30,6 +32,22 @@ $root.ReqStartCalibration = (function () {
       for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
         if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
   }
+
+  /**
+   * ReqStartCalibration lon.
+   * @member {number} lon
+   * @memberof ReqStartCalibration
+   * @instance
+   */
+  ReqStartCalibration.prototype.lon = 0;
+
+  /**
+   * ReqStartCalibration lat.
+   * @member {number} lat
+   * @memberof ReqStartCalibration
+   * @instance
+   */
+  ReqStartCalibration.prototype.lat = 0;
 
   /**
    * Creates a new ReqStartCalibration instance using the specified properties.
@@ -54,6 +72,10 @@ $root.ReqStartCalibration = (function () {
    */
   ReqStartCalibration.encode = function encode(message, writer) {
     if (!writer) writer = $Writer.create();
+    if (message.lon != null && Object.hasOwnProperty.call(message, "lon"))
+      writer.uint32(/* id 1, wireType 1 =*/ 9).double(message.lon);
+    if (message.lat != null && Object.hasOwnProperty.call(message, "lat"))
+      writer.uint32(/* id 2, wireType 1 =*/ 17).double(message.lat);
     return writer;
   };
 
@@ -91,6 +113,14 @@ $root.ReqStartCalibration = (function () {
     while (reader.pos < end) {
       var tag = reader.uint32();
       switch (tag >>> 3) {
+        case 1: {
+          message.lon = reader.double();
+          break;
+        }
+        case 2: {
+          message.lat = reader.double();
+          break;
+        }
         default:
           reader.skipType(tag & 7);
           break;
@@ -125,6 +155,10 @@ $root.ReqStartCalibration = (function () {
   ReqStartCalibration.verify = function verify(message) {
     if (typeof message !== "object" || message === null)
       return "object expected";
+    if (message.lon != null && message.hasOwnProperty("lon"))
+      if (typeof message.lon !== "number") return "lon: number expected";
+    if (message.lat != null && message.hasOwnProperty("lat"))
+      if (typeof message.lat !== "number") return "lat: number expected";
     return null;
   };
 
@@ -138,7 +172,10 @@ $root.ReqStartCalibration = (function () {
    */
   ReqStartCalibration.fromObject = function fromObject(object) {
     if (object instanceof $root.ReqStartCalibration) return object;
-    return new $root.ReqStartCalibration();
+    var message = new $root.ReqStartCalibration();
+    if (object.lon != null) message.lon = Number(object.lon);
+    if (object.lat != null) message.lat = Number(object.lat);
+    return message;
   };
 
   /**
@@ -150,8 +187,24 @@ $root.ReqStartCalibration = (function () {
    * @param {$protobuf.IConversionOptions} [options] Conversion options
    * @returns {Object.<string,*>} Plain object
    */
-  ReqStartCalibration.toObject = function toObject() {
-    return {};
+  ReqStartCalibration.toObject = function toObject(message, options) {
+    if (!options) options = {};
+    var object = {};
+    if (options.defaults) {
+      object.lon = 0;
+      object.lat = 0;
+    }
+    if (message.lon != null && message.hasOwnProperty("lon"))
+      object.lon =
+        options.json && !isFinite(message.lon)
+          ? String(message.lon)
+          : message.lon;
+    if (message.lat != null && message.hasOwnProperty("lat"))
+      object.lat =
+        options.json && !isFinite(message.lat)
+          ? String(message.lat)
+          : message.lat;
+    return object;
   };
 
   /**

@@ -2,6 +2,12 @@ import * as $protobuf from "protobufjs";
 import Long = require("long");
 /** Properties of a ReqStartCalibration. */
 export interface IReqStartCalibration {
+
+    /** ReqStartCalibration lon */
+    lon?: (number|null);
+
+    /** ReqStartCalibration lat */
+    lat?: (number|null);
 }
 
 /** Represents a ReqStartCalibration. */
@@ -12,6 +18,12 @@ export class ReqStartCalibration implements IReqStartCalibration {
      * @param [properties] Properties to set
      */
     constructor(properties?: IReqStartCalibration);
+
+    /** ReqStartCalibration lon. */
+    public lon: number;
+
+    /** ReqStartCalibration lat. */
+    public lat: number;
 
     /**
      * Creates a new ReqStartCalibration instance using the specified properties.

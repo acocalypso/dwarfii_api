@@ -10,9 +10,11 @@ import { cmdMapping } from "./cmd_mapping.js";
 /**
  * 4.10.2 Start calibration
  * Create Encoded Packet for the command CMD_ASTRO_START_CALIBRATION
+ * @param {number} lon Observer longitude in decimal degrees
+ * @param {number} lat Observer latitude in decimal degrees
  * @returns {Uint8Array}
  */
-export function messageAstroStartCalibration() {
+export function messageAstroStartCalibration(lon, lat) {
     let module_id = Dwarfii_Api.ModuleId.MODULE_ASTRO;
     let interface_id = Dwarfii_Api.DwarfCMD.CMD_ASTRO_START_CALIBRATION;
     let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
@@ -20,7 +22,7 @@ export function messageAstroStartCalibration() {
     const cmdClass = cmdMapping[interface_id];
     let class_message = eval(`Dwarfii_Api.${cmdClass}`);
     // Encode message
-    let message = class_message.create({});
+    let message = class_message.create({ lon, lat });
     console.log(`class Message = ${cmdClass} created message = ${JSON.stringify(message)}`);
     // return encoded Message Packet
     return createPacket(message, class_message, module_id, interface_id, type_id);

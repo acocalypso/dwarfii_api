@@ -155,7 +155,7 @@ C1–C10: locally decoded. C11–C13: referenced from external analysis (not loc
 
 | CMD | Enum | Description | Observed |
 |-----|------|-------------|----------|
-| 11000 | CMD_ASTRO_START_CALIBRATION | Start calibration | C2 C10 |
+| 11000 | CMD_ASTRO_START_CALIBRATION | Start calibration; `ReqStartCalibration { lon=1, lat=2 }` in decimal degrees | C2 C10; APK 3.4.1 |
 | 11001 | CMD_ASTRO_STOP_CALIBRATION | Stop calibration | C2 C5 C6 C8 |
 | 11002 | CMD_ASTRO_START_GOTO_DSO | GoTo DSO (V2) | C10 |
 | 11003 | CMD_ASTRO_START_GOTO_SOLAR_SYSTEM | GoTo solar system (V2) | C2 |

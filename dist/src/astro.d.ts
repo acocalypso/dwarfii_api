@@ -4,9 +4,11 @@
 /**
  * 4.10.2 Start calibration
  * Create Encoded Packet for the command CMD_ASTRO_START_CALIBRATION
+ * @param {number} lon Observer longitude in decimal degrees
+ * @param {number} lat Observer latitude in decimal degrees
  * @returns {Uint8Array}
  */
-export function messageAstroStartCalibration(): Uint8Array;
+export function messageAstroStartCalibration(lon: number, lat: number): Uint8Array;
 /**
  * 4.10.3 Stop calibration
  * Create Encoded Packet for the command CMD_ASTRO_STOP_CALIBRATION
