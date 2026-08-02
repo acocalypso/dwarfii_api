@@ -6,6 +6,7 @@ import {
   encodeParamId,
   decodeParamId,
   messageV3FilterWheelSet,
+  messageV3AstroFrameCountSet,
   V3_SHOOTING_MODE,
   V3_PARAM_CATEGORY,
   V3_CAMERA_ID,
@@ -129,6 +130,22 @@ assert(
   V3_PARAM_INDEX.FILTER_WHEEL === 0x0d,
   "V3_PARAM_INDEX.FILTER_WHEEL = 0x0D"
 );
+assert(V3_PARAM_CATEGORY.CAPTURE === 2, "V3_PARAM_CATEGORY.CAPTURE = 2");
+assert(
+  V3_PARAM_INDEX.FRAME_COUNT === 0x10,
+  "V3_PARAM_INDEX.FRAME_COUNT = 0x10"
+);
+
+const astroFrameCount = encodeParamId(
+  V3_SHOOTING_MODE.ASTRO,
+  V3_PARAM_CATEGORY.CAPTURE,
+  V3_CAMERA_ID.TELE,
+  V3_PARAM_INDEX.FRAME_COUNT
+);
+assert(
+  astroFrameCount === "144678138029277200",
+  `ASTRO frame count encodes to 144678138029277200 (got ${astroFrameCount})`
+);
 
 console.log("\n=== messageV3FilterWheelSet ===\n");
 
@@ -154,6 +171,25 @@ assert(
   photoPacket instanceof Uint8Array && photoPacket.length > 0,
   "PHOTO mode produces valid packet"
 );
+
+console.log("\n=== messageV3AstroFrameCountSet ===\n");
+const frameCountPacket = messageV3AstroFrameCountSet(1);
+assert(
+  frameCountPacket?.constructor?.name === "Uint8Array",
+  "returns Uint8Array"
+);
+assert(
+  frameCountPacket.length > 0,
+  `packet length > 0 (got ${frameCountPacket.length})`
+);
+
+let invalidFrameCountThrew = false;
+try {
+  messageV3AstroFrameCountSet(0);
+} catch (e) {
+  invalidFrameCountThrew = e instanceof RangeError;
+}
+assert(invalidFrameCountThrew, "rejects a non-positive frame count");
 
 console.log(`\n=== Results: ${passed} passed, ${failed} failed ===\n`);
 process.exit(failed > 0 ? 1 : 0);

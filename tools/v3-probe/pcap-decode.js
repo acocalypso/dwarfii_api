@@ -265,6 +265,7 @@ const INNER_TYPES = {
 // ParamId decoder for human-readable display (uses shared decodeParamId)
 const PARAM_INDEX_NAMES = {
   0x0d: "filterWheel",
+  0x10: "frameCount",
 };
 const SHOOTING_MODE_NAMES = ["photo", "video", "astro"];
 const CAMERA_ID_NAMES = ["tele", "wide"];

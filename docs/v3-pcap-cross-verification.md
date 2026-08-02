@@ -150,7 +150,10 @@ These were found primarily in C10, which was not covered by the external analysi
 
 - Observed in C10.
 - `144678138029277200` = astro/cat2/tele/idx16
-- value: 1 → 2
+- Identified as the absolute astronomy frame count from app writes of 509 and
+  999 immediately after `11041`.
+- A device test confirmed that relying on the `11041` echo alone leaves a stale
+  `15209.total_count=999`.
 - Different from the known filterWheel paramId (cat1/idx13)
 
 ### shootingMode=11

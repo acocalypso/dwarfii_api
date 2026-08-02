@@ -405,7 +405,7 @@ Note: 15280 and 15288 are listed in the main table above.
 | 16700 | CMD_V3_CAMERA_PARAMS_SET_PARAM | Set parameter | C1 C5 C8 |
 | 16701 | CMD_V3_CAMERA_PARAMS_SET_EXP_GAIN | Set exposure/gain | C5 C8 |
 | 16702 | **(undefined)** | Unknown. Payload: paramId + field2 + field3 (optional). | C8 |
-| 16703 | CMD_V3_CAMERA_PARAMS_ADJUST | Adjust parameter (filter wheel, etc.) | C2 C4 C5 C8 C9 C10 |
+| 16703 | CMD_V3_CAMERA_PARAMS_ADJUST | Write/adjust parameter (filter wheel; absolute astronomy frame count) | C2 C4 C5 C8 C9 C10 |
 | 16706 | CMD_V3_CAMERA_PARAMS_STREAM_CTRL | Stream control | C5 |
 
 ---
@@ -416,10 +416,10 @@ Note: 15280 and 15288 are listed in the main table above.
 
 ```
 bits 63..56 = shootingMode  (0=photo, 1=video, 2=astro)
-bits 55..48 = category       (1=OPTICAL, 2=?)
+bits 55..48 = category       (1=OPTICAL, 2=CAPTURE for verified frame count)
 bits 47..16 = reserved (0)
 bits 15..8  = cameraId       (0=tele, 1=wide)
-bits  7..0  = paramIndex     (0x0D=filterWheel, etc.)
+bits  7..0  = paramIndex     (0x0D=filterWheel, 0x10=frameCount in category 2)
 ```
 
 ### ParamIds Observed in Captures
@@ -436,7 +436,7 @@ bits  7..0  = paramIndex     (0x0D=filterWheel, etc.)
 | 144396663052566536 | 2 (astro) | 1 | 0 (tele) | 8 | notifications |
 | 144396663052566541 | 2 (astro) | 1 | 0 (tele) | 13 (0x0D) | REQ + notifications (filter wheel) |
 | 144414255238610945 | 2 (astro) | 1 | 0 (tele) | 1 | 1 notification |
-| 144678138029277200 | 2 (astro) | 2 | 0 (tele) | 16 (0x10) | 2 REQs |
+| 144678138029277200 | 2 (astro) | 2 | 0 (tele) | 16 (0x10) | Absolute frame count; app writes 509/999 after 11041 |
 | 792915009393917965 | 11 | 1 | 0 (tele) | 13 (0x0D) | 1 notification (session end) |
 
 ---
