@@ -160,7 +160,7 @@ C1–C10: locally decoded. C11–C13: referenced from external analysis (not loc
 | 11002 | CMD_ASTRO_START_GOTO_DSO | GoTo DSO (V2) | C10 |
 | 11003 | CMD_ASTRO_START_GOTO_SOLAR_SYSTEM | GoTo solar system (V2) | C2 |
 | 11004 | CMD_ASTRO_STOP_GOTO | Stop GoTo (V2) | — |
-| 11005 | CMD_ASTRO_START_CAPTURE_RAW_LIVE_STACKING | Start stacking. Payload: `08 ff..ff 01` (sentinel). | C2 C3 C10 |
+| 11005 | CMD_ASTRO_START_CAPTURE_RAW_LIVE_STACKING | Start stacking. DWARF 3/mini use `{ir_index, force_start}`; filterless DWARF 2 uses `08 ff..ff 01` (`ir_index=-1`) sentinel. A DWARF 3 sentinel attempt returned `-11530`. | C2 C3 C10; D3 live |
 | 11006 | CMD_ASTRO_STOP_CAPTURE_RAW_LIVE_STACKING | Stop stacking | C2 C3 |
 | 11007 | CMD_ASTRO_START_CAPTURE_RAW_DARK | Start dark capture | — |
 | 11008 | CMD_ASTRO_STOP_CAPTURE_RAW_DARK | Stop dark capture | — |

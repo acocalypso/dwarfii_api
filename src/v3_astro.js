@@ -9,9 +9,11 @@ import { cmdMapping } from "./cmd_mapping.js";
 /*** ------------- V3 MODULE ASTRO (11xxx) ------------------- ***/
 /*** --------------------------------------------------------- ***/
 /**
- * V3: Start stacking with the selected DWARF mini capture filter.
+ * V3: Start stacking with the model-appropriate payload.
  * Create Encoded Packet for the command CMD_ASTRO_START_CAPTURE_RAW_LIVE_STACKING
- * @param {number} irIndex - Capture filter: 1=Astro, 2=Duo-Band
+ * DWARF 3 and DWARF mini send the capture filter (1=Astro, 2=Duo-Band).
+ * Filterless DWARF 2 uses irIndex=-1, which serializes as the observed sentinel.
+ * @param {number} irIndex - Capture filter, or -1 for the filterless sentinel path
  * @param {boolean} forceStart - Force capture start
  * @returns {Uint8Array}
  */

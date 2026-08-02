@@ -40,11 +40,14 @@ This document cross-checks claims from external pcap analysis against independen
 - Our result: C10 shows 38 occurrences. No argument = forward (focus+1), `08 01` = backward (focus-1). Confirmed via 15257 focus position transitions (674→687→678).
 - **Verdict: Match.**
 
-### 11005 = Start Stacking (sentinel argument)
+### 11005 = Start Stacking (capability-dependent argument)
 
 - External claim: `08 ff ff ff ff ff ff ff ff ff 01` (large signed varint)
 - Our result: Identical byte sequence found in C10.
-- **Verdict: Full match.**
+- **Verdict: Full match for the captured sentinel session.** Separate DWARF 3
+  hardware logs prove that a filtered device must send `ir_index` and
+  `force_start`; using the sentinel there returned `-11530` before any capture
+  progress notification.
 
 ### 11039 = Status Polling
 

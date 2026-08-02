@@ -259,7 +259,9 @@ The decoder output includes parsed request payload fields for many calls. Below 
   - interpretation: 3rd value = exposure seconds, 4th value = gain (always 60).
 - `11005` StartStacking
   - raw payload: `08 ff ff ff ff ff ff ff ff ff 01`
-  - app-side sentinel/default argument for stack start.
+  - app-side sentinel/default argument for that captured session.
+  - not universal: live DWARF 3 testing requires the selected filter index and
+    `force_start`; the sentinel was rejected with `-11530` and no progress.
 
 ### Filter change
 
