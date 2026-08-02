@@ -612,6 +612,239 @@ export class ReqCaptureRawLiveStacking implements IReqCaptureRawLiveStacking {
     public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
+/** Properties of a ReqContinueShooting. */
+export interface IReqContinueShooting {
+}
+
+/** Represents a ReqContinueShooting. */
+export class ReqContinueShooting implements IReqContinueShooting {
+
+    /**
+     * Constructs a new ReqContinueShooting.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqContinueShooting);
+
+    /**
+     * Creates a new ReqContinueShooting instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqContinueShooting instance
+     */
+    public static create(properties?: IReqContinueShooting): ReqContinueShooting;
+
+    /**
+     * Encodes the specified ReqContinueShooting message. Does not implicitly {@link ReqContinueShooting.verify|verify} messages.
+     * @param message ReqContinueShooting message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqContinueShooting, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqContinueShooting message, length delimited. Does not implicitly {@link ReqContinueShooting.verify|verify} messages.
+     * @param message ReqContinueShooting message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqContinueShooting, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqContinueShooting message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqContinueShooting
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqContinueShooting;
+
+    /**
+     * Decodes a ReqContinueShooting message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqContinueShooting
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqContinueShooting;
+
+    /**
+     * Verifies a ReqContinueShooting message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqContinueShooting message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqContinueShooting
+     */
+    public static fromObject(object: { [k: string]: any }): ReqContinueShooting;
+
+    /**
+     * Creates a plain object from a ReqContinueShooting message. Also converts values to other types if specified.
+     * @param message ReqContinueShooting
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqContinueShooting, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqContinueShooting to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqContinueShooting
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Properties of a ResAstroShooting. */
+export interface IResAstroShooting {
+
+    /** ResAstroShooting code */
+    code?: (number|null);
+
+    /** ResAstroShooting expName */
+    expName?: (string|null);
+
+    /** ResAstroShooting gain */
+    gain?: (number|null);
+
+    /** ResAstroShooting resolution */
+    resolution?: (number|null);
+
+    /** ResAstroShooting filterType */
+    filterType?: (number|null);
+
+    /** ResAstroShooting tempThreshold */
+    tempThreshold?: (number|null);
+}
+
+/** Represents a ResAstroShooting. */
+export class ResAstroShooting implements IResAstroShooting {
+
+    /**
+     * Constructs a new ResAstroShooting.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IResAstroShooting);
+
+    /** ResAstroShooting code. */
+    public code: number;
+
+    /** ResAstroShooting expName. */
+    public expName?: (string|null);
+
+    /** ResAstroShooting gain. */
+    public gain?: (number|null);
+
+    /** ResAstroShooting resolution. */
+    public resolution?: (number|null);
+
+    /** ResAstroShooting filterType. */
+    public filterType?: (number|null);
+
+    /** ResAstroShooting tempThreshold. */
+    public tempThreshold?: (number|null);
+
+    /** ResAstroShooting _expName. */
+    public _expName?: "expName";
+
+    /** ResAstroShooting _gain. */
+    public _gain?: "gain";
+
+    /** ResAstroShooting _resolution. */
+    public _resolution?: "resolution";
+
+    /** ResAstroShooting _filterType. */
+    public _filterType?: "filterType";
+
+    /** ResAstroShooting _tempThreshold. */
+    public _tempThreshold?: "tempThreshold";
+
+    /**
+     * Creates a new ResAstroShooting instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ResAstroShooting instance
+     */
+    public static create(properties?: IResAstroShooting): ResAstroShooting;
+
+    /**
+     * Encodes the specified ResAstroShooting message. Does not implicitly {@link ResAstroShooting.verify|verify} messages.
+     * @param message ResAstroShooting message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IResAstroShooting, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ResAstroShooting message, length delimited. Does not implicitly {@link ResAstroShooting.verify|verify} messages.
+     * @param message ResAstroShooting message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IResAstroShooting, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ResAstroShooting message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ResAstroShooting
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ResAstroShooting;
+
+    /**
+     * Decodes a ResAstroShooting message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ResAstroShooting
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ResAstroShooting;
+
+    /**
+     * Verifies a ResAstroShooting message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ResAstroShooting message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ResAstroShooting
+     */
+    public static fromObject(object: { [k: string]: any }): ResAstroShooting;
+
+    /**
+     * Creates a plain object from a ResAstroShooting message. Also converts values to other types if specified.
+     * @param message ResAstroShooting
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ResAstroShooting, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ResAstroShooting to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ResAstroShooting
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
 /** Properties of a ReqStopCaptureRawLiveStacking. */
 export interface IReqStopCaptureRawLiveStacking {
 }
@@ -19610,10 +19843,34 @@ export enum DwarfErrorCode {
     CODE_ASTRO_DARK_NOT_FOUND = -11503,
     CODE_ASTRO_CALIBRATION_FAILED = -11504,
     CODE_ASTRO_GOTO_FAILED = -11505,
+    CODE_ASTRO_DARK_RUNNING = -11506,
+    CODE_ASTRO_CALIBRATION_RUNNING = -11507,
+    CODE_ASTRO_GOTO_RUNNING = -11508,
+    CODE_ASTRO_LIVE_STACKING_RUNNING = -11509,
+    CODE_ASTRO_RESET_PITCH_MOTOR_FAILED = -11510,
+    CODE_ASTRO_NEED_CALIBRATION = -11511,
+    CODE_ASTRO_GOTO_READ_MOTOR_POSITION_AND_PLATE_SOLVING_FAILED = -11512,
     CODE_ASTRO_NEED_GOTO = -11513,
     CODE_ASTRO_NEED_ADJUST_SHOOT_PARAM = -11514,
+    CODE_ASTRO_CALIBRATION_PLATE_SOLVING_FAILED_TOO_MUCH = -11515,
     CODE_ASTRO_EQ_SOLVING_FAILED = -11516,
     CODE_ASTRO_SKY_SEARCH_FAILED = -11517,
+    CODE_ASTRO_NEED_GOTO_DSO = -11518,
+    CODE_ASTRO_RESTACK_CAMERA_MISMATCH = -11519,
+    CODE_ASTRO_RESTACK_BINNING_MISMATCH = -11520,
+    CODE_ASTRO_RESTACK_FILTER_MISMATCH = -11521,
+    CODE_ASTRO_RESTACK_TARGET_MISMATCH = -11522,
+    CODE_ASTRO_RESTACK_DARKFRAME_MISMATCH = -11523,
+    CODE_ASTRO_RESTACK_FAILED = -11524,
+    CODE_ASTRO_RESTACK_INVALID_DATA = -11525,
+    CODE_ASTRO_OVEREXPOSURE_WARNING = -11526,
+    CODE_ASTRO_EXP_TOO_LONG = -11527,
+    CODE_ASTRO_NEED_EQ = -11528,
+    CODE_ASTRO_STAR_TOO_FEW = -11529,
+    CODE_ASTRO_DARK_TEMP_MISMATCH = -11530,
+    CODE_ASTRO_SUN_MOON_NOT_FOUND = -11531,
+    CODE_ASTRO_GUIDING_FAILED_LOWER_EXPOSURE = -11532,
+    CODE_ASTRO_GUIDING_FAILED_TARGET_BLOCKED = -11533,
     CODE_CAMERA_WIDE_OPENED = -12500,
     CODE_CAMERA_WIDE_CLOSED = -12501,
     CODE_CAMERA_WIDE_CANNOT_FOUND = -12502,

@@ -160,7 +160,8 @@ C1–C10: locally decoded. C11–C13: referenced from external analysis (not loc
 | 11002 | CMD_ASTRO_START_GOTO_DSO | GoTo DSO (V2) | C10 |
 | 11003 | CMD_ASTRO_START_GOTO_SOLAR_SYSTEM | GoTo solar system (V2) | C2 |
 | 11004 | CMD_ASTRO_STOP_GOTO | Stop GoTo (V2) | — |
-| 11005 | CMD_ASTRO_START_CAPTURE_RAW_LIVE_STACKING | Start stacking. DWARF 3/mini use `{ir_index, force_start}`; filterless DWARF 2 uses `08 ff..ff 01` (`ir_index=-1`) sentinel. A DWARF 3 sentinel attempt returned `-11530`. | C2 C3 C10; D3 live |
+| 11005 | CMD_ASTRO_START_CAPTURE_RAW_LIVE_STACKING | Start stacking. DWARF 3/mini use `{ir_index, force_start}`; filterless DWARF 2 uses `08 ff..ff 01` (`ir_index=-1`) sentinel. APK 3.4.1 defines `-11530` as a dark-temperature mismatch. DWARF 2/older protocols continue with `force_start=true`. | C2 C3 C10; APK 3.4.1; D3 live |
+| 11050 | CMD_ASTRO_CONTINUE_SHOOTING | Empty `ReqContinueShooting`; APK 3.4.1 uses this on protocol >=2.5, except DWARF 2, after the user accepts a missing/temperature-mismatched dark warning. | APK 3.4.1 |
 | 11006 | CMD_ASTRO_STOP_CAPTURE_RAW_LIVE_STACKING | Stop stacking | C2 C3 |
 | 11007 | CMD_ASTRO_START_CAPTURE_RAW_DARK | Start dark capture | — |
 | 11008 | CMD_ASTRO_STOP_CAPTURE_RAW_DARK | Stop dark capture | — |
@@ -476,4 +477,8 @@ bits  7..0  = paramIndex     (0x0D=filterWheel, 0x10=frameCount in category 2)
 
 | CMD | Code | Description |
 |-----|------|-------------|
+| 11005 (StartStacking) | -11503 | `CODE_ASTRO_DARK_NOT_FOUND`; the app can capture a dark, cancel, or Continue with `11050` (protocol >=2.5, non-DWARF-2) or `force_start=true` |
+| 11005 (StartStacking) | -11513 | `CODE_ASTRO_NEED_GOTO`; observed as a non-blocking late warning while stacking progress continued |
+| 11005 (StartStacking) | -11514 | `CODE_ASTRO_NEED_ADJUST_SHOOT_PARAM`; requested shooting parameters are unsuitable |
+| 11005 (StartStacking) | -11530 | `CODE_ASTRO_DARK_TEMP_MISMATCH`; a dark exists but is outside the firmware temperature tolerance. Continue uses `11050` (protocol >=2.5, non-DWARF-2) or `force_start=true` |
 | 11033 (SaveStacked) | -16600 | V3 save/export failure |

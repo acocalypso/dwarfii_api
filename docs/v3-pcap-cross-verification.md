@@ -44,10 +44,12 @@ This document cross-checks claims from external pcap analysis against independen
 
 - External claim: `08 ff ff ff ff ff ff ff ff ff 01` (large signed varint)
 - Our result: Identical byte sequence found in C10.
-- **Verdict: Full match for the captured sentinel session.** Separate DWARF 3
+- **Verdict: Full match for the older app/firmware captured sentinel session.**
+  It does not prove that newer commands are unsupported. Separate DWARF 3
   hardware logs prove that a filtered device must send `ir_index` and
-  `force_start`; using the sentinel there returned `-11530` before any capture
-  progress notification.
+  `force_start`; a live sentinel attempt returned `-11530` before any capture,
+  but APK 3.4.1 resolves that code as `CODE_ASTRO_DARK_TEMP_MISMATCH`, so it
+  does not establish that the sentinel itself was invalid.
 
 ### 11039 = Status Polling
 

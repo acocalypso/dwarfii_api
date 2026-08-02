@@ -8,10 +8,12 @@ import { cmdMapping } from "./cmd_mapping.js";
 /*** ------------- V3 MODULE ASTRO (11xxx) ------------------- ***/
 /*** --------------------------------------------------------- ***/
 /**
- * V3: Start stacking with the selected DWARF mini capture filter.
+ * V3: Start stacking with the model-appropriate payload.
  * Create Encoded Packet for the command CMD_ASTRO_START_CAPTURE_RAW_LIVE_STACKING
- * @param {number} irIndex - Capture filter: 1=Astro, 2=Duo-Band
- * @param {boolean} forceStart - Force capture start
+ * DWARF 3 and DWARF mini send the capture filter (1=Astro, 2=Duo-Band).
+ * Filterless DWARF 2 uses irIndex=-1, which serializes as the observed sentinel.
+ * @param {number} irIndex - Capture filter, or -1 for the filterless sentinel path
+ * @param {boolean} forceStart - Continue despite recoverable preflight warnings such as a missing or temperature-mismatched dark frame
  * @returns {Uint8Array}
  */
 export function messageV3AstroStartStacking(irIndex = 1, forceStart = false) {
@@ -24,6 +26,26 @@ export function messageV3AstroStartStacking(irIndex = 1, forceStart = false) {
         irIndex: irIndex,
         forceStart: forceStart,
     });
+    console.log(`class Message = ${cmdClass} created message = ${JSON.stringify(message)}`);
+    return createPacket(message, class_message, module_id, interface_id, type_id);
+}
+/**
+ * V3 protocol >=2.5: continue after firmware reports a recoverable dark-frame
+ * warning such as `CODE_ASTRO_DARK_NOT_FOUND` (-11503) or
+ * `CODE_ASTRO_DARK_TEMP_MISMATCH` (-11530).
+ *
+ * DWARF 2 and older protocol versions repeat the start request with
+ * `forceStart=true` instead.
+ *
+ * @returns {Uint8Array}
+ */
+export function messageV3AstroContinueShooting() {
+    let module_id = Dwarfii_Api.ModuleId.MODULE_ASTRO;
+    let interface_id = Dwarfii_Api.DwarfCMD.CMD_ASTRO_CONTINUE_SHOOTING;
+    let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
+    const cmdClass = cmdMapping[interface_id];
+    let class_message = Dwarfii_Api[cmdClass];
+    let message = class_message.create({});
     console.log(`class Message = ${cmdClass} created message = ${JSON.stringify(message)}`);
     return createPacket(message, class_message, module_id, interface_id, type_id);
 }

@@ -2,13 +2,26 @@
 /*** ------------- V3 MODULE ASTRO (11xxx) ------------------- ***/
 /*** --------------------------------------------------------- ***/
 /**
- * V3: Start stacking with the selected DWARF mini capture filter.
+ * V3: Start stacking with the model-appropriate payload.
  * Create Encoded Packet for the command CMD_ASTRO_START_CAPTURE_RAW_LIVE_STACKING
- * @param {number} irIndex - Capture filter: 1=Astro, 2=Duo-Band
- * @param {boolean} forceStart - Force capture start
+ * DWARF 3 and DWARF mini send the capture filter (1=Astro, 2=Duo-Band).
+ * Filterless DWARF 2 uses irIndex=-1, which serializes as the observed sentinel.
+ * @param {number} irIndex - Capture filter, or -1 for the filterless sentinel path
+ * @param {boolean} forceStart - Continue despite recoverable preflight warnings such as a missing or temperature-mismatched dark frame
  * @returns {Uint8Array}
  */
 export function messageV3AstroStartStacking(irIndex?: number, forceStart?: boolean): Uint8Array;
+/**
+ * V3 protocol >=2.5: continue after firmware reports a recoverable dark-frame
+ * warning such as `CODE_ASTRO_DARK_NOT_FOUND` (-11503) or
+ * `CODE_ASTRO_DARK_TEMP_MISMATCH` (-11530).
+ *
+ * DWARF 2 and older protocol versions repeat the start request with
+ * `forceStart=true` instead.
+ *
+ * @returns {Uint8Array}
+ */
+export function messageV3AstroContinueShooting(): Uint8Array;
 /**
  * V3: Stop stacking
  * Create Encoded Packet for the command CMD_ASTRO_STOP_CAPTURE_RAW_LIVE_STACKING

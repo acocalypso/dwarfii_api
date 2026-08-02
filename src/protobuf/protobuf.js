@@ -1327,6 +1327,574 @@ $root.ReqCaptureRawLiveStacking = (function () {
   return ReqCaptureRawLiveStacking;
 })();
 
+$root.ReqContinueShooting = (function () {
+  /**
+   * Properties of a ReqContinueShooting.
+   * @exports IReqContinueShooting
+   * @interface IReqContinueShooting
+   */
+
+  /**
+   * Constructs a new ReqContinueShooting.
+   * @exports ReqContinueShooting
+   * @classdesc Represents a ReqContinueShooting.
+   * @implements IReqContinueShooting
+   * @constructor
+   * @param {IReqContinueShooting=} [properties] Properties to set
+   */
+  function ReqContinueShooting(properties) {
+    if (properties)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+        if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
+  }
+
+  /**
+   * Creates a new ReqContinueShooting instance using the specified properties.
+   * @function create
+   * @memberof ReqContinueShooting
+   * @static
+   * @param {IReqContinueShooting=} [properties] Properties to set
+   * @returns {ReqContinueShooting} ReqContinueShooting instance
+   */
+  ReqContinueShooting.create = function create(properties) {
+    return new ReqContinueShooting(properties);
+  };
+
+  /**
+   * Encodes the specified ReqContinueShooting message. Does not implicitly {@link ReqContinueShooting.verify|verify} messages.
+   * @function encode
+   * @memberof ReqContinueShooting
+   * @static
+   * @param {IReqContinueShooting} message ReqContinueShooting message or plain object to encode
+   * @param {$protobuf.Writer} [writer] Writer to encode to
+   * @returns {$protobuf.Writer} Writer
+   */
+  ReqContinueShooting.encode = function encode(message, writer) {
+    if (!writer) writer = $Writer.create();
+    return writer;
+  };
+
+  /**
+   * Encodes the specified ReqContinueShooting message, length delimited. Does not implicitly {@link ReqContinueShooting.verify|verify} messages.
+   * @function encodeDelimited
+   * @memberof ReqContinueShooting
+   * @static
+   * @param {IReqContinueShooting} message ReqContinueShooting message or plain object to encode
+   * @param {$protobuf.Writer} [writer] Writer to encode to
+   * @returns {$protobuf.Writer} Writer
+   */
+  ReqContinueShooting.encodeDelimited = function encodeDelimited(
+    message,
+    writer
+  ) {
+    return this.encode(message, writer).ldelim();
+  };
+
+  /**
+   * Decodes a ReqContinueShooting message from the specified reader or buffer.
+   * @function decode
+   * @memberof ReqContinueShooting
+   * @static
+   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+   * @param {number} [length] Message length if known beforehand
+   * @returns {ReqContinueShooting} ReqContinueShooting
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  ReqContinueShooting.decode = function decode(reader, length) {
+    if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
+    var end = length === undefined ? reader.len : reader.pos + length,
+      message = new $root.ReqContinueShooting();
+    while (reader.pos < end) {
+      var tag = reader.uint32();
+      switch (tag >>> 3) {
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  };
+
+  /**
+   * Decodes a ReqContinueShooting message from the specified reader or buffer, length delimited.
+   * @function decodeDelimited
+   * @memberof ReqContinueShooting
+   * @static
+   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+   * @returns {ReqContinueShooting} ReqContinueShooting
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  ReqContinueShooting.decodeDelimited = function decodeDelimited(reader) {
+    if (!(reader instanceof $Reader)) reader = new $Reader(reader);
+    return this.decode(reader, reader.uint32());
+  };
+
+  /**
+   * Verifies a ReqContinueShooting message.
+   * @function verify
+   * @memberof ReqContinueShooting
+   * @static
+   * @param {Object.<string,*>} message Plain object to verify
+   * @returns {string|null} `null` if valid, otherwise the reason why it is not
+   */
+  ReqContinueShooting.verify = function verify(message) {
+    if (typeof message !== "object" || message === null)
+      return "object expected";
+    return null;
+  };
+
+  /**
+   * Creates a ReqContinueShooting message from a plain object. Also converts values to their respective internal types.
+   * @function fromObject
+   * @memberof ReqContinueShooting
+   * @static
+   * @param {Object.<string,*>} object Plain object
+   * @returns {ReqContinueShooting} ReqContinueShooting
+   */
+  ReqContinueShooting.fromObject = function fromObject(object) {
+    if (object instanceof $root.ReqContinueShooting) return object;
+    return new $root.ReqContinueShooting();
+  };
+
+  /**
+   * Creates a plain object from a ReqContinueShooting message. Also converts values to other types if specified.
+   * @function toObject
+   * @memberof ReqContinueShooting
+   * @static
+   * @param {ReqContinueShooting} message ReqContinueShooting
+   * @param {$protobuf.IConversionOptions} [options] Conversion options
+   * @returns {Object.<string,*>} Plain object
+   */
+  ReqContinueShooting.toObject = function toObject() {
+    return {};
+  };
+
+  /**
+   * Converts this ReqContinueShooting to JSON.
+   * @function toJSON
+   * @memberof ReqContinueShooting
+   * @instance
+   * @returns {Object.<string,*>} JSON object
+   */
+  ReqContinueShooting.prototype.toJSON = function toJSON() {
+    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+  };
+
+  /**
+   * Gets the default type url for ReqContinueShooting
+   * @function getTypeUrl
+   * @memberof ReqContinueShooting
+   * @static
+   * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+   * @returns {string} The default type url
+   */
+  ReqContinueShooting.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+    if (typeUrlPrefix === undefined) {
+      typeUrlPrefix = "type.googleapis.com";
+    }
+    return typeUrlPrefix + "/ReqContinueShooting";
+  };
+
+  return ReqContinueShooting;
+})();
+
+$root.ResAstroShooting = (function () {
+  /**
+   * Properties of a ResAstroShooting.
+   * @exports IResAstroShooting
+   * @interface IResAstroShooting
+   * @property {number|null} [code] ResAstroShooting code
+   * @property {string|null} [expName] ResAstroShooting expName
+   * @property {number|null} [gain] ResAstroShooting gain
+   * @property {number|null} [resolution] ResAstroShooting resolution
+   * @property {number|null} [filterType] ResAstroShooting filterType
+   * @property {number|null} [tempThreshold] ResAstroShooting tempThreshold
+   */
+
+  /**
+   * Constructs a new ResAstroShooting.
+   * @exports ResAstroShooting
+   * @classdesc Represents a ResAstroShooting.
+   * @implements IResAstroShooting
+   * @constructor
+   * @param {IResAstroShooting=} [properties] Properties to set
+   */
+  function ResAstroShooting(properties) {
+    if (properties)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+        if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
+  }
+
+  /**
+   * ResAstroShooting code.
+   * @member {number} code
+   * @memberof ResAstroShooting
+   * @instance
+   */
+  ResAstroShooting.prototype.code = 0;
+
+  /**
+   * ResAstroShooting expName.
+   * @member {string|null|undefined} expName
+   * @memberof ResAstroShooting
+   * @instance
+   */
+  ResAstroShooting.prototype.expName = null;
+
+  /**
+   * ResAstroShooting gain.
+   * @member {number|null|undefined} gain
+   * @memberof ResAstroShooting
+   * @instance
+   */
+  ResAstroShooting.prototype.gain = null;
+
+  /**
+   * ResAstroShooting resolution.
+   * @member {number|null|undefined} resolution
+   * @memberof ResAstroShooting
+   * @instance
+   */
+  ResAstroShooting.prototype.resolution = null;
+
+  /**
+   * ResAstroShooting filterType.
+   * @member {number|null|undefined} filterType
+   * @memberof ResAstroShooting
+   * @instance
+   */
+  ResAstroShooting.prototype.filterType = null;
+
+  /**
+   * ResAstroShooting tempThreshold.
+   * @member {number|null|undefined} tempThreshold
+   * @memberof ResAstroShooting
+   * @instance
+   */
+  ResAstroShooting.prototype.tempThreshold = null;
+
+  // OneOf field names bound to virtual getters and setters
+  var $oneOfFields;
+
+  /**
+   * ResAstroShooting _expName.
+   * @member {"expName"|undefined} _expName
+   * @memberof ResAstroShooting
+   * @instance
+   */
+  Object.defineProperty(ResAstroShooting.prototype, "_expName", {
+    get: $util.oneOfGetter(($oneOfFields = ["expName"])),
+    set: $util.oneOfSetter($oneOfFields),
+  });
+
+  /**
+   * ResAstroShooting _gain.
+   * @member {"gain"|undefined} _gain
+   * @memberof ResAstroShooting
+   * @instance
+   */
+  Object.defineProperty(ResAstroShooting.prototype, "_gain", {
+    get: $util.oneOfGetter(($oneOfFields = ["gain"])),
+    set: $util.oneOfSetter($oneOfFields),
+  });
+
+  /**
+   * ResAstroShooting _resolution.
+   * @member {"resolution"|undefined} _resolution
+   * @memberof ResAstroShooting
+   * @instance
+   */
+  Object.defineProperty(ResAstroShooting.prototype, "_resolution", {
+    get: $util.oneOfGetter(($oneOfFields = ["resolution"])),
+    set: $util.oneOfSetter($oneOfFields),
+  });
+
+  /**
+   * ResAstroShooting _filterType.
+   * @member {"filterType"|undefined} _filterType
+   * @memberof ResAstroShooting
+   * @instance
+   */
+  Object.defineProperty(ResAstroShooting.prototype, "_filterType", {
+    get: $util.oneOfGetter(($oneOfFields = ["filterType"])),
+    set: $util.oneOfSetter($oneOfFields),
+  });
+
+  /**
+   * ResAstroShooting _tempThreshold.
+   * @member {"tempThreshold"|undefined} _tempThreshold
+   * @memberof ResAstroShooting
+   * @instance
+   */
+  Object.defineProperty(ResAstroShooting.prototype, "_tempThreshold", {
+    get: $util.oneOfGetter(($oneOfFields = ["tempThreshold"])),
+    set: $util.oneOfSetter($oneOfFields),
+  });
+
+  /**
+   * Creates a new ResAstroShooting instance using the specified properties.
+   * @function create
+   * @memberof ResAstroShooting
+   * @static
+   * @param {IResAstroShooting=} [properties] Properties to set
+   * @returns {ResAstroShooting} ResAstroShooting instance
+   */
+  ResAstroShooting.create = function create(properties) {
+    return new ResAstroShooting(properties);
+  };
+
+  /**
+   * Encodes the specified ResAstroShooting message. Does not implicitly {@link ResAstroShooting.verify|verify} messages.
+   * @function encode
+   * @memberof ResAstroShooting
+   * @static
+   * @param {IResAstroShooting} message ResAstroShooting message or plain object to encode
+   * @param {$protobuf.Writer} [writer] Writer to encode to
+   * @returns {$protobuf.Writer} Writer
+   */
+  ResAstroShooting.encode = function encode(message, writer) {
+    if (!writer) writer = $Writer.create();
+    if (message.code != null && Object.hasOwnProperty.call(message, "code"))
+      writer.uint32(/* id 1, wireType 0 =*/ 8).int32(message.code);
+    if (
+      message.expName != null &&
+      Object.hasOwnProperty.call(message, "expName")
+    )
+      writer.uint32(/* id 2, wireType 2 =*/ 18).string(message.expName);
+    if (message.gain != null && Object.hasOwnProperty.call(message, "gain"))
+      writer.uint32(/* id 3, wireType 0 =*/ 24).int32(message.gain);
+    if (
+      message.resolution != null &&
+      Object.hasOwnProperty.call(message, "resolution")
+    )
+      writer.uint32(/* id 4, wireType 0 =*/ 32).int32(message.resolution);
+    if (
+      message.filterType != null &&
+      Object.hasOwnProperty.call(message, "filterType")
+    )
+      writer.uint32(/* id 5, wireType 0 =*/ 40).int32(message.filterType);
+    if (
+      message.tempThreshold != null &&
+      Object.hasOwnProperty.call(message, "tempThreshold")
+    )
+      writer.uint32(/* id 6, wireType 0 =*/ 48).int32(message.tempThreshold);
+    return writer;
+  };
+
+  /**
+   * Encodes the specified ResAstroShooting message, length delimited. Does not implicitly {@link ResAstroShooting.verify|verify} messages.
+   * @function encodeDelimited
+   * @memberof ResAstroShooting
+   * @static
+   * @param {IResAstroShooting} message ResAstroShooting message or plain object to encode
+   * @param {$protobuf.Writer} [writer] Writer to encode to
+   * @returns {$protobuf.Writer} Writer
+   */
+  ResAstroShooting.encodeDelimited = function encodeDelimited(message, writer) {
+    return this.encode(message, writer).ldelim();
+  };
+
+  /**
+   * Decodes a ResAstroShooting message from the specified reader or buffer.
+   * @function decode
+   * @memberof ResAstroShooting
+   * @static
+   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+   * @param {number} [length] Message length if known beforehand
+   * @returns {ResAstroShooting} ResAstroShooting
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  ResAstroShooting.decode = function decode(reader, length) {
+    if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
+    var end = length === undefined ? reader.len : reader.pos + length,
+      message = new $root.ResAstroShooting();
+    while (reader.pos < end) {
+      var tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          message.code = reader.int32();
+          break;
+        }
+        case 2: {
+          message.expName = reader.string();
+          break;
+        }
+        case 3: {
+          message.gain = reader.int32();
+          break;
+        }
+        case 4: {
+          message.resolution = reader.int32();
+          break;
+        }
+        case 5: {
+          message.filterType = reader.int32();
+          break;
+        }
+        case 6: {
+          message.tempThreshold = reader.int32();
+          break;
+        }
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  };
+
+  /**
+   * Decodes a ResAstroShooting message from the specified reader or buffer, length delimited.
+   * @function decodeDelimited
+   * @memberof ResAstroShooting
+   * @static
+   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+   * @returns {ResAstroShooting} ResAstroShooting
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  ResAstroShooting.decodeDelimited = function decodeDelimited(reader) {
+    if (!(reader instanceof $Reader)) reader = new $Reader(reader);
+    return this.decode(reader, reader.uint32());
+  };
+
+  /**
+   * Verifies a ResAstroShooting message.
+   * @function verify
+   * @memberof ResAstroShooting
+   * @static
+   * @param {Object.<string,*>} message Plain object to verify
+   * @returns {string|null} `null` if valid, otherwise the reason why it is not
+   */
+  ResAstroShooting.verify = function verify(message) {
+    if (typeof message !== "object" || message === null)
+      return "object expected";
+    var properties = {};
+    if (message.code != null && message.hasOwnProperty("code"))
+      if (!$util.isInteger(message.code)) return "code: integer expected";
+    if (message.expName != null && message.hasOwnProperty("expName")) {
+      properties._expName = 1;
+      if (!$util.isString(message.expName)) return "expName: string expected";
+    }
+    if (message.gain != null && message.hasOwnProperty("gain")) {
+      properties._gain = 1;
+      if (!$util.isInteger(message.gain)) return "gain: integer expected";
+    }
+    if (message.resolution != null && message.hasOwnProperty("resolution")) {
+      properties._resolution = 1;
+      if (!$util.isInteger(message.resolution))
+        return "resolution: integer expected";
+    }
+    if (message.filterType != null && message.hasOwnProperty("filterType")) {
+      properties._filterType = 1;
+      if (!$util.isInteger(message.filterType))
+        return "filterType: integer expected";
+    }
+    if (
+      message.tempThreshold != null &&
+      message.hasOwnProperty("tempThreshold")
+    ) {
+      properties._tempThreshold = 1;
+      if (!$util.isInteger(message.tempThreshold))
+        return "tempThreshold: integer expected";
+    }
+    return null;
+  };
+
+  /**
+   * Creates a ResAstroShooting message from a plain object. Also converts values to their respective internal types.
+   * @function fromObject
+   * @memberof ResAstroShooting
+   * @static
+   * @param {Object.<string,*>} object Plain object
+   * @returns {ResAstroShooting} ResAstroShooting
+   */
+  ResAstroShooting.fromObject = function fromObject(object) {
+    if (object instanceof $root.ResAstroShooting) return object;
+    var message = new $root.ResAstroShooting();
+    if (object.code != null) message.code = object.code | 0;
+    if (object.expName != null) message.expName = String(object.expName);
+    if (object.gain != null) message.gain = object.gain | 0;
+    if (object.resolution != null) message.resolution = object.resolution | 0;
+    if (object.filterType != null) message.filterType = object.filterType | 0;
+    if (object.tempThreshold != null)
+      message.tempThreshold = object.tempThreshold | 0;
+    return message;
+  };
+
+  /**
+   * Creates a plain object from a ResAstroShooting message. Also converts values to other types if specified.
+   * @function toObject
+   * @memberof ResAstroShooting
+   * @static
+   * @param {ResAstroShooting} message ResAstroShooting
+   * @param {$protobuf.IConversionOptions} [options] Conversion options
+   * @returns {Object.<string,*>} Plain object
+   */
+  ResAstroShooting.toObject = function toObject(message, options) {
+    if (!options) options = {};
+    var object = {};
+    if (options.defaults) object.code = 0;
+    if (message.code != null && message.hasOwnProperty("code"))
+      object.code = message.code;
+    if (message.expName != null && message.hasOwnProperty("expName")) {
+      object.expName = message.expName;
+      if (options.oneofs) object._expName = "expName";
+    }
+    if (message.gain != null && message.hasOwnProperty("gain")) {
+      object.gain = message.gain;
+      if (options.oneofs) object._gain = "gain";
+    }
+    if (message.resolution != null && message.hasOwnProperty("resolution")) {
+      object.resolution = message.resolution;
+      if (options.oneofs) object._resolution = "resolution";
+    }
+    if (message.filterType != null && message.hasOwnProperty("filterType")) {
+      object.filterType = message.filterType;
+      if (options.oneofs) object._filterType = "filterType";
+    }
+    if (
+      message.tempThreshold != null &&
+      message.hasOwnProperty("tempThreshold")
+    ) {
+      object.tempThreshold = message.tempThreshold;
+      if (options.oneofs) object._tempThreshold = "tempThreshold";
+    }
+    return object;
+  };
+
+  /**
+   * Converts this ResAstroShooting to JSON.
+   * @function toJSON
+   * @memberof ResAstroShooting
+   * @instance
+   * @returns {Object.<string,*>} JSON object
+   */
+  ResAstroShooting.prototype.toJSON = function toJSON() {
+    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+  };
+
+  /**
+   * Gets the default type url for ResAstroShooting
+   * @function getTypeUrl
+   * @memberof ResAstroShooting
+   * @static
+   * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+   * @returns {string} The default type url
+   */
+  ResAstroShooting.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+    if (typeUrlPrefix === undefined) {
+      typeUrlPrefix = "type.googleapis.com";
+    }
+    return typeUrlPrefix + "/ResAstroShooting";
+  };
+
+  return ResAstroShooting;
+})();
+
 $root.ReqStopCaptureRawLiveStacking = (function () {
   /**
    * Properties of a ReqStopCaptureRawLiveStacking.
@@ -47026,10 +47594,34 @@ $root.DwarfCMD = (function () {
  * @property {number} CODE_ASTRO_DARK_NOT_FOUND=-11503 CODE_ASTRO_DARK_NOT_FOUND value
  * @property {number} CODE_ASTRO_CALIBRATION_FAILED=-11504 CODE_ASTRO_CALIBRATION_FAILED value
  * @property {number} CODE_ASTRO_GOTO_FAILED=-11505 CODE_ASTRO_GOTO_FAILED value
+ * @property {number} CODE_ASTRO_DARK_RUNNING=-11506 CODE_ASTRO_DARK_RUNNING value
+ * @property {number} CODE_ASTRO_CALIBRATION_RUNNING=-11507 CODE_ASTRO_CALIBRATION_RUNNING value
+ * @property {number} CODE_ASTRO_GOTO_RUNNING=-11508 CODE_ASTRO_GOTO_RUNNING value
+ * @property {number} CODE_ASTRO_LIVE_STACKING_RUNNING=-11509 CODE_ASTRO_LIVE_STACKING_RUNNING value
+ * @property {number} CODE_ASTRO_RESET_PITCH_MOTOR_FAILED=-11510 CODE_ASTRO_RESET_PITCH_MOTOR_FAILED value
+ * @property {number} CODE_ASTRO_NEED_CALIBRATION=-11511 CODE_ASTRO_NEED_CALIBRATION value
+ * @property {number} CODE_ASTRO_GOTO_READ_MOTOR_POSITION_AND_PLATE_SOLVING_FAILED=-11512 CODE_ASTRO_GOTO_READ_MOTOR_POSITION_AND_PLATE_SOLVING_FAILED value
  * @property {number} CODE_ASTRO_NEED_GOTO=-11513 CODE_ASTRO_NEED_GOTO value
  * @property {number} CODE_ASTRO_NEED_ADJUST_SHOOT_PARAM=-11514 CODE_ASTRO_NEED_ADJUST_SHOOT_PARAM value
+ * @property {number} CODE_ASTRO_CALIBRATION_PLATE_SOLVING_FAILED_TOO_MUCH=-11515 CODE_ASTRO_CALIBRATION_PLATE_SOLVING_FAILED_TOO_MUCH value
  * @property {number} CODE_ASTRO_EQ_SOLVING_FAILED=-11516 CODE_ASTRO_EQ_SOLVING_FAILED value
  * @property {number} CODE_ASTRO_SKY_SEARCH_FAILED=-11517 CODE_ASTRO_SKY_SEARCH_FAILED value
+ * @property {number} CODE_ASTRO_NEED_GOTO_DSO=-11518 CODE_ASTRO_NEED_GOTO_DSO value
+ * @property {number} CODE_ASTRO_RESTACK_CAMERA_MISMATCH=-11519 CODE_ASTRO_RESTACK_CAMERA_MISMATCH value
+ * @property {number} CODE_ASTRO_RESTACK_BINNING_MISMATCH=-11520 CODE_ASTRO_RESTACK_BINNING_MISMATCH value
+ * @property {number} CODE_ASTRO_RESTACK_FILTER_MISMATCH=-11521 CODE_ASTRO_RESTACK_FILTER_MISMATCH value
+ * @property {number} CODE_ASTRO_RESTACK_TARGET_MISMATCH=-11522 CODE_ASTRO_RESTACK_TARGET_MISMATCH value
+ * @property {number} CODE_ASTRO_RESTACK_DARKFRAME_MISMATCH=-11523 CODE_ASTRO_RESTACK_DARKFRAME_MISMATCH value
+ * @property {number} CODE_ASTRO_RESTACK_FAILED=-11524 CODE_ASTRO_RESTACK_FAILED value
+ * @property {number} CODE_ASTRO_RESTACK_INVALID_DATA=-11525 CODE_ASTRO_RESTACK_INVALID_DATA value
+ * @property {number} CODE_ASTRO_OVEREXPOSURE_WARNING=-11526 CODE_ASTRO_OVEREXPOSURE_WARNING value
+ * @property {number} CODE_ASTRO_EXP_TOO_LONG=-11527 CODE_ASTRO_EXP_TOO_LONG value
+ * @property {number} CODE_ASTRO_NEED_EQ=-11528 CODE_ASTRO_NEED_EQ value
+ * @property {number} CODE_ASTRO_STAR_TOO_FEW=-11529 CODE_ASTRO_STAR_TOO_FEW value
+ * @property {number} CODE_ASTRO_DARK_TEMP_MISMATCH=-11530 CODE_ASTRO_DARK_TEMP_MISMATCH value
+ * @property {number} CODE_ASTRO_SUN_MOON_NOT_FOUND=-11531 CODE_ASTRO_SUN_MOON_NOT_FOUND value
+ * @property {number} CODE_ASTRO_GUIDING_FAILED_LOWER_EXPOSURE=-11532 CODE_ASTRO_GUIDING_FAILED_LOWER_EXPOSURE value
+ * @property {number} CODE_ASTRO_GUIDING_FAILED_TARGET_BLOCKED=-11533 CODE_ASTRO_GUIDING_FAILED_TARGET_BLOCKED value
  * @property {number} CODE_CAMERA_WIDE_OPENED=-12500 CODE_CAMERA_WIDE_OPENED value
  * @property {number} CODE_CAMERA_WIDE_CLOSED=-12501 CODE_CAMERA_WIDE_CLOSED value
  * @property {number} CODE_CAMERA_WIDE_CANNOT_FOUND=-12502 CODE_CAMERA_WIDE_CANNOT_FOUND value
@@ -47075,10 +47667,43 @@ $root.DwarfErrorCode = (function () {
   values[(valuesById[-11503] = "CODE_ASTRO_DARK_NOT_FOUND")] = -11503;
   values[(valuesById[-11504] = "CODE_ASTRO_CALIBRATION_FAILED")] = -11504;
   values[(valuesById[-11505] = "CODE_ASTRO_GOTO_FAILED")] = -11505;
+  values[(valuesById[-11506] = "CODE_ASTRO_DARK_RUNNING")] = -11506;
+  values[(valuesById[-11507] = "CODE_ASTRO_CALIBRATION_RUNNING")] = -11507;
+  values[(valuesById[-11508] = "CODE_ASTRO_GOTO_RUNNING")] = -11508;
+  values[(valuesById[-11509] = "CODE_ASTRO_LIVE_STACKING_RUNNING")] = -11509;
+  values[(valuesById[-11510] = "CODE_ASTRO_RESET_PITCH_MOTOR_FAILED")] = -11510;
+  values[(valuesById[-11511] = "CODE_ASTRO_NEED_CALIBRATION")] = -11511;
+  values[
+    (valuesById[-11512] =
+      "CODE_ASTRO_GOTO_READ_MOTOR_POSITION_AND_PLATE_SOLVING_FAILED")
+  ] = -11512;
   values[(valuesById[-11513] = "CODE_ASTRO_NEED_GOTO")] = -11513;
   values[(valuesById[-11514] = "CODE_ASTRO_NEED_ADJUST_SHOOT_PARAM")] = -11514;
+  values[
+    (valuesById[-11515] =
+      "CODE_ASTRO_CALIBRATION_PLATE_SOLVING_FAILED_TOO_MUCH")
+  ] = -11515;
   values[(valuesById[-11516] = "CODE_ASTRO_EQ_SOLVING_FAILED")] = -11516;
   values[(valuesById[-11517] = "CODE_ASTRO_SKY_SEARCH_FAILED")] = -11517;
+  values[(valuesById[-11518] = "CODE_ASTRO_NEED_GOTO_DSO")] = -11518;
+  values[(valuesById[-11519] = "CODE_ASTRO_RESTACK_CAMERA_MISMATCH")] = -11519;
+  values[(valuesById[-11520] = "CODE_ASTRO_RESTACK_BINNING_MISMATCH")] = -11520;
+  values[(valuesById[-11521] = "CODE_ASTRO_RESTACK_FILTER_MISMATCH")] = -11521;
+  values[(valuesById[-11522] = "CODE_ASTRO_RESTACK_TARGET_MISMATCH")] = -11522;
+  values[(valuesById[-11523] = "CODE_ASTRO_RESTACK_DARKFRAME_MISMATCH")] =
+    -11523;
+  values[(valuesById[-11524] = "CODE_ASTRO_RESTACK_FAILED")] = -11524;
+  values[(valuesById[-11525] = "CODE_ASTRO_RESTACK_INVALID_DATA")] = -11525;
+  values[(valuesById[-11526] = "CODE_ASTRO_OVEREXPOSURE_WARNING")] = -11526;
+  values[(valuesById[-11527] = "CODE_ASTRO_EXP_TOO_LONG")] = -11527;
+  values[(valuesById[-11528] = "CODE_ASTRO_NEED_EQ")] = -11528;
+  values[(valuesById[-11529] = "CODE_ASTRO_STAR_TOO_FEW")] = -11529;
+  values[(valuesById[-11530] = "CODE_ASTRO_DARK_TEMP_MISMATCH")] = -11530;
+  values[(valuesById[-11531] = "CODE_ASTRO_SUN_MOON_NOT_FOUND")] = -11531;
+  values[(valuesById[-11532] = "CODE_ASTRO_GUIDING_FAILED_LOWER_EXPOSURE")] =
+    -11532;
+  values[(valuesById[-11533] = "CODE_ASTRO_GUIDING_FAILED_TARGET_BLOCKED")] =
+    -11533;
   values[(valuesById[-12500] = "CODE_CAMERA_WIDE_OPENED")] = -12500;
   values[(valuesById[-12501] = "CODE_CAMERA_WIDE_CLOSED")] = -12501;
   values[(valuesById[-12502] = "CODE_CAMERA_WIDE_CANNOT_FOUND")] = -12502;

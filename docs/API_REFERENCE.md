@@ -321,7 +321,8 @@ and completion notifications still require a controlled hardware capture.
 
 | CMD ID | 関数 | Request | Response | 説明 |
 |--------|------|---------|----------|------|
-| 11005 | `messageV3AstroStartStacking(irIndex, forceStart)` | ReqCaptureRawLiveStacking `{irIndex, forceStart}` | ComResponse | Start stacking; DWARF 3/mini: Astro=1, Duo-Band=2; filterless DWARF 2: irIndex=-1 sentinel |
+| 11005 | `messageV3AstroStartStacking(irIndex, forceStart)` | ReqCaptureRawLiveStacking `{irIndex, forceStart}` | ResAstroShooting-compatible response | Start stacking; DWARF 3/mini: Astro=1, Duo-Band=2; filterless DWARF 2: irIndex=-1 sentinel. `forceStart=true` is the DWARF 2/older-protocol fallback for recoverable dark warnings. |
+| 11050 | `messageV3AstroContinueShooting()` | Empty `ReqContinueShooting` | ComResponse | Protocol >=2.5 continuation after `-11503`/`-11530`; current APK excludes DWARF 2 and uses its `forceStart` fallback there. |
 | 11006 | `messageV3AstroStopStacking()` | ReqStopCaptureRawLiveStacking | ComResponse | スタッキング停止 |
 | 11010 | `messageV3AstroStartTracking()` | ReqGoLive | ComResponse | トラッキング開始 |
 | 11013 | `messageV3AstroGotoDSO(ra, dec, targetName, lon, lat, mode)` | ReqOneClickGotoDSO | ResOneClickGoto | DSO へワンクリック GOTO (V3: lon/lat/mode 追加) |
@@ -352,7 +353,11 @@ session.
 
 The `11005` command ID is shared, but its payload follows device capability.
 Hardware logs confirm DWARF 3 requires the selected `irIndex`/`forceStart`
-payload; sending the filterless `-1` sentinel caused immediate error `-11530`.
+payload. APK 3.4.1 identifies `-11530` as
+`CODE_ASTRO_DARK_TEMP_MISMATCH`; it is not a filter-payload validation code.
+The app offers to capture a new dark, cancel, or continue. Protocol >=2.5 on
+non-DWARF-2 models sends empty command `11050`; DWARF 2 and older protocol
+versions repeat `11005` with `forceStart=true`.
 DWARF mini also embeds its selected filter. Use the sentinel only for DWARF 2,
 which has no internal filter wheel.
 

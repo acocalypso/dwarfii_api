@@ -4,6 +4,10 @@
 
 This document captures protocol findings from DWARF mini pcap captures and translates them into practical driver implications.
 
+The available captures were recorded with an older DWARFLAB application and
+firmware. They document historical wire behavior, but do not prove that newer
+APK commands such as `11050` are unsupported by current firmware.
+
 Decoder used: `tools/v3-probe/pcap-decode.js`
 
 ---
@@ -259,9 +263,14 @@ The decoder output includes parsed request payload fields for many calls. Below 
   - interpretation: 3rd value = exposure seconds, 4th value = gain (always 60).
 - `11005` StartStacking
   - raw payload: `08 ff ff ff ff ff ff ff ff ff 01`
-  - app-side sentinel/default argument for that captured session.
+  - app-side sentinel/default argument for that historical captured session.
   - not universal: live DWARF 3 testing requires the selected filter index and
-    `force_start`; the sentinel was rejected with `-11530` and no progress.
+    `force_start`; the sentinel attempt returned `-11530` and no progress.
+    APK 3.4.1 names this code `CODE_ASTRO_DARK_TEMP_MISMATCH`, so the capture
+    was blocked by dark-frame temperature validation rather than proving a
+    malformed filter payload. APK 3.4.1 uses empty command `11050` to Continue
+    on protocol >=2.5 non-DWARF-2 devices, with `force_start=true` as the
+    DWARF 2/older-protocol fallback.
 
 ### Filter change
 

@@ -91,6 +91,7 @@ export const cmdMapping = {
   11028: "ReqDelWideDarkFrame", // Delete the specified wide-angle dark field list
   11042: "ReqOneClickShooting", // APK 3.4.1: combined GOTO and shooting request
   11044: "ReqDelCaliFrameList", // APK 3.4.1: delete calibration frames by info ID
+  11050: "ReqContinueShooting", // APK 3.4.1: continue after a recoverable shooting warning
 
   12000: "ReqOpenCamera", // Turn on the camera
   12001: "ReqCloseCamera", // Turn off the camera
@@ -274,7 +275,7 @@ export const responseMapping = {
   11002: "ComResponse", // Start GOTO Deep Space Object
   11003: "ComResponse", // Start GOTO Solar System Target
   11004: "ComResponse", // Stop GOTO
-  11005: "ComResponse", // Start stacking
+  11005: "ResAstroShooting", // Start stacking; includes dark-temperature warning context
   11006: "ComResponse", // Stop overlay
   11007: "ComResponse", // Start shooting dark scenes
   11008: "ComResponse", // Stop filming darkfield
@@ -396,6 +397,7 @@ export const responseMapping = {
   11046: "ComResponse", // V3: Stop calibration-frame capture
   11047: "ComResponse", // V3: Set observation location
   11048: "ComResponse", // V3: Confirm observation
+  11050: "ComResponse", // V3: Continue after a recoverable shooting warning
   13010: "ComResponse", // V3: Set GPS location
   15011: "V3ResFocusInit", // V3: Focus init
   16102: "ResGetAllShootingSchedule", // V3: Get shooting schedule
