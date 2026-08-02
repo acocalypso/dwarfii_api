@@ -17195,6 +17195,99 @@ export class ResNotifyStateSentryMode implements IResNotifyStateSentryMode {
     public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
+/** Represents an OneClickGotoPhaseState. */
+export class OneClickGotoPhaseState implements IOneClickGotoPhaseState {
+
+    /**
+     * Constructs a new OneClickGotoPhaseState.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IOneClickGotoPhaseState);
+
+    /** OneClickGotoPhaseState state. */
+    public state: number;
+
+    /** OneClickGotoPhaseState targetName. */
+    public targetName: string;
+
+    /**
+     * Creates a new OneClickGotoPhaseState instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns OneClickGotoPhaseState instance
+     */
+    public static create(properties?: IOneClickGotoPhaseState): OneClickGotoPhaseState;
+
+    /**
+     * Encodes the specified OneClickGotoPhaseState message. Does not implicitly {@link OneClickGotoPhaseState.verify|verify} messages.
+     * @param message OneClickGotoPhaseState message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IOneClickGotoPhaseState, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified OneClickGotoPhaseState message, length delimited. Does not implicitly {@link OneClickGotoPhaseState.verify|verify} messages.
+     * @param message OneClickGotoPhaseState message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IOneClickGotoPhaseState, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes an OneClickGotoPhaseState message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns OneClickGotoPhaseState
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): OneClickGotoPhaseState;
+
+    /**
+     * Decodes an OneClickGotoPhaseState message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns OneClickGotoPhaseState
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): OneClickGotoPhaseState;
+
+    /**
+     * Verifies an OneClickGotoPhaseState message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates an OneClickGotoPhaseState message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns OneClickGotoPhaseState
+     */
+    public static fromObject(object: { [k: string]: any }): OneClickGotoPhaseState;
+
+    /**
+     * Creates a plain object from an OneClickGotoPhaseState message. Also converts values to other types if specified.
+     * @param message OneClickGotoPhaseState
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: OneClickGotoPhaseState, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this OneClickGotoPhaseState to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for OneClickGotoPhaseState
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
 /** Represents a ResNotifyOneClickGotoState. */
 export class ResNotifyOneClickGotoState implements IResNotifyOneClickGotoState {
 
@@ -17206,6 +17299,15 @@ export class ResNotifyOneClickGotoState implements IResNotifyOneClickGotoState {
 
     /** ResNotifyOneClickGotoState state. */
     public state: OperationState;
+
+    /** ResNotifyOneClickGotoState phase_2. */
+    public phase_2?: (IOneClickGotoPhaseState|null);
+
+    /** ResNotifyOneClickGotoState gotoState. */
+    public gotoState?: (IOneClickGotoPhaseState|null);
+
+    /** ResNotifyOneClickGotoState trackingState. */
+    public trackingState?: (IOneClickGotoPhaseState|null);
 
     /**
      * Creates a new ResNotifyOneClickGotoState instance using the specified properties.

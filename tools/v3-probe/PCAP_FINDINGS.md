@@ -46,6 +46,27 @@ Driver implications:
 4. Treat `targetName` as persisted firmware metadata. A stale value such as
    `Sun` is not evidence that the current client requested a solar exposure.
 
+### Successful one-click GoTo completion envelope (live DWARF 3, 2026-08-02)
+
+Live DWARF 3 logging after a successful calibration revealed that V3 command
+`15233` is an envelope rather than the legacy single `state` field:
+
+- outer field 3: GoTo phase `{ state=1|4|3, target_name="Custom" }`
+- outer field 4: tracking phase `{ state=1, target_name="Custom" }`
+
+Exact successful sequence:
+
+- `1a0a08011206437573746f6d`: GoTo running
+- `1a0a08041206437573746f6d`: GoTo plate solving
+- `1a0a08031206437573746f6d`: GoTo stopped
+- `1a081206437573746f6d`: GoTo idle/target-only transition
+- `220a08011206437573746f6d`: tracking running
+
+For an Alpaca asynchronous slew, nested field 4 state `1` is the terminal
+success condition. Decoding this payload with the legacy field-1-only schema
+returns state `0` and leaves the client waiting even though the mount has
+stopped and tracking has begun.
+
 ### Initial calibration + target GoTo (new 2026-08-02 captures)
 
 The official app uses command `11013`, not a separate `11000`, for initial

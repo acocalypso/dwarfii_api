@@ -38376,12 +38376,227 @@ $root.ResNotifyStateSentryMode = (function () {
     };
     return ResNotifyStateSentryMode;
 })();
+$root.OneClickGotoPhaseState = (function () {
+    /**
+     * Properties of an OneClickGotoPhaseState.
+     * @exports IOneClickGotoPhaseState
+     * @interface IOneClickGotoPhaseState
+     * @property {number|null} [state] OneClickGotoPhaseState state
+     * @property {string|null} [targetName] OneClickGotoPhaseState targetName
+     */
+    /**
+     * Constructs a new OneClickGotoPhaseState.
+     * @exports OneClickGotoPhaseState
+     * @classdesc Represents an OneClickGotoPhaseState.
+     * @implements IOneClickGotoPhaseState
+     * @constructor
+     * @param {IOneClickGotoPhaseState=} [properties] Properties to set
+     */
+    function OneClickGotoPhaseState(properties) {
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+    /**
+     * OneClickGotoPhaseState state.
+     * @member {number} state
+     * @memberof OneClickGotoPhaseState
+     * @instance
+     */
+    OneClickGotoPhaseState.prototype.state = 0;
+    /**
+     * OneClickGotoPhaseState targetName.
+     * @member {string} targetName
+     * @memberof OneClickGotoPhaseState
+     * @instance
+     */
+    OneClickGotoPhaseState.prototype.targetName = "";
+    /**
+     * Creates a new OneClickGotoPhaseState instance using the specified properties.
+     * @function create
+     * @memberof OneClickGotoPhaseState
+     * @static
+     * @param {IOneClickGotoPhaseState=} [properties] Properties to set
+     * @returns {OneClickGotoPhaseState} OneClickGotoPhaseState instance
+     */
+    OneClickGotoPhaseState.create = function create(properties) {
+        return new OneClickGotoPhaseState(properties);
+    };
+    /**
+     * Encodes the specified OneClickGotoPhaseState message. Does not implicitly {@link OneClickGotoPhaseState.verify|verify} messages.
+     * @function encode
+     * @memberof OneClickGotoPhaseState
+     * @static
+     * @param {IOneClickGotoPhaseState} message OneClickGotoPhaseState message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    OneClickGotoPhaseState.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        if (message.state != null && Object.hasOwnProperty.call(message, "state"))
+            writer.uint32(/* id 1, wireType 0 =*/ 8).int32(message.state);
+        if (message.targetName != null &&
+            Object.hasOwnProperty.call(message, "targetName"))
+            writer.uint32(/* id 2, wireType 2 =*/ 18).string(message.targetName);
+        return writer;
+    };
+    /**
+     * Encodes the specified OneClickGotoPhaseState message, length delimited. Does not implicitly {@link OneClickGotoPhaseState.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof OneClickGotoPhaseState
+     * @static
+     * @param {IOneClickGotoPhaseState} message OneClickGotoPhaseState message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    OneClickGotoPhaseState.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+    /**
+     * Decodes an OneClickGotoPhaseState message from the specified reader or buffer.
+     * @function decode
+     * @memberof OneClickGotoPhaseState
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {OneClickGotoPhaseState} OneClickGotoPhaseState
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    OneClickGotoPhaseState.decode = function decode(reader, length) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.OneClickGotoPhaseState();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    message.state = reader.int32();
+                    break;
+                }
+                case 2: {
+                    message.targetName = reader.string();
+                    break;
+                }
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    };
+    /**
+     * Decodes an OneClickGotoPhaseState message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof OneClickGotoPhaseState
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {OneClickGotoPhaseState} OneClickGotoPhaseState
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    OneClickGotoPhaseState.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+    /**
+     * Verifies an OneClickGotoPhaseState message.
+     * @function verify
+     * @memberof OneClickGotoPhaseState
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    OneClickGotoPhaseState.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        if (message.state != null && message.hasOwnProperty("state"))
+            if (!$util.isInteger(message.state))
+                return "state: integer expected";
+        if (message.targetName != null && message.hasOwnProperty("targetName"))
+            if (!$util.isString(message.targetName))
+                return "targetName: string expected";
+        return null;
+    };
+    /**
+     * Creates an OneClickGotoPhaseState message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof OneClickGotoPhaseState
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {OneClickGotoPhaseState} OneClickGotoPhaseState
+     */
+    OneClickGotoPhaseState.fromObject = function fromObject(object) {
+        if (object instanceof $root.OneClickGotoPhaseState)
+            return object;
+        var message = new $root.OneClickGotoPhaseState();
+        if (object.state != null)
+            message.state = object.state | 0;
+        if (object.targetName != null)
+            message.targetName = String(object.targetName);
+        return message;
+    };
+    /**
+     * Creates a plain object from an OneClickGotoPhaseState message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof OneClickGotoPhaseState
+     * @static
+     * @param {OneClickGotoPhaseState} message OneClickGotoPhaseState
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    OneClickGotoPhaseState.toObject = function toObject(message, options) {
+        if (!options)
+            options = {};
+        var object = {};
+        if (options.defaults) {
+            object.state = 0;
+            object.targetName = "";
+        }
+        if (message.state != null && message.hasOwnProperty("state"))
+            object.state = message.state;
+        if (message.targetName != null && message.hasOwnProperty("targetName"))
+            object.targetName = message.targetName;
+        return object;
+    };
+    /**
+     * Converts this OneClickGotoPhaseState to JSON.
+     * @function toJSON
+     * @memberof OneClickGotoPhaseState
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    OneClickGotoPhaseState.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+    /**
+     * Gets the default type url for OneClickGotoPhaseState
+     * @function getTypeUrl
+     * @memberof OneClickGotoPhaseState
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    OneClickGotoPhaseState.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/OneClickGotoPhaseState";
+    };
+    return OneClickGotoPhaseState;
+})();
 $root.ResNotifyOneClickGotoState = (function () {
     /**
      * Properties of a ResNotifyOneClickGotoState.
      * @exports IResNotifyOneClickGotoState
      * @interface IResNotifyOneClickGotoState
      * @property {OperationState|null} [state] ResNotifyOneClickGotoState state
+     * @property {IOneClickGotoPhaseState|null} [phase_2] ResNotifyOneClickGotoState phase_2
+     * @property {IOneClickGotoPhaseState|null} [gotoState] ResNotifyOneClickGotoState gotoState
+     * @property {IOneClickGotoPhaseState|null} [trackingState] ResNotifyOneClickGotoState trackingState
      */
     /**
      * Constructs a new ResNotifyOneClickGotoState.
@@ -38404,6 +38619,27 @@ $root.ResNotifyOneClickGotoState = (function () {
      * @instance
      */
     ResNotifyOneClickGotoState.prototype.state = 0;
+    /**
+     * ResNotifyOneClickGotoState phase_2.
+     * @member {IOneClickGotoPhaseState|null|undefined} phase_2
+     * @memberof ResNotifyOneClickGotoState
+     * @instance
+     */
+    ResNotifyOneClickGotoState.prototype.phase_2 = null;
+    /**
+     * ResNotifyOneClickGotoState gotoState.
+     * @member {IOneClickGotoPhaseState|null|undefined} gotoState
+     * @memberof ResNotifyOneClickGotoState
+     * @instance
+     */
+    ResNotifyOneClickGotoState.prototype.gotoState = null;
+    /**
+     * ResNotifyOneClickGotoState trackingState.
+     * @member {IOneClickGotoPhaseState|null|undefined} trackingState
+     * @memberof ResNotifyOneClickGotoState
+     * @instance
+     */
+    ResNotifyOneClickGotoState.prototype.trackingState = null;
     /**
      * Creates a new ResNotifyOneClickGotoState instance using the specified properties.
      * @function create
@@ -38429,6 +38665,15 @@ $root.ResNotifyOneClickGotoState = (function () {
             writer = $Writer.create();
         if (message.state != null && Object.hasOwnProperty.call(message, "state"))
             writer.uint32(/* id 1, wireType 0 =*/ 8).int32(message.state);
+        if (message.phase_2 != null &&
+            Object.hasOwnProperty.call(message, "phase_2"))
+            $root.OneClickGotoPhaseState.encode(message.phase_2, writer.uint32(/* id 2, wireType 2 =*/ 18).fork()).ldelim();
+        if (message.gotoState != null &&
+            Object.hasOwnProperty.call(message, "gotoState"))
+            $root.OneClickGotoPhaseState.encode(message.gotoState, writer.uint32(/* id 3, wireType 2 =*/ 26).fork()).ldelim();
+        if (message.trackingState != null &&
+            Object.hasOwnProperty.call(message, "trackingState"))
+            $root.OneClickGotoPhaseState.encode(message.trackingState, writer.uint32(/* id 4, wireType 2 =*/ 34).fork()).ldelim();
         return writer;
     };
     /**
@@ -38463,6 +38708,18 @@ $root.ResNotifyOneClickGotoState = (function () {
             switch (tag >>> 3) {
                 case 1: {
                     message.state = reader.int32();
+                    break;
+                }
+                case 2: {
+                    message.phase_2 = $root.OneClickGotoPhaseState.decode(reader, reader.uint32());
+                    break;
+                }
+                case 3: {
+                    message.gotoState = $root.OneClickGotoPhaseState.decode(reader, reader.uint32());
+                    break;
+                }
+                case 4: {
+                    message.trackingState = $root.OneClickGotoPhaseState.decode(reader, reader.uint32());
                     break;
                 }
                 default:
@@ -38508,6 +38765,22 @@ $root.ResNotifyOneClickGotoState = (function () {
                 case 3:
                     break;
             }
+        if (message.phase_2 != null && message.hasOwnProperty("phase_2")) {
+            var error = $root.OneClickGotoPhaseState.verify(message.phase_2);
+            if (error)
+                return "phase_2." + error;
+        }
+        if (message.gotoState != null && message.hasOwnProperty("gotoState")) {
+            var error = $root.OneClickGotoPhaseState.verify(message.gotoState);
+            if (error)
+                return "gotoState." + error;
+        }
+        if (message.trackingState != null &&
+            message.hasOwnProperty("trackingState")) {
+            var error = $root.OneClickGotoPhaseState.verify(message.trackingState);
+            if (error)
+                return "trackingState." + error;
+        }
         return null;
     };
     /**
@@ -38546,6 +38819,21 @@ $root.ResNotifyOneClickGotoState = (function () {
                 message.state = 3;
                 break;
         }
+        if (object.phase_2 != null) {
+            if (typeof object.phase_2 !== "object")
+                throw TypeError(".ResNotifyOneClickGotoState.phase_2: object expected");
+            message.phase_2 = $root.OneClickGotoPhaseState.fromObject(object.phase_2);
+        }
+        if (object.gotoState != null) {
+            if (typeof object.gotoState !== "object")
+                throw TypeError(".ResNotifyOneClickGotoState.gotoState: object expected");
+            message.gotoState = $root.OneClickGotoPhaseState.fromObject(object.gotoState);
+        }
+        if (object.trackingState != null) {
+            if (typeof object.trackingState !== "object")
+                throw TypeError(".ResNotifyOneClickGotoState.trackingState: object expected");
+            message.trackingState = $root.OneClickGotoPhaseState.fromObject(object.trackingState);
+        }
         return message;
     };
     /**
@@ -38561,8 +38849,12 @@ $root.ResNotifyOneClickGotoState = (function () {
         if (!options)
             options = {};
         var object = {};
-        if (options.defaults)
+        if (options.defaults) {
             object.state = options.enums === String ? "OPERATION_STATE_IDLE" : 0;
+            object.phase_2 = null;
+            object.gotoState = null;
+            object.trackingState = null;
+        }
         if (message.state != null && message.hasOwnProperty("state"))
             object.state =
                 options.enums === String
@@ -38570,6 +38862,13 @@ $root.ResNotifyOneClickGotoState = (function () {
                         ? message.state
                         : $root.OperationState[message.state]
                     : message.state;
+        if (message.phase_2 != null && message.hasOwnProperty("phase_2"))
+            object.phase_2 = $root.OneClickGotoPhaseState.toObject(message.phase_2, options);
+        if (message.gotoState != null && message.hasOwnProperty("gotoState"))
+            object.gotoState = $root.OneClickGotoPhaseState.toObject(message.gotoState, options);
+        if (message.trackingState != null &&
+            message.hasOwnProperty("trackingState"))
+            object.trackingState = $root.OneClickGotoPhaseState.toObject(message.trackingState, options);
         return object;
     };
     /**
