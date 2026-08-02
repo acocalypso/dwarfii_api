@@ -142,9 +142,11 @@ export function messageV3FilterWheelSet(
 /**
  * V3: Set the astronomy live-stacking frame count.
  *
- * DWARF 3 app captures show this absolute `16703` write immediately after
+ * V3 app captures show this absolute `16703` write immediately after
  * `11041`. The firmware may otherwise retain an earlier count even when
  * `11041` echoes the newly requested pipe string.
+ *
+ * This command belongs to the shared DWARF 2, DWARF 3, and DWARF mini V3 API.
  *
  * @param {number} frameCount - Number of frames to acquire (minimum 1)
  * @param {number} [cameraId=0] - Camera ID (default: TELE)

@@ -338,7 +338,8 @@ and completion notifications still require a controlled hardware capture.
 | 11047 | `messageV3AstroSetLocation(lon, lat)` | V3ReqSetObservationLocation | ComResponse | 観測地点設定 |
 | 11048 | `messageV3AstroConfirm()` | V3ReqConfirmObservation | ComResponse | 観測確認 |
 
-For DWARF 2/3, finite live-stacking clients should send and verify `11041`,
+For DWARF 2, DWARF 3, and DWARF mini, finite live-stacking clients should send
+and verify `11041`,
 then send `messageV3AstroFrameCountSet(count)` (`16703`, paramId
 `144678138029277200`) immediately before `11005`. The `11041` echo is not
 authoritative for frame count: hardware retained `total_count=999` after
@@ -392,7 +393,7 @@ Calibration-frame capture emits APK-defined notifications:
 |--------|------|---------|----------|------|
 | 16703 | `messageV3CameraParamsAdjust(paramId, value)` | V3ReqAdjustParam `{paramId, value}` | ComResponse | カメラパラメータ調整 |
 
-`messageV3AstroFrameCountSet(frameCount)` is the pcap-verified DWARF 2/3
+`messageV3AstroFrameCountSet(frameCount)` is the pcap-verified shared V3
 absolute frame-count wrapper for `16703`. It uses paramId
 `144678138029277200` (`0x0202000000000010`).
 
