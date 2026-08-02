@@ -135,7 +135,8 @@ const CMD_NAMES = {
 const INNER_TYPES = {
   // --- type=0 (REQ) ---
   // V2
-  // (V2 requests typically don't need inner decode — add as needed)
+  "11000:0": "ReqStartCalibration",
+  "11013:0": "ReqOneClickGotoDSO",
   // V3
   "10050:0": "V3ReqOpenTeleCamera",
   "12036:0": "V3ReqOpenWideCamera",
@@ -171,6 +172,7 @@ const INNER_TYPES = {
   "12027:1": "ResGetAllParams",
   "13000:1": "ResSetTime",
   "13004:1": "ResSetMasterLock",
+  "11013:1": "ResOneClickGoto",
   // V3
   "10050:1": "ComResponse",
   "12036:1": "ComResponse",
@@ -213,6 +215,7 @@ const INNER_TYPES = {
   "15222:2": "ResNotifyPowerIndState",
   "15223:2": "ResNotifyHostSlaveMode",
   "15233:2": "ResNotifyOneClickGotoState",
+  "15256:2": "CalibrationResult",
   "15234:2": "ResNotifyStreamType",
   "15243:2": "ResNotifyTemperature",
   "15257:2": "ResNotifyFocus",
@@ -242,6 +245,8 @@ const INNER_TYPES = {
   "10039:3": "ResGetSystemWorkingState",
   "14011:3": "ResGetPosition",
   "13004:3": "ResSetMasterLock",
+  "11000:3": "ComResponse",
+  "11013:3": "ResOneClickGoto",
   // V3
   "10050:3": "ComResponse",
   "12036:3": "ComResponse",
@@ -618,6 +623,7 @@ async function main() {
         `${dirColor}#${seenPackets.toString().padStart(3)} ${dir.padEnd(
           10
         )}\x1b[0m` +
+          ` t=${Number(timeRel).toFixed(3).padStart(9)}s` +
           ` [${tn.padEnd(6)}] v${obj.majorVersion}.${obj.minorVersion
             .toString()
             .padEnd(2)}` +

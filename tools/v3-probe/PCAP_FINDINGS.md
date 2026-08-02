@@ -17,6 +17,36 @@ Decoder used:
 
 ## Executive Summary
 
+### Initial calibration + target GoTo (new 2026-08-02 captures)
+
+The official app uses command `11013`, not a separate `11000`, for initial
+target-based calibration. The captured DSO request is:
+
+- `ra=1`: right ascension in hours
+- `dec=2`: declination in degrees
+- `target_name=3`
+- `lon=4`, `lat=5`: observer coordinates in degrees
+- `shooting_mode=6`: `2` for Deep Sky
+- `goto_only=7`: omitted on the wire, therefore protobuf default `false`
+- `rotation=8`: omitted when no target rotation is requested
+
+Immediately before `11013`, the app sends `16404` with nested value `1`, waits
+for astronomy mode `8`, then opens tele camera `10050` and wide camera `12036`
+with action `1`. It does not send shooting-mode command `16403` in this path;
+the Deep Sky mode is carried by field 6 of `11013`.
+
+Command `11013` is long-running and has no immediate acknowledgement. In
+`iphone-capture2.pcap`, it was sent at 218.667 s and its final response arrived
+at 390.355 s: `step=30`, `code=-11504`, `all_end=true`. Firmware also emitted
+an internal `11000` response with `code=-11504`; the app had not sent a separate
+`11000` request. Calibration progress was reported on `15210` beginning 10.619 s
+after the request. Consequently, clients must keep `11013` pending
+asynchronously and must not apply a short command-acknowledgement timeout.
+
+Autofocus `15004` completed before the long calibration attempt (`15278` state
+`1 -> 3`). Other short captures began `11013` after focus had already been
+established, so they do not disprove the autofocus prerequisite.
+
 ### APK 3.4.1 and live-device correction
 
 Static analysis of DWARFLAB 3.4.1 and safe probes against a DWARF MINI
