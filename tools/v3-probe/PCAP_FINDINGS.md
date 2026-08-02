@@ -17,6 +17,35 @@ Decoder used:
 
 ## Executive Summary
 
+### Finite capture and stop timing (new 2026-08-02 analysis)
+
+`iphone-capture2.pcap` demonstrates that `11005` starts the firmware's current
+persisted stacking sequence; it does not itself define exposure, gain, target,
+or frame count. At 100.620 s the app sent `11005` without a preceding `11041`
+in that capture segment. Firmware then reported on `15209`:
+
+- `totalCount=20`
+- `expIndex=42`
+- `gainIndex=3`
+- `targetName="Sun"`
+
+The app requested `11006` stop at 134.675 s after `stackedCount=5`. A sixth
+stack completed at 136.595 s while stop was being processed. This is direct
+evidence that clients must send `11006` as soon as their requested
+`stackedCount` is reached; waiting for media download can create additional
+files. `iphone-capture3-photo.pcap` similarly inherited `totalCount=999` and
+continued until the app explicitly sent `11006`.
+
+Driver implications:
+
+1. Send and verify `11041` immediately before every `11005`.
+2. Treat `15209.stacked_count`, rather than `current_count`, as the completed
+   image boundary. `current_count` can advance far ahead of accepted stacks.
+3. Send `11006` at the requested stacked count while media retrieval proceeds
+   independently.
+4. Treat `targetName` as persisted firmware metadata. A stale value such as
+   `Sun` is not evidence that the current client requested a solar exposure.
+
 ### Initial calibration + target GoTo (new 2026-08-02 captures)
 
 The official app uses command `11013`, not a separate `11000`, for initial

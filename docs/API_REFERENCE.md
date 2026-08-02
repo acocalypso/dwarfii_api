@@ -338,6 +338,14 @@ and completion notifications still require a controlled hardware capture.
 | 11047 | `messageV3AstroSetLocation(lon, lat)` | V3ReqSetObservationLocation | ComResponse | 観測地点設定 |
 | 11048 | `messageV3AstroConfirm()` | V3ReqConfirmObservation | ComResponse | 観測確認 |
 
+Finite live-stacking clients should send and verify `11041` immediately before
+`11005`, then monitor notification `15209`. Stop with `11006` when
+`stacked_count` reaches the requested frame count. Do not wait for media
+download before stopping: captures show an additional stack completing while a
+late stop was being processed. `current_count` may advance ahead of completed
+stacks, and `target_name` can contain persisted metadata from an earlier
+session.
+
 Calibration-frame capture emits APK-defined notifications:
 
 | CMD ID | Message | Fields | Confidence |

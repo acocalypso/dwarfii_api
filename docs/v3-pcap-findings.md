@@ -10,6 +10,22 @@ Decoder used: `tools/v3-probe/pcap-decode.js`
 
 ## Executive Summary
 
+### Finite capture and stop timing (new 2026-08-02 analysis)
+
+`iphone-capture2.pcap` shows `11005` starting a persisted sequence with
+`15209 totalCount=20`, `expIndex=42`, `gainIndex=3`, and stale
+`targetName="Sun"`. The app sent `11006` after `stackedCount=5`; a sixth stack
+completed while the stop request was being processed. In
+`iphone-capture3-photo.pcap`, a persisted `totalCount=999` likewise continued
+until an explicit `11006`.
+
+Therefore a finite client must send and verify `11041` immediately before
+`11005`, monitor `15209.stacked_count`, and send `11006` as soon as the
+requested number of completed stacks is reached. Media download must not delay
+the stop request. `current_count` is acquisition progress and can run ahead of
+accepted stacks; `targetName` is persisted firmware metadata rather than proof
+of the current client's target selection.
+
 ### Confirmed protocol behavior
 
 1. LED and ring-light flow is clean and classified.
