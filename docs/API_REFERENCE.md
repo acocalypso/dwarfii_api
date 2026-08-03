@@ -279,18 +279,19 @@ DWARFLAB 3.4.1 APK, and safe read/write probes:
 - `11040` mode 0 returned `0|0|15|60|1|null`, `0|0|30|60|1|null`,
   `0|0|60|60|1|null`, `0|0|90|60|1|null`, and
   `0|0|180|60|1|null`. Mode 1 returned `1|0|10|40|1|null`.
-- In the six-component `11040`/`11041` string, component 3 is exposure
-  seconds, component 4 is gain, and component 5 is frame count.
-  Components 1, 2 and 6 remain unresolved; component 1 is not a filter.
-- `11041` accepted and echoed `0|0|1|60|1|null`, confirming a 1-second
-  firmware exposure setting.
+- Older firmware represented quick sets as a six-component string. APK 3.4.1
+  defines 11040 as `GET_QUICK_SET_LIST` and 11041 as `SET_QUICK_SET` with an
+  exact `info_id`; an echoed modified string is not proof that it was applied.
+- APK 3.4.1 posts `{modeId:2}` to `/shootingMode/getParamAndSetting`, then
+  writes exposure with 16700 and gain with 16701. Mini firmware 1.1.3 build 2
+  reports 1s=index 120 and 5s=index 141.
 - Legacy feature query `10038` timed out. Device config `16405` reported
   `1920x1080`.
 - APK 3.4.1 calls `11043` `GET_CALI_FRAME_LIST`, conflicting with the
   provisional exposure-preset decoder in this library. Inspect the raw response
   before depending on that decoder.
-- Real-device attempts to use `16700`/`16703` as filter-move commands failed.
-  `15264` is general camera-parameter state, not filter readback.
+- `16700` is exposure, `16701` is gain, and `16703` handles general integer
+  parameters such as filter and frame count. `15264` reports their state.
 
 The calibration request schema is APK-confirmed, but calibration result delivery
 and completion notifications still require a controlled hardware capture.
@@ -339,12 +340,14 @@ and completion notifications still require a controlled hardware capture.
 | 11047 | `messageV3AstroSetLocation(lon, lat)` | V3ReqSetObservationLocation | ComResponse | 観測地点設定 |
 | 11048 | `messageV3AstroConfirm()` | V3ReqConfirmObservation | ComResponse | 観測確認 |
 
-For DWARF 2, DWARF 3, and DWARF mini, finite live-stacking clients should send
-and verify `11041`,
-then send `messageV3AstroFrameCountSet(count)` (`16703`, paramId
+For DWARF 2, DWARF 3, and DWARF mini, clients should obtain the mode-2 live
+parameter catalogue, send `messageV3AstroExposureSet(index)` (16700),
+`messageV3AstroGainSet(gain)` (16701), then
+`messageV3AstroFrameCountSet(count)` (`16703`, paramId
 `144678138029277200`) immediately before `11005`. The `11041` echo is not
-authoritative for frame count: hardware retained `total_count=999` after
-echoing a count of 1. Then monitor notification `15209`. Stop with `11006` when
+authoritative for modified values: current hardware retained exposure index
+156 (15s) after echoing a 5-second-looking string. Then monitor notification
+`15209`. Stop with `11006` when
 `stacked_count` reaches the requested frame count. Do not wait for media
 download before stopping: captures show an additional stack completing while a
 late stop was being processed. `current_count` may advance ahead of completed

@@ -25,11 +25,25 @@ export const V3_CAMERA_ID = {
 };
 /** Known parameter indices within categories */
 export const V3_PARAM_INDEX = {
+    /** Manual exposure selection (value is the firmware exposure index) */
+    EXPOSURE: 0x01,
+    /** Manual gain selection (value is the gain number) */
+    GAIN: 0x02,
     /** Filter wheel position (pcap-verified, category=OPTICAL) */
     FILTER_WHEEL: 0x0d,
     /** Number of astronomy frames to acquire (category=CAPTURE) */
     FRAME_COUNT: 0x10,
 };
+/** Set the V3 astronomy exposure using an index returned by getParamAndSetting. */
+export function messageV3AstroExposureSet(exposureIndex) {
+    const paramId = encodeParamId(V3_SHOOTING_MODE.ASTRO, V3_PARAM_CATEGORY.OPTICAL, V3_CAMERA_ID.TELE, V3_PARAM_INDEX.EXPOSURE);
+    return messageV3CameraParamSet(paramId, exposureIndex, 1);
+}
+/** Set the V3 astronomy gain using a value returned by getParamAndSetting. */
+export function messageV3AstroGainSet(gain) {
+    const paramId = encodeParamId(V3_SHOOTING_MODE.ASTRO, V3_PARAM_CATEGORY.OPTICAL, V3_CAMERA_ID.TELE, V3_PARAM_INDEX.GAIN);
+    return messageV3CameraParamSetExpGain(paramId, gain, 1);
+}
 /*** --------------------------------------------------------- ***/
 /*** -------- V3 MODULE CAMERA PARAMS (16700+) --------------- ***/
 /*** --------------------------------------------------------- ***/

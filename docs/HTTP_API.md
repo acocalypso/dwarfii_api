@@ -181,13 +181,18 @@ const result = await getSupportedShootingModes("192.168.88.1");
 ```bash
 curl -X POST http://192.168.88.1:8082/shootingMode/getParamAndSetting \
   -H "Content-Type: application/json" \
-  -d '{}'
+  -d '{"modeId":2}'
 ```
 
 **JavaScript:**
 ```javascript
-const result = await getParamAndSetting("192.168.88.1");
+const result = await getParamAndSetting("192.168.88.1", 2);
 ```
+
+APK 3.4.1 uses `modeId=2` before Deep Sky capture. The response is the
+authoritative, firmware/model-specific source for exposure name-to-index
+mapping, supported gain values, and their compound parameter IDs. On a Mini
+firmware 1.1.3 build 2, 1 second maps to index 120 and 5 seconds to index 141.
 
 ---
 

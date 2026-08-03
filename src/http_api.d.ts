@@ -212,7 +212,10 @@ export declare function getFirmwareVersion(IP: string): Promise<ApiResponse>;
 export declare function getSupportedShootingModes(
   IP: string
 ): Promise<ApiResponse>;
-export declare function getParamAndSetting(IP: string): Promise<ApiResponse>;
+export declare function getParamAndSetting(
+  IP: string,
+  modeId?: number
+): Promise<ApiResponse>;
 
 // Album management
 export declare function albumListMediaCounts(

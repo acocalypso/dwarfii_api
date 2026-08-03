@@ -230,16 +230,17 @@ export async function getSupportedShootingModes(IP) {
 
 /**
  * Get current shooting parameters and settings.
- * POST /shootingMode/getParamAndSetting with empty body.
+ * POST /shootingMode/getParamAndSetting with a shooting mode ID.
  * @param {string} IP - Device IP address
+ * @param {number} [modeId=2] - Shooting mode (2 = astronomy)
  * @returns {Promise<Object>}
  */
-export async function getParamAndSetting(IP) {
+export async function getParamAndSetting(IP, modeId = 2) {
   const url = `${apiBaseUrl(IP)}/shootingMode/getParamAndSetting`;
   const response = await fetch(url, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({}),
+    body: JSON.stringify({ modeId }),
   });
   if (!response.ok) {
     throw new Error(

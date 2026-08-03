@@ -1,3 +1,7 @@
+/** Set the V3 astronomy exposure using an index returned by getParamAndSetting. */
+export function messageV3AstroExposureSet(exposureIndex: any): Uint8Array;
+/** Set the V3 astronomy gain using a value returned by getParamAndSetting. */
+export function messageV3AstroGainSet(gain: any): Uint8Array;
 /*** --------------------------------------------------------- ***/
 /*** -------- V3 MODULE CAMERA PARAMS (16700+) --------------- ***/
 /*** --------------------------------------------------------- ***/
@@ -102,6 +106,8 @@ export namespace V3_CAMERA_ID {
     let WIDE: number;
 }
 export namespace V3_PARAM_INDEX {
+    let EXPOSURE: number;
+    let GAIN: number;
     let FILTER_WHEEL: number;
     let FRAME_COUNT: number;
 }

@@ -403,8 +403,8 @@ Note: 15280 and 15288 are listed in the main table above.
 
 | CMD | Enum | Description | Observed |
 |-----|------|-------------|----------|
-| 16700 | CMD_V3_CAMERA_PARAMS_SET_PARAM | Set parameter | C1 C5 C8 |
-| 16701 | CMD_V3_CAMERA_PARAMS_SET_EXP_GAIN | Set exposure/gain | C5 C8 |
+| 16700 | CMD_V3_CAMERA_PARAMS_SET_PARAM | Set exposure parameter. APK `WsSetExposureParamReq` uses `ReqSetExposure {param_id, mode, value}`; value is a firmware exposure index. | C1 C5 C8; APK 3.4.1; Mini live |
+| 16701 | CMD_V3_CAMERA_PARAMS_SET_EXP_GAIN | Set gain parameter using the same wire schema; value is the selected gain. | C5 C8; APK 3.4.1; Mini live |
 | 16702 | **(undefined)** | Unknown. Payload: paramId + field2 + field3 (optional). | C8 |
 | 16703 | CMD_V3_CAMERA_PARAMS_ADJUST | Write/adjust parameter (filter wheel; absolute astronomy frame count) | C2 C4 C5 C8 C9 C10 |
 | 16706 | CMD_V3_CAMERA_PARAMS_STREAM_CTRL | Stream control | C5 |
@@ -428,8 +428,8 @@ bits  7..0  = paramIndex     (0x0D=filterWheel, 0x10=frameCount in category 2)
 | paramId (decimal) | mode | cat | cam | idx | Context |
 |-------------------|------|-----|-----|-----|---------|
 | 281474976710669 | 0 (photo) | 1 | 0 (tele) | 13 (0x0D) | notifications |
-| 144396663052566529 | 2 (astro) | 1 | 0 (tele) | 1 | notifications |
-| 144396663052566530 | 2 (astro) | 1 | 0 (tele) | 2 | notifications |
+| 144396663052566529 | 2 (astro) | 1 | 0 (tele) | 1 | Exposure; write with 16700. Live catalogue: 1s=120, 5s=141, 10s=150, 15s=156 |
+| 144396663052566530 | 2 (astro) | 1 | 0 (tele) | 2 | Gain; write with 16701 |
 | 144396663052566532 | 2 (astro) | 1 | 0 (tele) | 4 | notifications |
 | 144396663052566533 | 2 (astro) | 1 | 0 (tele) | 5 | notifications |
 | 144396663052566534 | 2 (astro) | 1 | 0 (tele) | 6 | notifications |

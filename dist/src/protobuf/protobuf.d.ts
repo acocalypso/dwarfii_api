@@ -6869,6 +6869,102 @@ export class ResCheckFile implements IResCheckFile {
     public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
+/** Represents a ReqSetExposure. */
+export class ReqSetExposure implements IReqSetExposure {
+
+    /**
+     * Constructs a new ReqSetExposure.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqSetExposure);
+
+    /** ReqSetExposure paramId. */
+    public paramId: (number|Long);
+
+    /** ReqSetExposure mode. */
+    public mode: number;
+
+    /** ReqSetExposure value. */
+    public value: number;
+
+    /**
+     * Creates a new ReqSetExposure instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqSetExposure instance
+     */
+    public static create(properties?: IReqSetExposure): ReqSetExposure;
+
+    /**
+     * Encodes the specified ReqSetExposure message. Does not implicitly {@link ReqSetExposure.verify|verify} messages.
+     * @param message ReqSetExposure message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqSetExposure, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqSetExposure message, length delimited. Does not implicitly {@link ReqSetExposure.verify|verify} messages.
+     * @param message ReqSetExposure message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqSetExposure, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqSetExposure message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqSetExposure
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqSetExposure;
+
+    /**
+     * Decodes a ReqSetExposure message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqSetExposure
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqSetExposure;
+
+    /**
+     * Verifies a ReqSetExposure message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqSetExposure message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqSetExposure
+     */
+    public static fromObject(object: { [k: string]: any }): ReqSetExposure;
+
+    /**
+     * Creates a plain object from a ReqSetExposure message. Also converts values to other types if specified.
+     * @param message ReqSetExposure
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqSetExposure, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqSetExposure to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqSetExposure
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
 /** Represents a V3ReqSetCameraParam. */
 export class V3ReqSetCameraParam implements IV3ReqSetCameraParam {
 
@@ -19825,18 +19921,32 @@ export enum DwarfCMD {
 /** DwarfErrorCode enum. */
 export enum DwarfErrorCode {
     OK = 0,
+    WS_OK = 0,
     WS_PARSE_PROTOBUF_ERROR = -1,
     WS_SDCARD_NOT_EXIST = -2,
-    WS_INVALID_PARAM = -3,
+    WS_INVAID_PARAM = -3,
     WS_SDCARD_WRITE_ERROR = -4,
+    WS_DEVICE_NOT_ACTIVATED = -5,
+    WS_SDCARD_FULL_ERROR = -6,
     CODE_CAMERA_TELE_OPENED = -10500,
     CODE_CAMERA_TELE_CLOSED = -10501,
     CODE_CAMERA_TELE_ISP_SET_FAILED = -10502,
-    CODE_CAMERA_TELE_OPEN_FAILED = -10504,
-    CODE_CAMERA_TELE_RECORDING = -10506,
-    CODE_CAMERA_TELE_WORKING_BUSY_STACK = -10507,
-    CODE_CAMERA_TELE_CAPTURE_RAW_FAILED = -10510,
-    CODE_CAMERA_TELE_WORKING_BUSY = -10511,
+    CODE_CAMERA_TELE_OPEN_FAILED = -10503,
+    CODE_CAMERA_TELE_START_RECORD_FAILED = -10504,
+    CODE_CAMERA_TELE_STOP_RECORD_FAILED = -10505,
+    CODE_CAMERA_TELE_CAPTURE_RAW_FAILED = -10506,
+    CODE_CAMERA_TELE_WORKING_BUSY = -10507,
+    CODE_CAMERA_TELE_GET_IMAGE_FAILED = -10508,
+    CODE_CAMERA_TELE_RUNNING_PHOTO = -10509,
+    CODE_CAMERA_TELE_RUNNING_RECORD = -10510,
+    CODE_CAMERA_TELE_RUNNING_PANORAMA = -10511,
+    CODE_CAMERA_TELE_RUNNING_TIMELAPSE = -10512,
+    CODE_CAMERA_TELE_RUNNING_CAPTURE_DARK = -10513,
+    CODE_CAMERA_TELE_RUNNING_CAPTURE_LIVE_STACKING = -10514,
+    CODE_CAMERA_TELE_EXP_TOO_LONG = -10515,
+    CODE_CAMERA_TELE_SWITCH_WORK_MODE_FAILED = -10516,
+    CODE_CAMERA_TELE_RUNNING_TRACK = -10517,
+    CODE_CAMERA_TELE_RECORD_FILE_ERROR = -10518,
     CODE_ASTRO_PLATE_SOLVING_FAILED = -11500,
     CODE_ASTRO_FUNCTION_BUSY = -11501,
     CODE_ASTRO_DARK_GAIN_OUT_OF_RANGE = -11502,
@@ -19878,21 +19988,62 @@ export enum DwarfErrorCode {
     CODE_CAMERA_WIDE_CLOSE_FAILED = -12504,
     CODE_CAMERA_WIDE_SET_ISP_FAILED = -12505,
     CODE_CAMERA_WIDE_PHOTOGRAPHING = -12506,
+    CODE_CAMERA_WIDE_TIMELAPSE_RECORDING = -12507,
     CODE_CAMERA_WIDE_EXP_TOO_LONG = -12508,
+    CODE_CAMERA_WIDE_RECORD_FILE_ERROR = -12509,
     CODE_SYSTEM_SET_TIME_FAILED = -13300,
     CODE_SYSTEM_SET_TIMEZONE_FAILED = -13301,
-    CODE_SYSTEM_SETTING_TIMEZONE_FAILED = -13302,
     CODE_RGB_POWER_UART_INIT_FAILED = -13800,
+    CODE_RGB_POWER_UART_SEND_FAILED = -13801,
+    CODE_STEP_MOTOR_IS_RUNNING = -14500,
+    CODE_STEP_MOTOR_IS_STOPPED = -14501,
+    CODE_STEP_MOTOR_PARALLEL_IN = -14502,
+    CODE_STEP_MOTOR_PARALLEL_END = -14503,
     CODE_STEP_MOTOR_INVALID_PARAMETER_ID = -14504,
+    CODE_STEP_MOTOR_INVALID_PARAMETER_ANGLE = -14505,
+    CODE_STEP_MOTOR_INVALID_PARAMETER_SPEED = -14506,
+    CODE_STEP_MOTOR_INVALID_PARAMETER_SPEED_RAMPING = -14507,
+    CODE_STEP_MOTOR_INVALID_PARAMETER_RESOLUTION = -14508,
+    CODE_STEP_MOTOR_INVALID_PARAMETER_POSITION = -14509,
+    CODE_STEP_MOTOR_OVERTIME_GET_LIMIT_RETURN = -14510,
+    CODE_STEP_MOTOR_OVERTIME_GET_RESET_RETURN = -14511,
+    CODE_STEP_MOTOR_OVERTIME_GET_ABSOLUTE_POSITION_RETURN = -14512,
+    CODE_STEP_MOTOR_OVERTIME_GET_RELATIVE_POSITION_RETURN = -14513,
+    CODE_STEP_MOTOR_OVERTIME_WAIT_TO_STOP = -14514,
+    CODE_STEP_MOTOR_OVERTIME_WAIT_TO_RUN = -14515,
+    CODE_STEP_MOTOR_LIMIT_SPEED_TO_MAX = -14516,
+    CODE_STEP_MOTOR_LIMIT_SPEED_TO_MIN = -14517,
     CODE_STEP_MOTOR_LIMIT_POSITION_WARNING = -14518,
-    CODE_STEP_MOTOR_LIMIT_POSITION_HITTED = -14519,
-    CODE_STEP_MOTOR_POSITION_NEED_RESET = -14520,
+    CODE_STEP_MOTOR_LIMIT_POSITION_HIT = -14519,
+    CODE_STEP_MOTOR_NEED_RESET = -14520,
+    CODE_STEP_MOTOR_OVERTIME_GET_PE_SWITCH_RETURN = -14521,
+    CODE_STEP_MOTOR_OVERTIME_TO_RESET = -14522,
+    CODE_STEP_MOTOR_ROLL_LIMIT_ANGLE_WARNING = -14523,
     CODE_TRACK_TRACKER_INITING = -14900,
     CODE_TRACK_TRACKER_FAILED = -14901,
+    CODE_TRACK_SENTRY_MODE_INITING = -14902,
+    CODE_TRACK_SENTRY_MODE_FAILED = -14903,
+    CODE_UFOTRACK_MODE_INITING = -14904,
+    CODE_UFO_DAY_AUTO_MODE = -14906,
     CODE_FOCUS_ASTRO_AUTO_FOCUS_SLOW_ERROR = -15100,
     CODE_FOCUS_ASTRO_AUTO_FOCUS_FAST_ERROR = -15101,
-    CODE_PANORAMA_PHOTO_FAILED = -15600,
-    CODE_PANORAMA_MOTOR_RESET_FAILED = -15601
+    CODE_FOCUS_EXP_TOO_LONG = -15106,
+    CODE_PANORAMA_MOTOR_RESET_FAILED = -15601,
+    CODE_PANORAMA_UPLOAD_USER_STOP = -15602,
+    CODE_PANORAMA_UPLOAD_FILE_CHECK_FAILED = -15603,
+    CODE_PANORAMA_UPLOAD_COMPRESS_FAILED = -15604,
+    CODE_PANORAMA_UPLOAD_UPLOAD_FAILED = -15605,
+    CODE_PANORAMA_UPLOAD_IS_RUNNING = -15607,
+    CODE_PANORAMA_UPLOAD_CAMERA_BUSY = -15608,
+    CODE_PANORAMA_UPLOAD_NOT_IN_STA = -15609,
+    CODE_PANORAMA_COMPOSE_IS_RUNNING = -15615,
+    CODE_SHOOTING_SCHEDULE_DEVICE_ID_NOT_MATCH = -16300,
+    CODE_SHOOTING_SCHEDULE_INVALID_SHOOTING_DURATION = -16301,
+    CODE_SHOOTING_SCHEDULE_TIME_CONFLICT = -16302,
+    CODE_SHOOTING_SCHEDULE_DATABASE_OPERATION_FAILED = -16305,
+    CODE_SHOOTING_SCHEDULE_PASSWORD_ERROR = -16306,
+    CODE_SHOOTING_SCHEDULE_INTERRUPTED = -16310,
+    CODE_SHOOTING_SCHEDULE_NOT_SYNCED = -16311
 }
 
 /** AstroTrackingSpecial enum. */

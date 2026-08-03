@@ -97,11 +97,12 @@ export function getFirmwareVersion(IP: string): Promise<any>;
 export function getSupportedShootingModes(IP: string): Promise<any>;
 /**
  * Get current shooting parameters and settings.
- * POST /shootingMode/getParamAndSetting with empty body.
+ * POST /shootingMode/getParamAndSetting with a shooting mode ID.
  * @param {string} IP - Device IP address
+ * @param {number} [modeId=2] - Shooting mode (2 = astronomy)
  * @returns {Promise<Object>}
  */
-export function getParamAndSetting(IP: string): Promise<any>;
+export function getParamAndSetting(IP: string, modeId?: number): Promise<any>;
 /*** --------------------------------------------------------- ***/
 /*** ------------- ALBUM MANAGEMENT -------------------------- ***/
 /*** --------------------------------------------------------- ***/
