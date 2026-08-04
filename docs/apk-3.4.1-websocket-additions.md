@@ -16,6 +16,13 @@ which were absent from this repository's command enum before the APK audit.
 The complete numeric registry is represented by `DwarfCMD` in
 `src/proto/protocol.proto`. Newly covered command groups are:
 
+The current extractor also handles enum ordinals which R8/JADX replaced with
+symbolic Android-library constants. That recovered 42 registrations skipped by
+the earlier audit and established a complete total of 356 commands. Seventeen
+previously absent numeric IDs were added to `DwarfCMD`, including wide/guide
+focus, panorama framing/upload, system activation/status, wide-camera controls,
+and sentry scene selection.
+
 | Range | Area | Newly represented IDs |
 |---|---|---|
 | 10043-10051 | Tele ISP, resolution, frame rate, crop, preview, ND | 10043-10049, 10051 |
@@ -66,6 +73,11 @@ Command 10050 has conflicting evidence:
 The existing enum name is retained to avoid a duplicate numeric protobuf enum
 entry. Consumers must select semantics based on target firmware and observed
 payload; the APK registry alone does not settle the collision.
+
+APK 3.4.1 also assigns both panorama upload progress and panorama upload
+completion to numeric command 15245. `DwarfCMD` preserves both names with
+`allow_alias`; `notifyMapping` deliberately does not guess which of the two
+protobuf payloads is present. Command 15246 is not registered by this APK.
 
 ## Safe usage
 

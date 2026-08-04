@@ -6,6 +6,16 @@ See [the API reference](docs/API_REFERENCE.md) and
 [the V3 investigation notes](tools/v3-probe/PCAP_FINDINGS.md). V3 entries are
 marked when their schema or hardware behavior is still provisional.
 
+The APK 3.4.1 audit is published in
+[`docs/apk-3.4.1-websocket-code-registry.md`](docs/apk-3.4.1-websocket-code-registry.md)
+and its machine-readable
+[`docs/apk-3.4.1-api-inventory.json`](docs/apk-3.4.1-api-inventory.json). It
+catalogues all 356 registered WebSocket commands, 123 response/error codes, 50
+Retrofit HTTP operations, request/notification protobuf evidence, and the BLE
+registry. [`docs/device-openapi.json`](docs/device-openapi.json) is the OpenAPI
+3.1 representation of the device-local HTTP surface. Registry presence proves
+app awareness, not support on every model or firmware.
+
 All three models share the V3 command family; model-specific client IDs, filters,
 sensor limits, and other hardware capabilities remain distinct. Mount calibration
 uses state notification `15210` and successful result notification `15256`

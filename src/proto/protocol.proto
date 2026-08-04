@@ -30,6 +30,8 @@ enum MessageTypeId {
 }
 
 enum DwarfCMD {
+    option allow_alias = true;
+
     NO_CMD = 0; // No Cmd
 
     CMD_CAMERA_TELE_OPEN_CAMERA = 10000; // Turn on the camera
@@ -175,17 +177,22 @@ enum DwarfCMD {
 
     CMD_CAMERA_WIDE_START_RECORD = 12030; // Start wide recording
     CMD_CAMERA_WIDE_STOP_RECORD = 12031; // Stop wide recording
+    CMD_CAMERA_WIDE_SET_RTSP_BITRATE_TYPE = 12032; // APK 3.4.1 request builder recovered
+    CMD_CAMERA_WIDE_SET_WB_SCENE = 12035; // APK 3.4.1 request builder recovered
 
     CMD_V3_CAMERA_WIDE_OPEN_CAMERA = 12036; // V3: Open/close wide camera
+    CMD_CAMERA_WIDE_SET_ND_FILTER = 12038; // APK 3.4.1 request builder recovered; schema not yet imported
 
     CMD_SYSTEM_SET_TIME = 13000; // Set the system time
     CMD_SYSTEM_SET_TIME_ZONE = 13001; // Set the time zone
     CMD_SYSTEM_SET_MTP_MODE = 13002; // Set MTP mode
     CMD_SYSTEM_SET_CPU_MODE = 13003; // Set CPU mode
     CMD_SYSTEM_SET_MASTERLOCK = 13004; // Set HOST mode
+    CMD_SYSTEM_GET_DEVICE_ACTIVATE_INFO = 13005; // APK 3.4.1 registry; hardware unverified
     CMD_SYSTEM_DEVICE_ACTIVATE_WRITE_FILE = 13006; // APK 3.4.1 registry; hardware unverified
     CMD_SYSTEM_DEVICE_ACTIVATE_NOTIFY_ACTIVATE_SUCCESSFULL = 13007; // APK 3.4.1 registry; spelling preserved
     CMD_SYSTEM_FACTORY_TEST_UN_ACTIVATE = 13008; // APK 3.4.1 registry; hardware unverified
+    CMD_SYSTEM_SET_LOW_TEMP_PROTECTION_MODE = 13009; // APK 3.4.1 registry; hardware unverified
     CMD_V3_SYSTEM_SET_GPS_LOCATION = 13010; // V3: Set GPS location
 
     CMD_RGB_POWER_OPEN_RGB = 13500; // Turn on the ring light
@@ -226,6 +233,7 @@ enum DwarfCMD {
     CMD_MOT_WIDE_TRACK_ONE = 14808; // Wide-angle: "Multi-Object Tracking" starts tracking a specific target (firmware will return an identification box and ID, confirm tracking target based on user clicks)
     CMD_WIDE_TELE_TRACK_SWITCH = 14809; // Object Detection with 30 classes for post-production non-sentinel mode. Choose between wide-angle and telephoto tracking button instructions
     CMD_UFO_HAND_AOTO_MODE = 14810; // Used for post-UFO mode selection manual or automatic
+    CMD_SENTRY_SCENE_SELECT = 14811; // APK 3.4.1 registry; hardware unverified
     CMD_TRACK_START_CLICK = 14812; // APK 3.4.1 registry; hardware unverified
 
     CMD_FOCUS_AUTO_FOCUS = 15000; // Normal mode autofocus
@@ -234,10 +242,13 @@ enum DwarfCMD {
     CMD_FOCUS_STOP_MANUAL_CONTINU_FOCUS = 15003; // Stop manual continuous focus
     CMD_FOCUS_START_ASTRO_AUTO_FOCUS = 15004; // Start astronomical autofocus
     CMD_FOCUS_STOP_ASTRO_AUTO_FOCUS = 15005; // Stop astronomical autofocus
+    CMD_FOCUS_AUTO_INFINITY_FOCUS = 15006; // APK 3.4.1 registry; hardware unverified
     CMD_V3_FOCUS_INIT = 15011; // V3: Focus init
     CMD_FOCUS_SET_USER_INFINITY_POS = 15012; // APK 3.4.1 registry; hardware unverified
+    CMD_WIDE_FOCUS_AUTO_FOCUS = 15014; // APK 3.4.1 request builder recovered
     CMD_WIDE_FOCUS_MANUAL_SINGLE_STEP_FOCUS = 15015; // APK 3.4.1 registry; hardware unverified
     CMD_WIDE_FOCUS_START_MANUAL_CONTINU_FOCUS = 15016; // APK 3.4.1 registry; hardware unverified
+    CMD_WIDE_FOCUS_STOP_MANUAL_CONTINU_FOCUS = 15017; // APK 3.4.1 request builder recovered
     CMD_WIDE_FOCUS_START_ASTRO_AUTO_FOCUS = 15018; // APK 3.4.1 registry; hardware unverified
     CMD_WIDE_FOCUS_STOP_ASTRO_AUTO_FOCUS = 15019; // APK 3.4.1 registry; hardware unverified
     CMD_WIDE_FOCUS_AUTO_INFINITY_FOCUS = 15020; // APK 3.4.1 registry; hardware unverified
@@ -246,6 +257,9 @@ enum DwarfCMD {
     CMD_GUIDE_FOCUS_MANUAL_SINGLE_STEP_FOCUS = 15029; // APK 3.4.1 registry; hardware unverified
     CMD_GUIDE_FOCUS_START_MANUAL_CONTINU_FOCUS = 15030; // APK 3.4.1 registry; hardware unverified
     CMD_GUIDE_FOCUS_STOP_MANUAL_CONTINU_FOCUS = 15031; // APK 3.4.1 registry; hardware unverified
+    CMD_GUIDE_FOCUS_START_ASTRO_AUTO_FOCUS = 15032; // APK 3.4.1 request builder recovered
+    CMD_GUIDE_FOCUS_AUTO_INFINITY_FOCUS = 15033; // APK 3.4.1 registry; hardware unverified
+    CMD_GUIDE_FOCUS_STOP_ASTRO_AUTO_FOCUS = 15034; // APK 3.4.1 request builder recovered
 
     CMD_NOTIFY_TELE_WIDI_PICTURE_MATCHING = 15200; // Telephoto wide-angle image matching
     CMD_NOTIFY_ELE = 15201; // Battery Notification
@@ -294,7 +308,7 @@ enum DwarfCMD {
     CMD_NOTIFY_TEMPERATURE = 15243; // Movement temperature
     CMD_NOTIFY_PANORAMA_UPLOAD_COMPRESS_PROGRESS = 15244; // 
     CMD_NOTIFY_PANORAMA_UPLOAD_UPLOAD_PROGRESS = 15245; // 
-    CMD_NOTIFY_PANORAMA_UPLOAD_COMPLETE = 15246; // 
+    CMD_NOTIFY_PANORAMA_UPLOAD_COMPLETE = 15245; // APK 3.4.1 aliases upload progress and completion to the same ID
     CMD_NOTIFY_STATE_CAPTURE_WIDE_RAW_DARK = 15247; // Wide-angle dark field shooting state
     CMD_NOTIFY_SHOOTING_SCHEDULE_RESULT_AND_STATE = 15248; // 
     CMD_NOTIFY_SHOOTING_TASK_STATE = 15249; // 
@@ -347,6 +361,9 @@ enum DwarfCMD {
     CMD_NOTIFY_PANORAMA_COMPRESS_COMPLETE = 15294; // APK 3.4.1 registry; hardware unverified
     CMD_NOTIFY_DEVICE_ATTITUDE = 15295; // APK 3.4.1 registry; hardware unverified
     CMD_V3_NOTIFY_OBSERVATION_STATE = 15296; // V3: Observation state
+    CMD_NOTIFY_PANO_FRAMING_RECT_UPDATE = 15297; // APK 3.4.1 registry; hardware unverified
+    CMD_NOTIFY_PANO_FRAMING_THUMBNAIL_UPDATE = 15298; // APK 3.4.1 registry; hardware unverified
+    CMD_NOTIFY_PANO_FRAMING_STATE = 15299; // APK 3.4.1 registry; hardware unverified
     CMD_NOTIFY_WIDE_FOCUS_POSITION = 15300; // APK 3.4.1 registry; hardware unverified
     CMD_NOTIFY_LENS_DEFOG_STATE = 15301; // APK 3.4.1 registry; hardware unverified
     CMD_NOTIFY_AUTO_COOLING_STATE = 15302; // APK 3.4.1 registry; hardware unverified
@@ -357,6 +374,8 @@ enum DwarfCMD {
     CMD_PANORAMA_START_GRID = 15500; // Start panorama
     CMD_PANORAMA_STOP = 15501; // Stop panorama
     CMD_PANORAMA_START_EULER_RANGE = 15502; // Start panorama Euler Range
+    CMD_PANORAMA_START_STITCH_UPLOAD = 15503; // APK 3.4.1 request builder recovered
+    CMD_PANORAMA_STOP_STITCH_UPLOAD = 15504; // APK 3.4.1 request builder recovered
     CMD_PANORAMA_GET_CURRENT_UPLOAD_STATE = 15505; // APK 3.4.1 registry; hardware unverified
     CMD_PANORAMA_GET_UPLOAD_PREDICT = 15506; // APK 3.4.1 request builder recovered
     CMD_PANORAMA_START_COMPRESS = 15507; // APK 3.4.1 request builder recovered

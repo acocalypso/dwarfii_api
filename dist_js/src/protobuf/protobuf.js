@@ -16308,6 +16308,290 @@ $root.ResCheckFile = (function () {
   return ResCheckFile;
 })();
 
+$root.ReqSetExposure = (function () {
+  /**
+   * Properties of a ReqSetExposure.
+   * @exports IReqSetExposure
+   * @interface IReqSetExposure
+   * @property {number|Long|null} [paramId] ReqSetExposure paramId
+   * @property {number|null} [mode] ReqSetExposure mode
+   * @property {number|null} [value] ReqSetExposure value
+   */
+
+  /**
+   * Constructs a new ReqSetExposure.
+   * @exports ReqSetExposure
+   * @classdesc Represents a ReqSetExposure.
+   * @implements IReqSetExposure
+   * @constructor
+   * @param {IReqSetExposure=} [properties] Properties to set
+   */
+  function ReqSetExposure(properties) {
+    if (properties)
+      for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+        if (properties[keys[i]] != null) this[keys[i]] = properties[keys[i]];
+  }
+
+  /**
+   * ReqSetExposure paramId.
+   * @member {number|Long} paramId
+   * @memberof ReqSetExposure
+   * @instance
+   */
+  ReqSetExposure.prototype.paramId = $util.Long
+    ? $util.Long.fromBits(0, 0, true)
+    : 0;
+
+  /**
+   * ReqSetExposure mode.
+   * @member {number} mode
+   * @memberof ReqSetExposure
+   * @instance
+   */
+  ReqSetExposure.prototype.mode = 0;
+
+  /**
+   * ReqSetExposure value.
+   * @member {number} value
+   * @memberof ReqSetExposure
+   * @instance
+   */
+  ReqSetExposure.prototype.value = 0;
+
+  /**
+   * Creates a new ReqSetExposure instance using the specified properties.
+   * @function create
+   * @memberof ReqSetExposure
+   * @static
+   * @param {IReqSetExposure=} [properties] Properties to set
+   * @returns {ReqSetExposure} ReqSetExposure instance
+   */
+  ReqSetExposure.create = function create(properties) {
+    return new ReqSetExposure(properties);
+  };
+
+  /**
+   * Encodes the specified ReqSetExposure message. Does not implicitly {@link ReqSetExposure.verify|verify} messages.
+   * @function encode
+   * @memberof ReqSetExposure
+   * @static
+   * @param {IReqSetExposure} message ReqSetExposure message or plain object to encode
+   * @param {$protobuf.Writer} [writer] Writer to encode to
+   * @returns {$protobuf.Writer} Writer
+   */
+  ReqSetExposure.encode = function encode(message, writer) {
+    if (!writer) writer = $Writer.create();
+    if (
+      message.paramId != null &&
+      Object.hasOwnProperty.call(message, "paramId")
+    )
+      writer.uint32(/* id 1, wireType 0 =*/ 8).uint64(message.paramId);
+    if (message.mode != null && Object.hasOwnProperty.call(message, "mode"))
+      writer.uint32(/* id 2, wireType 0 =*/ 16).int32(message.mode);
+    if (message.value != null && Object.hasOwnProperty.call(message, "value"))
+      writer.uint32(/* id 3, wireType 0 =*/ 24).int32(message.value);
+    return writer;
+  };
+
+  /**
+   * Encodes the specified ReqSetExposure message, length delimited. Does not implicitly {@link ReqSetExposure.verify|verify} messages.
+   * @function encodeDelimited
+   * @memberof ReqSetExposure
+   * @static
+   * @param {IReqSetExposure} message ReqSetExposure message or plain object to encode
+   * @param {$protobuf.Writer} [writer] Writer to encode to
+   * @returns {$protobuf.Writer} Writer
+   */
+  ReqSetExposure.encodeDelimited = function encodeDelimited(message, writer) {
+    return this.encode(message, writer).ldelim();
+  };
+
+  /**
+   * Decodes a ReqSetExposure message from the specified reader or buffer.
+   * @function decode
+   * @memberof ReqSetExposure
+   * @static
+   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+   * @param {number} [length] Message length if known beforehand
+   * @returns {ReqSetExposure} ReqSetExposure
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  ReqSetExposure.decode = function decode(reader, length) {
+    if (!(reader instanceof $Reader)) reader = $Reader.create(reader);
+    var end = length === undefined ? reader.len : reader.pos + length,
+      message = new $root.ReqSetExposure();
+    while (reader.pos < end) {
+      var tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          message.paramId = reader.uint64();
+          break;
+        }
+        case 2: {
+          message.mode = reader.int32();
+          break;
+        }
+        case 3: {
+          message.value = reader.int32();
+          break;
+        }
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  };
+
+  /**
+   * Decodes a ReqSetExposure message from the specified reader or buffer, length delimited.
+   * @function decodeDelimited
+   * @memberof ReqSetExposure
+   * @static
+   * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+   * @returns {ReqSetExposure} ReqSetExposure
+   * @throws {Error} If the payload is not a reader or valid buffer
+   * @throws {$protobuf.util.ProtocolError} If required fields are missing
+   */
+  ReqSetExposure.decodeDelimited = function decodeDelimited(reader) {
+    if (!(reader instanceof $Reader)) reader = new $Reader(reader);
+    return this.decode(reader, reader.uint32());
+  };
+
+  /**
+   * Verifies a ReqSetExposure message.
+   * @function verify
+   * @memberof ReqSetExposure
+   * @static
+   * @param {Object.<string,*>} message Plain object to verify
+   * @returns {string|null} `null` if valid, otherwise the reason why it is not
+   */
+  ReqSetExposure.verify = function verify(message) {
+    if (typeof message !== "object" || message === null)
+      return "object expected";
+    if (message.paramId != null && message.hasOwnProperty("paramId"))
+      if (
+        !$util.isInteger(message.paramId) &&
+        !(
+          message.paramId &&
+          $util.isInteger(message.paramId.low) &&
+          $util.isInteger(message.paramId.high)
+        )
+      )
+        return "paramId: integer|Long expected";
+    if (message.mode != null && message.hasOwnProperty("mode"))
+      if (!$util.isInteger(message.mode)) return "mode: integer expected";
+    if (message.value != null && message.hasOwnProperty("value"))
+      if (!$util.isInteger(message.value)) return "value: integer expected";
+    return null;
+  };
+
+  /**
+   * Creates a ReqSetExposure message from a plain object. Also converts values to their respective internal types.
+   * @function fromObject
+   * @memberof ReqSetExposure
+   * @static
+   * @param {Object.<string,*>} object Plain object
+   * @returns {ReqSetExposure} ReqSetExposure
+   */
+  ReqSetExposure.fromObject = function fromObject(object) {
+    if (object instanceof $root.ReqSetExposure) return object;
+    var message = new $root.ReqSetExposure();
+    if (object.paramId != null)
+      if ($util.Long)
+        (message.paramId = $util.Long.fromValue(
+          object.paramId
+        )).unsigned = true;
+      else if (typeof object.paramId === "string")
+        message.paramId = parseInt(object.paramId, 10);
+      else if (typeof object.paramId === "number")
+        message.paramId = object.paramId;
+      else if (typeof object.paramId === "object")
+        message.paramId = new $util.LongBits(
+          object.paramId.low >>> 0,
+          object.paramId.high >>> 0
+        ).toNumber(true);
+    if (object.mode != null) message.mode = object.mode | 0;
+    if (object.value != null) message.value = object.value | 0;
+    return message;
+  };
+
+  /**
+   * Creates a plain object from a ReqSetExposure message. Also converts values to other types if specified.
+   * @function toObject
+   * @memberof ReqSetExposure
+   * @static
+   * @param {ReqSetExposure} message ReqSetExposure
+   * @param {$protobuf.IConversionOptions} [options] Conversion options
+   * @returns {Object.<string,*>} Plain object
+   */
+  ReqSetExposure.toObject = function toObject(message, options) {
+    if (!options) options = {};
+    var object = {};
+    if (options.defaults) {
+      if ($util.Long) {
+        var long = new $util.Long(0, 0, true);
+        object.paramId =
+          options.longs === String
+            ? long.toString()
+            : options.longs === Number
+            ? long.toNumber()
+            : long;
+      } else object.paramId = options.longs === String ? "0" : 0;
+      object.mode = 0;
+      object.value = 0;
+    }
+    if (message.paramId != null && message.hasOwnProperty("paramId"))
+      if (typeof message.paramId === "number")
+        object.paramId =
+          options.longs === String ? String(message.paramId) : message.paramId;
+      else
+        object.paramId =
+          options.longs === String
+            ? $util.Long.prototype.toString.call(message.paramId)
+            : options.longs === Number
+            ? new $util.LongBits(
+                message.paramId.low >>> 0,
+                message.paramId.high >>> 0
+              ).toNumber(true)
+            : message.paramId;
+    if (message.mode != null && message.hasOwnProperty("mode"))
+      object.mode = message.mode;
+    if (message.value != null && message.hasOwnProperty("value"))
+      object.value = message.value;
+    return object;
+  };
+
+  /**
+   * Converts this ReqSetExposure to JSON.
+   * @function toJSON
+   * @memberof ReqSetExposure
+   * @instance
+   * @returns {Object.<string,*>} JSON object
+   */
+  ReqSetExposure.prototype.toJSON = function toJSON() {
+    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+  };
+
+  /**
+   * Gets the default type url for ReqSetExposure
+   * @function getTypeUrl
+   * @memberof ReqSetExposure
+   * @static
+   * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+   * @returns {string} The default type url
+   */
+  ReqSetExposure.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+    if (typeUrlPrefix === undefined) {
+      typeUrlPrefix = "type.googleapis.com";
+    }
+    return typeUrlPrefix + "/ReqSetExposure";
+  };
+
+  return ReqSetExposure;
+})();
+
 $root.V3ReqSetCameraParam = (function () {
   /**
    * Properties of a V3ReqSetCameraParam.
@@ -46935,15 +47219,20 @@ $root.MessageTypeId = (function () {
  * @property {number} CMD_CAMERA_WIDE_PHOTO_RAW=12029 CMD_CAMERA_WIDE_PHOTO_RAW value
  * @property {number} CMD_CAMERA_WIDE_START_RECORD=12030 CMD_CAMERA_WIDE_START_RECORD value
  * @property {number} CMD_CAMERA_WIDE_STOP_RECORD=12031 CMD_CAMERA_WIDE_STOP_RECORD value
+ * @property {number} CMD_CAMERA_WIDE_SET_RTSP_BITRATE_TYPE=12032 CMD_CAMERA_WIDE_SET_RTSP_BITRATE_TYPE value
+ * @property {number} CMD_CAMERA_WIDE_SET_WB_SCENE=12035 CMD_CAMERA_WIDE_SET_WB_SCENE value
  * @property {number} CMD_V3_CAMERA_WIDE_OPEN_CAMERA=12036 CMD_V3_CAMERA_WIDE_OPEN_CAMERA value
+ * @property {number} CMD_CAMERA_WIDE_SET_ND_FILTER=12038 CMD_CAMERA_WIDE_SET_ND_FILTER value
  * @property {number} CMD_SYSTEM_SET_TIME=13000 CMD_SYSTEM_SET_TIME value
  * @property {number} CMD_SYSTEM_SET_TIME_ZONE=13001 CMD_SYSTEM_SET_TIME_ZONE value
  * @property {number} CMD_SYSTEM_SET_MTP_MODE=13002 CMD_SYSTEM_SET_MTP_MODE value
  * @property {number} CMD_SYSTEM_SET_CPU_MODE=13003 CMD_SYSTEM_SET_CPU_MODE value
  * @property {number} CMD_SYSTEM_SET_MASTERLOCK=13004 CMD_SYSTEM_SET_MASTERLOCK value
+ * @property {number} CMD_SYSTEM_GET_DEVICE_ACTIVATE_INFO=13005 CMD_SYSTEM_GET_DEVICE_ACTIVATE_INFO value
  * @property {number} CMD_SYSTEM_DEVICE_ACTIVATE_WRITE_FILE=13006 CMD_SYSTEM_DEVICE_ACTIVATE_WRITE_FILE value
  * @property {number} CMD_SYSTEM_DEVICE_ACTIVATE_NOTIFY_ACTIVATE_SUCCESSFULL=13007 CMD_SYSTEM_DEVICE_ACTIVATE_NOTIFY_ACTIVATE_SUCCESSFULL value
  * @property {number} CMD_SYSTEM_FACTORY_TEST_UN_ACTIVATE=13008 CMD_SYSTEM_FACTORY_TEST_UN_ACTIVATE value
+ * @property {number} CMD_SYSTEM_SET_LOW_TEMP_PROTECTION_MODE=13009 CMD_SYSTEM_SET_LOW_TEMP_PROTECTION_MODE value
  * @property {number} CMD_V3_SYSTEM_SET_GPS_LOCATION=13010 CMD_V3_SYSTEM_SET_GPS_LOCATION value
  * @property {number} CMD_RGB_POWER_OPEN_RGB=13500 CMD_RGB_POWER_OPEN_RGB value
  * @property {number} CMD_RGB_POWER_CLOSE_RGB=13501 CMD_RGB_POWER_CLOSE_RGB value
@@ -46979,6 +47268,7 @@ $root.MessageTypeId = (function () {
  * @property {number} CMD_MOT_WIDE_TRACK_ONE=14808 CMD_MOT_WIDE_TRACK_ONE value
  * @property {number} CMD_WIDE_TELE_TRACK_SWITCH=14809 CMD_WIDE_TELE_TRACK_SWITCH value
  * @property {number} CMD_UFO_HAND_AOTO_MODE=14810 CMD_UFO_HAND_AOTO_MODE value
+ * @property {number} CMD_SENTRY_SCENE_SELECT=14811 CMD_SENTRY_SCENE_SELECT value
  * @property {number} CMD_TRACK_START_CLICK=14812 CMD_TRACK_START_CLICK value
  * @property {number} CMD_FOCUS_AUTO_FOCUS=15000 CMD_FOCUS_AUTO_FOCUS value
  * @property {number} CMD_FOCUS_MANUAL_SINGLE_STEP_FOCUS=15001 CMD_FOCUS_MANUAL_SINGLE_STEP_FOCUS value
@@ -46986,10 +47276,13 @@ $root.MessageTypeId = (function () {
  * @property {number} CMD_FOCUS_STOP_MANUAL_CONTINU_FOCUS=15003 CMD_FOCUS_STOP_MANUAL_CONTINU_FOCUS value
  * @property {number} CMD_FOCUS_START_ASTRO_AUTO_FOCUS=15004 CMD_FOCUS_START_ASTRO_AUTO_FOCUS value
  * @property {number} CMD_FOCUS_STOP_ASTRO_AUTO_FOCUS=15005 CMD_FOCUS_STOP_ASTRO_AUTO_FOCUS value
+ * @property {number} CMD_FOCUS_AUTO_INFINITY_FOCUS=15006 CMD_FOCUS_AUTO_INFINITY_FOCUS value
  * @property {number} CMD_V3_FOCUS_INIT=15011 CMD_V3_FOCUS_INIT value
  * @property {number} CMD_FOCUS_SET_USER_INFINITY_POS=15012 CMD_FOCUS_SET_USER_INFINITY_POS value
+ * @property {number} CMD_WIDE_FOCUS_AUTO_FOCUS=15014 CMD_WIDE_FOCUS_AUTO_FOCUS value
  * @property {number} CMD_WIDE_FOCUS_MANUAL_SINGLE_STEP_FOCUS=15015 CMD_WIDE_FOCUS_MANUAL_SINGLE_STEP_FOCUS value
  * @property {number} CMD_WIDE_FOCUS_START_MANUAL_CONTINU_FOCUS=15016 CMD_WIDE_FOCUS_START_MANUAL_CONTINU_FOCUS value
+ * @property {number} CMD_WIDE_FOCUS_STOP_MANUAL_CONTINU_FOCUS=15017 CMD_WIDE_FOCUS_STOP_MANUAL_CONTINU_FOCUS value
  * @property {number} CMD_WIDE_FOCUS_START_ASTRO_AUTO_FOCUS=15018 CMD_WIDE_FOCUS_START_ASTRO_AUTO_FOCUS value
  * @property {number} CMD_WIDE_FOCUS_STOP_ASTRO_AUTO_FOCUS=15019 CMD_WIDE_FOCUS_STOP_ASTRO_AUTO_FOCUS value
  * @property {number} CMD_WIDE_FOCUS_AUTO_INFINITY_FOCUS=15020 CMD_WIDE_FOCUS_AUTO_INFINITY_FOCUS value
@@ -46998,6 +47291,9 @@ $root.MessageTypeId = (function () {
  * @property {number} CMD_GUIDE_FOCUS_MANUAL_SINGLE_STEP_FOCUS=15029 CMD_GUIDE_FOCUS_MANUAL_SINGLE_STEP_FOCUS value
  * @property {number} CMD_GUIDE_FOCUS_START_MANUAL_CONTINU_FOCUS=15030 CMD_GUIDE_FOCUS_START_MANUAL_CONTINU_FOCUS value
  * @property {number} CMD_GUIDE_FOCUS_STOP_MANUAL_CONTINU_FOCUS=15031 CMD_GUIDE_FOCUS_STOP_MANUAL_CONTINU_FOCUS value
+ * @property {number} CMD_GUIDE_FOCUS_START_ASTRO_AUTO_FOCUS=15032 CMD_GUIDE_FOCUS_START_ASTRO_AUTO_FOCUS value
+ * @property {number} CMD_GUIDE_FOCUS_AUTO_INFINITY_FOCUS=15033 CMD_GUIDE_FOCUS_AUTO_INFINITY_FOCUS value
+ * @property {number} CMD_GUIDE_FOCUS_STOP_ASTRO_AUTO_FOCUS=15034 CMD_GUIDE_FOCUS_STOP_ASTRO_AUTO_FOCUS value
  * @property {number} CMD_NOTIFY_TELE_WIDI_PICTURE_MATCHING=15200 CMD_NOTIFY_TELE_WIDI_PICTURE_MATCHING value
  * @property {number} CMD_NOTIFY_ELE=15201 CMD_NOTIFY_ELE value
  * @property {number} CMD_NOTIFY_CHARGE=15202 CMD_NOTIFY_CHARGE value
@@ -47044,7 +47340,7 @@ $root.MessageTypeId = (function () {
  * @property {number} CMD_NOTIFY_TEMPERATURE=15243 CMD_NOTIFY_TEMPERATURE value
  * @property {number} CMD_NOTIFY_PANORAMA_UPLOAD_COMPRESS_PROGRESS=15244 CMD_NOTIFY_PANORAMA_UPLOAD_COMPRESS_PROGRESS value
  * @property {number} CMD_NOTIFY_PANORAMA_UPLOAD_UPLOAD_PROGRESS=15245 CMD_NOTIFY_PANORAMA_UPLOAD_UPLOAD_PROGRESS value
- * @property {number} CMD_NOTIFY_PANORAMA_UPLOAD_COMPLETE=15246 CMD_NOTIFY_PANORAMA_UPLOAD_COMPLETE value
+ * @property {number} CMD_NOTIFY_PANORAMA_UPLOAD_COMPLETE=15245 CMD_NOTIFY_PANORAMA_UPLOAD_COMPLETE value
  * @property {number} CMD_NOTIFY_STATE_CAPTURE_WIDE_RAW_DARK=15247 CMD_NOTIFY_STATE_CAPTURE_WIDE_RAW_DARK value
  * @property {number} CMD_NOTIFY_SHOOTING_SCHEDULE_RESULT_AND_STATE=15248 CMD_NOTIFY_SHOOTING_SCHEDULE_RESULT_AND_STATE value
  * @property {number} CMD_NOTIFY_SHOOTING_TASK_STATE=15249 CMD_NOTIFY_SHOOTING_TASK_STATE value
@@ -47095,6 +47391,9 @@ $root.MessageTypeId = (function () {
  * @property {number} CMD_NOTIFY_PANORAMA_COMPRESS_COMPLETE=15294 CMD_NOTIFY_PANORAMA_COMPRESS_COMPLETE value
  * @property {number} CMD_NOTIFY_DEVICE_ATTITUDE=15295 CMD_NOTIFY_DEVICE_ATTITUDE value
  * @property {number} CMD_V3_NOTIFY_OBSERVATION_STATE=15296 CMD_V3_NOTIFY_OBSERVATION_STATE value
+ * @property {number} CMD_NOTIFY_PANO_FRAMING_RECT_UPDATE=15297 CMD_NOTIFY_PANO_FRAMING_RECT_UPDATE value
+ * @property {number} CMD_NOTIFY_PANO_FRAMING_THUMBNAIL_UPDATE=15298 CMD_NOTIFY_PANO_FRAMING_THUMBNAIL_UPDATE value
+ * @property {number} CMD_NOTIFY_PANO_FRAMING_STATE=15299 CMD_NOTIFY_PANO_FRAMING_STATE value
  * @property {number} CMD_NOTIFY_WIDE_FOCUS_POSITION=15300 CMD_NOTIFY_WIDE_FOCUS_POSITION value
  * @property {number} CMD_NOTIFY_LENS_DEFOG_STATE=15301 CMD_NOTIFY_LENS_DEFOG_STATE value
  * @property {number} CMD_NOTIFY_AUTO_COOLING_STATE=15302 CMD_NOTIFY_AUTO_COOLING_STATE value
@@ -47104,6 +47403,8 @@ $root.MessageTypeId = (function () {
  * @property {number} CMD_PANORAMA_START_GRID=15500 CMD_PANORAMA_START_GRID value
  * @property {number} CMD_PANORAMA_STOP=15501 CMD_PANORAMA_STOP value
  * @property {number} CMD_PANORAMA_START_EULER_RANGE=15502 CMD_PANORAMA_START_EULER_RANGE value
+ * @property {number} CMD_PANORAMA_START_STITCH_UPLOAD=15503 CMD_PANORAMA_START_STITCH_UPLOAD value
+ * @property {number} CMD_PANORAMA_STOP_STITCH_UPLOAD=15504 CMD_PANORAMA_STOP_STITCH_UPLOAD value
  * @property {number} CMD_PANORAMA_GET_CURRENT_UPLOAD_STATE=15505 CMD_PANORAMA_GET_CURRENT_UPLOAD_STATE value
  * @property {number} CMD_PANORAMA_GET_UPLOAD_PREDICT=15506 CMD_PANORAMA_GET_UPLOAD_PREDICT value
  * @property {number} CMD_PANORAMA_START_COMPRESS=15507 CMD_PANORAMA_START_COMPRESS value
@@ -47314,18 +47615,25 @@ $root.DwarfCMD = (function () {
   values[(valuesById[12029] = "CMD_CAMERA_WIDE_PHOTO_RAW")] = 12029;
   values[(valuesById[12030] = "CMD_CAMERA_WIDE_START_RECORD")] = 12030;
   values[(valuesById[12031] = "CMD_CAMERA_WIDE_STOP_RECORD")] = 12031;
+  values[(valuesById[12032] = "CMD_CAMERA_WIDE_SET_RTSP_BITRATE_TYPE")] = 12032;
+  values[(valuesById[12035] = "CMD_CAMERA_WIDE_SET_WB_SCENE")] = 12035;
   values[(valuesById[12036] = "CMD_V3_CAMERA_WIDE_OPEN_CAMERA")] = 12036;
+  values[(valuesById[12038] = "CMD_CAMERA_WIDE_SET_ND_FILTER")] = 12038;
   values[(valuesById[13000] = "CMD_SYSTEM_SET_TIME")] = 13000;
   values[(valuesById[13001] = "CMD_SYSTEM_SET_TIME_ZONE")] = 13001;
   values[(valuesById[13002] = "CMD_SYSTEM_SET_MTP_MODE")] = 13002;
   values[(valuesById[13003] = "CMD_SYSTEM_SET_CPU_MODE")] = 13003;
   values[(valuesById[13004] = "CMD_SYSTEM_SET_MASTERLOCK")] = 13004;
+  values[(valuesById[13005] = "CMD_SYSTEM_GET_DEVICE_ACTIVATE_INFO")] = 13005;
   values[(valuesById[13006] = "CMD_SYSTEM_DEVICE_ACTIVATE_WRITE_FILE")] = 13006;
   values[
     (valuesById[13007] =
       "CMD_SYSTEM_DEVICE_ACTIVATE_NOTIFY_ACTIVATE_SUCCESSFULL")
   ] = 13007;
   values[(valuesById[13008] = "CMD_SYSTEM_FACTORY_TEST_UN_ACTIVATE")] = 13008;
+  values[
+    (valuesById[13009] = "CMD_SYSTEM_SET_LOW_TEMP_PROTECTION_MODE")
+  ] = 13009;
   values[(valuesById[13010] = "CMD_V3_SYSTEM_SET_GPS_LOCATION")] = 13010;
   values[(valuesById[13500] = "CMD_RGB_POWER_OPEN_RGB")] = 13500;
   values[(valuesById[13501] = "CMD_RGB_POWER_CLOSE_RGB")] = 13501;
@@ -47369,6 +47677,7 @@ $root.DwarfCMD = (function () {
   values[(valuesById[14808] = "CMD_MOT_WIDE_TRACK_ONE")] = 14808;
   values[(valuesById[14809] = "CMD_WIDE_TELE_TRACK_SWITCH")] = 14809;
   values[(valuesById[14810] = "CMD_UFO_HAND_AOTO_MODE")] = 14810;
+  values[(valuesById[14811] = "CMD_SENTRY_SCENE_SELECT")] = 14811;
   values[(valuesById[14812] = "CMD_TRACK_START_CLICK")] = 14812;
   values[(valuesById[15000] = "CMD_FOCUS_AUTO_FOCUS")] = 15000;
   values[(valuesById[15001] = "CMD_FOCUS_MANUAL_SINGLE_STEP_FOCUS")] = 15001;
@@ -47376,14 +47685,19 @@ $root.DwarfCMD = (function () {
   values[(valuesById[15003] = "CMD_FOCUS_STOP_MANUAL_CONTINU_FOCUS")] = 15003;
   values[(valuesById[15004] = "CMD_FOCUS_START_ASTRO_AUTO_FOCUS")] = 15004;
   values[(valuesById[15005] = "CMD_FOCUS_STOP_ASTRO_AUTO_FOCUS")] = 15005;
+  values[(valuesById[15006] = "CMD_FOCUS_AUTO_INFINITY_FOCUS")] = 15006;
   values[(valuesById[15011] = "CMD_V3_FOCUS_INIT")] = 15011;
   values[(valuesById[15012] = "CMD_FOCUS_SET_USER_INFINITY_POS")] = 15012;
+  values[(valuesById[15014] = "CMD_WIDE_FOCUS_AUTO_FOCUS")] = 15014;
   values[
     (valuesById[15015] = "CMD_WIDE_FOCUS_MANUAL_SINGLE_STEP_FOCUS")
   ] = 15015;
   values[
     (valuesById[15016] = "CMD_WIDE_FOCUS_START_MANUAL_CONTINU_FOCUS")
   ] = 15016;
+  values[
+    (valuesById[15017] = "CMD_WIDE_FOCUS_STOP_MANUAL_CONTINU_FOCUS")
+  ] = 15017;
   values[(valuesById[15018] = "CMD_WIDE_FOCUS_START_ASTRO_AUTO_FOCUS")] = 15018;
   values[(valuesById[15019] = "CMD_WIDE_FOCUS_STOP_ASTRO_AUTO_FOCUS")] = 15019;
   values[(valuesById[15020] = "CMD_WIDE_FOCUS_AUTO_INFINITY_FOCUS")] = 15020;
@@ -47398,6 +47712,11 @@ $root.DwarfCMD = (function () {
   values[
     (valuesById[15031] = "CMD_GUIDE_FOCUS_STOP_MANUAL_CONTINU_FOCUS")
   ] = 15031;
+  values[
+    (valuesById[15032] = "CMD_GUIDE_FOCUS_START_ASTRO_AUTO_FOCUS")
+  ] = 15032;
+  values[(valuesById[15033] = "CMD_GUIDE_FOCUS_AUTO_INFINITY_FOCUS")] = 15033;
+  values[(valuesById[15034] = "CMD_GUIDE_FOCUS_STOP_ASTRO_AUTO_FOCUS")] = 15034;
   values[(valuesById[15200] = "CMD_NOTIFY_TELE_WIDI_PICTURE_MATCHING")] = 15200;
   values[(valuesById[15201] = "CMD_NOTIFY_ELE")] = 15201;
   values[(valuesById[15202] = "CMD_NOTIFY_CHARGE")] = 15202;
@@ -47458,7 +47777,7 @@ $root.DwarfCMD = (function () {
   values[
     (valuesById[15245] = "CMD_NOTIFY_PANORAMA_UPLOAD_UPLOAD_PROGRESS")
   ] = 15245;
-  values[(valuesById[15246] = "CMD_NOTIFY_PANORAMA_UPLOAD_COMPLETE")] = 15246;
+  values["CMD_NOTIFY_PANORAMA_UPLOAD_COMPLETE"] = 15245;
   values[
     (valuesById[15247] = "CMD_NOTIFY_STATE_CAPTURE_WIDE_RAW_DARK")
   ] = 15247;
@@ -47515,6 +47834,11 @@ $root.DwarfCMD = (function () {
   values[(valuesById[15294] = "CMD_NOTIFY_PANORAMA_COMPRESS_COMPLETE")] = 15294;
   values[(valuesById[15295] = "CMD_NOTIFY_DEVICE_ATTITUDE")] = 15295;
   values[(valuesById[15296] = "CMD_V3_NOTIFY_OBSERVATION_STATE")] = 15296;
+  values[(valuesById[15297] = "CMD_NOTIFY_PANO_FRAMING_RECT_UPDATE")] = 15297;
+  values[
+    (valuesById[15298] = "CMD_NOTIFY_PANO_FRAMING_THUMBNAIL_UPDATE")
+  ] = 15298;
+  values[(valuesById[15299] = "CMD_NOTIFY_PANO_FRAMING_STATE")] = 15299;
   values[(valuesById[15300] = "CMD_NOTIFY_WIDE_FOCUS_POSITION")] = 15300;
   values[(valuesById[15301] = "CMD_NOTIFY_LENS_DEFOG_STATE")] = 15301;
   values[(valuesById[15302] = "CMD_NOTIFY_AUTO_COOLING_STATE")] = 15302;
@@ -47526,6 +47850,8 @@ $root.DwarfCMD = (function () {
   values[(valuesById[15500] = "CMD_PANORAMA_START_GRID")] = 15500;
   values[(valuesById[15501] = "CMD_PANORAMA_STOP")] = 15501;
   values[(valuesById[15502] = "CMD_PANORAMA_START_EULER_RANGE")] = 15502;
+  values[(valuesById[15503] = "CMD_PANORAMA_START_STITCH_UPLOAD")] = 15503;
+  values[(valuesById[15504] = "CMD_PANORAMA_STOP_STITCH_UPLOAD")] = 15504;
   values[(valuesById[15505] = "CMD_PANORAMA_GET_CURRENT_UPLOAD_STATE")] = 15505;
   values[(valuesById[15506] = "CMD_PANORAMA_GET_UPLOAD_PREDICT")] = 15506;
   values[(valuesById[15507] = "CMD_PANORAMA_START_COMPRESS")] = 15507;
@@ -47576,18 +47902,32 @@ $root.DwarfCMD = (function () {
  * @exports DwarfErrorCode
  * @enum {number}
  * @property {number} OK=0 OK value
+ * @property {number} WS_OK=0 WS_OK value
  * @property {number} WS_PARSE_PROTOBUF_ERROR=-1 WS_PARSE_PROTOBUF_ERROR value
  * @property {number} WS_SDCARD_NOT_EXIST=-2 WS_SDCARD_NOT_EXIST value
- * @property {number} WS_INVALID_PARAM=-3 WS_INVALID_PARAM value
+ * @property {number} WS_INVAID_PARAM=-3 WS_INVAID_PARAM value
  * @property {number} WS_SDCARD_WRITE_ERROR=-4 WS_SDCARD_WRITE_ERROR value
+ * @property {number} WS_DEVICE_NOT_ACTIVATED=-5 WS_DEVICE_NOT_ACTIVATED value
+ * @property {number} WS_SDCARD_FULL_ERROR=-6 WS_SDCARD_FULL_ERROR value
  * @property {number} CODE_CAMERA_TELE_OPENED=-10500 CODE_CAMERA_TELE_OPENED value
  * @property {number} CODE_CAMERA_TELE_CLOSED=-10501 CODE_CAMERA_TELE_CLOSED value
  * @property {number} CODE_CAMERA_TELE_ISP_SET_FAILED=-10502 CODE_CAMERA_TELE_ISP_SET_FAILED value
- * @property {number} CODE_CAMERA_TELE_OPEN_FAILED=-10504 CODE_CAMERA_TELE_OPEN_FAILED value
- * @property {number} CODE_CAMERA_TELE_RECORDING=-10506 CODE_CAMERA_TELE_RECORDING value
- * @property {number} CODE_CAMERA_TELE_WORKING_BUSY_STACK=-10507 CODE_CAMERA_TELE_WORKING_BUSY_STACK value
- * @property {number} CODE_CAMERA_TELE_CAPTURE_RAW_FAILED=-10510 CODE_CAMERA_TELE_CAPTURE_RAW_FAILED value
- * @property {number} CODE_CAMERA_TELE_WORKING_BUSY=-10511 CODE_CAMERA_TELE_WORKING_BUSY value
+ * @property {number} CODE_CAMERA_TELE_OPEN_FAILED=-10503 CODE_CAMERA_TELE_OPEN_FAILED value
+ * @property {number} CODE_CAMERA_TELE_START_RECORD_FAILED=-10504 CODE_CAMERA_TELE_START_RECORD_FAILED value
+ * @property {number} CODE_CAMERA_TELE_STOP_RECORD_FAILED=-10505 CODE_CAMERA_TELE_STOP_RECORD_FAILED value
+ * @property {number} CODE_CAMERA_TELE_CAPTURE_RAW_FAILED=-10506 CODE_CAMERA_TELE_CAPTURE_RAW_FAILED value
+ * @property {number} CODE_CAMERA_TELE_WORKING_BUSY=-10507 CODE_CAMERA_TELE_WORKING_BUSY value
+ * @property {number} CODE_CAMERA_TELE_GET_IMAGE_FAILED=-10508 CODE_CAMERA_TELE_GET_IMAGE_FAILED value
+ * @property {number} CODE_CAMERA_TELE_RUNNING_PHOTO=-10509 CODE_CAMERA_TELE_RUNNING_PHOTO value
+ * @property {number} CODE_CAMERA_TELE_RUNNING_RECORD=-10510 CODE_CAMERA_TELE_RUNNING_RECORD value
+ * @property {number} CODE_CAMERA_TELE_RUNNING_PANORAMA=-10511 CODE_CAMERA_TELE_RUNNING_PANORAMA value
+ * @property {number} CODE_CAMERA_TELE_RUNNING_TIMELAPSE=-10512 CODE_CAMERA_TELE_RUNNING_TIMELAPSE value
+ * @property {number} CODE_CAMERA_TELE_RUNNING_CAPTURE_DARK=-10513 CODE_CAMERA_TELE_RUNNING_CAPTURE_DARK value
+ * @property {number} CODE_CAMERA_TELE_RUNNING_CAPTURE_LIVE_STACKING=-10514 CODE_CAMERA_TELE_RUNNING_CAPTURE_LIVE_STACKING value
+ * @property {number} CODE_CAMERA_TELE_EXP_TOO_LONG=-10515 CODE_CAMERA_TELE_EXP_TOO_LONG value
+ * @property {number} CODE_CAMERA_TELE_SWITCH_WORK_MODE_FAILED=-10516 CODE_CAMERA_TELE_SWITCH_WORK_MODE_FAILED value
+ * @property {number} CODE_CAMERA_TELE_RUNNING_TRACK=-10517 CODE_CAMERA_TELE_RUNNING_TRACK value
+ * @property {number} CODE_CAMERA_TELE_RECORD_FILE_ERROR=-10518 CODE_CAMERA_TELE_RECORD_FILE_ERROR value
  * @property {number} CODE_ASTRO_PLATE_SOLVING_FAILED=-11500 CODE_ASTRO_PLATE_SOLVING_FAILED value
  * @property {number} CODE_ASTRO_FUNCTION_BUSY=-11501 CODE_ASTRO_FUNCTION_BUSY value
  * @property {number} CODE_ASTRO_DARK_GAIN_OUT_OF_RANGE=-11502 CODE_ASTRO_DARK_GAIN_OUT_OF_RANGE value
@@ -47629,38 +47969,98 @@ $root.DwarfCMD = (function () {
  * @property {number} CODE_CAMERA_WIDE_CLOSE_FAILED=-12504 CODE_CAMERA_WIDE_CLOSE_FAILED value
  * @property {number} CODE_CAMERA_WIDE_SET_ISP_FAILED=-12505 CODE_CAMERA_WIDE_SET_ISP_FAILED value
  * @property {number} CODE_CAMERA_WIDE_PHOTOGRAPHING=-12506 CODE_CAMERA_WIDE_PHOTOGRAPHING value
+ * @property {number} CODE_CAMERA_WIDE_TIMELAPSE_RECORDING=-12507 CODE_CAMERA_WIDE_TIMELAPSE_RECORDING value
  * @property {number} CODE_CAMERA_WIDE_EXP_TOO_LONG=-12508 CODE_CAMERA_WIDE_EXP_TOO_LONG value
+ * @property {number} CODE_CAMERA_WIDE_RECORD_FILE_ERROR=-12509 CODE_CAMERA_WIDE_RECORD_FILE_ERROR value
  * @property {number} CODE_SYSTEM_SET_TIME_FAILED=-13300 CODE_SYSTEM_SET_TIME_FAILED value
  * @property {number} CODE_SYSTEM_SET_TIMEZONE_FAILED=-13301 CODE_SYSTEM_SET_TIMEZONE_FAILED value
- * @property {number} CODE_SYSTEM_SETTING_TIMEZONE_FAILED=-13302 CODE_SYSTEM_SETTING_TIMEZONE_FAILED value
  * @property {number} CODE_RGB_POWER_UART_INIT_FAILED=-13800 CODE_RGB_POWER_UART_INIT_FAILED value
+ * @property {number} CODE_RGB_POWER_UART_SEND_FAILED=-13801 CODE_RGB_POWER_UART_SEND_FAILED value
+ * @property {number} CODE_STEP_MOTOR_IS_RUNNING=-14500 CODE_STEP_MOTOR_IS_RUNNING value
+ * @property {number} CODE_STEP_MOTOR_IS_STOPPED=-14501 CODE_STEP_MOTOR_IS_STOPPED value
+ * @property {number} CODE_STEP_MOTOR_PARALLEL_IN=-14502 CODE_STEP_MOTOR_PARALLEL_IN value
+ * @property {number} CODE_STEP_MOTOR_PARALLEL_END=-14503 CODE_STEP_MOTOR_PARALLEL_END value
  * @property {number} CODE_STEP_MOTOR_INVALID_PARAMETER_ID=-14504 CODE_STEP_MOTOR_INVALID_PARAMETER_ID value
+ * @property {number} CODE_STEP_MOTOR_INVALID_PARAMETER_ANGLE=-14505 CODE_STEP_MOTOR_INVALID_PARAMETER_ANGLE value
+ * @property {number} CODE_STEP_MOTOR_INVALID_PARAMETER_SPEED=-14506 CODE_STEP_MOTOR_INVALID_PARAMETER_SPEED value
+ * @property {number} CODE_STEP_MOTOR_INVALID_PARAMETER_SPEED_RAMPING=-14507 CODE_STEP_MOTOR_INVALID_PARAMETER_SPEED_RAMPING value
+ * @property {number} CODE_STEP_MOTOR_INVALID_PARAMETER_RESOLUTION=-14508 CODE_STEP_MOTOR_INVALID_PARAMETER_RESOLUTION value
+ * @property {number} CODE_STEP_MOTOR_INVALID_PARAMETER_POSITION=-14509 CODE_STEP_MOTOR_INVALID_PARAMETER_POSITION value
+ * @property {number} CODE_STEP_MOTOR_OVERTIME_GET_LIMIT_RETURN=-14510 CODE_STEP_MOTOR_OVERTIME_GET_LIMIT_RETURN value
+ * @property {number} CODE_STEP_MOTOR_OVERTIME_GET_RESET_RETURN=-14511 CODE_STEP_MOTOR_OVERTIME_GET_RESET_RETURN value
+ * @property {number} CODE_STEP_MOTOR_OVERTIME_GET_ABSOLUTE_POSITION_RETURN=-14512 CODE_STEP_MOTOR_OVERTIME_GET_ABSOLUTE_POSITION_RETURN value
+ * @property {number} CODE_STEP_MOTOR_OVERTIME_GET_RELATIVE_POSITION_RETURN=-14513 CODE_STEP_MOTOR_OVERTIME_GET_RELATIVE_POSITION_RETURN value
+ * @property {number} CODE_STEP_MOTOR_OVERTIME_WAIT_TO_STOP=-14514 CODE_STEP_MOTOR_OVERTIME_WAIT_TO_STOP value
+ * @property {number} CODE_STEP_MOTOR_OVERTIME_WAIT_TO_RUN=-14515 CODE_STEP_MOTOR_OVERTIME_WAIT_TO_RUN value
+ * @property {number} CODE_STEP_MOTOR_LIMIT_SPEED_TO_MAX=-14516 CODE_STEP_MOTOR_LIMIT_SPEED_TO_MAX value
+ * @property {number} CODE_STEP_MOTOR_LIMIT_SPEED_TO_MIN=-14517 CODE_STEP_MOTOR_LIMIT_SPEED_TO_MIN value
  * @property {number} CODE_STEP_MOTOR_LIMIT_POSITION_WARNING=-14518 CODE_STEP_MOTOR_LIMIT_POSITION_WARNING value
- * @property {number} CODE_STEP_MOTOR_LIMIT_POSITION_HITTED=-14519 CODE_STEP_MOTOR_LIMIT_POSITION_HITTED value
- * @property {number} CODE_STEP_MOTOR_POSITION_NEED_RESET=-14520 CODE_STEP_MOTOR_POSITION_NEED_RESET value
+ * @property {number} CODE_STEP_MOTOR_LIMIT_POSITION_HIT=-14519 CODE_STEP_MOTOR_LIMIT_POSITION_HIT value
+ * @property {number} CODE_STEP_MOTOR_NEED_RESET=-14520 CODE_STEP_MOTOR_NEED_RESET value
+ * @property {number} CODE_STEP_MOTOR_OVERTIME_GET_PE_SWITCH_RETURN=-14521 CODE_STEP_MOTOR_OVERTIME_GET_PE_SWITCH_RETURN value
+ * @property {number} CODE_STEP_MOTOR_OVERTIME_TO_RESET=-14522 CODE_STEP_MOTOR_OVERTIME_TO_RESET value
+ * @property {number} CODE_STEP_MOTOR_ROLL_LIMIT_ANGLE_WARNING=-14523 CODE_STEP_MOTOR_ROLL_LIMIT_ANGLE_WARNING value
  * @property {number} CODE_TRACK_TRACKER_INITING=-14900 CODE_TRACK_TRACKER_INITING value
  * @property {number} CODE_TRACK_TRACKER_FAILED=-14901 CODE_TRACK_TRACKER_FAILED value
+ * @property {number} CODE_TRACK_SENTRY_MODE_INITING=-14902 CODE_TRACK_SENTRY_MODE_INITING value
+ * @property {number} CODE_TRACK_SENTRY_MODE_FAILED=-14903 CODE_TRACK_SENTRY_MODE_FAILED value
+ * @property {number} CODE_UFOTRACK_MODE_INITING=-14904 CODE_UFOTRACK_MODE_INITING value
+ * @property {number} CODE_UFO_DAY_AUTO_MODE=-14906 CODE_UFO_DAY_AUTO_MODE value
  * @property {number} CODE_FOCUS_ASTRO_AUTO_FOCUS_SLOW_ERROR=-15100 CODE_FOCUS_ASTRO_AUTO_FOCUS_SLOW_ERROR value
  * @property {number} CODE_FOCUS_ASTRO_AUTO_FOCUS_FAST_ERROR=-15101 CODE_FOCUS_ASTRO_AUTO_FOCUS_FAST_ERROR value
- * @property {number} CODE_PANORAMA_PHOTO_FAILED=-15600 CODE_PANORAMA_PHOTO_FAILED value
+ * @property {number} CODE_FOCUS_EXP_TOO_LONG=-15106 CODE_FOCUS_EXP_TOO_LONG value
  * @property {number} CODE_PANORAMA_MOTOR_RESET_FAILED=-15601 CODE_PANORAMA_MOTOR_RESET_FAILED value
+ * @property {number} CODE_PANORAMA_UPLOAD_USER_STOP=-15602 CODE_PANORAMA_UPLOAD_USER_STOP value
+ * @property {number} CODE_PANORAMA_UPLOAD_FILE_CHECK_FAILED=-15603 CODE_PANORAMA_UPLOAD_FILE_CHECK_FAILED value
+ * @property {number} CODE_PANORAMA_UPLOAD_COMPRESS_FAILED=-15604 CODE_PANORAMA_UPLOAD_COMPRESS_FAILED value
+ * @property {number} CODE_PANORAMA_UPLOAD_UPLOAD_FAILED=-15605 CODE_PANORAMA_UPLOAD_UPLOAD_FAILED value
+ * @property {number} CODE_PANORAMA_UPLOAD_IS_RUNNING=-15607 CODE_PANORAMA_UPLOAD_IS_RUNNING value
+ * @property {number} CODE_PANORAMA_UPLOAD_CAMERA_BUSY=-15608 CODE_PANORAMA_UPLOAD_CAMERA_BUSY value
+ * @property {number} CODE_PANORAMA_UPLOAD_NOT_IN_STA=-15609 CODE_PANORAMA_UPLOAD_NOT_IN_STA value
+ * @property {number} CODE_PANORAMA_COMPOSE_IS_RUNNING=-15615 CODE_PANORAMA_COMPOSE_IS_RUNNING value
+ * @property {number} CODE_SHOOTING_SCHEDULE_DEVICE_ID_NOT_MATCH=-16300 CODE_SHOOTING_SCHEDULE_DEVICE_ID_NOT_MATCH value
+ * @property {number} CODE_SHOOTING_SCHEDULE_INVALID_SHOOTING_DURATION=-16301 CODE_SHOOTING_SCHEDULE_INVALID_SHOOTING_DURATION value
+ * @property {number} CODE_SHOOTING_SCHEDULE_TIME_CONFLICT=-16302 CODE_SHOOTING_SCHEDULE_TIME_CONFLICT value
+ * @property {number} CODE_SHOOTING_SCHEDULE_DATABASE_OPERATION_FAILED=-16305 CODE_SHOOTING_SCHEDULE_DATABASE_OPERATION_FAILED value
+ * @property {number} CODE_SHOOTING_SCHEDULE_PASSWORD_ERROR=-16306 CODE_SHOOTING_SCHEDULE_PASSWORD_ERROR value
+ * @property {number} CODE_SHOOTING_SCHEDULE_INTERRUPTED=-16310 CODE_SHOOTING_SCHEDULE_INTERRUPTED value
+ * @property {number} CODE_SHOOTING_SCHEDULE_NOT_SYNCED=-16311 CODE_SHOOTING_SCHEDULE_NOT_SYNCED value
  */
 $root.DwarfErrorCode = (function () {
   var valuesById = {},
     values = Object.create(valuesById);
   values[(valuesById[0] = "OK")] = 0;
+  values["WS_OK"] = 0;
   values[(valuesById[-1] = "WS_PARSE_PROTOBUF_ERROR")] = -1;
   values[(valuesById[-2] = "WS_SDCARD_NOT_EXIST")] = -2;
-  values[(valuesById[-3] = "WS_INVALID_PARAM")] = -3;
+  values[(valuesById[-3] = "WS_INVAID_PARAM")] = -3;
   values[(valuesById[-4] = "WS_SDCARD_WRITE_ERROR")] = -4;
+  values[(valuesById[-5] = "WS_DEVICE_NOT_ACTIVATED")] = -5;
+  values[(valuesById[-6] = "WS_SDCARD_FULL_ERROR")] = -6;
   values[(valuesById[-10500] = "CODE_CAMERA_TELE_OPENED")] = -10500;
   values[(valuesById[-10501] = "CODE_CAMERA_TELE_CLOSED")] = -10501;
   values[(valuesById[-10502] = "CODE_CAMERA_TELE_ISP_SET_FAILED")] = -10502;
-  values[(valuesById[-10504] = "CODE_CAMERA_TELE_OPEN_FAILED")] = -10504;
-  values[(valuesById[-10506] = "CODE_CAMERA_TELE_RECORDING")] = -10506;
-  values[(valuesById[-10507] = "CODE_CAMERA_TELE_WORKING_BUSY_STACK")] = -10507;
-  values[(valuesById[-10510] = "CODE_CAMERA_TELE_CAPTURE_RAW_FAILED")] = -10510;
-  values[(valuesById[-10511] = "CODE_CAMERA_TELE_WORKING_BUSY")] = -10511;
+  values[(valuesById[-10503] = "CODE_CAMERA_TELE_OPEN_FAILED")] = -10503;
+  values[(valuesById[-10504] = "CODE_CAMERA_TELE_START_RECORD_FAILED")] =
+    -10504;
+  values[(valuesById[-10505] = "CODE_CAMERA_TELE_STOP_RECORD_FAILED")] = -10505;
+  values[(valuesById[-10506] = "CODE_CAMERA_TELE_CAPTURE_RAW_FAILED")] = -10506;
+  values[(valuesById[-10507] = "CODE_CAMERA_TELE_WORKING_BUSY")] = -10507;
+  values[(valuesById[-10508] = "CODE_CAMERA_TELE_GET_IMAGE_FAILED")] = -10508;
+  values[(valuesById[-10509] = "CODE_CAMERA_TELE_RUNNING_PHOTO")] = -10509;
+  values[(valuesById[-10510] = "CODE_CAMERA_TELE_RUNNING_RECORD")] = -10510;
+  values[(valuesById[-10511] = "CODE_CAMERA_TELE_RUNNING_PANORAMA")] = -10511;
+  values[(valuesById[-10512] = "CODE_CAMERA_TELE_RUNNING_TIMELAPSE")] = -10512;
+  values[(valuesById[-10513] = "CODE_CAMERA_TELE_RUNNING_CAPTURE_DARK")] =
+    -10513;
+  values[
+    (valuesById[-10514] = "CODE_CAMERA_TELE_RUNNING_CAPTURE_LIVE_STACKING")
+  ] = -10514;
+  values[(valuesById[-10515] = "CODE_CAMERA_TELE_EXP_TOO_LONG")] = -10515;
+  values[(valuesById[-10516] = "CODE_CAMERA_TELE_SWITCH_WORK_MODE_FAILED")] =
+    -10516;
+  values[(valuesById[-10517] = "CODE_CAMERA_TELE_RUNNING_TRACK")] = -10517;
+  values[(valuesById[-10518] = "CODE_CAMERA_TELE_RECORD_FILE_ERROR")] = -10518;
   values[(valuesById[-11500] = "CODE_ASTRO_PLATE_SOLVING_FAILED")] = -11500;
   values[(valuesById[-11501] = "CODE_ASTRO_FUNCTION_BUSY")] = -11501;
   values[(valuesById[-11502] = "CODE_ASTRO_DARK_GAIN_OUT_OF_RANGE")] = -11502;
@@ -47711,26 +48111,96 @@ $root.DwarfErrorCode = (function () {
   values[(valuesById[-12504] = "CODE_CAMERA_WIDE_CLOSE_FAILED")] = -12504;
   values[(valuesById[-12505] = "CODE_CAMERA_WIDE_SET_ISP_FAILED")] = -12505;
   values[(valuesById[-12506] = "CODE_CAMERA_WIDE_PHOTOGRAPHING")] = -12506;
+  values[(valuesById[-12507] = "CODE_CAMERA_WIDE_TIMELAPSE_RECORDING")] =
+    -12507;
   values[(valuesById[-12508] = "CODE_CAMERA_WIDE_EXP_TOO_LONG")] = -12508;
+  values[(valuesById[-12509] = "CODE_CAMERA_WIDE_RECORD_FILE_ERROR")] = -12509;
   values[(valuesById[-13300] = "CODE_SYSTEM_SET_TIME_FAILED")] = -13300;
   values[(valuesById[-13301] = "CODE_SYSTEM_SET_TIMEZONE_FAILED")] = -13301;
-  values[(valuesById[-13302] = "CODE_SYSTEM_SETTING_TIMEZONE_FAILED")] = -13302;
   values[(valuesById[-13800] = "CODE_RGB_POWER_UART_INIT_FAILED")] = -13800;
+  values[(valuesById[-13801] = "CODE_RGB_POWER_UART_SEND_FAILED")] = -13801;
+  values[(valuesById[-14500] = "CODE_STEP_MOTOR_IS_RUNNING")] = -14500;
+  values[(valuesById[-14501] = "CODE_STEP_MOTOR_IS_STOPPED")] = -14501;
+  values[(valuesById[-14502] = "CODE_STEP_MOTOR_PARALLEL_IN")] = -14502;
+  values[(valuesById[-14503] = "CODE_STEP_MOTOR_PARALLEL_END")] = -14503;
   values[(valuesById[-14504] = "CODE_STEP_MOTOR_INVALID_PARAMETER_ID")] =
     -14504;
+  values[(valuesById[-14505] = "CODE_STEP_MOTOR_INVALID_PARAMETER_ANGLE")] =
+    -14505;
+  values[(valuesById[-14506] = "CODE_STEP_MOTOR_INVALID_PARAMETER_SPEED")] =
+    -14506;
+  values[
+    (valuesById[-14507] = "CODE_STEP_MOTOR_INVALID_PARAMETER_SPEED_RAMPING")
+  ] = -14507;
+  values[
+    (valuesById[-14508] = "CODE_STEP_MOTOR_INVALID_PARAMETER_RESOLUTION")
+  ] = -14508;
+  values[(valuesById[-14509] = "CODE_STEP_MOTOR_INVALID_PARAMETER_POSITION")] =
+    -14509;
+  values[(valuesById[-14510] = "CODE_STEP_MOTOR_OVERTIME_GET_LIMIT_RETURN")] =
+    -14510;
+  values[(valuesById[-14511] = "CODE_STEP_MOTOR_OVERTIME_GET_RESET_RETURN")] =
+    -14511;
+  values[
+    (valuesById[-14512] =
+      "CODE_STEP_MOTOR_OVERTIME_GET_ABSOLUTE_POSITION_RETURN")
+  ] = -14512;
+  values[
+    (valuesById[-14513] =
+      "CODE_STEP_MOTOR_OVERTIME_GET_RELATIVE_POSITION_RETURN")
+  ] = -14513;
+  values[(valuesById[-14514] = "CODE_STEP_MOTOR_OVERTIME_WAIT_TO_STOP")] =
+    -14514;
+  values[(valuesById[-14515] = "CODE_STEP_MOTOR_OVERTIME_WAIT_TO_RUN")] =
+    -14515;
+  values[(valuesById[-14516] = "CODE_STEP_MOTOR_LIMIT_SPEED_TO_MAX")] = -14516;
+  values[(valuesById[-14517] = "CODE_STEP_MOTOR_LIMIT_SPEED_TO_MIN")] = -14517;
   values[(valuesById[-14518] = "CODE_STEP_MOTOR_LIMIT_POSITION_WARNING")] =
     -14518;
-  values[(valuesById[-14519] = "CODE_STEP_MOTOR_LIMIT_POSITION_HITTED")] =
-    -14519;
-  values[(valuesById[-14520] = "CODE_STEP_MOTOR_POSITION_NEED_RESET")] = -14520;
+  values[(valuesById[-14519] = "CODE_STEP_MOTOR_LIMIT_POSITION_HIT")] = -14519;
+  values[(valuesById[-14520] = "CODE_STEP_MOTOR_NEED_RESET")] = -14520;
+  values[
+    (valuesById[-14521] = "CODE_STEP_MOTOR_OVERTIME_GET_PE_SWITCH_RETURN")
+  ] = -14521;
+  values[(valuesById[-14522] = "CODE_STEP_MOTOR_OVERTIME_TO_RESET")] = -14522;
+  values[(valuesById[-14523] = "CODE_STEP_MOTOR_ROLL_LIMIT_ANGLE_WARNING")] =
+    -14523;
   values[(valuesById[-14900] = "CODE_TRACK_TRACKER_INITING")] = -14900;
   values[(valuesById[-14901] = "CODE_TRACK_TRACKER_FAILED")] = -14901;
+  values[(valuesById[-14902] = "CODE_TRACK_SENTRY_MODE_INITING")] = -14902;
+  values[(valuesById[-14903] = "CODE_TRACK_SENTRY_MODE_FAILED")] = -14903;
+  values[(valuesById[-14904] = "CODE_UFOTRACK_MODE_INITING")] = -14904;
+  values[(valuesById[-14906] = "CODE_UFO_DAY_AUTO_MODE")] = -14906;
   values[(valuesById[-15100] = "CODE_FOCUS_ASTRO_AUTO_FOCUS_SLOW_ERROR")] =
     -15100;
   values[(valuesById[-15101] = "CODE_FOCUS_ASTRO_AUTO_FOCUS_FAST_ERROR")] =
     -15101;
-  values[(valuesById[-15600] = "CODE_PANORAMA_PHOTO_FAILED")] = -15600;
+  values[(valuesById[-15106] = "CODE_FOCUS_EXP_TOO_LONG")] = -15106;
   values[(valuesById[-15601] = "CODE_PANORAMA_MOTOR_RESET_FAILED")] = -15601;
+  values[(valuesById[-15602] = "CODE_PANORAMA_UPLOAD_USER_STOP")] = -15602;
+  values[(valuesById[-15603] = "CODE_PANORAMA_UPLOAD_FILE_CHECK_FAILED")] =
+    -15603;
+  values[(valuesById[-15604] = "CODE_PANORAMA_UPLOAD_COMPRESS_FAILED")] =
+    -15604;
+  values[(valuesById[-15605] = "CODE_PANORAMA_UPLOAD_UPLOAD_FAILED")] = -15605;
+  values[(valuesById[-15607] = "CODE_PANORAMA_UPLOAD_IS_RUNNING")] = -15607;
+  values[(valuesById[-15608] = "CODE_PANORAMA_UPLOAD_CAMERA_BUSY")] = -15608;
+  values[(valuesById[-15609] = "CODE_PANORAMA_UPLOAD_NOT_IN_STA")] = -15609;
+  values[(valuesById[-15615] = "CODE_PANORAMA_COMPOSE_IS_RUNNING")] = -15615;
+  values[(valuesById[-16300] = "CODE_SHOOTING_SCHEDULE_DEVICE_ID_NOT_MATCH")] =
+    -16300;
+  values[
+    (valuesById[-16301] = "CODE_SHOOTING_SCHEDULE_INVALID_SHOOTING_DURATION")
+  ] = -16301;
+  values[(valuesById[-16302] = "CODE_SHOOTING_SCHEDULE_TIME_CONFLICT")] =
+    -16302;
+  values[
+    (valuesById[-16305] = "CODE_SHOOTING_SCHEDULE_DATABASE_OPERATION_FAILED")
+  ] = -16305;
+  values[(valuesById[-16306] = "CODE_SHOOTING_SCHEDULE_PASSWORD_ERROR")] =
+    -16306;
+  values[(valuesById[-16310] = "CODE_SHOOTING_SCHEDULE_INTERRUPTED")] = -16310;
+  values[(valuesById[-16311] = "CODE_SHOOTING_SCHEDULE_NOT_SYNCED")] = -16311;
   return values;
 })();
 

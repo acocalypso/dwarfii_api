@@ -194,6 +194,36 @@ export const cmdMapping = {
     17000: "ReqLensDefog", // APK 3.4.1: lens defog switch
     17001: "ReqAutoCooling", // APK 3.4.1: automatic cooling switch
     17002: "ReqAutoShutdown", // APK 3.4.1: automatic shutdown switch
+    // APK 3.4.1 commands whose request protobufs already exist in this package.
+    // Response mappings are intentionally not guessed where the app only exposes
+    // an asynchronous notification or an obfuscated response handler.
+    11037: "ReqStopCaptureRawLiveStacking", // Fast stop tele live stacking
+    11038: "ReqStopCaptureRawLiveStacking", // Fast stop wide live stacking
+    12032: "ReqSetRtspBitRateType", // Set wide RTSP bitrate type
+    12035: "ReqSetWBSence", // Set wide white-balance scene
+    15014: "ReqNormalAutoFocus", // Wide normal autofocus
+    15015: "ReqManualSingleStepFocus", // Wide manual single-step focus
+    15016: "ReqManualContinuFocus", // Wide manual continuous focus
+    15017: "ReqStopManualContinuFocus", // Stop wide continuous focus
+    15018: "ReqAstroAutoFocus", // Wide astronomy autofocus
+    15019: "ReqStopAstroAutoFocus", // Stop wide astronomy autofocus
+    15029: "ReqManualSingleStepFocus", // Guide manual single-step focus
+    15030: "ReqManualContinuFocus", // Guide manual continuous focus
+    15031: "ReqStopManualContinuFocus", // Stop guide continuous focus
+    15032: "ReqAstroAutoFocus", // Guide astronomy autofocus
+    15034: "ReqStopAstroAutoFocus", // Stop guide astronomy autofocus
+    15503: "ReqStartPanoramaStitchUpload", // Start panorama stitch upload
+    15504: "ReqStopPanoramaStitchUpload", // Stop panorama stitch upload
+    15505: "ReqStopPanoramaStitchUpload", // Query current upload state (empty payload)
+    16100: "ReqSyncShootingSchedule", // Synchronize a shooting schedule
+    16101: "ReqCancelShootingSchedule", // Cancel a shooting schedule
+    16103: "ReqGetShootingTaskById", // Get schedule by ID
+    16105: "ReqReplaceShootingSchedule", // Replace a shooting schedule
+    16106: "ReqUnlockShootingSchedule", // Unlock a shooting schedule
+    16107: "ReqLockShootingSchedule", // Lock a shooting schedule
+    16108: "ReqDeleteShootingSchedule", // Delete a shooting schedule
+    16900: "ReqSetExp", // Set guide-camera exposure
+    16902: "ReqSetGain", // Set guide-camera gain
 };
 export const responseMapping = {
     // BLE Class Response
@@ -423,9 +453,9 @@ export const notifyMapping = {
     15241: "ResNotifyLongExpPhotoProgress", // Telephoto long exposure progress
     15242: "ResNotifyLongExpPhotoProgress", // Wide-angle long exposure progress
     15243: "ResNotifyTemperature", // Temperature
-    //  CMD_NOTIFY_PANORAMA_UPLOAD_COMPRESS_PROGRESS = 15244; //
-    //  CMD_NOTIFY_PANORAMA_UPLOAD_UPLOAD_PROGRESS = 15245; //
-    //  CMD_NOTIFY_PANORAMA_UPLOAD_COMPLETE = 15246; //
+    // 15244 is panorama compression progress. APK 3.4.1 assigns both panorama
+    // upload progress and upload complete to 15245, so a single static decoder
+    // cannot safely choose between their two protobuf schemas.
     15247: "ResNotifyOperationState", // Wide-angle dark field shooting state
     15248: "ResNotifyShootingScheduleResultAndState", // Shooting plan results and status notifications
     15249: "ResNotifyShootingTaskState", // Shooting task status notification
