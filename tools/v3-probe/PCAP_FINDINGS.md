@@ -39,12 +39,23 @@ continued until the app explicitly sent `11006`.
 Driver implications:
 
 1. Send and verify `11041` immediately before every `11005`.
-2. Treat `15209.stacked_count`, rather than `current_count`, as the completed
-   image boundary. `current_count` can advance far ahead of accepted stacks.
-3. Send `11006` at the requested stacked count while media retrieval proceeds
-   independently.
+2. Use `15209.stacked_count` as the accepted-stack boundary when a stacked
+   result is required. For an Alpaca raw FITS, current firmware created the
+   requested file when `current_count` reached the requested raw-frame count.
+3. Send `11006` at the relevant boundary while media retrieval proceeds
+   independently, then wait for `15208` idle/stopped before another `11005`.
 4. Treat `targetName` as persisted firmware metadata. A stale value such as
    `Sun` is not evidence that the current client requested a solar exposure.
+
+### Stop lifecycle and repeated captures (live Mini, 2026-08-08)
+
+Live logging established the complete stop transition. After `11006`, command
+`15208` reported state 2 (stopping); the raw FITS was already downloadable, but
+a second `11005` returned `-11501` busy. State 3 (stopped) arrived later. The
+APK models the same `CaptureRawState` enum and queries `16405`
+(`WsGetDeviceStateInfo`) for whole-device state. Clients must therefore keep
+image availability separate from firmware reusability and gate the next start
+on `15208` idle (0) or stopped (3).
 
 ### Successful one-click GoTo completion envelope (live DWARF 3, 2026-08-02)
 

@@ -347,12 +347,14 @@ parameter catalogue, send `messageV3AstroExposureSet(index)` (16700),
 `144678138029277200`) immediately before `11005`. The `11041` echo is not
 authoritative for modified values: current hardware retained exposure index
 156 (15s) after echoing a 5-second-looking string. Then monitor notification
-`15209`. Stop with `11006` when
-`stacked_count` reaches the requested frame count. Do not wait for media
-download before stopping: captures show an additional stack completing while a
-late stop was being processed. `current_count` may advance ahead of completed
-stacks, and `target_name` can contain persisted metadata from an earlier
-session.
+`15209`. For an Alpaca raw-FITS result, `current_count` reaching the requested
+frame count is the retrieval boundary; `stacked_count` remains the accepted
+live-stack boundary when a stacked result is required. Stop with `11006`
+without waiting for media download. Then follow `15208` through running (1),
+stopping (2), and stopped (3); the firmware can reject a subsequent `11005`
+with `-11501` until stopped/idle is reported. Command `16405` returns the APK's
+whole-device state and can recover a missed `15208` transition. `target_name`
+can contain persisted metadata from an earlier session.
 
 The `11005` command ID is shared, but its payload follows device capability.
 Hardware logs confirm DWARF 3 requires the selected `irIndex`/`forceStart`
@@ -397,7 +399,7 @@ Calibration-frame capture emits APK-defined notifications:
 | 16402 | `messageV3DeviceConfigModeQuery(targetMode)` | V3ReqModeQuery `{targetMode}` | V3ResModeQuery | モード問い合わせ (2=通常, 8=天体) |
 | 16403 | `messageV3DeviceConfigShootingModeSwitch(modeId)` | V3ReqShootingModeSwitch `{modeId}` | V3ResShootingModeSwitch | 撮影モード切替 (1=写真, 3=連写, 4=動画, 5=タイムラプス) |
 | 16404 | `messageV3DeviceConfigModeSwitch()` | V3ReqModeSwitch `{inner:{value:1}}` | V3ResModeSwitch | 天体モード切替 |
-| 16405 | `messageV3DeviceConfigGetConfig()` | V3ReqGetDeviceConfig | V3ResGetDeviceConfig | デバイス設定取得 |
+| 16405 | `messageV3GetDeviceStateInfo()` (`messageV3DeviceConfigGetConfig()` compatibility alias) | APK `ReqGetDeviceStateInfo` (legacy local name `V3ReqGetDeviceConfig`) | APK `ResGetDeviceStateInfo` (legacy local compatibility decoder) | Complete work state, including tele `CaptureRawState`; use it to recover idle/running/stopping/stopped state |
 
 ### V3 Camera Params
 

@@ -9,11 +9,11 @@ import { cmdMapping } from "./cmd_mapping.js";
 /*** --------- V3 MODULE DEVICE CONFIG (16xxx) --------------- ***/
 /*** --------------------------------------------------------- ***/
 /**
- * V3: Get device config
- * Create Encoded Packet for the command CMD_V3_DEVICE_CONFIG_GET_CONFIG
+ * V3: Get complete device work state (APK: WsGetDeviceStateInfo)
+ * Create an encoded packet for command 16405.
  * @returns {Uint8Array}
  */
-export function messageV3DeviceConfigGetConfig() {
+export function messageV3GetDeviceStateInfo() {
   let module_id = Dwarfii_Api.ModuleId.MODULE_DEVICE_CONFIG;
   let interface_id = Dwarfii_Api.DwarfCMD.CMD_V3_DEVICE_CONFIG_GET_CONFIG;
   let type_id = Dwarfii_Api.MessageTypeId.TYPE_REQUEST;
@@ -24,6 +24,15 @@ export function messageV3DeviceConfigGetConfig() {
     `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
   );
   return createPacket(message, class_message, module_id, interface_id, type_id);
+}
+
+/**
+ * Backward-compatible alias for the earlier, incorrectly inferred command name.
+ * Command 16405 is GetDeviceStateInfo, not a static device-config request.
+ * @returns {Uint8Array}
+ */
+export function messageV3DeviceConfigGetConfig() {
+  return messageV3GetDeviceStateInfo();
 }
 /**
  * V3: Mode query

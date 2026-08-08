@@ -2,8 +2,14 @@
 /*** --------- V3 MODULE DEVICE CONFIG (16xxx) --------------- ***/
 /*** --------------------------------------------------------- ***/
 /**
- * V3: Get device config
- * Create Encoded Packet for the command CMD_V3_DEVICE_CONFIG_GET_CONFIG
+ * V3: Get complete device work state (APK: WsGetDeviceStateInfo)
+ * Create an encoded packet for command 16405.
+ * @returns {Uint8Array}
+ */
+export function messageV3GetDeviceStateInfo(): Uint8Array;
+/**
+ * Backward-compatible alias for the earlier, incorrectly inferred command name.
+ * Command 16405 is GetDeviceStateInfo, not a static device-config request.
  * @returns {Uint8Array}
  */
 export function messageV3DeviceConfigGetConfig(): Uint8Array;

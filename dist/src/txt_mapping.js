@@ -297,7 +297,7 @@ export const cmdTxtMapping = {
     16402: "V3: Mode query",
     16403: "V3: Shooting mode switch",
     16404: "V3: Mode switch",
-    16405: "V3: Get device config",
+    16405: "V3: Get complete device work state",
     16700: "V3: Set camera param",
     16701: "V3: Set exposure/gain",
     16703: "V3: Adjust camera param",
