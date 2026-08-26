@@ -27,9 +27,11 @@ The DWARF 3 app additionally writes frame count with `16703`, paramId
 `144678138029277200` (`0x0202000000000010`, astro/cat2/tele/frameCount).
 This write changed from 509 to 999 in the capture. A live test proved that
 `11041` can echo a requested count of 1 while `15209.total_count` remains at
-the stale value 999. Therefore all V3 finite clients must send `11041`, then
-the exact exposure, gain, and frame-count writes (`16700`, `16701`, `16703`)
-immediately before `11005`, monitor
+the stale value 999. Cross-model live testing refined the interoperable order:
+send exact exposure/gain (`16700`, `16701`), prime `11041`, then write frame
+count with `16703` immediately before `11005`. Mini firmware can reject 16700
+with generic code -1; in that case the complete accepted 11041 tuple is the
+fallback. Then monitor
 `15209.stacked_count`, and send `11006` as soon as the
 requested number of completed stacks is reached. Media download must not delay
 the stop request. `current_count` is acquisition progress and can run ahead of

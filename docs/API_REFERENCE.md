@@ -341,16 +341,17 @@ and completion notifications still require a controlled hardware capture.
 | 11048 | `messageV3AstroConfirm()` | V3ReqConfirmObservation | ComResponse | 観測確認 |
 
 For DWARF 2, DWARF 3, and DWARF mini, clients should obtain the mode-2 live
-parameter catalogue, prime the persisted tuple with
+parameter catalogue, send `messageV3AstroExposureSet(index)` (16700) and
+`messageV3AstroGainSet(gain)` (16701), prime the persisted tuple with
 `messageV3AstroSetParams(params)` (11041), then send
-`messageV3AstroExposureSet(index)` (16700),
-`messageV3AstroGainSet(gain)` (16701), then
 `messageV3AstroFrameCountSet(count)` (`16703`, paramId
 `144678138029277200`) immediately before `11005`. The `11041` echo is not
 authoritative by itself for modified values: current hardware retained exposure index
 156 (15s) after echoing a 5-second-looking string. A DWARF 3 live test confirmed
-that the combined `11041 -> 16700/16701/16703 -> 11005` sequence preserves a
-1-second Astro-filter request. A later VIS-filter test nevertheless reloaded 15
+that `16700/16701 -> 11041 -> 16703 -> 11005` preserves a 1-second
+Astro-filter request across the tested firmware. Mini firmware can return -1
+for 16700; clients may then use the complete accepted 11041 tuple as fallback.
+A later DWARF 3 VIS-filter test nevertheless reloaded 15
 seconds. Treat notification `15288.total_time` as the authoritative applied
 duration, report substitutions to the client/log, and associate the fresh FITS
 with that actual duration rather than discarding it. Then monitor notification `15209`.
