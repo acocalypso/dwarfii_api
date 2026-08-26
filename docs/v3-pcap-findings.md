@@ -28,12 +28,22 @@ The DWARF 3 app additionally writes frame count with `16703`, paramId
 This write changed from 509 to 999 in the capture. A live test proved that
 `11041` can echo a requested count of 1 while `15209.total_count` remains at
 the stale value 999. Therefore all V3 finite clients must send `11041`, then
-the dedicated `16703` frame-count write immediately before `11005`, monitor
+the exact exposure, gain, and frame-count writes (`16700`, `16701`, `16703`)
+immediately before `11005`, monitor
 `15209.stacked_count`, and send `11006` as soon as the
 requested number of completed stacks is reached. Media download must not delay
 the stop request. `current_count` is acquisition progress and can run ahead of
 accepted stacks; `targetName` is persisted firmware metadata rather than proof
 of the current client's target selection.
+
+A 2026-08-26 DWARF 3 live test confirmed that this complete sequence preserved
+a requested 1-second, gain-60 Astro exposure and produced a fresh raw FITS.
+Omitting the persisted quick-set priming allowed `11005` to reload 15 seconds.
+Notification `15288` (`LongExpPhotoProgress.total_time`) reports the duration
+actually selected by the firmware and should be checked before accepting the
+result. A 1-millisecond request was replaced by 15 seconds on the tested
+firmware, so a command acknowledgement alone is not proof that a duration was
+applied.
 
 ### Confirmed protocol behavior
 
