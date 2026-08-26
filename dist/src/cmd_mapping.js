@@ -183,7 +183,7 @@ export const cmdMapping = {
     16402: "V3ReqModeQuery", // V3: Mode query
     16403: "V3ReqShootingModeSwitch", // V3: Shooting mode switch
     16404: "V3ReqModeSwitch", // V3: Mode switch
-    16405: "V3ReqGetDeviceConfig", // Compatibility schema: APK ReqGetDeviceStateInfo
+    16405: "ReqGetDeviceStateInfo", // Exact firmware/APK task_center.proto schema
     16700: "V3ReqSetCameraParam", // V3: Set camera param
     16701: "V3ReqSetExposureGain", // V3: Set exposure/gain
     16702: "V3ReqUnknownCameraParam", // V3: Unknown camera param command (pcap-discovered)
@@ -401,7 +401,7 @@ export const responseMapping = {
     16402: "V3ResModeQuery", // V3: Mode query
     16403: "V3ResShootingModeSwitch", // V3: Shooting mode switch
     16404: "V3ResModeSwitch", // V3: Mode switch
-    16405: "V3ResGetDeviceConfig", // Compatibility schema: APK ResGetDeviceStateInfo
+    16405: "ResGetDeviceStateInfo", // Exact firmware/APK task_center.proto schema
     16700: "ComResponse", // V3: Set camera param
     16701: "ComResponse", // V3: Set exposure/gain
     16702: "ComResponse", // V3: Unknown camera param command (pcap-discovered)

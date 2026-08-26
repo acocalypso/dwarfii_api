@@ -27408,6 +27408,1652 @@ $root.V3ResModeSwitch = (function () {
     };
     return V3ResModeSwitch;
 })();
+$root.ReqGetDeviceStateInfo = (function () {
+    /**
+     * Properties of a ReqGetDeviceStateInfo.
+     * @exports IReqGetDeviceStateInfo
+     * @interface IReqGetDeviceStateInfo
+     */
+    /**
+     * Constructs a new ReqGetDeviceStateInfo.
+     * @exports ReqGetDeviceStateInfo
+     * @classdesc Represents a ReqGetDeviceStateInfo.
+     * @implements IReqGetDeviceStateInfo
+     * @constructor
+     * @param {IReqGetDeviceStateInfo=} [properties] Properties to set
+     */
+    function ReqGetDeviceStateInfo(properties) {
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+    /**
+     * Creates a new ReqGetDeviceStateInfo instance using the specified properties.
+     * @function create
+     * @memberof ReqGetDeviceStateInfo
+     * @static
+     * @param {IReqGetDeviceStateInfo=} [properties] Properties to set
+     * @returns {ReqGetDeviceStateInfo} ReqGetDeviceStateInfo instance
+     */
+    ReqGetDeviceStateInfo.create = function create(properties) {
+        return new ReqGetDeviceStateInfo(properties);
+    };
+    /**
+     * Encodes the specified ReqGetDeviceStateInfo message. Does not implicitly {@link ReqGetDeviceStateInfo.verify|verify} messages.
+     * @function encode
+     * @memberof ReqGetDeviceStateInfo
+     * @static
+     * @param {IReqGetDeviceStateInfo} message ReqGetDeviceStateInfo message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    ReqGetDeviceStateInfo.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        return writer;
+    };
+    /**
+     * Encodes the specified ReqGetDeviceStateInfo message, length delimited. Does not implicitly {@link ReqGetDeviceStateInfo.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof ReqGetDeviceStateInfo
+     * @static
+     * @param {IReqGetDeviceStateInfo} message ReqGetDeviceStateInfo message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    ReqGetDeviceStateInfo.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+    /**
+     * Decodes a ReqGetDeviceStateInfo message from the specified reader or buffer.
+     * @function decode
+     * @memberof ReqGetDeviceStateInfo
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {ReqGetDeviceStateInfo} ReqGetDeviceStateInfo
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    ReqGetDeviceStateInfo.decode = function decode(reader, length) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ReqGetDeviceStateInfo();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    };
+    /**
+     * Decodes a ReqGetDeviceStateInfo message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof ReqGetDeviceStateInfo
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {ReqGetDeviceStateInfo} ReqGetDeviceStateInfo
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    ReqGetDeviceStateInfo.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+    /**
+     * Verifies a ReqGetDeviceStateInfo message.
+     * @function verify
+     * @memberof ReqGetDeviceStateInfo
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    ReqGetDeviceStateInfo.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        return null;
+    };
+    /**
+     * Creates a ReqGetDeviceStateInfo message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof ReqGetDeviceStateInfo
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {ReqGetDeviceStateInfo} ReqGetDeviceStateInfo
+     */
+    ReqGetDeviceStateInfo.fromObject = function fromObject(object) {
+        if (object instanceof $root.ReqGetDeviceStateInfo)
+            return object;
+        return new $root.ReqGetDeviceStateInfo();
+    };
+    /**
+     * Creates a plain object from a ReqGetDeviceStateInfo message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof ReqGetDeviceStateInfo
+     * @static
+     * @param {ReqGetDeviceStateInfo} message ReqGetDeviceStateInfo
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    ReqGetDeviceStateInfo.toObject = function toObject() {
+        return {};
+    };
+    /**
+     * Converts this ReqGetDeviceStateInfo to JSON.
+     * @function toJSON
+     * @memberof ReqGetDeviceStateInfo
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    ReqGetDeviceStateInfo.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+    /**
+     * Gets the default type url for ReqGetDeviceStateInfo
+     * @function getTypeUrl
+     * @memberof ReqGetDeviceStateInfo
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ReqGetDeviceStateInfo.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ReqGetDeviceStateInfo";
+    };
+    return ReqGetDeviceStateInfo;
+})();
+$root.CaptureRawState = (function () {
+    /**
+     * Properties of a CaptureRawState.
+     * @exports ICaptureRawState
+     * @interface ICaptureRawState
+     * @property {OperationState|null} [state] CaptureRawState state
+     * @property {number|null} [cameraType] CaptureRawState cameraType
+     */
+    /**
+     * Constructs a new CaptureRawState.
+     * @exports CaptureRawState
+     * @classdesc Represents a CaptureRawState.
+     * @implements ICaptureRawState
+     * @constructor
+     * @param {ICaptureRawState=} [properties] Properties to set
+     */
+    function CaptureRawState(properties) {
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+    /**
+     * CaptureRawState state.
+     * @member {OperationState} state
+     * @memberof CaptureRawState
+     * @instance
+     */
+    CaptureRawState.prototype.state = 0;
+    /**
+     * CaptureRawState cameraType.
+     * @member {number} cameraType
+     * @memberof CaptureRawState
+     * @instance
+     */
+    CaptureRawState.prototype.cameraType = 0;
+    /**
+     * Creates a new CaptureRawState instance using the specified properties.
+     * @function create
+     * @memberof CaptureRawState
+     * @static
+     * @param {ICaptureRawState=} [properties] Properties to set
+     * @returns {CaptureRawState} CaptureRawState instance
+     */
+    CaptureRawState.create = function create(properties) {
+        return new CaptureRawState(properties);
+    };
+    /**
+     * Encodes the specified CaptureRawState message. Does not implicitly {@link CaptureRawState.verify|verify} messages.
+     * @function encode
+     * @memberof CaptureRawState
+     * @static
+     * @param {ICaptureRawState} message CaptureRawState message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    CaptureRawState.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        if (message.state != null && Object.hasOwnProperty.call(message, "state"))
+            writer.uint32(/* id 1, wireType 0 =*/ 8).int32(message.state);
+        if (message.cameraType != null &&
+            Object.hasOwnProperty.call(message, "cameraType"))
+            writer.uint32(/* id 2, wireType 0 =*/ 16).int32(message.cameraType);
+        return writer;
+    };
+    /**
+     * Encodes the specified CaptureRawState message, length delimited. Does not implicitly {@link CaptureRawState.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof CaptureRawState
+     * @static
+     * @param {ICaptureRawState} message CaptureRawState message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    CaptureRawState.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+    /**
+     * Decodes a CaptureRawState message from the specified reader or buffer.
+     * @function decode
+     * @memberof CaptureRawState
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {CaptureRawState} CaptureRawState
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    CaptureRawState.decode = function decode(reader, length) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.CaptureRawState();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    message.state = reader.int32();
+                    break;
+                }
+                case 2: {
+                    message.cameraType = reader.int32();
+                    break;
+                }
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    };
+    /**
+     * Decodes a CaptureRawState message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof CaptureRawState
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {CaptureRawState} CaptureRawState
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    CaptureRawState.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+    /**
+     * Verifies a CaptureRawState message.
+     * @function verify
+     * @memberof CaptureRawState
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    CaptureRawState.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        if (message.state != null && message.hasOwnProperty("state"))
+            switch (message.state) {
+                default:
+                    return "state: enum value expected";
+                case 0:
+                case 1:
+                case 2:
+                case 3:
+                    break;
+            }
+        if (message.cameraType != null && message.hasOwnProperty("cameraType"))
+            if (!$util.isInteger(message.cameraType))
+                return "cameraType: integer expected";
+        return null;
+    };
+    /**
+     * Creates a CaptureRawState message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof CaptureRawState
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {CaptureRawState} CaptureRawState
+     */
+    CaptureRawState.fromObject = function fromObject(object) {
+        if (object instanceof $root.CaptureRawState)
+            return object;
+        var message = new $root.CaptureRawState();
+        switch (object.state) {
+            default:
+                if (typeof object.state === "number") {
+                    message.state = object.state;
+                    break;
+                }
+                break;
+            case "OPERATION_STATE_IDLE":
+            case 0:
+                message.state = 0;
+                break;
+            case "OPERATION_STATE_RUNNING":
+            case 1:
+                message.state = 1;
+                break;
+            case "OPERATION_STATE_STOPPING":
+            case 2:
+                message.state = 2;
+                break;
+            case "OPERATION_STATE_STOPPED":
+            case 3:
+                message.state = 3;
+                break;
+        }
+        if (object.cameraType != null)
+            message.cameraType = object.cameraType | 0;
+        return message;
+    };
+    /**
+     * Creates a plain object from a CaptureRawState message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof CaptureRawState
+     * @static
+     * @param {CaptureRawState} message CaptureRawState
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    CaptureRawState.toObject = function toObject(message, options) {
+        if (!options)
+            options = {};
+        var object = {};
+        if (options.defaults) {
+            object.state = options.enums === String ? "OPERATION_STATE_IDLE" : 0;
+            object.cameraType = 0;
+        }
+        if (message.state != null && message.hasOwnProperty("state"))
+            object.state =
+                options.enums === String
+                    ? $root.OperationState[message.state] === undefined
+                        ? message.state
+                        : $root.OperationState[message.state]
+                    : message.state;
+        if (message.cameraType != null && message.hasOwnProperty("cameraType"))
+            object.cameraType = message.cameraType;
+        return object;
+    };
+    /**
+     * Converts this CaptureRawState to JSON.
+     * @function toJSON
+     * @memberof CaptureRawState
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    CaptureRawState.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+    /**
+     * Gets the default type url for CaptureRawState
+     * @function getTypeUrl
+     * @memberof CaptureRawState
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    CaptureRawState.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/CaptureRawState";
+    };
+    return CaptureRawState;
+})();
+$root.ExclusiveCameraState = (function () {
+    /**
+     * Properties of an ExclusiveCameraState.
+     * @exports IExclusiveCameraState
+     * @interface IExclusiveCameraState
+     * @property {ICaptureRawState|null} [captureRawState] ExclusiveCameraState captureRawState
+     */
+    /**
+     * Constructs a new ExclusiveCameraState.
+     * @exports ExclusiveCameraState
+     * @classdesc Represents an ExclusiveCameraState.
+     * @implements IExclusiveCameraState
+     * @constructor
+     * @param {IExclusiveCameraState=} [properties] Properties to set
+     */
+    function ExclusiveCameraState(properties) {
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+    /**
+     * ExclusiveCameraState captureRawState.
+     * @member {ICaptureRawState|null|undefined} captureRawState
+     * @memberof ExclusiveCameraState
+     * @instance
+     */
+    ExclusiveCameraState.prototype.captureRawState = null;
+    // OneOf field names bound to virtual getters and setters
+    var $oneOfFields;
+    /**
+     * ExclusiveCameraState state.
+     * @member {"captureRawState"|undefined} state
+     * @memberof ExclusiveCameraState
+     * @instance
+     */
+    Object.defineProperty(ExclusiveCameraState.prototype, "state", {
+        get: $util.oneOfGetter(($oneOfFields = ["captureRawState"])),
+        set: $util.oneOfSetter($oneOfFields),
+    });
+    /**
+     * Creates a new ExclusiveCameraState instance using the specified properties.
+     * @function create
+     * @memberof ExclusiveCameraState
+     * @static
+     * @param {IExclusiveCameraState=} [properties] Properties to set
+     * @returns {ExclusiveCameraState} ExclusiveCameraState instance
+     */
+    ExclusiveCameraState.create = function create(properties) {
+        return new ExclusiveCameraState(properties);
+    };
+    /**
+     * Encodes the specified ExclusiveCameraState message. Does not implicitly {@link ExclusiveCameraState.verify|verify} messages.
+     * @function encode
+     * @memberof ExclusiveCameraState
+     * @static
+     * @param {IExclusiveCameraState} message ExclusiveCameraState message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    ExclusiveCameraState.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        if (message.captureRawState != null &&
+            Object.hasOwnProperty.call(message, "captureRawState"))
+            $root.CaptureRawState.encode(message.captureRawState, writer.uint32(/* id 1, wireType 2 =*/ 10).fork()).ldelim();
+        return writer;
+    };
+    /**
+     * Encodes the specified ExclusiveCameraState message, length delimited. Does not implicitly {@link ExclusiveCameraState.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof ExclusiveCameraState
+     * @static
+     * @param {IExclusiveCameraState} message ExclusiveCameraState message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    ExclusiveCameraState.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+    /**
+     * Decodes an ExclusiveCameraState message from the specified reader or buffer.
+     * @function decode
+     * @memberof ExclusiveCameraState
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {ExclusiveCameraState} ExclusiveCameraState
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    ExclusiveCameraState.decode = function decode(reader, length) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ExclusiveCameraState();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    message.captureRawState = $root.CaptureRawState.decode(reader, reader.uint32());
+                    break;
+                }
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    };
+    /**
+     * Decodes an ExclusiveCameraState message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof ExclusiveCameraState
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {ExclusiveCameraState} ExclusiveCameraState
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    ExclusiveCameraState.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+    /**
+     * Verifies an ExclusiveCameraState message.
+     * @function verify
+     * @memberof ExclusiveCameraState
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    ExclusiveCameraState.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        var properties = {};
+        if (message.captureRawState != null &&
+            message.hasOwnProperty("captureRawState")) {
+            properties.state = 1;
+            {
+                var error = $root.CaptureRawState.verify(message.captureRawState);
+                if (error)
+                    return "captureRawState." + error;
+            }
+        }
+        return null;
+    };
+    /**
+     * Creates an ExclusiveCameraState message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof ExclusiveCameraState
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {ExclusiveCameraState} ExclusiveCameraState
+     */
+    ExclusiveCameraState.fromObject = function fromObject(object) {
+        if (object instanceof $root.ExclusiveCameraState)
+            return object;
+        var message = new $root.ExclusiveCameraState();
+        if (object.captureRawState != null) {
+            if (typeof object.captureRawState !== "object")
+                throw TypeError(".ExclusiveCameraState.captureRawState: object expected");
+            message.captureRawState = $root.CaptureRawState.fromObject(object.captureRawState);
+        }
+        return message;
+    };
+    /**
+     * Creates a plain object from an ExclusiveCameraState message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof ExclusiveCameraState
+     * @static
+     * @param {ExclusiveCameraState} message ExclusiveCameraState
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    ExclusiveCameraState.toObject = function toObject(message, options) {
+        if (!options)
+            options = {};
+        var object = {};
+        if (message.captureRawState != null &&
+            message.hasOwnProperty("captureRawState")) {
+            object.captureRawState = $root.CaptureRawState.toObject(message.captureRawState, options);
+            if (options.oneofs)
+                object.state = "captureRawState";
+        }
+        return object;
+    };
+    /**
+     * Converts this ExclusiveCameraState to JSON.
+     * @function toJSON
+     * @memberof ExclusiveCameraState
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    ExclusiveCameraState.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+    /**
+     * Gets the default type url for ExclusiveCameraState
+     * @function getTypeUrl
+     * @memberof ExclusiveCameraState
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ExclusiveCameraState.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ExclusiveCameraState";
+    };
+    return ExclusiveCameraState;
+})();
+$root.TeleCameraStateInfo = (function () {
+    /**
+     * Properties of a TeleCameraStateInfo.
+     * @exports ITeleCameraStateInfo
+     * @interface ITeleCameraStateInfo
+     * @property {IExclusiveCameraState|null} [exclusiveState] TeleCameraStateInfo exclusiveState
+     * @property {number|null} [hFov] TeleCameraStateInfo hFov
+     * @property {number|null} [vFov] TeleCameraStateInfo vFov
+     * @property {number|null} [resolutionWidth] TeleCameraStateInfo resolutionWidth
+     * @property {number|null} [resolutionHeight] TeleCameraStateInfo resolutionHeight
+     * @property {ICmosTemperature|null} [cmosTemperature] TeleCameraStateInfo cmosTemperature
+     */
+    /**
+     * Constructs a new TeleCameraStateInfo.
+     * @exports TeleCameraStateInfo
+     * @classdesc Represents a TeleCameraStateInfo.
+     * @implements ITeleCameraStateInfo
+     * @constructor
+     * @param {ITeleCameraStateInfo=} [properties] Properties to set
+     */
+    function TeleCameraStateInfo(properties) {
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+    /**
+     * TeleCameraStateInfo exclusiveState.
+     * @member {IExclusiveCameraState|null|undefined} exclusiveState
+     * @memberof TeleCameraStateInfo
+     * @instance
+     */
+    TeleCameraStateInfo.prototype.exclusiveState = null;
+    /**
+     * TeleCameraStateInfo hFov.
+     * @member {number} hFov
+     * @memberof TeleCameraStateInfo
+     * @instance
+     */
+    TeleCameraStateInfo.prototype.hFov = 0;
+    /**
+     * TeleCameraStateInfo vFov.
+     * @member {number} vFov
+     * @memberof TeleCameraStateInfo
+     * @instance
+     */
+    TeleCameraStateInfo.prototype.vFov = 0;
+    /**
+     * TeleCameraStateInfo resolutionWidth.
+     * @member {number} resolutionWidth
+     * @memberof TeleCameraStateInfo
+     * @instance
+     */
+    TeleCameraStateInfo.prototype.resolutionWidth = 0;
+    /**
+     * TeleCameraStateInfo resolutionHeight.
+     * @member {number} resolutionHeight
+     * @memberof TeleCameraStateInfo
+     * @instance
+     */
+    TeleCameraStateInfo.prototype.resolutionHeight = 0;
+    /**
+     * TeleCameraStateInfo cmosTemperature.
+     * @member {ICmosTemperature|null|undefined} cmosTemperature
+     * @memberof TeleCameraStateInfo
+     * @instance
+     */
+    TeleCameraStateInfo.prototype.cmosTemperature = null;
+    /**
+     * Creates a new TeleCameraStateInfo instance using the specified properties.
+     * @function create
+     * @memberof TeleCameraStateInfo
+     * @static
+     * @param {ITeleCameraStateInfo=} [properties] Properties to set
+     * @returns {TeleCameraStateInfo} TeleCameraStateInfo instance
+     */
+    TeleCameraStateInfo.create = function create(properties) {
+        return new TeleCameraStateInfo(properties);
+    };
+    /**
+     * Encodes the specified TeleCameraStateInfo message. Does not implicitly {@link TeleCameraStateInfo.verify|verify} messages.
+     * @function encode
+     * @memberof TeleCameraStateInfo
+     * @static
+     * @param {ITeleCameraStateInfo} message TeleCameraStateInfo message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    TeleCameraStateInfo.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        if (message.exclusiveState != null &&
+            Object.hasOwnProperty.call(message, "exclusiveState"))
+            $root.ExclusiveCameraState.encode(message.exclusiveState, writer.uint32(/* id 1, wireType 2 =*/ 10).fork()).ldelim();
+        if (message.hFov != null && Object.hasOwnProperty.call(message, "hFov"))
+            writer.uint32(/* id 3, wireType 1 =*/ 25).double(message.hFov);
+        if (message.vFov != null && Object.hasOwnProperty.call(message, "vFov"))
+            writer.uint32(/* id 4, wireType 1 =*/ 33).double(message.vFov);
+        if (message.resolutionWidth != null &&
+            Object.hasOwnProperty.call(message, "resolutionWidth"))
+            writer.uint32(/* id 5, wireType 0 =*/ 40).uint32(message.resolutionWidth);
+        if (message.resolutionHeight != null &&
+            Object.hasOwnProperty.call(message, "resolutionHeight"))
+            writer
+                .uint32(/* id 6, wireType 0 =*/ 48)
+                .uint32(message.resolutionHeight);
+        if (message.cmosTemperature != null &&
+            Object.hasOwnProperty.call(message, "cmosTemperature"))
+            $root.CmosTemperature.encode(message.cmosTemperature, writer.uint32(/* id 7, wireType 2 =*/ 58).fork()).ldelim();
+        return writer;
+    };
+    /**
+     * Encodes the specified TeleCameraStateInfo message, length delimited. Does not implicitly {@link TeleCameraStateInfo.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof TeleCameraStateInfo
+     * @static
+     * @param {ITeleCameraStateInfo} message TeleCameraStateInfo message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    TeleCameraStateInfo.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+    /**
+     * Decodes a TeleCameraStateInfo message from the specified reader or buffer.
+     * @function decode
+     * @memberof TeleCameraStateInfo
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {TeleCameraStateInfo} TeleCameraStateInfo
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    TeleCameraStateInfo.decode = function decode(reader, length) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.TeleCameraStateInfo();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    message.exclusiveState = $root.ExclusiveCameraState.decode(reader, reader.uint32());
+                    break;
+                }
+                case 3: {
+                    message.hFov = reader.double();
+                    break;
+                }
+                case 4: {
+                    message.vFov = reader.double();
+                    break;
+                }
+                case 5: {
+                    message.resolutionWidth = reader.uint32();
+                    break;
+                }
+                case 6: {
+                    message.resolutionHeight = reader.uint32();
+                    break;
+                }
+                case 7: {
+                    message.cmosTemperature = $root.CmosTemperature.decode(reader, reader.uint32());
+                    break;
+                }
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    };
+    /**
+     * Decodes a TeleCameraStateInfo message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof TeleCameraStateInfo
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {TeleCameraStateInfo} TeleCameraStateInfo
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    TeleCameraStateInfo.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+    /**
+     * Verifies a TeleCameraStateInfo message.
+     * @function verify
+     * @memberof TeleCameraStateInfo
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    TeleCameraStateInfo.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        if (message.exclusiveState != null &&
+            message.hasOwnProperty("exclusiveState")) {
+            var error = $root.ExclusiveCameraState.verify(message.exclusiveState);
+            if (error)
+                return "exclusiveState." + error;
+        }
+        if (message.hFov != null && message.hasOwnProperty("hFov"))
+            if (typeof message.hFov !== "number")
+                return "hFov: number expected";
+        if (message.vFov != null && message.hasOwnProperty("vFov"))
+            if (typeof message.vFov !== "number")
+                return "vFov: number expected";
+        if (message.resolutionWidth != null &&
+            message.hasOwnProperty("resolutionWidth"))
+            if (!$util.isInteger(message.resolutionWidth))
+                return "resolutionWidth: integer expected";
+        if (message.resolutionHeight != null &&
+            message.hasOwnProperty("resolutionHeight"))
+            if (!$util.isInteger(message.resolutionHeight))
+                return "resolutionHeight: integer expected";
+        if (message.cmosTemperature != null &&
+            message.hasOwnProperty("cmosTemperature")) {
+            var error = $root.CmosTemperature.verify(message.cmosTemperature);
+            if (error)
+                return "cmosTemperature." + error;
+        }
+        return null;
+    };
+    /**
+     * Creates a TeleCameraStateInfo message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof TeleCameraStateInfo
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {TeleCameraStateInfo} TeleCameraStateInfo
+     */
+    TeleCameraStateInfo.fromObject = function fromObject(object) {
+        if (object instanceof $root.TeleCameraStateInfo)
+            return object;
+        var message = new $root.TeleCameraStateInfo();
+        if (object.exclusiveState != null) {
+            if (typeof object.exclusiveState !== "object")
+                throw TypeError(".TeleCameraStateInfo.exclusiveState: object expected");
+            message.exclusiveState = $root.ExclusiveCameraState.fromObject(object.exclusiveState);
+        }
+        if (object.hFov != null)
+            message.hFov = Number(object.hFov);
+        if (object.vFov != null)
+            message.vFov = Number(object.vFov);
+        if (object.resolutionWidth != null)
+            message.resolutionWidth = object.resolutionWidth >>> 0;
+        if (object.resolutionHeight != null)
+            message.resolutionHeight = object.resolutionHeight >>> 0;
+        if (object.cmosTemperature != null) {
+            if (typeof object.cmosTemperature !== "object")
+                throw TypeError(".TeleCameraStateInfo.cmosTemperature: object expected");
+            message.cmosTemperature = $root.CmosTemperature.fromObject(object.cmosTemperature);
+        }
+        return message;
+    };
+    /**
+     * Creates a plain object from a TeleCameraStateInfo message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof TeleCameraStateInfo
+     * @static
+     * @param {TeleCameraStateInfo} message TeleCameraStateInfo
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    TeleCameraStateInfo.toObject = function toObject(message, options) {
+        if (!options)
+            options = {};
+        var object = {};
+        if (options.defaults) {
+            object.exclusiveState = null;
+            object.hFov = 0;
+            object.vFov = 0;
+            object.resolutionWidth = 0;
+            object.resolutionHeight = 0;
+            object.cmosTemperature = null;
+        }
+        if (message.exclusiveState != null &&
+            message.hasOwnProperty("exclusiveState"))
+            object.exclusiveState = $root.ExclusiveCameraState.toObject(message.exclusiveState, options);
+        if (message.hFov != null && message.hasOwnProperty("hFov"))
+            object.hFov =
+                options.json && !isFinite(message.hFov)
+                    ? String(message.hFov)
+                    : message.hFov;
+        if (message.vFov != null && message.hasOwnProperty("vFov"))
+            object.vFov =
+                options.json && !isFinite(message.vFov)
+                    ? String(message.vFov)
+                    : message.vFov;
+        if (message.resolutionWidth != null &&
+            message.hasOwnProperty("resolutionWidth"))
+            object.resolutionWidth = message.resolutionWidth;
+        if (message.resolutionHeight != null &&
+            message.hasOwnProperty("resolutionHeight"))
+            object.resolutionHeight = message.resolutionHeight;
+        if (message.cmosTemperature != null &&
+            message.hasOwnProperty("cmosTemperature"))
+            object.cmosTemperature = $root.CmosTemperature.toObject(message.cmosTemperature, options);
+        return object;
+    };
+    /**
+     * Converts this TeleCameraStateInfo to JSON.
+     * @function toJSON
+     * @memberof TeleCameraStateInfo
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    TeleCameraStateInfo.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+    /**
+     * Gets the default type url for TeleCameraStateInfo
+     * @function getTypeUrl
+     * @memberof TeleCameraStateInfo
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    TeleCameraStateInfo.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/TeleCameraStateInfo";
+    };
+    return TeleCameraStateInfo;
+})();
+$root.CmosTemperature = (function () {
+    /**
+     * Properties of a CmosTemperature.
+     * @exports ICmosTemperature
+     * @interface ICmosTemperature
+     * @property {number|null} [temperature] CmosTemperature temperature
+     * @property {number|null} [cameraType] CmosTemperature cameraType
+     */
+    /**
+     * Constructs a new CmosTemperature.
+     * @exports CmosTemperature
+     * @classdesc Represents a CmosTemperature.
+     * @implements ICmosTemperature
+     * @constructor
+     * @param {ICmosTemperature=} [properties] Properties to set
+     */
+    function CmosTemperature(properties) {
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+    /**
+     * CmosTemperature temperature.
+     * @member {number|null|undefined} temperature
+     * @memberof CmosTemperature
+     * @instance
+     */
+    CmosTemperature.prototype.temperature = null;
+    /**
+     * CmosTemperature cameraType.
+     * @member {number} cameraType
+     * @memberof CmosTemperature
+     * @instance
+     */
+    CmosTemperature.prototype.cameraType = 0;
+    // OneOf field names bound to virtual getters and setters
+    var $oneOfFields;
+    /**
+     * CmosTemperature _temperature.
+     * @member {"temperature"|undefined} _temperature
+     * @memberof CmosTemperature
+     * @instance
+     */
+    Object.defineProperty(CmosTemperature.prototype, "_temperature", {
+        get: $util.oneOfGetter(($oneOfFields = ["temperature"])),
+        set: $util.oneOfSetter($oneOfFields),
+    });
+    /**
+     * Creates a new CmosTemperature instance using the specified properties.
+     * @function create
+     * @memberof CmosTemperature
+     * @static
+     * @param {ICmosTemperature=} [properties] Properties to set
+     * @returns {CmosTemperature} CmosTemperature instance
+     */
+    CmosTemperature.create = function create(properties) {
+        return new CmosTemperature(properties);
+    };
+    /**
+     * Encodes the specified CmosTemperature message. Does not implicitly {@link CmosTemperature.verify|verify} messages.
+     * @function encode
+     * @memberof CmosTemperature
+     * @static
+     * @param {ICmosTemperature} message CmosTemperature message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    CmosTemperature.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        if (message.temperature != null &&
+            Object.hasOwnProperty.call(message, "temperature"))
+            writer.uint32(/* id 1, wireType 0 =*/ 8).int32(message.temperature);
+        if (message.cameraType != null &&
+            Object.hasOwnProperty.call(message, "cameraType"))
+            writer.uint32(/* id 2, wireType 0 =*/ 16).int32(message.cameraType);
+        return writer;
+    };
+    /**
+     * Encodes the specified CmosTemperature message, length delimited. Does not implicitly {@link CmosTemperature.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof CmosTemperature
+     * @static
+     * @param {ICmosTemperature} message CmosTemperature message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    CmosTemperature.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+    /**
+     * Decodes a CmosTemperature message from the specified reader or buffer.
+     * @function decode
+     * @memberof CmosTemperature
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {CmosTemperature} CmosTemperature
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    CmosTemperature.decode = function decode(reader, length) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.CmosTemperature();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    message.temperature = reader.int32();
+                    break;
+                }
+                case 2: {
+                    message.cameraType = reader.int32();
+                    break;
+                }
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    };
+    /**
+     * Decodes a CmosTemperature message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof CmosTemperature
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {CmosTemperature} CmosTemperature
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    CmosTemperature.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+    /**
+     * Verifies a CmosTemperature message.
+     * @function verify
+     * @memberof CmosTemperature
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    CmosTemperature.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        var properties = {};
+        if (message.temperature != null && message.hasOwnProperty("temperature")) {
+            properties._temperature = 1;
+            if (!$util.isInteger(message.temperature))
+                return "temperature: integer expected";
+        }
+        if (message.cameraType != null && message.hasOwnProperty("cameraType"))
+            if (!$util.isInteger(message.cameraType))
+                return "cameraType: integer expected";
+        return null;
+    };
+    /**
+     * Creates a CmosTemperature message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof CmosTemperature
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {CmosTemperature} CmosTemperature
+     */
+    CmosTemperature.fromObject = function fromObject(object) {
+        if (object instanceof $root.CmosTemperature)
+            return object;
+        var message = new $root.CmosTemperature();
+        if (object.temperature != null)
+            message.temperature = object.temperature | 0;
+        if (object.cameraType != null)
+            message.cameraType = object.cameraType | 0;
+        return message;
+    };
+    /**
+     * Creates a plain object from a CmosTemperature message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof CmosTemperature
+     * @static
+     * @param {CmosTemperature} message CmosTemperature
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    CmosTemperature.toObject = function toObject(message, options) {
+        if (!options)
+            options = {};
+        var object = {};
+        if (options.defaults)
+            object.cameraType = 0;
+        if (message.temperature != null && message.hasOwnProperty("temperature")) {
+            object.temperature = message.temperature;
+            if (options.oneofs)
+                object._temperature = "temperature";
+        }
+        if (message.cameraType != null && message.hasOwnProperty("cameraType"))
+            object.cameraType = message.cameraType;
+        return object;
+    };
+    /**
+     * Converts this CmosTemperature to JSON.
+     * @function toJSON
+     * @memberof CmosTemperature
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    CmosTemperature.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+    /**
+     * Gets the default type url for CmosTemperature
+     * @function getTypeUrl
+     * @memberof CmosTemperature
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    CmosTemperature.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/CmosTemperature";
+    };
+    return CmosTemperature;
+})();
+$root.DeviceStateInfo = (function () {
+    /**
+     * Properties of a DeviceStateInfo.
+     * @exports IDeviceStateInfo
+     * @interface IDeviceStateInfo
+     * @property {ICalibrationResult|null} [calibrationResult] DeviceStateInfo calibrationResult
+     */
+    /**
+     * Constructs a new DeviceStateInfo.
+     * @exports DeviceStateInfo
+     * @classdesc Represents a DeviceStateInfo.
+     * @implements IDeviceStateInfo
+     * @constructor
+     * @param {IDeviceStateInfo=} [properties] Properties to set
+     */
+    function DeviceStateInfo(properties) {
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+    /**
+     * DeviceStateInfo calibrationResult.
+     * @member {ICalibrationResult|null|undefined} calibrationResult
+     * @memberof DeviceStateInfo
+     * @instance
+     */
+    DeviceStateInfo.prototype.calibrationResult = null;
+    /**
+     * Creates a new DeviceStateInfo instance using the specified properties.
+     * @function create
+     * @memberof DeviceStateInfo
+     * @static
+     * @param {IDeviceStateInfo=} [properties] Properties to set
+     * @returns {DeviceStateInfo} DeviceStateInfo instance
+     */
+    DeviceStateInfo.create = function create(properties) {
+        return new DeviceStateInfo(properties);
+    };
+    /**
+     * Encodes the specified DeviceStateInfo message. Does not implicitly {@link DeviceStateInfo.verify|verify} messages.
+     * @function encode
+     * @memberof DeviceStateInfo
+     * @static
+     * @param {IDeviceStateInfo} message DeviceStateInfo message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    DeviceStateInfo.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        if (message.calibrationResult != null &&
+            Object.hasOwnProperty.call(message, "calibrationResult"))
+            $root.CalibrationResult.encode(message.calibrationResult, writer.uint32(/* id 10, wireType 2 =*/ 82).fork()).ldelim();
+        return writer;
+    };
+    /**
+     * Encodes the specified DeviceStateInfo message, length delimited. Does not implicitly {@link DeviceStateInfo.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof DeviceStateInfo
+     * @static
+     * @param {IDeviceStateInfo} message DeviceStateInfo message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    DeviceStateInfo.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+    /**
+     * Decodes a DeviceStateInfo message from the specified reader or buffer.
+     * @function decode
+     * @memberof DeviceStateInfo
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {DeviceStateInfo} DeviceStateInfo
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    DeviceStateInfo.decode = function decode(reader, length) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.DeviceStateInfo();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 10: {
+                    message.calibrationResult = $root.CalibrationResult.decode(reader, reader.uint32());
+                    break;
+                }
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    };
+    /**
+     * Decodes a DeviceStateInfo message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof DeviceStateInfo
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {DeviceStateInfo} DeviceStateInfo
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    DeviceStateInfo.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+    /**
+     * Verifies a DeviceStateInfo message.
+     * @function verify
+     * @memberof DeviceStateInfo
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    DeviceStateInfo.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        if (message.calibrationResult != null &&
+            message.hasOwnProperty("calibrationResult")) {
+            var error = $root.CalibrationResult.verify(message.calibrationResult);
+            if (error)
+                return "calibrationResult." + error;
+        }
+        return null;
+    };
+    /**
+     * Creates a DeviceStateInfo message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof DeviceStateInfo
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {DeviceStateInfo} DeviceStateInfo
+     */
+    DeviceStateInfo.fromObject = function fromObject(object) {
+        if (object instanceof $root.DeviceStateInfo)
+            return object;
+        var message = new $root.DeviceStateInfo();
+        if (object.calibrationResult != null) {
+            if (typeof object.calibrationResult !== "object")
+                throw TypeError(".DeviceStateInfo.calibrationResult: object expected");
+            message.calibrationResult = $root.CalibrationResult.fromObject(object.calibrationResult);
+        }
+        return message;
+    };
+    /**
+     * Creates a plain object from a DeviceStateInfo message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof DeviceStateInfo
+     * @static
+     * @param {DeviceStateInfo} message DeviceStateInfo
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    DeviceStateInfo.toObject = function toObject(message, options) {
+        if (!options)
+            options = {};
+        var object = {};
+        if (options.defaults)
+            object.calibrationResult = null;
+        if (message.calibrationResult != null &&
+            message.hasOwnProperty("calibrationResult"))
+            object.calibrationResult = $root.CalibrationResult.toObject(message.calibrationResult, options);
+        return object;
+    };
+    /**
+     * Converts this DeviceStateInfo to JSON.
+     * @function toJSON
+     * @memberof DeviceStateInfo
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    DeviceStateInfo.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+    /**
+     * Gets the default type url for DeviceStateInfo
+     * @function getTypeUrl
+     * @memberof DeviceStateInfo
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    DeviceStateInfo.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/DeviceStateInfo";
+    };
+    return DeviceStateInfo;
+})();
+$root.ResGetDeviceStateInfo = (function () {
+    /**
+     * Properties of a ResGetDeviceStateInfo.
+     * @exports IResGetDeviceStateInfo
+     * @interface IResGetDeviceStateInfo
+     * @property {number|null} [shootingMode] ResGetDeviceStateInfo shootingMode
+     * @property {ITeleCameraStateInfo|null} [teleCameraStateInfo] ResGetDeviceStateInfo teleCameraStateInfo
+     * @property {IDeviceStateInfo|null} [deviceStateInfo] ResGetDeviceStateInfo deviceStateInfo
+     * @property {number|null} [code] ResGetDeviceStateInfo code
+     */
+    /**
+     * Constructs a new ResGetDeviceStateInfo.
+     * @exports ResGetDeviceStateInfo
+     * @classdesc Represents a ResGetDeviceStateInfo.
+     * @implements IResGetDeviceStateInfo
+     * @constructor
+     * @param {IResGetDeviceStateInfo=} [properties] Properties to set
+     */
+    function ResGetDeviceStateInfo(properties) {
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null)
+                    this[keys[i]] = properties[keys[i]];
+    }
+    /**
+     * ResGetDeviceStateInfo shootingMode.
+     * @member {number} shootingMode
+     * @memberof ResGetDeviceStateInfo
+     * @instance
+     */
+    ResGetDeviceStateInfo.prototype.shootingMode = 0;
+    /**
+     * ResGetDeviceStateInfo teleCameraStateInfo.
+     * @member {ITeleCameraStateInfo|null|undefined} teleCameraStateInfo
+     * @memberof ResGetDeviceStateInfo
+     * @instance
+     */
+    ResGetDeviceStateInfo.prototype.teleCameraStateInfo = null;
+    /**
+     * ResGetDeviceStateInfo deviceStateInfo.
+     * @member {IDeviceStateInfo|null|undefined} deviceStateInfo
+     * @memberof ResGetDeviceStateInfo
+     * @instance
+     */
+    ResGetDeviceStateInfo.prototype.deviceStateInfo = null;
+    /**
+     * ResGetDeviceStateInfo code.
+     * @member {number} code
+     * @memberof ResGetDeviceStateInfo
+     * @instance
+     */
+    ResGetDeviceStateInfo.prototype.code = 0;
+    /**
+     * Creates a new ResGetDeviceStateInfo instance using the specified properties.
+     * @function create
+     * @memberof ResGetDeviceStateInfo
+     * @static
+     * @param {IResGetDeviceStateInfo=} [properties] Properties to set
+     * @returns {ResGetDeviceStateInfo} ResGetDeviceStateInfo instance
+     */
+    ResGetDeviceStateInfo.create = function create(properties) {
+        return new ResGetDeviceStateInfo(properties);
+    };
+    /**
+     * Encodes the specified ResGetDeviceStateInfo message. Does not implicitly {@link ResGetDeviceStateInfo.verify|verify} messages.
+     * @function encode
+     * @memberof ResGetDeviceStateInfo
+     * @static
+     * @param {IResGetDeviceStateInfo} message ResGetDeviceStateInfo message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    ResGetDeviceStateInfo.encode = function encode(message, writer) {
+        if (!writer)
+            writer = $Writer.create();
+        if (message.shootingMode != null &&
+            Object.hasOwnProperty.call(message, "shootingMode"))
+            writer.uint32(/* id 1, wireType 0 =*/ 8).int32(message.shootingMode);
+        if (message.teleCameraStateInfo != null &&
+            Object.hasOwnProperty.call(message, "teleCameraStateInfo"))
+            $root.TeleCameraStateInfo.encode(message.teleCameraStateInfo, writer.uint32(/* id 2, wireType 2 =*/ 18).fork()).ldelim();
+        if (message.deviceStateInfo != null &&
+            Object.hasOwnProperty.call(message, "deviceStateInfo"))
+            $root.DeviceStateInfo.encode(message.deviceStateInfo, writer.uint32(/* id 6, wireType 2 =*/ 50).fork()).ldelim();
+        if (message.code != null && Object.hasOwnProperty.call(message, "code"))
+            writer.uint32(/* id 7, wireType 0 =*/ 56).int32(message.code);
+        return writer;
+    };
+    /**
+     * Encodes the specified ResGetDeviceStateInfo message, length delimited. Does not implicitly {@link ResGetDeviceStateInfo.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof ResGetDeviceStateInfo
+     * @static
+     * @param {IResGetDeviceStateInfo} message ResGetDeviceStateInfo message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    ResGetDeviceStateInfo.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer).ldelim();
+    };
+    /**
+     * Decodes a ResGetDeviceStateInfo message from the specified reader or buffer.
+     * @function decode
+     * @memberof ResGetDeviceStateInfo
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {ResGetDeviceStateInfo} ResGetDeviceStateInfo
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    ResGetDeviceStateInfo.decode = function decode(reader, length) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.ResGetDeviceStateInfo();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    message.shootingMode = reader.int32();
+                    break;
+                }
+                case 2: {
+                    message.teleCameraStateInfo = $root.TeleCameraStateInfo.decode(reader, reader.uint32());
+                    break;
+                }
+                case 6: {
+                    message.deviceStateInfo = $root.DeviceStateInfo.decode(reader, reader.uint32());
+                    break;
+                }
+                case 7: {
+                    message.code = reader.int32();
+                    break;
+                }
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    };
+    /**
+     * Decodes a ResGetDeviceStateInfo message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof ResGetDeviceStateInfo
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {ResGetDeviceStateInfo} ResGetDeviceStateInfo
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    ResGetDeviceStateInfo.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+    /**
+     * Verifies a ResGetDeviceStateInfo message.
+     * @function verify
+     * @memberof ResGetDeviceStateInfo
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    ResGetDeviceStateInfo.verify = function verify(message) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        if (message.shootingMode != null && message.hasOwnProperty("shootingMode"))
+            if (!$util.isInteger(message.shootingMode))
+                return "shootingMode: integer expected";
+        if (message.teleCameraStateInfo != null &&
+            message.hasOwnProperty("teleCameraStateInfo")) {
+            var error = $root.TeleCameraStateInfo.verify(message.teleCameraStateInfo);
+            if (error)
+                return "teleCameraStateInfo." + error;
+        }
+        if (message.deviceStateInfo != null &&
+            message.hasOwnProperty("deviceStateInfo")) {
+            var error = $root.DeviceStateInfo.verify(message.deviceStateInfo);
+            if (error)
+                return "deviceStateInfo." + error;
+        }
+        if (message.code != null && message.hasOwnProperty("code"))
+            if (!$util.isInteger(message.code))
+                return "code: integer expected";
+        return null;
+    };
+    /**
+     * Creates a ResGetDeviceStateInfo message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof ResGetDeviceStateInfo
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {ResGetDeviceStateInfo} ResGetDeviceStateInfo
+     */
+    ResGetDeviceStateInfo.fromObject = function fromObject(object) {
+        if (object instanceof $root.ResGetDeviceStateInfo)
+            return object;
+        var message = new $root.ResGetDeviceStateInfo();
+        if (object.shootingMode != null)
+            message.shootingMode = object.shootingMode | 0;
+        if (object.teleCameraStateInfo != null) {
+            if (typeof object.teleCameraStateInfo !== "object")
+                throw TypeError(".ResGetDeviceStateInfo.teleCameraStateInfo: object expected");
+            message.teleCameraStateInfo = $root.TeleCameraStateInfo.fromObject(object.teleCameraStateInfo);
+        }
+        if (object.deviceStateInfo != null) {
+            if (typeof object.deviceStateInfo !== "object")
+                throw TypeError(".ResGetDeviceStateInfo.deviceStateInfo: object expected");
+            message.deviceStateInfo = $root.DeviceStateInfo.fromObject(object.deviceStateInfo);
+        }
+        if (object.code != null)
+            message.code = object.code | 0;
+        return message;
+    };
+    /**
+     * Creates a plain object from a ResGetDeviceStateInfo message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof ResGetDeviceStateInfo
+     * @static
+     * @param {ResGetDeviceStateInfo} message ResGetDeviceStateInfo
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    ResGetDeviceStateInfo.toObject = function toObject(message, options) {
+        if (!options)
+            options = {};
+        var object = {};
+        if (options.defaults) {
+            object.shootingMode = 0;
+            object.teleCameraStateInfo = null;
+            object.deviceStateInfo = null;
+            object.code = 0;
+        }
+        if (message.shootingMode != null && message.hasOwnProperty("shootingMode"))
+            object.shootingMode = message.shootingMode;
+        if (message.teleCameraStateInfo != null &&
+            message.hasOwnProperty("teleCameraStateInfo"))
+            object.teleCameraStateInfo = $root.TeleCameraStateInfo.toObject(message.teleCameraStateInfo, options);
+        if (message.deviceStateInfo != null &&
+            message.hasOwnProperty("deviceStateInfo"))
+            object.deviceStateInfo = $root.DeviceStateInfo.toObject(message.deviceStateInfo, options);
+        if (message.code != null && message.hasOwnProperty("code"))
+            object.code = message.code;
+        return object;
+    };
+    /**
+     * Converts this ResGetDeviceStateInfo to JSON.
+     * @function toJSON
+     * @memberof ResGetDeviceStateInfo
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    ResGetDeviceStateInfo.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+    /**
+     * Gets the default type url for ResGetDeviceStateInfo
+     * @function getTypeUrl
+     * @memberof ResGetDeviceStateInfo
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ResGetDeviceStateInfo.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ResGetDeviceStateInfo";
+    };
+    return ResGetDeviceStateInfo;
+})();
 $root.V3ReqGetDeviceConfig = (function () {
     /**
      * Properties of a V3ReqGetDeviceConfig.

@@ -12470,6 +12470,669 @@ export class V3ResModeSwitch implements IV3ResModeSwitch {
     public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
+/** Represents a ReqGetDeviceStateInfo. */
+export class ReqGetDeviceStateInfo implements IReqGetDeviceStateInfo {
+
+    /**
+     * Constructs a new ReqGetDeviceStateInfo.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqGetDeviceStateInfo);
+
+    /**
+     * Creates a new ReqGetDeviceStateInfo instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqGetDeviceStateInfo instance
+     */
+    public static create(properties?: IReqGetDeviceStateInfo): ReqGetDeviceStateInfo;
+
+    /**
+     * Encodes the specified ReqGetDeviceStateInfo message. Does not implicitly {@link ReqGetDeviceStateInfo.verify|verify} messages.
+     * @param message ReqGetDeviceStateInfo message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqGetDeviceStateInfo, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqGetDeviceStateInfo message, length delimited. Does not implicitly {@link ReqGetDeviceStateInfo.verify|verify} messages.
+     * @param message ReqGetDeviceStateInfo message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqGetDeviceStateInfo, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqGetDeviceStateInfo message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqGetDeviceStateInfo
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqGetDeviceStateInfo;
+
+    /**
+     * Decodes a ReqGetDeviceStateInfo message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqGetDeviceStateInfo
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqGetDeviceStateInfo;
+
+    /**
+     * Verifies a ReqGetDeviceStateInfo message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqGetDeviceStateInfo message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqGetDeviceStateInfo
+     */
+    public static fromObject(object: { [k: string]: any }): ReqGetDeviceStateInfo;
+
+    /**
+     * Creates a plain object from a ReqGetDeviceStateInfo message. Also converts values to other types if specified.
+     * @param message ReqGetDeviceStateInfo
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqGetDeviceStateInfo, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqGetDeviceStateInfo to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqGetDeviceStateInfo
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a CaptureRawState. */
+export class CaptureRawState implements ICaptureRawState {
+
+    /**
+     * Constructs a new CaptureRawState.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: ICaptureRawState);
+
+    /** CaptureRawState state. */
+    public state: OperationState;
+
+    /** CaptureRawState cameraType. */
+    public cameraType: number;
+
+    /**
+     * Creates a new CaptureRawState instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns CaptureRawState instance
+     */
+    public static create(properties?: ICaptureRawState): CaptureRawState;
+
+    /**
+     * Encodes the specified CaptureRawState message. Does not implicitly {@link CaptureRawState.verify|verify} messages.
+     * @param message CaptureRawState message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: ICaptureRawState, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified CaptureRawState message, length delimited. Does not implicitly {@link CaptureRawState.verify|verify} messages.
+     * @param message CaptureRawState message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: ICaptureRawState, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a CaptureRawState message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns CaptureRawState
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): CaptureRawState;
+
+    /**
+     * Decodes a CaptureRawState message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns CaptureRawState
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): CaptureRawState;
+
+    /**
+     * Verifies a CaptureRawState message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a CaptureRawState message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns CaptureRawState
+     */
+    public static fromObject(object: { [k: string]: any }): CaptureRawState;
+
+    /**
+     * Creates a plain object from a CaptureRawState message. Also converts values to other types if specified.
+     * @param message CaptureRawState
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: CaptureRawState, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this CaptureRawState to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for CaptureRawState
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents an ExclusiveCameraState. */
+export class ExclusiveCameraState implements IExclusiveCameraState {
+
+    /**
+     * Constructs a new ExclusiveCameraState.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IExclusiveCameraState);
+
+    /** ExclusiveCameraState captureRawState. */
+    public captureRawState?: (ICaptureRawState|null);
+
+    /** ExclusiveCameraState state. */
+    public state?: "captureRawState";
+
+    /**
+     * Creates a new ExclusiveCameraState instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ExclusiveCameraState instance
+     */
+    public static create(properties?: IExclusiveCameraState): ExclusiveCameraState;
+
+    /**
+     * Encodes the specified ExclusiveCameraState message. Does not implicitly {@link ExclusiveCameraState.verify|verify} messages.
+     * @param message ExclusiveCameraState message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IExclusiveCameraState, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ExclusiveCameraState message, length delimited. Does not implicitly {@link ExclusiveCameraState.verify|verify} messages.
+     * @param message ExclusiveCameraState message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IExclusiveCameraState, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes an ExclusiveCameraState message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ExclusiveCameraState
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ExclusiveCameraState;
+
+    /**
+     * Decodes an ExclusiveCameraState message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ExclusiveCameraState
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ExclusiveCameraState;
+
+    /**
+     * Verifies an ExclusiveCameraState message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates an ExclusiveCameraState message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ExclusiveCameraState
+     */
+    public static fromObject(object: { [k: string]: any }): ExclusiveCameraState;
+
+    /**
+     * Creates a plain object from an ExclusiveCameraState message. Also converts values to other types if specified.
+     * @param message ExclusiveCameraState
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ExclusiveCameraState, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ExclusiveCameraState to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ExclusiveCameraState
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a TeleCameraStateInfo. */
+export class TeleCameraStateInfo implements ITeleCameraStateInfo {
+
+    /**
+     * Constructs a new TeleCameraStateInfo.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: ITeleCameraStateInfo);
+
+    /** TeleCameraStateInfo exclusiveState. */
+    public exclusiveState?: (IExclusiveCameraState|null);
+
+    /** TeleCameraStateInfo hFov. */
+    public hFov: number;
+
+    /** TeleCameraStateInfo vFov. */
+    public vFov: number;
+
+    /** TeleCameraStateInfo resolutionWidth. */
+    public resolutionWidth: number;
+
+    /** TeleCameraStateInfo resolutionHeight. */
+    public resolutionHeight: number;
+
+    /** TeleCameraStateInfo cmosTemperature. */
+    public cmosTemperature?: (ICmosTemperature|null);
+
+    /**
+     * Creates a new TeleCameraStateInfo instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns TeleCameraStateInfo instance
+     */
+    public static create(properties?: ITeleCameraStateInfo): TeleCameraStateInfo;
+
+    /**
+     * Encodes the specified TeleCameraStateInfo message. Does not implicitly {@link TeleCameraStateInfo.verify|verify} messages.
+     * @param message TeleCameraStateInfo message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: ITeleCameraStateInfo, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified TeleCameraStateInfo message, length delimited. Does not implicitly {@link TeleCameraStateInfo.verify|verify} messages.
+     * @param message TeleCameraStateInfo message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: ITeleCameraStateInfo, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a TeleCameraStateInfo message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns TeleCameraStateInfo
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): TeleCameraStateInfo;
+
+    /**
+     * Decodes a TeleCameraStateInfo message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns TeleCameraStateInfo
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): TeleCameraStateInfo;
+
+    /**
+     * Verifies a TeleCameraStateInfo message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a TeleCameraStateInfo message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns TeleCameraStateInfo
+     */
+    public static fromObject(object: { [k: string]: any }): TeleCameraStateInfo;
+
+    /**
+     * Creates a plain object from a TeleCameraStateInfo message. Also converts values to other types if specified.
+     * @param message TeleCameraStateInfo
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: TeleCameraStateInfo, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this TeleCameraStateInfo to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for TeleCameraStateInfo
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a CmosTemperature. */
+export class CmosTemperature implements ICmosTemperature {
+
+    /**
+     * Constructs a new CmosTemperature.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: ICmosTemperature);
+
+    /** CmosTemperature temperature. */
+    public temperature?: (number|null);
+
+    /** CmosTemperature cameraType. */
+    public cameraType: number;
+
+    /** CmosTemperature _temperature. */
+    public _temperature?: "temperature";
+
+    /**
+     * Creates a new CmosTemperature instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns CmosTemperature instance
+     */
+    public static create(properties?: ICmosTemperature): CmosTemperature;
+
+    /**
+     * Encodes the specified CmosTemperature message. Does not implicitly {@link CmosTemperature.verify|verify} messages.
+     * @param message CmosTemperature message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: ICmosTemperature, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified CmosTemperature message, length delimited. Does not implicitly {@link CmosTemperature.verify|verify} messages.
+     * @param message CmosTemperature message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: ICmosTemperature, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a CmosTemperature message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns CmosTemperature
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): CmosTemperature;
+
+    /**
+     * Decodes a CmosTemperature message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns CmosTemperature
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): CmosTemperature;
+
+    /**
+     * Verifies a CmosTemperature message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a CmosTemperature message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns CmosTemperature
+     */
+    public static fromObject(object: { [k: string]: any }): CmosTemperature;
+
+    /**
+     * Creates a plain object from a CmosTemperature message. Also converts values to other types if specified.
+     * @param message CmosTemperature
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: CmosTemperature, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this CmosTemperature to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for CmosTemperature
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a DeviceStateInfo. */
+export class DeviceStateInfo implements IDeviceStateInfo {
+
+    /**
+     * Constructs a new DeviceStateInfo.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IDeviceStateInfo);
+
+    /** DeviceStateInfo calibrationResult. */
+    public calibrationResult?: (ICalibrationResult|null);
+
+    /**
+     * Creates a new DeviceStateInfo instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns DeviceStateInfo instance
+     */
+    public static create(properties?: IDeviceStateInfo): DeviceStateInfo;
+
+    /**
+     * Encodes the specified DeviceStateInfo message. Does not implicitly {@link DeviceStateInfo.verify|verify} messages.
+     * @param message DeviceStateInfo message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IDeviceStateInfo, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified DeviceStateInfo message, length delimited. Does not implicitly {@link DeviceStateInfo.verify|verify} messages.
+     * @param message DeviceStateInfo message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IDeviceStateInfo, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a DeviceStateInfo message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns DeviceStateInfo
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): DeviceStateInfo;
+
+    /**
+     * Decodes a DeviceStateInfo message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns DeviceStateInfo
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): DeviceStateInfo;
+
+    /**
+     * Verifies a DeviceStateInfo message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a DeviceStateInfo message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns DeviceStateInfo
+     */
+    public static fromObject(object: { [k: string]: any }): DeviceStateInfo;
+
+    /**
+     * Creates a plain object from a DeviceStateInfo message. Also converts values to other types if specified.
+     * @param message DeviceStateInfo
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: DeviceStateInfo, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this DeviceStateInfo to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for DeviceStateInfo
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a ResGetDeviceStateInfo. */
+export class ResGetDeviceStateInfo implements IResGetDeviceStateInfo {
+
+    /**
+     * Constructs a new ResGetDeviceStateInfo.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IResGetDeviceStateInfo);
+
+    /** ResGetDeviceStateInfo shootingMode. */
+    public shootingMode: number;
+
+    /** ResGetDeviceStateInfo teleCameraStateInfo. */
+    public teleCameraStateInfo?: (ITeleCameraStateInfo|null);
+
+    /** ResGetDeviceStateInfo deviceStateInfo. */
+    public deviceStateInfo?: (IDeviceStateInfo|null);
+
+    /** ResGetDeviceStateInfo code. */
+    public code: number;
+
+    /**
+     * Creates a new ResGetDeviceStateInfo instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ResGetDeviceStateInfo instance
+     */
+    public static create(properties?: IResGetDeviceStateInfo): ResGetDeviceStateInfo;
+
+    /**
+     * Encodes the specified ResGetDeviceStateInfo message. Does not implicitly {@link ResGetDeviceStateInfo.verify|verify} messages.
+     * @param message ResGetDeviceStateInfo message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IResGetDeviceStateInfo, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ResGetDeviceStateInfo message, length delimited. Does not implicitly {@link ResGetDeviceStateInfo.verify|verify} messages.
+     * @param message ResGetDeviceStateInfo message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IResGetDeviceStateInfo, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ResGetDeviceStateInfo message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ResGetDeviceStateInfo
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ResGetDeviceStateInfo;
+
+    /**
+     * Decodes a ResGetDeviceStateInfo message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ResGetDeviceStateInfo
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ResGetDeviceStateInfo;
+
+    /**
+     * Verifies a ResGetDeviceStateInfo message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ResGetDeviceStateInfo message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ResGetDeviceStateInfo
+     */
+    public static fromObject(object: { [k: string]: any }): ResGetDeviceStateInfo;
+
+    /**
+     * Creates a plain object from a ResGetDeviceStateInfo message. Also converts values to other types if specified.
+     * @param message ResGetDeviceStateInfo
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ResGetDeviceStateInfo, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ResGetDeviceStateInfo to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ResGetDeviceStateInfo
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
 /** Represents a V3ReqGetDeviceConfig. */
 export class V3ReqGetDeviceConfig implements IV3ReqGetDeviceConfig {
 
