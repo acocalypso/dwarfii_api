@@ -354,7 +354,13 @@ for 16700; clients may then use the complete accepted 11041 tuple as fallback.
 A later DWARF 3 VIS-filter test nevertheless reloaded 15
 seconds. Treat notification `15288.total_time` as the authoritative applied
 duration, report substitutions to the client/log, and associate the fresh FITS
-with that actual duration rather than discarding it. Then monitor notification `15209`.
+with that actual duration rather than discarding it. Current DWARF 3 firmware
+emits `15264` from module 15 while preparing `11005`; exposure/gain parameter
+IDs in those packets identify an internal capture namespace (mode 11 and mode
+13 were observed). Reapply `16700`, `16701`, and the `16703` frame-count write
+using that namespace after its late preset reload. The fifth `11041` tuple
+component is a resolution index (DWARF 3 `0`, Mini `1`), not frame count, and
+must be preserved. Then monitor notification `15209`.
 For an Alpaca raw-FITS result, `current_count` reaching the requested
 frame count is the retrieval boundary; `stacked_count` remains the accepted
 live-stack boundary when a stacked result is required. Stop with `11006`

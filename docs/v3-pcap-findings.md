@@ -48,6 +48,17 @@ so a command acknowledgement alone is not proof that a duration was applied.
 Clients should record/report the actual duration and still deliver the matching
 fresh FITS; discarding it leaves asynchronous Alpaca clients polling forever.
 
+A follow-up live trace located the override: during `11005` preparation,
+DWARF 3 emits `15264` from module 15 and reloads exposure/gain in an internal
+capture namespace (mode 11 or 13 observed). Clients must not discard module-15
+`15264` packets. Detect the namespace from the high byte of its exposure/gain
+paramId and reapply `16700`, `16701`, and the namespaced `16703` frame count.
+The fifth `11041` component is resolution (D3 `0`, Mini `1`), not count. With
+this workflow, a live 0.001-second/gain-0 request produced a non-uniform FITS
+with values 200..1649 instead of the saved 15-second preset. Daylight files
+whose min and max are both 4095 are genuinely saturated at the 12-bit ceiling;
+they are not zero-valued images introduced by FITS decoding.
+
 ### Confirmed protocol behavior
 
 1. LED and ring-light flow is clean and classified.
