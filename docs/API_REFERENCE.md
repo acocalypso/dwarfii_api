@@ -350,8 +350,10 @@ parameter catalogue, prime the persisted tuple with
 authoritative by itself for modified values: current hardware retained exposure index
 156 (15s) after echoing a 5-second-looking string. A DWARF 3 live test confirmed
 that the combined `11041 -> 16700/16701/16703 -> 11005` sequence preserves a
-1-second request. Verify notification `15288.total_time` against the requested
-duration and reject a substituted exposure. Then monitor notification `15209`.
+1-second Astro-filter request. A later VIS-filter test nevertheless reloaded 15
+seconds. Treat notification `15288.total_time` as the authoritative applied
+duration, report substitutions to the client/log, and associate the fresh FITS
+with that actual duration rather than discarding it. Then monitor notification `15209`.
 For an Alpaca raw-FITS result, `current_count` reaching the requested
 frame count is the retrieval boundary; `stacked_count` remains the accepted
 live-stack boundary when a stacked result is required. Stop with `11006`

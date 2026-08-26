@@ -40,10 +40,11 @@ A 2026-08-26 DWARF 3 live test confirmed that this complete sequence preserved
 a requested 1-second, gain-60 Astro exposure and produced a fresh raw FITS.
 Omitting the persisted quick-set priming allowed `11005` to reload 15 seconds.
 Notification `15288` (`LongExpPhotoProgress.total_time`) reports the duration
-actually selected by the firmware and should be checked before accepting the
-result. A 1-millisecond request was replaced by 15 seconds on the tested
-firmware, so a command acknowledgement alone is not proof that a duration was
-applied.
+actually selected by the firmware. A 1-millisecond request and a later
+1-second VIS-filter request were replaced by 15 seconds on the tested firmware,
+so a command acknowledgement alone is not proof that a duration was applied.
+Clients should record/report the actual duration and still deliver the matching
+fresh FITS; discarding it leaves asynchronous Alpaca clients polling forever.
 
 ### Confirmed protocol behavior
 
