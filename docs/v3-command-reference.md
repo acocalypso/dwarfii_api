@@ -360,6 +360,15 @@ Cloud cover can make the firmware perform multiple solve attempts, so clients
 should use a multi-minute calibration timeout rather than treating the first
 unsuccessful solve as terminal.
 
+Firmware decompilation further shows that the solver has a bounded attempt and
+required-success count. It can reinitialize the camera after an initial solve
+failure, reverse yaw search direction after motor-limit outcomes, wait two
+seconds between positions, and retry. Successful calibration publishes `15256`
+and then `15262`; exhausted solving or yaw-stop failure returns `-11504`.
+Search direction is cached for approximately 601 seconds. Direct DSO goto
+`11002` does not calibrate and returns `-11511` if its solved position is zero;
+clients may recover through one-click calibration+goto `11013`.
+
 ### Undefined Notifications (no protobuf definition, discovered from pcap)
 
 | CMD | Payload | Observed |
@@ -477,8 +486,11 @@ bits  7..0  = paramIndex     (0x0D=filterWheel, 0x10=frameCount in category 2)
 
 | CMD | Code | Description |
 |-----|------|-------------|
+| 11002 (Goto DSO) | -11511 | `CODE_ASTRO_NEED_CALIBRATION`; direct goto requires an existing solved position and does not start calibration |
+| 11005 (StartStacking) | -11501 | `CODE_ASTRO_FUNCTION_BUSY`; another exclusive astronomy workflow is active |
 | 11005 (StartStacking) | -11503 | `CODE_ASTRO_DARK_NOT_FOUND`; the app can capture a dark, cancel, or Continue with `11050` (protocol >=2.5, non-DWARF-2) or `force_start=true` |
 | 11005 (StartStacking) | -11513 | `CODE_ASTRO_NEED_GOTO`; observed as a non-blocking late warning while stacking progress continued |
 | 11005 (StartStacking) | -11514 | `CODE_ASTRO_NEED_ADJUST_SHOOT_PARAM`; requested shooting parameters are unsuitable |
+| 11005 (StartStacking) | -11527 | `CODE_ASTRO_EXP_TOO_LONG`; the selected exposure is longer than the active calibrated/tracking state permits |
 | 11005 (StartStacking) | -11530 | `CODE_ASTRO_DARK_TEMP_MISMATCH`; a dark exists but is outside the firmware temperature tolerance. Continue uses `11050` (protocol >=2.5, non-DWARF-2) or `force_start=true` |
 | 11033 (SaveStacked) | -16600 | V3 save/export failure |
