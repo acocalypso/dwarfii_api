@@ -1669,6 +1669,337 @@ $root.ReqContinueShooting = (function () {
     };
     return ReqContinueShooting;
 })();
+$root.ReqStartMosaic = (function () {
+    /**
+     * Properties of a ReqStartMosaic.
+     * @exports IReqStartMosaic
+     * @interface IReqStartMosaic
+     * @property {number|null} [horizontalScale] ReqStartMosaic horizontalScale
+     * @property {number|null} [verticalScale] ReqStartMosaic verticalScale
+     * @property {number|null} [rotation] ReqStartMosaic rotation
+     * @property {number|null} [irIndex] ReqStartMosaic irIndex
+     * @property {boolean|null} [forceStart] ReqStartMosaic forceStart
+     */
+    /**
+     * Constructs a new ReqStartMosaic.
+     * @exports ReqStartMosaic
+     * @classdesc Represents a ReqStartMosaic.
+     * @implements IReqStartMosaic
+     * @constructor
+     * @param {IReqStartMosaic=} [properties] Properties to set
+     */
+    function ReqStartMosaic(properties) {
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                    this[keys[i]] = properties[keys[i]];
+    }
+    /**
+     * ReqStartMosaic horizontalScale.
+     * @member {number} horizontalScale
+     * @memberof ReqStartMosaic
+     * @instance
+     */
+    ReqStartMosaic.prototype.horizontalScale = 0;
+    /**
+     * ReqStartMosaic verticalScale.
+     * @member {number} verticalScale
+     * @memberof ReqStartMosaic
+     * @instance
+     */
+    ReqStartMosaic.prototype.verticalScale = 0;
+    /**
+     * ReqStartMosaic rotation.
+     * @member {number} rotation
+     * @memberof ReqStartMosaic
+     * @instance
+     */
+    ReqStartMosaic.prototype.rotation = 0;
+    /**
+     * ReqStartMosaic irIndex.
+     * @member {number} irIndex
+     * @memberof ReqStartMosaic
+     * @instance
+     */
+    ReqStartMosaic.prototype.irIndex = 0;
+    /**
+     * ReqStartMosaic forceStart.
+     * @member {boolean} forceStart
+     * @memberof ReqStartMosaic
+     * @instance
+     */
+    ReqStartMosaic.prototype.forceStart = false;
+    /**
+     * Creates a new ReqStartMosaic instance using the specified properties.
+     * @function create
+     * @memberof ReqStartMosaic
+     * @static
+     * @param {IReqStartMosaic=} [properties] Properties to set
+     * @returns {ReqStartMosaic} ReqStartMosaic instance
+     */
+    ReqStartMosaic.create = function create(properties) {
+        return new ReqStartMosaic(properties);
+    };
+    /**
+     * Encodes the specified ReqStartMosaic message. Does not implicitly {@link ReqStartMosaic.verify|verify} messages.
+     * @function encode
+     * @memberof ReqStartMosaic
+     * @static
+     * @param {IReqStartMosaic} message ReqStartMosaic message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    ReqStartMosaic.encode = function encode(message, writer, q) {
+        if (!writer)
+            writer = $Writer.create();
+        if (q === undefined)
+            q = 0;
+        if (q > $util.recursionLimit)
+            throw Error("max depth exceeded");
+        if (message.horizontalScale != null &&
+            Object.hasOwnProperty.call(message, "horizontalScale"))
+            writer.uint32(/* id 1, wireType 0 =*/ 8).int32(message.horizontalScale);
+        if (message.verticalScale != null &&
+            Object.hasOwnProperty.call(message, "verticalScale"))
+            writer.uint32(/* id 2, wireType 0 =*/ 16).int32(message.verticalScale);
+        if (message.rotation != null &&
+            Object.hasOwnProperty.call(message, "rotation"))
+            writer.uint32(/* id 3, wireType 0 =*/ 24).int32(message.rotation);
+        if (message.irIndex != null &&
+            Object.hasOwnProperty.call(message, "irIndex"))
+            writer.uint32(/* id 4, wireType 0 =*/ 32).int32(message.irIndex);
+        if (message.forceStart != null &&
+            Object.hasOwnProperty.call(message, "forceStart"))
+            writer.uint32(/* id 5, wireType 0 =*/ 40).bool(message.forceStart);
+        return writer;
+    };
+    /**
+     * Encodes the specified ReqStartMosaic message, length delimited. Does not implicitly {@link ReqStartMosaic.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof ReqStartMosaic
+     * @static
+     * @param {IReqStartMosaic} message ReqStartMosaic message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    ReqStartMosaic.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+    };
+    /**
+     * Decodes a ReqStartMosaic message from the specified reader or buffer.
+     * @function decode
+     * @memberof ReqStartMosaic
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {ReqStartMosaic} ReqStartMosaic
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    ReqStartMosaic.decode = function decode(reader, length, error, long) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        if (long === undefined)
+            long = 0;
+        if (long > $Reader.recursionLimit)
+            throw Error("maximum nesting depth exceeded");
+        var end, message;
+        if (length === undefined)
+            end = reader.len;
+        else {
+            end = reader.pos + length;
+            if (end > reader.len)
+                throw RangeError("index out of range");
+            length = reader.len;
+            reader.len = end;
+        }
+        message = new $root.ReqStartMosaic();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            if (tag === error)
+                break;
+            switch (tag >>> 3) {
+                case 1: {
+                    message.horizontalScale = reader.int32();
+                    break;
+                }
+                case 2: {
+                    message.verticalScale = reader.int32();
+                    break;
+                }
+                case 3: {
+                    message.rotation = reader.int32();
+                    break;
+                }
+                case 4: {
+                    message.irIndex = reader.int32();
+                    break;
+                }
+                case 5: {
+                    message.forceStart = reader.bool();
+                    break;
+                }
+                default:
+                    reader.skipType(tag & 7, long);
+                    break;
+            }
+        }
+        if (length !== undefined) {
+            if (reader.pos !== end)
+                throw RangeError("index out of range");
+            reader.len = length;
+        }
+        return message;
+    };
+    /**
+     * Decodes a ReqStartMosaic message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof ReqStartMosaic
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {ReqStartMosaic} ReqStartMosaic
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    ReqStartMosaic.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+    /**
+     * Verifies a ReqStartMosaic message.
+     * @function verify
+     * @memberof ReqStartMosaic
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    ReqStartMosaic.verify = function verify(message, long) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        if (long === undefined)
+            long = 0;
+        if (long > $util.recursionLimit)
+            return "maximum nesting depth exceeded";
+        if (message.horizontalScale != null &&
+            Object.hasOwnProperty.call(message, "horizontalScale"))
+            if (!$util.isInteger(message.horizontalScale))
+                return "horizontalScale: integer expected";
+        if (message.verticalScale != null &&
+            Object.hasOwnProperty.call(message, "verticalScale"))
+            if (!$util.isInteger(message.verticalScale))
+                return "verticalScale: integer expected";
+        if (message.rotation != null &&
+            Object.hasOwnProperty.call(message, "rotation"))
+            if (!$util.isInteger(message.rotation))
+                return "rotation: integer expected";
+        if (message.irIndex != null &&
+            Object.hasOwnProperty.call(message, "irIndex"))
+            if (!$util.isInteger(message.irIndex))
+                return "irIndex: integer expected";
+        if (message.forceStart != null &&
+            Object.hasOwnProperty.call(message, "forceStart"))
+            if (typeof message.forceStart !== "boolean")
+                return "forceStart: boolean expected";
+        return null;
+    };
+    /**
+     * Creates a ReqStartMosaic message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof ReqStartMosaic
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {ReqStartMosaic} ReqStartMosaic
+     */
+    ReqStartMosaic.fromObject = function fromObject(object, long) {
+        if (object instanceof $root.ReqStartMosaic)
+            return object;
+        if (!$util.isObject(object))
+            throw TypeError(".ReqStartMosaic: object expected");
+        if (long === undefined)
+            long = 0;
+        if (long > $util.recursionLimit)
+            throw Error("maximum nesting depth exceeded");
+        var message = new $root.ReqStartMosaic();
+        if (object.horizontalScale != null)
+            message.horizontalScale = object.horizontalScale | 0;
+        if (object.verticalScale != null)
+            message.verticalScale = object.verticalScale | 0;
+        if (object.rotation != null)
+            message.rotation = object.rotation | 0;
+        if (object.irIndex != null)
+            message.irIndex = object.irIndex | 0;
+        if (object.forceStart != null)
+            message.forceStart = Boolean(object.forceStart);
+        return message;
+    };
+    /**
+     * Creates a plain object from a ReqStartMosaic message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof ReqStartMosaic
+     * @static
+     * @param {ReqStartMosaic} message ReqStartMosaic
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    ReqStartMosaic.toObject = function toObject(message, options, q) {
+        if (!options)
+            options = {};
+        if (q === undefined)
+            q = 0;
+        if (q > $util.recursionLimit)
+            throw Error("max depth exceeded");
+        var object = {};
+        if (options.defaults) {
+            object.horizontalScale = 0;
+            object.verticalScale = 0;
+            object.rotation = 0;
+            object.irIndex = 0;
+            object.forceStart = false;
+        }
+        if (message.horizontalScale != null &&
+            Object.hasOwnProperty.call(message, "horizontalScale"))
+            object.horizontalScale = message.horizontalScale;
+        if (message.verticalScale != null &&
+            Object.hasOwnProperty.call(message, "verticalScale"))
+            object.verticalScale = message.verticalScale;
+        if (message.rotation != null &&
+            Object.hasOwnProperty.call(message, "rotation"))
+            object.rotation = message.rotation;
+        if (message.irIndex != null &&
+            Object.hasOwnProperty.call(message, "irIndex"))
+            object.irIndex = message.irIndex;
+        if (message.forceStart != null &&
+            Object.hasOwnProperty.call(message, "forceStart"))
+            object.forceStart = message.forceStart;
+        return object;
+    };
+    /**
+     * Converts this ReqStartMosaic to JSON.
+     * @function toJSON
+     * @memberof ReqStartMosaic
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    ReqStartMosaic.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+    /**
+     * Gets the default type url for ReqStartMosaic
+     * @function getTypeUrl
+     * @memberof ReqStartMosaic
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ReqStartMosaic.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ReqStartMosaic";
+    };
+    return ReqStartMosaic;
+})();
 $root.ResAstroShooting = (function () {
     /**
      * Properties of a ResAstroShooting.
@@ -44555,6 +44886,509 @@ $root.ResNotifyProgressCaptureRawLiveStacking = (function () {
         return typeUrlPrefix + "/ResNotifyProgressCaptureRawLiveStacking";
     };
     return ResNotifyProgressCaptureRawLiveStacking;
+})();
+$root.ProgressCaptureMosaic = (function () {
+    /**
+     * Properties of a ProgressCaptureMosaic.
+     * @exports IProgressCaptureMosaic
+     * @interface IProgressCaptureMosaic
+     * @property {number|null} [totalCount] ProgressCaptureMosaic totalCount
+     * @property {number|null} [updateType] ProgressCaptureMosaic updateType
+     * @property {number|null} [currentCount] ProgressCaptureMosaic currentCount
+     * @property {number|null} [stackedCount] ProgressCaptureMosaic stackedCount
+     * @property {number|null} [expIndex] ProgressCaptureMosaic expIndex
+     * @property {number|null} [gainIndex] ProgressCaptureMosaic gainIndex
+     * @property {string|null} [targetName] ProgressCaptureMosaic targetName
+     * @property {number|null} [horizontalScale] ProgressCaptureMosaic horizontalScale
+     * @property {number|null} [verticalScale] ProgressCaptureMosaic verticalScale
+     * @property {number|null} [rotation] ProgressCaptureMosaic rotation
+     * @property {number|null} [fovId] ProgressCaptureMosaic fovId
+     * @property {number|null} [fovTotal] ProgressCaptureMosaic fovTotal
+     */
+    /**
+     * Constructs a new ProgressCaptureMosaic.
+     * @exports ProgressCaptureMosaic
+     * @classdesc Represents a ProgressCaptureMosaic.
+     * @implements IProgressCaptureMosaic
+     * @constructor
+     * @param {IProgressCaptureMosaic=} [properties] Properties to set
+     */
+    function ProgressCaptureMosaic(properties) {
+        if (properties)
+            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                if (properties[keys[i]] != null && keys[i] !== "__proto__")
+                    this[keys[i]] = properties[keys[i]];
+    }
+    /**
+     * ProgressCaptureMosaic totalCount.
+     * @member {number} totalCount
+     * @memberof ProgressCaptureMosaic
+     * @instance
+     */
+    ProgressCaptureMosaic.prototype.totalCount = 0;
+    /**
+     * ProgressCaptureMosaic updateType.
+     * @member {number} updateType
+     * @memberof ProgressCaptureMosaic
+     * @instance
+     */
+    ProgressCaptureMosaic.prototype.updateType = 0;
+    /**
+     * ProgressCaptureMosaic currentCount.
+     * @member {number} currentCount
+     * @memberof ProgressCaptureMosaic
+     * @instance
+     */
+    ProgressCaptureMosaic.prototype.currentCount = 0;
+    /**
+     * ProgressCaptureMosaic stackedCount.
+     * @member {number} stackedCount
+     * @memberof ProgressCaptureMosaic
+     * @instance
+     */
+    ProgressCaptureMosaic.prototype.stackedCount = 0;
+    /**
+     * ProgressCaptureMosaic expIndex.
+     * @member {number} expIndex
+     * @memberof ProgressCaptureMosaic
+     * @instance
+     */
+    ProgressCaptureMosaic.prototype.expIndex = 0;
+    /**
+     * ProgressCaptureMosaic gainIndex.
+     * @member {number} gainIndex
+     * @memberof ProgressCaptureMosaic
+     * @instance
+     */
+    ProgressCaptureMosaic.prototype.gainIndex = 0;
+    /**
+     * ProgressCaptureMosaic targetName.
+     * @member {string} targetName
+     * @memberof ProgressCaptureMosaic
+     * @instance
+     */
+    ProgressCaptureMosaic.prototype.targetName = "";
+    /**
+     * ProgressCaptureMosaic horizontalScale.
+     * @member {number} horizontalScale
+     * @memberof ProgressCaptureMosaic
+     * @instance
+     */
+    ProgressCaptureMosaic.prototype.horizontalScale = 0;
+    /**
+     * ProgressCaptureMosaic verticalScale.
+     * @member {number} verticalScale
+     * @memberof ProgressCaptureMosaic
+     * @instance
+     */
+    ProgressCaptureMosaic.prototype.verticalScale = 0;
+    /**
+     * ProgressCaptureMosaic rotation.
+     * @member {number} rotation
+     * @memberof ProgressCaptureMosaic
+     * @instance
+     */
+    ProgressCaptureMosaic.prototype.rotation = 0;
+    /**
+     * ProgressCaptureMosaic fovId.
+     * @member {number} fovId
+     * @memberof ProgressCaptureMosaic
+     * @instance
+     */
+    ProgressCaptureMosaic.prototype.fovId = 0;
+    /**
+     * ProgressCaptureMosaic fovTotal.
+     * @member {number} fovTotal
+     * @memberof ProgressCaptureMosaic
+     * @instance
+     */
+    ProgressCaptureMosaic.prototype.fovTotal = 0;
+    /**
+     * Creates a new ProgressCaptureMosaic instance using the specified properties.
+     * @function create
+     * @memberof ProgressCaptureMosaic
+     * @static
+     * @param {IProgressCaptureMosaic=} [properties] Properties to set
+     * @returns {ProgressCaptureMosaic} ProgressCaptureMosaic instance
+     */
+    ProgressCaptureMosaic.create = function create(properties) {
+        return new ProgressCaptureMosaic(properties);
+    };
+    /**
+     * Encodes the specified ProgressCaptureMosaic message. Does not implicitly {@link ProgressCaptureMosaic.verify|verify} messages.
+     * @function encode
+     * @memberof ProgressCaptureMosaic
+     * @static
+     * @param {IProgressCaptureMosaic} message ProgressCaptureMosaic message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    ProgressCaptureMosaic.encode = function encode(message, writer, q) {
+        if (!writer)
+            writer = $Writer.create();
+        if (q === undefined)
+            q = 0;
+        if (q > $util.recursionLimit)
+            throw Error("max depth exceeded");
+        if (message.totalCount != null &&
+            Object.hasOwnProperty.call(message, "totalCount"))
+            writer.uint32(/* id 1, wireType 0 =*/ 8).int32(message.totalCount);
+        if (message.updateType != null &&
+            Object.hasOwnProperty.call(message, "updateType"))
+            writer.uint32(/* id 2, wireType 0 =*/ 16).int32(message.updateType);
+        if (message.currentCount != null &&
+            Object.hasOwnProperty.call(message, "currentCount"))
+            writer.uint32(/* id 3, wireType 0 =*/ 24).int32(message.currentCount);
+        if (message.stackedCount != null &&
+            Object.hasOwnProperty.call(message, "stackedCount"))
+            writer.uint32(/* id 4, wireType 0 =*/ 32).int32(message.stackedCount);
+        if (message.expIndex != null &&
+            Object.hasOwnProperty.call(message, "expIndex"))
+            writer.uint32(/* id 5, wireType 0 =*/ 40).int32(message.expIndex);
+        if (message.gainIndex != null &&
+            Object.hasOwnProperty.call(message, "gainIndex"))
+            writer.uint32(/* id 6, wireType 0 =*/ 48).int32(message.gainIndex);
+        if (message.targetName != null &&
+            Object.hasOwnProperty.call(message, "targetName"))
+            writer.uint32(/* id 7, wireType 2 =*/ 58).string(message.targetName);
+        if (message.horizontalScale != null &&
+            Object.hasOwnProperty.call(message, "horizontalScale"))
+            writer.uint32(/* id 8, wireType 0 =*/ 64).int32(message.horizontalScale);
+        if (message.verticalScale != null &&
+            Object.hasOwnProperty.call(message, "verticalScale"))
+            writer.uint32(/* id 9, wireType 0 =*/ 72).int32(message.verticalScale);
+        if (message.rotation != null &&
+            Object.hasOwnProperty.call(message, "rotation"))
+            writer.uint32(/* id 10, wireType 0 =*/ 80).int32(message.rotation);
+        if (message.fovId != null && Object.hasOwnProperty.call(message, "fovId"))
+            writer.uint32(/* id 11, wireType 0 =*/ 88).int32(message.fovId);
+        if (message.fovTotal != null &&
+            Object.hasOwnProperty.call(message, "fovTotal"))
+            writer.uint32(/* id 12, wireType 0 =*/ 96).int32(message.fovTotal);
+        return writer;
+    };
+    /**
+     * Encodes the specified ProgressCaptureMosaic message, length delimited. Does not implicitly {@link ProgressCaptureMosaic.verify|verify} messages.
+     * @function encodeDelimited
+     * @memberof ProgressCaptureMosaic
+     * @static
+     * @param {IProgressCaptureMosaic} message ProgressCaptureMosaic message or plain object to encode
+     * @param {$protobuf.Writer} [writer] Writer to encode to
+     * @returns {$protobuf.Writer} Writer
+     */
+    ProgressCaptureMosaic.encodeDelimited = function encodeDelimited(message, writer) {
+        return this.encode(message, writer && writer.len ? writer.fork() : writer).ldelim();
+    };
+    /**
+     * Decodes a ProgressCaptureMosaic message from the specified reader or buffer.
+     * @function decode
+     * @memberof ProgressCaptureMosaic
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @param {number} [length] Message length if known beforehand
+     * @returns {ProgressCaptureMosaic} ProgressCaptureMosaic
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    ProgressCaptureMosaic.decode = function decode(reader, length, error, long) {
+        if (!(reader instanceof $Reader))
+            reader = $Reader.create(reader);
+        if (long === undefined)
+            long = 0;
+        if (long > $Reader.recursionLimit)
+            throw Error("maximum nesting depth exceeded");
+        var end, message;
+        if (length === undefined)
+            end = reader.len;
+        else {
+            end = reader.pos + length;
+            if (end > reader.len)
+                throw RangeError("index out of range");
+            length = reader.len;
+            reader.len = end;
+        }
+        message = new $root.ProgressCaptureMosaic();
+        while (reader.pos < end) {
+            var tag = reader.uint32();
+            if (tag === error)
+                break;
+            switch (tag >>> 3) {
+                case 1: {
+                    message.totalCount = reader.int32();
+                    break;
+                }
+                case 2: {
+                    message.updateType = reader.int32();
+                    break;
+                }
+                case 3: {
+                    message.currentCount = reader.int32();
+                    break;
+                }
+                case 4: {
+                    message.stackedCount = reader.int32();
+                    break;
+                }
+                case 5: {
+                    message.expIndex = reader.int32();
+                    break;
+                }
+                case 6: {
+                    message.gainIndex = reader.int32();
+                    break;
+                }
+                case 7: {
+                    message.targetName = reader.string();
+                    break;
+                }
+                case 8: {
+                    message.horizontalScale = reader.int32();
+                    break;
+                }
+                case 9: {
+                    message.verticalScale = reader.int32();
+                    break;
+                }
+                case 10: {
+                    message.rotation = reader.int32();
+                    break;
+                }
+                case 11: {
+                    message.fovId = reader.int32();
+                    break;
+                }
+                case 12: {
+                    message.fovTotal = reader.int32();
+                    break;
+                }
+                default:
+                    reader.skipType(tag & 7, long);
+                    break;
+            }
+        }
+        if (length !== undefined) {
+            if (reader.pos !== end)
+                throw RangeError("index out of range");
+            reader.len = length;
+        }
+        return message;
+    };
+    /**
+     * Decodes a ProgressCaptureMosaic message from the specified reader or buffer, length delimited.
+     * @function decodeDelimited
+     * @memberof ProgressCaptureMosaic
+     * @static
+     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+     * @returns {ProgressCaptureMosaic} ProgressCaptureMosaic
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    ProgressCaptureMosaic.decodeDelimited = function decodeDelimited(reader) {
+        if (!(reader instanceof $Reader))
+            reader = new $Reader(reader);
+        return this.decode(reader, reader.uint32());
+    };
+    /**
+     * Verifies a ProgressCaptureMosaic message.
+     * @function verify
+     * @memberof ProgressCaptureMosaic
+     * @static
+     * @param {Object.<string,*>} message Plain object to verify
+     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+     */
+    ProgressCaptureMosaic.verify = function verify(message, long) {
+        if (typeof message !== "object" || message === null)
+            return "object expected";
+        if (long === undefined)
+            long = 0;
+        if (long > $util.recursionLimit)
+            return "maximum nesting depth exceeded";
+        if (message.totalCount != null &&
+            Object.hasOwnProperty.call(message, "totalCount"))
+            if (!$util.isInteger(message.totalCount))
+                return "totalCount: integer expected";
+        if (message.updateType != null &&
+            Object.hasOwnProperty.call(message, "updateType"))
+            if (!$util.isInteger(message.updateType))
+                return "updateType: integer expected";
+        if (message.currentCount != null &&
+            Object.hasOwnProperty.call(message, "currentCount"))
+            if (!$util.isInteger(message.currentCount))
+                return "currentCount: integer expected";
+        if (message.stackedCount != null &&
+            Object.hasOwnProperty.call(message, "stackedCount"))
+            if (!$util.isInteger(message.stackedCount))
+                return "stackedCount: integer expected";
+        if (message.expIndex != null &&
+            Object.hasOwnProperty.call(message, "expIndex"))
+            if (!$util.isInteger(message.expIndex))
+                return "expIndex: integer expected";
+        if (message.gainIndex != null &&
+            Object.hasOwnProperty.call(message, "gainIndex"))
+            if (!$util.isInteger(message.gainIndex))
+                return "gainIndex: integer expected";
+        if (message.targetName != null &&
+            Object.hasOwnProperty.call(message, "targetName"))
+            if (!$util.isString(message.targetName))
+                return "targetName: string expected";
+        if (message.horizontalScale != null &&
+            Object.hasOwnProperty.call(message, "horizontalScale"))
+            if (!$util.isInteger(message.horizontalScale))
+                return "horizontalScale: integer expected";
+        if (message.verticalScale != null &&
+            Object.hasOwnProperty.call(message, "verticalScale"))
+            if (!$util.isInteger(message.verticalScale))
+                return "verticalScale: integer expected";
+        if (message.rotation != null &&
+            Object.hasOwnProperty.call(message, "rotation"))
+            if (!$util.isInteger(message.rotation))
+                return "rotation: integer expected";
+        if (message.fovId != null && Object.hasOwnProperty.call(message, "fovId"))
+            if (!$util.isInteger(message.fovId))
+                return "fovId: integer expected";
+        if (message.fovTotal != null &&
+            Object.hasOwnProperty.call(message, "fovTotal"))
+            if (!$util.isInteger(message.fovTotal))
+                return "fovTotal: integer expected";
+        return null;
+    };
+    /**
+     * Creates a ProgressCaptureMosaic message from a plain object. Also converts values to their respective internal types.
+     * @function fromObject
+     * @memberof ProgressCaptureMosaic
+     * @static
+     * @param {Object.<string,*>} object Plain object
+     * @returns {ProgressCaptureMosaic} ProgressCaptureMosaic
+     */
+    ProgressCaptureMosaic.fromObject = function fromObject(object, long) {
+        if (object instanceof $root.ProgressCaptureMosaic)
+            return object;
+        if (!$util.isObject(object))
+            throw TypeError(".ProgressCaptureMosaic: object expected");
+        if (long === undefined)
+            long = 0;
+        if (long > $util.recursionLimit)
+            throw Error("maximum nesting depth exceeded");
+        var message = new $root.ProgressCaptureMosaic();
+        if (object.totalCount != null)
+            message.totalCount = object.totalCount | 0;
+        if (object.updateType != null)
+            message.updateType = object.updateType | 0;
+        if (object.currentCount != null)
+            message.currentCount = object.currentCount | 0;
+        if (object.stackedCount != null)
+            message.stackedCount = object.stackedCount | 0;
+        if (object.expIndex != null)
+            message.expIndex = object.expIndex | 0;
+        if (object.gainIndex != null)
+            message.gainIndex = object.gainIndex | 0;
+        if (object.targetName != null)
+            message.targetName = String(object.targetName);
+        if (object.horizontalScale != null)
+            message.horizontalScale = object.horizontalScale | 0;
+        if (object.verticalScale != null)
+            message.verticalScale = object.verticalScale | 0;
+        if (object.rotation != null)
+            message.rotation = object.rotation | 0;
+        if (object.fovId != null)
+            message.fovId = object.fovId | 0;
+        if (object.fovTotal != null)
+            message.fovTotal = object.fovTotal | 0;
+        return message;
+    };
+    /**
+     * Creates a plain object from a ProgressCaptureMosaic message. Also converts values to other types if specified.
+     * @function toObject
+     * @memberof ProgressCaptureMosaic
+     * @static
+     * @param {ProgressCaptureMosaic} message ProgressCaptureMosaic
+     * @param {$protobuf.IConversionOptions} [options] Conversion options
+     * @returns {Object.<string,*>} Plain object
+     */
+    ProgressCaptureMosaic.toObject = function toObject(message, options, q) {
+        if (!options)
+            options = {};
+        if (q === undefined)
+            q = 0;
+        if (q > $util.recursionLimit)
+            throw Error("max depth exceeded");
+        var object = {};
+        if (options.defaults) {
+            object.totalCount = 0;
+            object.updateType = 0;
+            object.currentCount = 0;
+            object.stackedCount = 0;
+            object.expIndex = 0;
+            object.gainIndex = 0;
+            object.targetName = "";
+            object.horizontalScale = 0;
+            object.verticalScale = 0;
+            object.rotation = 0;
+            object.fovId = 0;
+            object.fovTotal = 0;
+        }
+        if (message.totalCount != null &&
+            Object.hasOwnProperty.call(message, "totalCount"))
+            object.totalCount = message.totalCount;
+        if (message.updateType != null &&
+            Object.hasOwnProperty.call(message, "updateType"))
+            object.updateType = message.updateType;
+        if (message.currentCount != null &&
+            Object.hasOwnProperty.call(message, "currentCount"))
+            object.currentCount = message.currentCount;
+        if (message.stackedCount != null &&
+            Object.hasOwnProperty.call(message, "stackedCount"))
+            object.stackedCount = message.stackedCount;
+        if (message.expIndex != null &&
+            Object.hasOwnProperty.call(message, "expIndex"))
+            object.expIndex = message.expIndex;
+        if (message.gainIndex != null &&
+            Object.hasOwnProperty.call(message, "gainIndex"))
+            object.gainIndex = message.gainIndex;
+        if (message.targetName != null &&
+            Object.hasOwnProperty.call(message, "targetName"))
+            object.targetName = message.targetName;
+        if (message.horizontalScale != null &&
+            Object.hasOwnProperty.call(message, "horizontalScale"))
+            object.horizontalScale = message.horizontalScale;
+        if (message.verticalScale != null &&
+            Object.hasOwnProperty.call(message, "verticalScale"))
+            object.verticalScale = message.verticalScale;
+        if (message.rotation != null &&
+            Object.hasOwnProperty.call(message, "rotation"))
+            object.rotation = message.rotation;
+        if (message.fovId != null && Object.hasOwnProperty.call(message, "fovId"))
+            object.fovId = message.fovId;
+        if (message.fovTotal != null &&
+            Object.hasOwnProperty.call(message, "fovTotal"))
+            object.fovTotal = message.fovTotal;
+        return object;
+    };
+    /**
+     * Converts this ProgressCaptureMosaic to JSON.
+     * @function toJSON
+     * @memberof ProgressCaptureMosaic
+     * @instance
+     * @returns {Object.<string,*>} JSON object
+     */
+    ProgressCaptureMosaic.prototype.toJSON = function toJSON() {
+        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+    };
+    /**
+     * Gets the default type url for ProgressCaptureMosaic
+     * @function getTypeUrl
+     * @memberof ProgressCaptureMosaic
+     * @static
+     * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns {string} The default type url
+     */
+    ProgressCaptureMosaic.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+        if (typeUrlPrefix === undefined) {
+            typeUrlPrefix = "type.googleapis.com";
+        }
+        return typeUrlPrefix + "/ProgressCaptureMosaic";
+    };
+    return ProgressCaptureMosaic;
 })();
 $root.ResNotifyParam = (function () {
     /**

@@ -94,6 +94,8 @@ DWARF II / 3 / mini 用 WebSocket API ライブラリ。
 | 11026 | `messageAstroStopCaptureWideDarkFrameWithParam()` | — | 広角パラメータ指定ダーク撮影停止 |
 | 11027 | `messageAstroGetWideDarkFrameList()` | — | 広角ダークフレーム一覧取得 |
 | 11028 | `messageAstroDelWideDarkFrameList(exp_index, gain_index, bin_index)` | 露出/ゲイン/ビニング | 広角ダークフレーム削除 |
+| 11031 | `messageStartTeleMosaic(horizontalScale, verticalScale, rotation, irIndex, forceStart)` | `ReqStartMosaic` | Direct Tele Mosaic start; separate from Panorama. See [Tele Mosaic protocol](TELE_MOSAIC.md). |
+| 11032 | — | Request schema unresolved | `CMD_ASTRO_CHECK_IF_RESTACKABLE`; not a Mosaic stop command. |
 
 ### Camera Tele (望遠カメラ)
 

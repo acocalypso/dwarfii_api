@@ -42,6 +42,15 @@ message ReqCaptureRawLiveStacking {
 // Protocol >=2.5 continuation after a recoverable dark-frame warning.
 message ReqContinueShooting {}
 
+// APK 3.4.1: start a direct Tele Mosaic astronomy capture.
+message ReqStartMosaic {
+    int32 horizontal_scale = 1;
+    int32 vertical_scale = 2;
+    int32 rotation = 3;
+    int32 ir_index = 4;
+    bool force_start = 5;
+}
+
 // APK 3.4.1 start/continue shooting response.
 message ResAstroShooting {
     int32 code = 1;

@@ -81,6 +81,7 @@ export const cmdMapping: {
     11026: string;
     11027: string;
     11028: string;
+    11031: string;
     11042: string;
     11044: string;
     11050: string;
@@ -451,6 +452,7 @@ export const notifyMapping: {
     15250: string;
     15256: string;
     15257: string;
+    15263: string;
     11036: string;
     15255: string;
     15261: string;

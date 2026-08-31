@@ -11,7 +11,7 @@
     "generate-docs": "jsdoc -c jsdoc.json  -R README.md",
     "ts": "tsc -p ./tsconfig.json",
     "typecheck": "tsc -p ./tsconfig.json",
-    "test": "node src/__tests__/v3_camera_params.test.js",
+    "test": "node src/__tests__/v3_camera_params.test.js && node src/__tests__/tele_mosaic.test.js",
     "compile-proto": "pbjs -t static-module -w ./wrapper/wrapper.js --dependency protobufjs/minimal.js -o ./src/protobuf/protobuf.js ./src/proto/*.proto && prettier --write \"./src/protobuf/protobuf.js\"",
     "compile-protoJS": "pbjs -t static-module -w ./wrapper/wrapper.js --dependency ./minimal.js -o ./dist_js/src/protobuf/protobuf.js ./src/proto/*.proto && prettier --write \"./dist_js/src/protobuf/protobuf.js\"",
     "generate-types": "pbts -o dist/src/protobuf/protobuf.d.ts ./src/protobuf/protobuf.js",

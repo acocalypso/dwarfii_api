@@ -3,7 +3,9 @@
 Wrapper functions and protocol definitions for the shared DWARF V3 API used by
 DWARF 2, DWARF 3, and DWARF mini, while retaining the historical V2 helpers.
 See [the API reference](docs/API_REFERENCE.md) and
-[the V3 investigation notes](tools/v3-probe/PCAP_FINDINGS.md). V3 entries are
+[the V3 investigation notes](tools/v3-probe/PCAP_FINDINGS.md). Direct Astro
+Tele Mosaic support is documented in
+[`docs/TELE_MOSAIC.md`](docs/TELE_MOSAIC.md). V3 entries are
 marked when their schema or hardware behavior is still provisional. Version
 3.0.0 keeps historical helpers for downstream compatibility, but new clients
 should explicitly configure protocol minor version 20 before creating packets.

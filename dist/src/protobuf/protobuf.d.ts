@@ -703,6 +703,127 @@ export class ReqContinueShooting implements IReqContinueShooting {
     public static getTypeUrl(typeUrlPrefix?: string): string;
 }
 
+/** Properties of a ReqStartMosaic. */
+export interface IReqStartMosaic {
+
+    /** ReqStartMosaic horizontalScale */
+    horizontalScale?: (number|null);
+
+    /** ReqStartMosaic verticalScale */
+    verticalScale?: (number|null);
+
+    /** ReqStartMosaic rotation */
+    rotation?: (number|null);
+
+    /** ReqStartMosaic irIndex */
+    irIndex?: (number|null);
+
+    /** ReqStartMosaic forceStart */
+    forceStart?: (boolean|null);
+}
+
+/** Represents a ReqStartMosaic. */
+export class ReqStartMosaic implements IReqStartMosaic {
+
+    /**
+     * Constructs a new ReqStartMosaic.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IReqStartMosaic);
+
+    /** ReqStartMosaic horizontalScale. */
+    public horizontalScale: number;
+
+    /** ReqStartMosaic verticalScale. */
+    public verticalScale: number;
+
+    /** ReqStartMosaic rotation. */
+    public rotation: number;
+
+    /** ReqStartMosaic irIndex. */
+    public irIndex: number;
+
+    /** ReqStartMosaic forceStart. */
+    public forceStart: boolean;
+
+    /**
+     * Creates a new ReqStartMosaic instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ReqStartMosaic instance
+     */
+    public static create(properties?: IReqStartMosaic): ReqStartMosaic;
+
+    /**
+     * Encodes the specified ReqStartMosaic message. Does not implicitly {@link ReqStartMosaic.verify|verify} messages.
+     * @param message ReqStartMosaic message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IReqStartMosaic, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ReqStartMosaic message, length delimited. Does not implicitly {@link ReqStartMosaic.verify|verify} messages.
+     * @param message ReqStartMosaic message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IReqStartMosaic, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ReqStartMosaic message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ReqStartMosaic
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ReqStartMosaic;
+
+    /**
+     * Decodes a ReqStartMosaic message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ReqStartMosaic
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ReqStartMosaic;
+
+    /**
+     * Verifies a ReqStartMosaic message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ReqStartMosaic message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ReqStartMosaic
+     */
+    public static fromObject(object: { [k: string]: any }): ReqStartMosaic;
+
+    /**
+     * Creates a plain object from a ReqStartMosaic message. Also converts values to other types if specified.
+     * @param message ReqStartMosaic
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ReqStartMosaic, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ReqStartMosaic to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ReqStartMosaic
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
 /** Properties of a ResAstroShooting. */
 export interface IResAstroShooting {
 
@@ -16876,6 +16997,129 @@ export class ResNotifyProgressCaptureRawLiveStacking implements IResNotifyProgre
 
     /**
      * Gets the default type url for ResNotifyProgressCaptureRawLiveStacking
+     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+     * @returns The default type url
+     */
+    public static getTypeUrl(typeUrlPrefix?: string): string;
+}
+
+/** Represents a ProgressCaptureMosaic. */
+export class ProgressCaptureMosaic implements IProgressCaptureMosaic {
+
+    /**
+     * Constructs a new ProgressCaptureMosaic.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IProgressCaptureMosaic);
+
+    /** ProgressCaptureMosaic totalCount. */
+    public totalCount: number;
+
+    /** ProgressCaptureMosaic updateType. */
+    public updateType: number;
+
+    /** ProgressCaptureMosaic currentCount. */
+    public currentCount: number;
+
+    /** ProgressCaptureMosaic stackedCount. */
+    public stackedCount: number;
+
+    /** ProgressCaptureMosaic expIndex. */
+    public expIndex: number;
+
+    /** ProgressCaptureMosaic gainIndex. */
+    public gainIndex: number;
+
+    /** ProgressCaptureMosaic targetName. */
+    public targetName: string;
+
+    /** ProgressCaptureMosaic horizontalScale. */
+    public horizontalScale: number;
+
+    /** ProgressCaptureMosaic verticalScale. */
+    public verticalScale: number;
+
+    /** ProgressCaptureMosaic rotation. */
+    public rotation: number;
+
+    /** ProgressCaptureMosaic fovId. */
+    public fovId: number;
+
+    /** ProgressCaptureMosaic fovTotal. */
+    public fovTotal: number;
+
+    /**
+     * Creates a new ProgressCaptureMosaic instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns ProgressCaptureMosaic instance
+     */
+    public static create(properties?: IProgressCaptureMosaic): ProgressCaptureMosaic;
+
+    /**
+     * Encodes the specified ProgressCaptureMosaic message. Does not implicitly {@link ProgressCaptureMosaic.verify|verify} messages.
+     * @param message ProgressCaptureMosaic message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IProgressCaptureMosaic, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified ProgressCaptureMosaic message, length delimited. Does not implicitly {@link ProgressCaptureMosaic.verify|verify} messages.
+     * @param message ProgressCaptureMosaic message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IProgressCaptureMosaic, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a ProgressCaptureMosaic message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ProgressCaptureMosaic
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ProgressCaptureMosaic;
+
+    /**
+     * Decodes a ProgressCaptureMosaic message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns ProgressCaptureMosaic
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ProgressCaptureMosaic;
+
+    /**
+     * Verifies a ProgressCaptureMosaic message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a ProgressCaptureMosaic message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns ProgressCaptureMosaic
+     */
+    public static fromObject(object: { [k: string]: any }): ProgressCaptureMosaic;
+
+    /**
+     * Creates a plain object from a ProgressCaptureMosaic message. Also converts values to other types if specified.
+     * @param message ProgressCaptureMosaic
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: ProgressCaptureMosaic, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this ProgressCaptureMosaic to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+
+    /**
+     * Gets the default type url for ProgressCaptureMosaic
      * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
      * @returns The default type url
      */

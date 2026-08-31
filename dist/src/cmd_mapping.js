@@ -83,6 +83,7 @@ export const cmdMapping = {
     11026: "ReqStopCaptureWideDarkFrame", // Stop shooting dark field with wide-angle specified parameters
     11027: "ReqCheckWideDarkFrame", // Query the list of wide-angle dark scenes taken
     11028: "ReqDelWideDarkFrame", // Delete the specified wide-angle dark field list
+    11031: "ReqStartMosaic", // APK 3.4.1: start direct Tele Mosaic capture
     11042: "ReqOneClickShooting", // APK 3.4.1: combined GOTO and shooting request
     11044: "ReqDelCaliFrameList", // APK 3.4.1: delete calibration frames by info ID
     11050: "ReqContinueShooting", // APK 3.4.1: continue after a recoverable shooting warning
@@ -464,6 +465,7 @@ export const notifyMapping = {
     //  CMD_NOTIFY_WIDE_TRACK_RESULT = 15252; // Wide-angle single target box result notification
     15256: "CalibrationResult", // V3: successful mount calibration result (azi/alt)
     15257: "ResNotifyFocus", // Focus Position
+    15263: "ProgressCaptureMosaic", // APK 3.4.1: direct Tele Mosaic progress
     // V3 Notifications
     11036: "ComResponse", // V3: Save complete notification
     15255: "V3ResNotifyExposureProgress", // V3: Per-frame exposure countdown

@@ -59,6 +59,22 @@ export function messageAstroStopTrackSpecialTarget(): Uint8Array;
  */
 export function messageAstroStartCaptureRawLiveStacking(): Uint8Array;
 /**
+ * Start a direct Tele Mosaic astronomy capture.
+ *
+ * This uses CMD_ASTRO_START_TELE_MOSAIC (11031), not the Panorama module.
+ * APK 3.4.1 represents scale as fixed-point hundredths (100 = 1.0x) and its
+ * UI offers 100 through 180 in steps of 10. The raw protocol values are kept
+ * here so callers can use values supported by their device firmware.
+ *
+ * @param {number} horizontalScale Horizontal field-of-view scale value
+ * @param {number} verticalScale Vertical field-of-view scale value
+ * @param {number} rotation Protocol rotation value
+ * @param {number} irIndex Filter/IR index
+ * @param {boolean} [forceStart=false] Continue despite a recoverable warning
+ * @returns {Uint8Array}
+ */
+export function messageStartTeleMosaic(horizontalScale: number, verticalScale: number, rotation: number, irIndex: number, forceStart?: boolean): Uint8Array;
+/**
  * 4.10.10 stop stack
  * Create Encoded Packet for the command CMD_ASTRO_STOP_CAPTURE_RAW_LIVE_STACKING
  * @returns {Uint8Array}
