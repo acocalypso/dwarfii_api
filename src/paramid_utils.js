@@ -46,14 +46,14 @@ export function decodeParamId(paramId) {
   } else if (typeof paramId === "number") {
     if (!Number.isSafeInteger(paramId)) {
       throw new RangeError(
-        "paramId as number exceeds Number.MAX_SAFE_INTEGER; pass a string or BigInt instead"
+        "paramId as number exceeds Number.MAX_SAFE_INTEGER; pass a string or BigInt instead",
       );
     }
     id = BigInt(paramId);
   } else if (
     paramId &&
-    typeof /** @type {*} */ (paramId).low === "number" &&
-    typeof /** @type {*} */ (paramId).high === "number"
+    typeof (/** @type {*} */ (paramId).low) === "number" &&
+    typeof (/** @type {*} */ (paramId).high) === "number"
   ) {
     // protobuf.js Long object
     const long = /** @type {{low: number, high: number}} */ (paramId);

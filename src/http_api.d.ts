@@ -197,39 +197,39 @@ export declare function secondstreamUrl(IP: string): string;
 export declare function fileDownloadUrl(IP: string, filePath: string): string;
 export declare function downloadFile(
   IP: string,
-  filePath: string
+  filePath: string,
 ): Promise<Response>;
 
 // Device info
 export declare function getDeviceInfo(IP: string): Promise<ApiResponse>;
 export declare function getDeviceActivateInfo(IP: string): Promise<ApiResponse>;
 export declare function fetchDefaultParamsConfig(
-  IP: string
+  IP: string,
 ): Promise<ApiResponse>;
 export declare function getFirmwareVersion(IP: string): Promise<ApiResponse>;
 
 // Shooting mode
 export declare function getSupportedShootingModes(
-  IP: string
+  IP: string,
 ): Promise<ApiResponse>;
 export declare function getParamAndSetting(
   IP: string,
-  modeId?: number
+  modeId?: number,
 ): Promise<ApiResponse>;
 
 // Album management
 export declare function albumListMediaCounts(
-  IP: string
+  IP: string,
 ): Promise<MediaCountsResponse>;
 export declare function albumListMediaInfos(
   IP: string,
-  mediaTypeList?: number[]
+  mediaTypeList?: number[],
 ): Promise<MediaInfosResponse>;
 export declare function albumAstroFitsList(
   IP: string,
-  srcDir: string
+  srcDir: string,
 ): Promise<FitsListResponse>;
 export declare function albumDelete(
   IP: string,
-  datas: AlbumDeleteItem[]
+  datas: AlbumDeleteItem[],
 ): Promise<ApiResponse>;

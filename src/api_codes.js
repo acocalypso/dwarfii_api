@@ -12,7 +12,7 @@ export const wsURL = (IP, proxyURL = undefined, useHttps = false) => {
   if (proxyURL) {
     const protocol = useHttps ? "wss" : "ws";
     console.log(
-      `Starting Web Socket : ${protocol}://${proxyURL}/?target=ws://${IP}:9900`
+      `Starting Web Socket : ${protocol}://${proxyURL}/?target=ws://${IP}:9900`,
     );
     return `${protocol}://${proxyURL}/?target=ws://${IP}:9900`;
   }

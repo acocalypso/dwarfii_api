@@ -19,7 +19,9 @@ export function messageV3ScheduleGet() {
   let class_message = Dwarfii_Api.ReqGetAllShootingSchedule;
   let message = class_message.create({});
   console.log(
-    `class Message = ReqGetAllShootingSchedule created message = ${JSON.stringify(message)}`
+    `class Message = ReqGetAllShootingSchedule created message = ${JSON.stringify(
+      message,
+    )}`,
   );
   return createPacket(message, class_message, module_id, interface_id, type_id);
 }

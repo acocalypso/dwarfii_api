@@ -21,7 +21,7 @@ export function messageV3FocusInit() {
   let class_message = Dwarfii_Api[cmdClass];
   let message = class_message.create({});
   console.log(
-    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`,
   );
   return createPacket(message, class_message, module_id, interface_id, type_id);
 }
@@ -39,7 +39,7 @@ export function messageV3FocusAutoFocusStart() {
   let class_message = Dwarfii_Api[cmdClass];
   let message = class_message.create({ mode: 1 });
   console.log(
-    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`,
   );
   return createPacket(message, class_message, module_id, interface_id, type_id);
 }
@@ -57,7 +57,7 @@ export function messageV3FocusManualSingleStep(direction = 0) {
   let class_message = Dwarfii_Api[cmdClass];
   let message = class_message.create({ direction: direction });
   console.log(
-    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`,
   );
   return createPacket(message, class_message, module_id, interface_id, type_id);
 }
@@ -75,7 +75,7 @@ export function messageV3FocusManualContinuStart(direction = 0) {
   let class_message = Dwarfii_Api[cmdClass];
   let message = class_message.create({ direction: direction });
   console.log(
-    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`,
   );
   return createPacket(message, class_message, module_id, interface_id, type_id);
 }
@@ -92,7 +92,7 @@ export function messageV3FocusManualContinuStop() {
   let class_message = Dwarfii_Api[cmdClass];
   let message = class_message.create({});
   console.log(
-    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`,
   );
   return createPacket(message, class_message, module_id, interface_id, type_id);
 }

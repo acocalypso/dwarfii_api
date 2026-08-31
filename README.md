@@ -1,10 +1,26 @@
-# Dwarf II
+# DWARF V3 API
 
 Wrapper functions and protocol definitions for the shared DWARF V3 API used by
 DWARF 2, DWARF 3, and DWARF mini, while retaining the historical V2 helpers.
 See [the API reference](docs/API_REFERENCE.md) and
 [the V3 investigation notes](tools/v3-probe/PCAP_FINDINGS.md). V3 entries are
-marked when their schema or hardware behavior is still provisional.
+marked when their schema or hardware behavior is still provisional. Version
+3.0.0 keeps historical helpers for downstream compatibility, but new clients
+should explicitly configure protocol minor version 20 before creating packets.
+
+```js
+import {
+  DwarfClientIdDwarfMini,
+  WsMinorVersionV3,
+  setDwarfClientID,
+  setDwarfDeviceID,
+  setDwarfMinorVersion,
+} from "dwarfii_api";
+
+setDwarfDeviceID(4); // 1=DWARF II, 2=DWARF 3, 4=DWARF mini
+setDwarfClientID(DwarfClientIdDwarfMini); // DAF2 for DWARF II/3
+setDwarfMinorVersion(WsMinorVersionV3);
+```
 
 The APK 3.4.1 audit is published in
 [`docs/apk-3.4.1-websocket-code-registry.md`](docs/apk-3.4.1-websocket-code-registry.md)

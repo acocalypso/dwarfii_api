@@ -26,7 +26,7 @@ export function encodeParamId(shootingMode: number, category: number, cameraId: 
  * @param {number|string|BigInt|{low: number, high: number}} paramId - Encoded parameter ID
  * @returns {{ shootingMode: number, category: number, cameraId: number, paramIndex: number }}
  */
-export function decodeParamId(paramId: number | string | BigInt | {
+export function decodeParamId(paramId: number | string | bigint | {
     low: number;
     high: number;
 }): {

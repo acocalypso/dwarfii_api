@@ -45,7 +45,7 @@ export function messageV3AstroExposureSet(exposureIndex) {
     V3_SHOOTING_MODE.ASTRO,
     V3_PARAM_CATEGORY.OPTICAL,
     V3_CAMERA_ID.TELE,
-    V3_PARAM_INDEX.EXPOSURE
+    V3_PARAM_INDEX.EXPOSURE,
   );
   return messageV3CameraParamSet(paramId, exposureIndex, 1);
 }
@@ -56,7 +56,7 @@ export function messageV3AstroGainSet(gain) {
     V3_SHOOTING_MODE.ASTRO,
     V3_PARAM_CATEGORY.OPTICAL,
     V3_CAMERA_ID.TELE,
-    V3_PARAM_INDEX.GAIN
+    V3_PARAM_INDEX.GAIN,
   );
   return messageV3CameraParamSetExpGain(paramId, gain, 1);
 }
@@ -86,8 +86,8 @@ export function messageV3CameraParamSet(paramId, value, flag = 0) {
   });
   console.log(
     `class Message = ${cmdClass} created message = ${JSON.stringify(
-      class_message.toObject(message, { longs: String })
-    )}`
+      class_message.toObject(message, { longs: String }),
+    )}`,
   );
   return createPacket(message, class_message, module_id, interface_id, type_id);
 }
@@ -113,8 +113,8 @@ export function messageV3CameraParamSetExpGain(paramId, value, flag = 1) {
   });
   console.log(
     `class Message = ${cmdClass} created message = ${JSON.stringify(
-      class_message.toObject(message, { longs: String })
-    )}`
+      class_message.toObject(message, { longs: String }),
+    )}`,
   );
   return createPacket(message, class_message, module_id, interface_id, type_id);
 }
@@ -135,8 +135,8 @@ export function messageV3CameraParamsAdjust(paramId, value) {
   let message = class_message.create({ paramId: longParamId, value: value });
   console.log(
     `class Message = ${cmdClass} created message = ${JSON.stringify(
-      class_message.toObject(message, { longs: String })
-    )}`
+      class_message.toObject(message, { longs: String }),
+    )}`,
   );
   return createPacket(message, class_message, module_id, interface_id, type_id);
 }
@@ -154,13 +154,13 @@ export function messageV3CameraParamsAdjust(paramId, value) {
 export function messageV3FilterWheelSet(
   position,
   shootingMode = V3_SHOOTING_MODE.ASTRO,
-  cameraId = V3_CAMERA_ID.TELE
+  cameraId = V3_CAMERA_ID.TELE,
 ) {
   const paramId = encodeParamId(
     shootingMode,
     V3_PARAM_CATEGORY.OPTICAL,
     cameraId,
-    V3_PARAM_INDEX.FILTER_WHEEL
+    V3_PARAM_INDEX.FILTER_WHEEL,
   );
   return messageV3CameraParamsAdjust(paramId, position);
 }
@@ -180,7 +180,7 @@ export function messageV3FilterWheelSet(
  */
 export function messageV3AstroFrameCountSet(
   frameCount,
-  cameraId = V3_CAMERA_ID.TELE
+  cameraId = V3_CAMERA_ID.TELE,
 ) {
   if (!Number.isInteger(frameCount) || frameCount < 1) {
     throw new RangeError("frameCount must be a positive integer");
@@ -189,7 +189,7 @@ export function messageV3AstroFrameCountSet(
     V3_SHOOTING_MODE.ASTRO,
     V3_PARAM_CATEGORY.CAPTURE,
     cameraId,
-    V3_PARAM_INDEX.FRAME_COUNT
+    V3_PARAM_INDEX.FRAME_COUNT,
   );
   return messageV3CameraParamsAdjust(paramId, frameCount);
 }
@@ -238,7 +238,7 @@ export function decodeParamId(paramId) {
   } else if (typeof paramId === "number") {
     if (!Number.isSafeInteger(paramId)) {
       throw new RangeError(
-        "paramId as number exceeds Number.MAX_SAFE_INTEGER; pass a string or BigInt instead"
+        "paramId as number exceeds Number.MAX_SAFE_INTEGER; pass a string or BigInt instead",
       );
     }
     id = BigInt(paramId);

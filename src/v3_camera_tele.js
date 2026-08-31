@@ -21,7 +21,7 @@ export function messageV3CameraTeleOpenCamera() {
   let class_message = Dwarfii_Api[cmdClass];
   let message = class_message.create({ action: 1 });
   console.log(
-    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`,
   );
   return createPacket(message, class_message, module_id, interface_id, type_id);
 }
@@ -38,7 +38,7 @@ export function messageV3CameraTeleCloseCamera() {
   let class_message = Dwarfii_Api[cmdClass];
   let message = class_message.create({});
   console.log(
-    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`,
   );
   return createPacket(message, class_message, module_id, interface_id, type_id);
 }

@@ -752,21 +752,6 @@ export class ResAstroShooting implements IResAstroShooting {
     /** ResAstroShooting tempThreshold. */
     public tempThreshold?: (number|null);
 
-    /** ResAstroShooting _expName. */
-    public _expName?: "expName";
-
-    /** ResAstroShooting _gain. */
-    public _gain?: "gain";
-
-    /** ResAstroShooting _resolution. */
-    public _resolution?: "resolution";
-
-    /** ResAstroShooting _filterType. */
-    public _filterType?: "filterType";
-
-    /** ResAstroShooting _tempThreshold. */
-    public _tempThreshold?: "tempThreshold";
-
     /**
      * Creates a new ResAstroShooting instance using the specified properties.
      * @param [properties] Properties to set
@@ -2505,9 +2490,6 @@ export class ReqOneClickGotoDSO implements IReqOneClickGotoDSO {
 
     /** ReqOneClickGotoDSO rotation. */
     public rotation?: (number|null);
-
-    /** ReqOneClickGotoDSO _rotation. */
-    public _rotation?: "rotation";
 
     /**
      * Creates a new ReqOneClickGotoDSO instance using the specified properties.
@@ -12862,9 +12844,6 @@ export class CmosTemperature implements ICmosTemperature {
 
     /** CmosTemperature cameraType. */
     public cameraType: number;
-
-    /** CmosTemperature _temperature. */
-    public _temperature?: "temperature";
 
     /**
      * Creates a new CmosTemperature instance using the specified properties.
@@ -26389,9 +26368,6 @@ export class V3ReqCaptureCaliFrame implements IV3ReqCaptureCaliFrame {
 
     /** V3ReqCaptureCaliFrame sceneType. */
     public sceneType: number;
-
-    /** V3ReqCaptureCaliFrame _filterType. */
-    public _filterType?: "filterType";
 
     /**
      * Creates a new V3ReqCaptureCaliFrame instance using the specified properties.

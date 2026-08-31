@@ -26,7 +26,7 @@ export function messageV3MotorServiceJoystick(vectorAngle, vectorLength) {
     vectorLength: vectorLength,
   });
   console.log(
-    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`,
   );
   return createPacket(message, class_message, module_id, interface_id, type_id);
 }
@@ -43,7 +43,7 @@ export function messageV3MotorServiceJoystickStop() {
   let class_message = Dwarfii_Api[cmdClass];
   let message = class_message.create({});
   console.log(
-    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`,
   );
   return createPacket(message, class_message, module_id, interface_id, type_id);
 }

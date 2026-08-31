@@ -30,7 +30,7 @@ export function messageV3SystemSetGPSLocation(lat, lon, alt, locationName) {
     locationName: locationName,
   });
   console.log(
-    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`,
   );
   return createPacket(message, class_message, module_id, interface_id, type_id);
 }

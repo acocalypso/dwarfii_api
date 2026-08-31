@@ -21,7 +21,7 @@ export function messageV3GetDeviceStateInfo() {
   let class_message = Dwarfii_Api[cmdClass];
   let message = class_message.create({});
   console.log(
-    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`,
   );
   return createPacket(message, class_message, module_id, interface_id, type_id);
 }
@@ -48,7 +48,7 @@ export function messageV3DeviceConfigModeQuery(targetMode) {
   let class_message = Dwarfii_Api[cmdClass];
   let message = class_message.create({ targetMode: targetMode });
   console.log(
-    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`,
   );
   return createPacket(message, class_message, module_id, interface_id, type_id);
 }
@@ -66,7 +66,7 @@ export function messageV3DeviceConfigModeSwitch() {
   let inner = Dwarfii_Api.V3ModeSwitchInner.create({ value: 1 });
   let message = class_message.create({ inner: inner });
   console.log(
-    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`,
   );
   return createPacket(message, class_message, module_id, interface_id, type_id);
 }
@@ -84,7 +84,7 @@ export function messageV3DeviceConfigShootingModeSwitch(modeId) {
   let class_message = Dwarfii_Api[cmdClass];
   let message = class_message.create({ modeId: modeId });
   console.log(
-    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`,
   );
   return createPacket(message, class_message, module_id, interface_id, type_id);
 }

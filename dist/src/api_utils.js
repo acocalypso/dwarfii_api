@@ -116,7 +116,6 @@ export function nowLocalFileName() {
  * @returns {Object}
  */
 export function decodePacket(WS_Packet, classDecode) {
-    // eslint-disable-next-line no-undef
     // Obtain a message type
     let decoded = classDecode.decode(WS_Packet);
     console.log(`decoded data = ${JSON.stringify(decoded)}`);
@@ -161,8 +160,6 @@ export function createPacket(message, class_message, module_id, interface_id, ty
     // Encode Final Buffer
     let buffer = Dwarfii_Api.WsPacket.encode(message_payload).finish();
     console.debug(`buffer to Send = ${Array.prototype.toString.call(buffer)}`);
-    // For Testing Only : try to decode it
-    let result_buffer = analyzePacket(buffer, false);
     return buffer;
 }
 /**
@@ -294,10 +291,16 @@ export function analyzePacket(message_buffer, input_data_log = true) {
             }
             else if (Array.isArray(val)) {
                 val.forEach((item, i) => {
-                    if (item && typeof item === "object" && typeof item.low === "number" && typeof item.high === "number") {
-                        val[i] = item.toNumber !== undefined
-                            ? item.high === 0 && item.low >= 0 ? item.toNumber() : item.toString()
-                            : String(item);
+                    if (item &&
+                        typeof item === "object" &&
+                        typeof item.low === "number" &&
+                        typeof item.high === "number") {
+                        val[i] =
+                            item.toNumber !== undefined
+                                ? item.high === 0 && item.low >= 0
+                                    ? item.toNumber()
+                                    : item.toString()
+                                : String(item);
                     }
                     else if (item && typeof item === "object") {
                         convertLongs(item);
@@ -348,7 +351,7 @@ export function analyzePacket(message_buffer, input_data_log = true) {
                 stateTxtMapping[decoded_message.data.state];
     }
     // add error code in plain text
-    if (decoded_message.data.hasOwnProperty("code")) {
+    if (Object.prototype.hasOwnProperty.call(decoded_message.data, "code")) {
         decoded_message.data.errorTxt = {};
         if (Dwarfii_Api.DwarfErrorCode[decoded_message.data.code])
             decoded_message.data.errorTxt =

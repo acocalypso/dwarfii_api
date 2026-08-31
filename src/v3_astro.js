@@ -29,7 +29,7 @@ export function messageV3AstroStartStacking(irIndex = 1, forceStart = false) {
     forceStart: forceStart,
   });
   console.log(
-    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`,
   );
   return createPacket(message, class_message, module_id, interface_id, type_id);
 }
@@ -51,7 +51,7 @@ export function messageV3AstroContinueShooting() {
   let class_message = Dwarfii_Api[cmdClass];
   let message = class_message.create({});
   console.log(
-    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`,
   );
   return createPacket(message, class_message, module_id, interface_id, type_id);
 }
@@ -69,7 +69,7 @@ export function messageV3AstroStopStacking() {
   let class_message = Dwarfii_Api[cmdClass];
   let message = class_message.create({});
   console.log(
-    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`,
   );
   return createPacket(message, class_message, module_id, interface_id, type_id);
 }
@@ -86,7 +86,7 @@ export function messageV3AstroStartTracking() {
   let class_message = Dwarfii_Api[cmdClass];
   let message = class_message.create({});
   console.log(
-    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`,
   );
   return createPacket(message, class_message, module_id, interface_id, type_id);
 }
@@ -116,7 +116,7 @@ export function messageV3AstroGotoDSO(ra, dec, targetName, lon, lat, mode = 2) {
     mode: mode,
   });
   console.log(
-    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`,
   );
   return createPacket(message, class_message, module_id, interface_id, type_id);
 }
@@ -145,7 +145,7 @@ export function messageV3AstroGotoSolar(index, lon, lat, targetName, mode = 8) {
     mode: mode,
   });
   console.log(
-    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`,
   );
   return createPacket(message, class_message, module_id, interface_id, type_id);
 }
@@ -162,7 +162,7 @@ export function messageV3AstroGotoDone() {
   let class_message = Dwarfii_Api[cmdClass];
   let message = class_message.create({});
   console.log(
-    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`,
   );
   return createPacket(message, class_message, module_id, interface_id, type_id);
 }
@@ -180,7 +180,7 @@ export function messageV3AstroSaveImage(path) {
   let class_message = Dwarfii_Api[cmdClass];
   let message = class_message.create({ path: path });
   console.log(
-    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`,
   );
   return createPacket(message, class_message, module_id, interface_id, type_id);
 }
@@ -197,7 +197,7 @@ export function messageV3AstroListImages() {
   let class_message = Dwarfii_Api[cmdClass];
   let message = class_message.create({});
   console.log(
-    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`,
   );
   return createPacket(message, class_message, module_id, interface_id, type_id);
 }
@@ -214,7 +214,7 @@ export function messageV3AstroStatusPolling(
   f1 = -1,
   f2 = 100,
   f3 = 100,
-  f4 = -1
+  f4 = -1,
 ) {
   let module_id = Dwarfii_Api.ModuleId.MODULE_ASTRO;
   let interface_id = Dwarfii_Api.DwarfCMD.CMD_V3_ASTRO_STATUS_POLLING;
@@ -228,7 +228,7 @@ export function messageV3AstroStatusPolling(
     field4: f4,
   });
   console.log(
-    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`,
   );
   return createPacket(message, class_message, module_id, interface_id, type_id);
 }
@@ -252,7 +252,7 @@ export function messageV3AstroGetParams(mode = 0) {
   let class_message = Dwarfii_Api[cmdClass];
   let message = class_message.create({ mode: mode });
   console.log(
-    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`,
   );
   return createPacket(message, class_message, module_id, interface_id, type_id);
 }
@@ -277,7 +277,7 @@ export function messageV3AstroSetParams(params) {
   let class_message = Dwarfii_Api[cmdClass];
   let message = class_message.create({ params: params });
   console.log(
-    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`,
   );
   return createPacket(message, class_message, module_id, interface_id, type_id);
 }
@@ -297,7 +297,7 @@ export function messageV3AstroGetPresets() {
   let class_message = Dwarfii_Api[cmdClass];
   let message = class_message.create({});
   console.log(
-    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`,
   );
   return createPacket(message, class_message, module_id, interface_id, type_id);
 }
@@ -326,7 +326,7 @@ export function messageV3AstroStartCalibrationFrame(
   cameraType = 0,
   caliFrameType = 0,
   filterType = 3,
-  sceneType = 1
+  sceneType = 1,
 ) {
   let module_id = Dwarfii_Api.ModuleId.MODULE_ASTRO;
   let interface_id = Dwarfii_Api.DwarfCMD.CMD_V3_ASTRO_START_CAPTURE_CALI_FRAME;
@@ -344,7 +344,7 @@ export function messageV3AstroStartCalibrationFrame(
     sceneType: sceneType,
   });
   console.log(
-    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`,
   );
   return createPacket(message, class_message, module_id, interface_id, type_id);
 }
@@ -365,7 +365,7 @@ export function messageV3AstroStartDarkCalibration(
   gain,
   resolution = 0,
   capSize = 1,
-  sceneType = 1
+  sceneType = 1,
 ) {
   return messageV3AstroStartCalibrationFrame(
     expIndex,
@@ -375,7 +375,7 @@ export function messageV3AstroStartDarkCalibration(
     0,
     0,
     3,
-    sceneType
+    sceneType,
   );
 }
 
@@ -392,7 +392,7 @@ export function messageV3AstroStopCalibrationFrame(cameraType = 0) {
   let class_message = Dwarfii_Api[cmdClass];
   let message = class_message.create({ cameraType: cameraType });
   console.log(
-    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`,
   );
   return createPacket(message, class_message, module_id, interface_id, type_id);
 }
@@ -411,7 +411,7 @@ export function messageV3AstroSetLocation(lon, lat) {
   let class_message = Dwarfii_Api[cmdClass];
   let message = class_message.create({ lon: lon, lat: lat });
   console.log(
-    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`,
   );
   return createPacket(message, class_message, module_id, interface_id, type_id);
 }
@@ -428,7 +428,7 @@ export function messageV3AstroConfirm() {
   let class_message = Dwarfii_Api[cmdClass];
   let message = class_message.create({});
   console.log(
-    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`
+    `class Message = ${cmdClass} created message = ${JSON.stringify(message)}`,
   );
   return createPacket(message, class_message, module_id, interface_id, type_id);
 }

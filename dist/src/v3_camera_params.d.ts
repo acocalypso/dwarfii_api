@@ -1,7 +1,7 @@
 /** Set the V3 astronomy exposure using an index returned by getParamAndSetting. */
-export function messageV3AstroExposureSet(exposureIndex: any): Uint8Array;
+export function messageV3AstroExposureSet(exposureIndex: any): Uint8Array<ArrayBufferLike>;
 /** Set the V3 astronomy gain using a value returned by getParamAndSetting. */
-export function messageV3AstroGainSet(gain: any): Uint8Array;
+export function messageV3AstroGainSet(gain: any): Uint8Array<ArrayBufferLike>;
 /*** --------------------------------------------------------- ***/
 /*** -------- V3 MODULE CAMERA PARAMS (16700+) --------------- ***/
 /*** --------------------------------------------------------- ***/
@@ -83,7 +83,7 @@ export function encodeParamId(shootingMode: number, category: number, cameraId: 
  * @param {number|string|BigInt|{low: number, high: number}} paramId - Encoded parameter ID
  * @returns {{ shootingMode: number, category: number, cameraId: number, paramIndex: number }}
  */
-export function decodeParamId(paramId: number | string | BigInt | {
+export function decodeParamId(paramId: number | string | bigint | {
     low: number;
     high: number;
 }): {

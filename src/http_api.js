@@ -118,7 +118,7 @@ export async function downloadFile(IP, filePath) {
   const response = await fetch(url);
   if (!response.ok) {
     throw new Error(
-      `downloadFile failed: ${response.status} ${response.statusText} for ${url}`
+      `downloadFile failed: ${response.status} ${response.statusText} for ${url}`,
     );
   }
   return response;
@@ -144,7 +144,7 @@ export async function getDeviceInfo(IP) {
   });
   if (!response.ok) {
     throw new Error(
-      `getDeviceInfo failed: ${response.status} ${response.statusText}`
+      `getDeviceInfo failed: ${response.status} ${response.statusText}`,
     );
   }
   return response.json();
@@ -165,7 +165,7 @@ export async function getDeviceActivateInfo(IP) {
   });
   if (!response.ok) {
     throw new Error(
-      `getDeviceActivateInfo failed: ${response.status} ${response.statusText}`
+      `getDeviceActivateInfo failed: ${response.status} ${response.statusText}`,
     );
   }
   return response.json();
@@ -184,7 +184,7 @@ export async function fetchDefaultParamsConfig(IP) {
   const response = await fetch(url);
   if (!response.ok) {
     throw new Error(
-      `fetchDefaultParamsConfig failed: ${response.status} ${response.statusText}`
+      `fetchDefaultParamsConfig failed: ${response.status} ${response.statusText}`,
     );
   }
   return response.json();
@@ -201,7 +201,7 @@ export async function getFirmwareVersion(IP) {
   const response = await fetch(url);
   if (!response.ok) {
     throw new Error(
-      `getFirmwareVersion failed: ${response.status} ${response.statusText}`
+      `getFirmwareVersion failed: ${response.status} ${response.statusText}`,
     );
   }
   return response.json();
@@ -222,7 +222,7 @@ export async function getSupportedShootingModes(IP) {
   const response = await fetch(url);
   if (!response.ok) {
     throw new Error(
-      `getSupportedShootingModes failed: ${response.status} ${response.statusText}`
+      `getSupportedShootingModes failed: ${response.status} ${response.statusText}`,
     );
   }
   return response.json();
@@ -244,7 +244,7 @@ export async function getParamAndSetting(IP, modeId = 2) {
   });
   if (!response.ok) {
     throw new Error(
-      `getParamAndSetting failed: ${response.status} ${response.statusText}`
+      `getParamAndSetting failed: ${response.status} ${response.statusText}`,
     );
   }
   return response.json();
@@ -270,7 +270,7 @@ export async function albumListMediaCounts(IP) {
   });
   if (!response.ok) {
     throw new Error(
-      `albumListMediaCounts failed: ${response.status} ${response.statusText}`
+      `albumListMediaCounts failed: ${response.status} ${response.statusText}`,
     );
   }
   return response.json();
@@ -286,7 +286,7 @@ export async function albumListMediaCounts(IP) {
  */
 export async function albumListMediaInfos(
   IP,
-  mediaTypeList = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+  mediaTypeList = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
 ) {
   const url = `${apiBaseUrl(IP)}/album/list/mediaInfos`;
   const response = await fetch(url, {
@@ -296,7 +296,7 @@ export async function albumListMediaInfos(
   });
   if (!response.ok) {
     throw new Error(
-      `albumListMediaInfos failed: ${response.status} ${response.statusText}`
+      `albumListMediaInfos failed: ${response.status} ${response.statusText}`,
     );
   }
   return response.json();
@@ -319,7 +319,7 @@ export async function albumAstroFitsList(IP, srcDir) {
   });
   if (!response.ok) {
     throw new Error(
-      `albumAstroFitsList failed: ${response.status} ${response.statusText}`
+      `albumAstroFitsList failed: ${response.status} ${response.statusText}`,
     );
   }
   return response.json();
@@ -341,7 +341,7 @@ export async function albumDelete(IP, datas) {
   });
   if (!response.ok) {
     throw new Error(
-      `albumDelete failed: ${response.status} ${response.statusText}`
+      `albumDelete failed: ${response.status} ${response.statusText}`,
     );
   }
   return response.json();
