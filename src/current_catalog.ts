@@ -133,7 +133,7 @@ export interface CurrentParamNamespace {
   category: number;
   cameraId: number;
   paramIndex: number;
-  /** Unknown/reserved bits 16..47 retained, never interpreted as a setting. */
+  /** Unknown/reserved bits 8..43 retained, never interpreted as a setting. */
   reserved: string;
 }
 
@@ -142,9 +142,9 @@ export function decodeCurrentParamId(paramId: unknown): CurrentParamNamespace {
   return {
     shootingMode: Number((value >> 56n) & 255n),
     category: Number((value >> 48n) & 255n),
-    cameraId: Number((value >> 8n) & 255n),
+    cameraId: Number((value >> 44n) & 15n),
     paramIndex: Number(value & 255n),
-    reserved: ((value >> 16n) & 0xffffffffn).toString(),
+    reserved: ((value >> 8n) & 0xfffffffffn).toString(),
   };
 }
 
@@ -154,18 +154,23 @@ export function encodeCurrentParamId(
   const mode = byte(parts.shootingMode, "Parameter shooting mode");
   const category = byte(parts.category, "Parameter category");
   const camera = byte(parts.cameraId, "Parameter camera ID");
-  const index = byte(parts.paramIndex, "Parameter index");
-  const reserved = BigInt(normalizeCurrentParamId(parts.reserved ?? "0"));
-  if (reserved > 0xffffffffn)
+  if (camera > 15)
     throw new CurrentProtocolError(
       "invalid-parameter",
-      "Reserved parameter bits exceed uint32",
+      "Parameter camera ID must fit four bits",
+    );
+  const index = byte(parts.paramIndex, "Parameter index");
+  const reserved = BigInt(normalizeCurrentParamId(parts.reserved ?? "0"));
+  if (reserved > 0xfffffffffn)
+    throw new CurrentProtocolError(
+      "invalid-parameter",
+      "Reserved parameter bits exceed 36 bits",
     );
   return (
     (BigInt(mode) << 56n) |
     (BigInt(category) << 48n) |
-    (reserved << 16n) |
-    (BigInt(camera) << 8n) |
+    (reserved << 8n) |
+    (BigInt(camera) << 44n) |
     BigInt(index)
   ).toString();
 }

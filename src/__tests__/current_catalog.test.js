@@ -20,6 +20,29 @@ import { CurrentProtocolError } from "../../dist/src/current_protocol.js";
 
 const kind = (expected) => (error) =>
   error instanceof CurrentProtocolError && error.kind === expected;
+
+test("live Mini/D3 wide and shared parameter IDs use bits 44..47", () => {
+  for (const [id, camera] of [
+    ["144414255238610945", 1],
+    ["144695730215321616", 1],
+    ["144942020819943439", 15],
+  ]) {
+    const parts = decodeCurrentParamId(id);
+    assert.equal(parts.cameraId, camera);
+    assert.equal(parts.reserved, "0");
+    assert.equal(encodeCurrentParamId(parts), id);
+  }
+  assert.throws(
+    () =>
+      encodeCurrentParamId({
+        shootingMode: 2,
+        category: 1,
+        cameraId: 16,
+        paramIndex: 1,
+      }),
+    kind("invalid-parameter"),
+  );
+});
 const rawCatalog = `{
   "code":0,"data":{"cameraParams":[
     {"cameraId":0,"specialParams":{
@@ -28,7 +51,7 @@ const rawCatalog = `{
       "gain":{"paramId":144396663052566530,"currentMode":1,"currentValue":60,"values":[40,60,100]}
     },"generalParams":[{"name":"frameCount","paramId":144678138029277200,"currentValue":1,"values":[1,2,10]}]},
     {"cameraId":1,"specialParams":{
-      "exp":{"paramId":144396663052566785,"currentMode":0,"currentValue":120,
+      "exp":{"paramId":144414255238610945,"currentMode":0,"currentValue":120,
         "values":[{"name":"1","value":120},{"name":"30","value":159}]}
     },"generalParams":[]}
   ]}}
@@ -153,7 +176,7 @@ test("camera catalogs retain exact IDs, independent cameras and current legal va
     [0.001, 1, 5],
   );
   const wide = findCurrentCameraParameter(catalog, 1, "exp");
-  assert.equal(wide.paramId, "144396663052566785");
+  assert.equal(wide.paramId, "144414255238610945");
   assert.equal(wide.namespace.cameraId, 1);
   assert.equal(wide.currentMode, 0);
   assert.equal(
@@ -173,7 +196,7 @@ test("exposure duration uses exact discovered label/code, never index arithmetic
     value: 120,
   });
   assert.deepEqual(selectCurrentExposure(catalog, 1, 30), {
-    paramId: "144396663052566785",
+    paramId: "144414255238610945",
     value: 159,
   });
   assert.throws(
@@ -282,7 +305,7 @@ test("namespace helpers retain uint64 bits and cannot confuse tele, wide or cate
     assert.equal(sameCurrentParameterAcrossModes(exposure, runtime), true);
   }
   assert.equal(
-    sameCurrentParameterAcrossModes(exposure, "144396663052566785"),
+    sameCurrentParameterAcrossModes(exposure, "144414255238610945"),
     false,
   );
   assert.equal(

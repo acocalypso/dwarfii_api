@@ -15,7 +15,7 @@ export interface CurrentParamNamespace {
     category: number;
     cameraId: number;
     paramIndex: number;
-    /** Unknown/reserved bits 16..47 retained, never interpreted as a setting. */
+    /** Unknown/reserved bits 8..43 retained, never interpreted as a setting. */
     reserved: string;
 }
 export declare function decodeCurrentParamId(paramId: unknown): CurrentParamNamespace;
