@@ -403,7 +403,22 @@ export async function executeCurrentCapture(
     );
     let acknowledgement: CurrentPacket | undefined;
     for (const step of plan.steps) {
-      acknowledgement = await send(step.operation, step.values);
+      try {
+        acknowledgement = await send(step.operation, step.values);
+      } catch (error) {
+        // Mini firmware can reject the dedicated exposure write with -1 even
+        // when the value is advertised. The complete 11041 quick-set below
+        // remains the documented fallback; do not mask other failures.
+        if (
+          profile.model === "dwarfmini" &&
+          step.operation === "setExposure" &&
+          error instanceof CurrentProtocolError &&
+          error.kind === "device" &&
+          error.code === -1
+        )
+          continue;
+        throw error;
+      }
       if (
         step.operation === "setQuickSet" &&
         acknowledgement.data.infoId &&
