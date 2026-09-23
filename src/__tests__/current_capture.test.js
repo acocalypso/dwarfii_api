@@ -237,6 +237,22 @@ test("Mini falls back to the complete quick-set when firmware rejects exposure w
   assert.equal(result.acknowledgement.cmd, 11005);
 });
 
+test("Mini falls back to the complete quick-set when firmware rejects gain writes", async () => {
+  const { client, calls } = transport({ failOn: "setGain" });
+  const result = await executeCurrentCapture(
+    client,
+    getCurrentProfile(4),
+    catalog(),
+    settings(),
+  );
+  assert.equal(calls.filter((call) => call.operation === "setGain").length, 2);
+  assert.equal(
+    calls.find((call) => call.operation === "setQuickSet").values.infoId,
+    "0|0|1|60|1|null",
+  );
+  assert.equal(result.acknowledgement.cmd, 11005);
+});
+
 test("D3 does not silently use the Mini exposure fallback", async () => {
   const { client, calls } = transport({ failOn: "setExposure" });
   await assert.rejects(
@@ -249,6 +265,20 @@ test("D3 does not silently use the Mini exposure fallback", async () => {
     kind("device"),
   );
   assert.equal(calls.at(-1).operation, "setExposure");
+});
+
+test("D3 does not silently use the Mini gain fallback", async () => {
+  const { client, calls } = transport({ failOn: "setGain" });
+  await assert.rejects(
+    executeCurrentCapture(
+      client,
+      getCurrentProfile(2),
+      catalog(),
+      settings({ filterIndex: 0 }),
+    ),
+    kind("device"),
+  );
+  assert.equal(calls.at(-1).operation, "setGain");
 });
 
 test("invalid settings/catalog fail locally before any mode, parameter or capture command", async () => {
@@ -350,7 +380,6 @@ test("every rejected configuration step stops the sequence without starting capt
     "enterCamera",
     "switchShootingTech",
     "getQuickSets",
-    "setGain",
     "setQuickSet",
     "setIntegerParameter",
   ]) {

@@ -406,12 +406,12 @@ export async function executeCurrentCapture(
       try {
         acknowledgement = await send(step.operation, step.values);
       } catch (error) {
-        // Mini firmware can reject the dedicated exposure write with -1 even
-        // when the value is advertised. The complete 11041 quick-set below
-        // remains the documented fallback; do not mask other failures.
+        // Mini firmware can reject dedicated exposure/gain writes with -1
+        // even when the values are advertised. The complete 11041 quick-set
+        // below carries both settings; do not mask any other failure.
         if (
           profile.model === "dwarfmini" &&
-          step.operation === "setExposure" &&
+          ["setExposure", "setGain"].includes(step.operation) &&
           error instanceof CurrentProtocolError &&
           error.kind === "device" &&
           error.code === -1
