@@ -127,6 +127,26 @@ test("parameter echoes match exact namespaces and values, not just notification 
   assert.equal(session.state.parameters.get(exposureId).value, 120);
 });
 
+test("capture lifecycle resolves Mini start and stop without a command ACK", async (t) => {
+  const { session } = harness(t);
+  const first = session.request("startTeleCapture", { irIndex: 2 }, 100);
+  session.receive(notification(15208, "notify.CaptureRawState", { state: 1 }));
+  assert.equal((await first).cmd, 15208);
+  const stop = session.request("stopTeleCapture", {}, 100);
+  let stopped = false;
+  void stop.then(() => {
+    stopped = true;
+  });
+  session.receive(notification(15208, "notify.CaptureRawState", { state: 2 }));
+  await Promise.resolve();
+  assert.equal(stopped, false);
+  session.receive(notification(15208, "notify.CaptureRawState", { state: 3 }));
+  assert.equal((await stop).cmd, 15208);
+  const second = session.request("startTeleCapture", { irIndex: 1 }, 100);
+  session.receive(notification(15208, "notify.CaptureRawState", { state: 1 }));
+  assert.equal((await second).cmd, 15208);
+});
+
 test("canonical registry entries all resolve to real schemas", () => {
   for (const descriptor of Object.values(CurrentCommands)) {
     assert.ok(currentMessageType(descriptor[2]));

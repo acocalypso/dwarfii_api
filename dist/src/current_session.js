@@ -116,6 +116,31 @@ export class CurrentSession {
             if (matches.length === 1)
                 requestKey = matches[0][0];
         }
+        // Mini firmware may never send a 11005/11006 ACK. Its authoritative
+        // capture lifecycle instead reports 15208 (15236 for wide). Resolve only
+        // the matching pending start/stop transition, so a completed capture does
+        // not poison the next request as an ambiguous timeout on this socket.
+        if (packet.known &&
+            packet.type === 2 &&
+            (packet.cmd === 15208 || packet.cmd === 15236) &&
+            (packet.data.code ?? 0) === 0) {
+            const tele = packet.cmd === 15208;
+            const operation = packet.data.state === 1
+                ? tele
+                    ? "startTeleCapture"
+                    : "startWideCapture"
+                : [0, 3].includes(packet.data.state ?? -1)
+                    ? tele
+                        ? "stopTeleCapture"
+                        : "stopWideCapture"
+                    : undefined;
+            if (operation) {
+                const descriptor = CurrentCommands[operation];
+                const candidateKey = `${descriptor[0]}:${descriptor[1]}`;
+                if (this.pending.get(candidateKey)?.operation === operation)
+                    requestKey = candidateKey;
+            }
+        }
         const pending = packet.type === 1 || packet.type === 3 || requestKey !== key
             ? this.pending.get(requestKey)
             : undefined;
