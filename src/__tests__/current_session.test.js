@@ -79,6 +79,40 @@ test("joystick packet validates canonical degree/vector fields", () => {
   );
 });
 
+test("Mini firmware 1.1.4.7 accepts an incoming 2.6 empty set-time acknowledgement", (t) => {
+  const { session } = harness(t);
+  const acknowledgement = CurrentDwarfSchema.WsPacket.encode({
+    majorVersion: 2,
+    minorVersion: 6,
+    deviceId: 4,
+    moduleId: 4,
+    cmd: 13000,
+    type: 3,
+    data: new Uint8Array(),
+  }).finish();
+  const decoded = session.receive(acknowledgement);
+  assert.equal(decoded.known, true);
+  assert.equal(decoded.moduleId, 4);
+  assert.equal(decoded.cmd, 13000);
+  assert.equal(decoded.type, 3);
+  assert.deepEqual(decoded.data, {});
+});
+
+test("unverified major-2 versions and malformed envelopes still fail", () => {
+  const invalid = (majorVersion, minorVersion, moduleId = 4) =>
+    CurrentDwarfSchema.WsPacket.encode({
+      majorVersion,
+      minorVersion,
+      deviceId: 4,
+      moduleId,
+      cmd: 13000,
+      type: 3,
+    }).finish();
+  assert.throws(() => decodeCurrentPacket(invalid(2, 7)), kind("decode"));
+  assert.throws(() => decodeCurrentPacket(invalid(3, 6)), kind("decode"));
+  assert.throws(() => decodeCurrentPacket(invalid(2, 6, 0)), kind("decode"));
+});
+
 test("parameter echoes match exact namespaces and values, not just notification IDs", async (t) => {
   const { session } = harness(t);
   const exposureId = "144396663052566529";

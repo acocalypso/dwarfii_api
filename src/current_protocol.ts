@@ -531,8 +531,14 @@ export interface CurrentPacket {
 export function decodeCurrentPacket(bytes: Uint8Array): CurrentPacket {
   try {
     const envelope = schema.WsPacket.decode(bytes);
+    // Mini firmware 1.1.4.7 replies with WsPacket 2.6 to our 1.20 requests.
+    // The observed 2.6 set-time acknowledgement retains the V3 field layout.
+    // Keep other major-2 versions gated until their envelopes are verified.
+    const supportedVersion =
+      envelope.majorVersion === 1 ||
+      (envelope.majorVersion === 2 && envelope.minorVersion === 6);
     if (
-      envelope.majorVersion !== 1 ||
+      !supportedVersion ||
       ![0, 1, 2, 3].includes(envelope.type) ||
       !envelope.moduleId ||
       !envelope.cmd
